@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -17,7 +18,6 @@ import {
   Award,
   Users,
   Shield,
-  MessageCircle,
   HelpCircle,
   CheckCircle2,
   Grip,
@@ -235,9 +235,11 @@ export default function ContactPage() {
               >
                 <div className="relative">
                   <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-200/50 shadow-2xl bg-white">
-                    <img
+                    <Image
                       src="/images/contact audit.png"
                       alt="Contact AuditsPro AU - Professional Trust Account Auditing Services"
+                      width={320}
+                      height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -429,7 +431,7 @@ export default function ContactPage() {
                   </div>
                   <ContactForm
                     title="Send Us a Message"
-                    subtitle="Fill out the form below and we'll get back to you as soon as possible."
+                    subtitle="Fill out the form below and we&apos;ll get back to you as soon as possible."
                     variant="contact"
                     showTitle={false}
                   />

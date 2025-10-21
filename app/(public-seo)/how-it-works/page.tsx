@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Phone,
   FolderOpen,
@@ -214,9 +215,11 @@ export default function HowItWorks() {
                   
                   {/* Main image with circular frame */}
                   <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                    <img
+                    <Image
                       src="/images/how it works.png"
                       alt="How Trust Account Audits Work - Professional Audit Process"
+                      width={320}
+                      height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>

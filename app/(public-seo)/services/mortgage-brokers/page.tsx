@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -17,7 +18,7 @@ import {
   FileText,
   Users,
   AlertTriangle,
-  Calendar,
+
   DollarSign,
   Building,
   TrendingUp,
@@ -284,9 +285,11 @@ export default function MortgageBrokersPage() {
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
                 className="flex justify-center lg:justify-end"
               >
-                <img
+                <Image
                   src="/images/mortgage-broker-audit.png"
-                  alt="Mortgage Broker Trust Account Audit Services - ASIC Compliance"
+                  alt="Mortgage Broker Trust Account Audit Services - Professional Compliance"
+                  width={320}
+                  height={320}
                   className="w-80 h-80 object-cover rounded-lg shadow-lg"
                 />
               </Motion>

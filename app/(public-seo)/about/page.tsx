@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -269,9 +270,11 @@ export default function AboutPage() {
                   
                   {/* Main image with circular frame */}
                   <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                    <img
+                    <Image
                       src="/images/about audits.png"
                       alt="About AuditsPro AU - Professional Auditing Services"
+                      width={320}
+                      height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>

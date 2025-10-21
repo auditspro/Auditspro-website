@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
 import {
@@ -217,9 +218,11 @@ export default function ChecklistPage() {
                   
                   {/* Main image with circular frame */}
                   <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                    <img
+                    <Image
                       src="/images/audit checklist.png"
                       alt="Trust Account Audit Checklist - Professional Audit Documentation"
+                      width={320}
+                      height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>

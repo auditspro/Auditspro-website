@@ -11,7 +11,6 @@ import {
   CircleArrowRight,
   FileCheck,
   Menu,
-  X,
   Home,
 } from "lucide-react";
 import Link from "next/link";

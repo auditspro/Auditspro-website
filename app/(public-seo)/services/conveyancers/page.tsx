@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -17,10 +18,9 @@ import {
   FileText,
   Users,
   AlertTriangle,
-  Calendar,
+
   DollarSign,
   Building,
-  Home,
 } from "lucide-react";
 
 // SEO Metadata
@@ -284,9 +284,11 @@ export default function ConveyancersPage() {
                 className="flex justify-center lg:justify-end"
               >
                 <div className="relative">
-                  <img
+                  <Image
                     src="/images/conveyancer-audit.png"
                     alt="Trust Account Audit for Conveyancers - Professional Compliance Services"
+                    width={320}
+                    height={320}
                     className="w-80 h-80 object-cover rounded-lg shadow-lg"
                   />
                 </div>

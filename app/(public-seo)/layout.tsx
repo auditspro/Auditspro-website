@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { BreadcrumbProvider } from '@/components/ui/breadcrumb-context';
-import { HeaderWithBreadcrumbs } from '@/components/layout/header-with-breadcrumbs';
+import { HeaderWithBreadcrumbs } from "@/components/layout/header-with-breadcrumbs";
 
 export const metadata: Metadata = {
   title: {

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -14,13 +15,7 @@ import {
   Shield,
   Award,
   CheckCircle2,
-  FileText,
-  Users,
-  AlertTriangle,
-  Calendar,
   DollarSign,
-  Building,
-  Scale,
 } from "lucide-react";
 
 // SEO Metadata
@@ -289,9 +284,11 @@ export default function RealEstateAgentsPage() {
                   
                   {/* Main image with circular frame */}
                   <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                    <img
+                    <Image
                       src="/images/real-estate-audit.png"
                       alt="Trust Account Audit for Real Estate Agents - Professional Compliance Services"
+                      width={320}
+                      height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>
