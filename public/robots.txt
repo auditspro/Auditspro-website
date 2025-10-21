@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://auditspro.com.au/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all search engines to index
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block access to admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important pages
+Allow: /
+Allow: /how-it-works
+Allow: /trust-account-audit-checklist
+Allow: /contact
+Allow: /about
+Allow: /book-demo
