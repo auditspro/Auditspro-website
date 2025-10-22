@@ -217,7 +217,7 @@ export default function MortgageBrokersPage() {
       <SetBreadcrumbs
         items={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
+          { label: "Who We Are", href: "/#overview" },
           { label: "Mortgage Brokers", href: "/services/mortgage-brokers" },
         ]}
       />
@@ -240,16 +240,16 @@ export default function MortgageBrokersPage() {
         {/* Hero Section */}
         <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
           <div className="container relative mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="flex justify-center">
               {/* Content Column */}
               <Motion
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
-                className="text-center lg:text-left"
+                className="text-center"
               >
                 {/* Header with respectful icon */}
-                <div className="flex flex-col items-center lg:items-start">
+                <div className="flex flex-col items-center">
                   <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
                     <Home className="size-4" />
                     <span className="tracking-widest">MORTGAGE BROKERS</span>
@@ -259,6 +259,9 @@ export default function MortgageBrokersPage() {
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
                     Professional trust account audits for mortgage brokers ensuring ASIC compliance and NCCP requirements.
+                    Our comprehensive <Link href="/services" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">audit services</Link> cover 
+                    all professional sectors, including <Link href="/services/real-estate-agents" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">real estate agents</Link> and 
+                    <Link href="/services/financial-planners" className="text-blue-800 hover:text-blue-900 underline underline-offset-2"> financial planners</Link>.
                     Ensure regulatory compliance with{" "}
                     <Link
                       href="/contact"
@@ -276,22 +279,6 @@ export default function MortgageBrokersPage() {
                     .
                   </p>
                 </div>
-              </Motion>
-
-              {/* Image Column */}
-              <Motion
-                {...motionVariants.fadeInUp}
-                viewport={motionViewport}
-                transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="flex justify-center lg:justify-end"
-              >
-                <Image
-                  src="/images/mortgage-broker-audit.png"
-                  alt="Mortgage Broker Trust Account Audit Services - Professional Compliance"
-                  width={320}
-                  height={320}
-                  className="w-80 h-80 object-cover rounded-lg shadow-lg"
-                />
               </Motion>
             </div>
           </div>
@@ -418,7 +405,14 @@ export default function MortgageBrokersPage() {
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
                   Mortgage brokers must comply with ASIC regulations and NCCP requirements 
-                  when handling client funds, receiving commissions, or managing trust accounts.
+                  when handling client funds, receiving commissions, or managing trust accounts. 
+                  Similar to <Link href="/services/financial-planners" className="text-blue-600 hover:text-blue-800 font-medium">financial planners</Link> and 
+                  <Link href="/services/real-estate-agents" className="text-blue-600 hover:text-blue-800 font-medium ml-1">real estate agents</Link>, 
+                  mortgage brokers require specialized <Link href="/services" className="text-blue-600 hover:text-blue-800 font-medium">audit services</Link> to 
+                  ensure regulatory compliance and client fund protection. Our ASIC registered auditors also provide 
+                  <Link href="/services/conveyancers" className="text-blue-600 hover:text-blue-800 font-medium">conveyancer audits</Link> and 
+                  <Link href="/services/smsf-trustees" className="text-blue-600 hover:text-blue-800 font-medium">SMSF trustee audits</Link> for 
+                  comprehensive professional services compliance.
                 </p>
                 
                 <div className="space-y-4">
@@ -721,31 +715,60 @@ export default function MortgageBrokersPage() {
               className="text-center mb-12"
             >
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
-                Other Professional Services
+                Professional Trust Account Audit Services
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                We also provide trust account audits for other professionals. 
-                Explore our specialized audit services.
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                We provide specialized trust account audit services for various professional industries across Australia. 
+                <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium ml-1">
+                  Explore all our professional audit services
+                </Link> to ensure regulatory compliance and financial integrity.
               </p>
             </Motion>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
                 {
                   title: "Real Estate Agents",
-                  desc: "Trust account audits for real estate professionals",
+                  desc: "Comprehensive trust account audits for real estate agencies ensuring compliance with state Property Services Acts and ACCC regulations for property transactions.",
                   link: "/services/real-estate-agents",
+                  keywords: "real estate trust account audit, property services compliance, ACCC regulations"
                 },
                 {
                   title: "Business Brokers",
-                  desc: "Trust account audits for business brokerage practices",
+                  desc: "Specialized audit services for business brokers managing client funds, transaction deposits, and ensuring compliance with ASIC business transfer regulations.",
                   link: "/services/business-brokers",
+                  keywords: "business broker audit, ASIC compliance, transaction deposit audits"
                 },
                 {
                   title: "Accountants",
-                  desc: "APES 310 compliant audits for accounting practices",
+                  desc: "Trust account audits for accounting firms handling client money under APES 310 requirements, ensuring professional standards and CPA Australia compliance.",
                   link: "/services/accountants",
+                  keywords: "accounting trust audit, APES 310 compliance, CPA Australia standards"
                 },
+                {
+                  title: "Solicitors",
+                  desc: "Legal practice trust account audits ensuring compliance with Law Society regulations, Legal Profession Acts, and professional conduct rules across all states.",
+                  link: "/services/solicitors",
+                  keywords: "legal trust account audit, law society compliance, legal profession act"
+                },
+                {
+                  title: "Conveyancers",
+                  desc: "Specialized conveyancing trust account audits for licensed conveyancers ensuring compliance with state conveyancing regulations and settlement fund management.",
+                  link: "/services/conveyancers",
+                  keywords: "conveyancing audit, settlement fund compliance, licensed conveyancer audit"
+                },
+                {
+                  title: "Financial Planners",
+                  desc: "AFSL trust account audits for financial planning firms ensuring compliance with ASIC requirements, client money handling, and professional indemnity standards.",
+                  link: "/services/financial-planners",
+                  keywords: "financial planner audit, AFSL compliance, ASIC trust account requirements"
+                },
+                {
+                  title: "SMSF Trustees",
+                  desc: "Self-Managed Super Fund audit services ensuring compliance with SIS Act, ATO regulations, and trustee obligations for retirement fund management.",
+                  link: "/services/smsf-trustees",
+                  keywords: "SMSF audit, SIS Act compliance, ATO superannuation regulations"
+                }
               ].map((service, index) => (
                 <Motion
                   key={service.title}
@@ -755,15 +778,32 @@ export default function MortgageBrokersPage() {
                   className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
                 >
                   <h3 className="font-semibold text-blue-950 mb-2">{service.title}</h3>
-                  <p className="text-slate-600 text-sm mb-4">{service.desc}</p>
+                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{service.desc}</p>
                   <Link
                     href={service.link}
+                    title={service.keywords}
                     className="text-blue-600 hover:text-blue-700 text-sm font-medium"
                   >
                     Learn More →
                   </Link>
                 </Motion>
               ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <Motion
+                {...motionVariants.fadeInUp}
+                viewport={motionViewport}
+                transition={{ ...motionTransitions.smooth, delay: 0.3 }}
+              >
+                <Link 
+                  href="/services"
+                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                >
+                  View All Professional Audit Services
+                  <TrendingUp className="ml-2 h-5 w-5" />
+                </Link>
+              </Motion>
             </div>
           </div>
         </section>

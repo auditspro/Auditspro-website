@@ -215,7 +215,7 @@ export default function ConveyancersPage() {
       <SetBreadcrumbs
         items={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
+          { label: "Who We Are", href: "/#overview" },
           { label: "Conveyancers", href: "/services/conveyancers" },
         ]}
       />
@@ -238,16 +238,16 @@ export default function ConveyancersPage() {
         {/* Hero Section */}
         <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
           <div className="container relative mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="flex justify-center">
               {/* Content Column */}
               <Motion
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
-                className="text-center lg:text-left"
+                className="text-center"
               >
                 {/* Header with respectful icon */}
-                <div className="flex flex-col items-center lg:items-start">
+                <div className="flex flex-col items-center">
                   <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
                     <Scale className="size-4" />
                     <span className="tracking-widest">Conveyancers</span>
@@ -257,6 +257,7 @@ export default function ConveyancersPage() {
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
                     ASIC compliant trust account audits specifically designed for conveyancing professionals.
+                    Our comprehensive <Link href="/services" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">professional audit services</Link> include specialized support for <Link href="/services/real-estate-agents" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">real estate agents</Link> and <Link href="/services/solicitors" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">solicitors</Link>.
                     Expert auditors with{" "}
                     <Link
                       href="/contact"
@@ -273,24 +274,6 @@ export default function ConveyancersPage() {
                     </Link>
                     .
                   </p>
-                </div>
-              </Motion>
-
-              {/* Image Column */}
-              <Motion
-                {...motionVariants.fadeInUp}
-                viewport={motionViewport}
-                transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="flex justify-center lg:justify-end"
-              >
-                <div className="relative">
-                  <Image
-                    src="/images/conveyancer-audit.png"
-                    alt="Trust Account Audit for Conveyancers - Professional Compliance Services"
-                    width={320}
-                    height={320}
-                    className="w-80 h-80 object-cover rounded-lg shadow-lg"
-                  />
                 </div>
               </Motion>
             </div>
@@ -418,7 +401,11 @@ export default function ConveyancersPage() {
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
                   Conveyancers must comply with specific trust account audit requirements 
-                  under Australian regulations. Our audits ensure full compliance with state and federal laws.
+                  under Australian regulations. Our <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium">professional audit services</Link> ensure full compliance with state and federal laws, similar to requirements for <Link href="/services/real-estate-agents" className="text-blue-600 hover:text-blue-700 font-medium">real estate agents</Link> and <Link href="/services/solicitors" className="text-blue-600 hover:text-blue-700 font-medium">solicitors</Link>. 
+                  Our ASIC registered auditors also provide specialized audits for 
+                  <Link href="/services/mortgage-brokers" className="text-blue-600 hover:text-blue-700 font-medium">mortgage brokers</Link>, 
+                  <Link href="/services/business-brokers" className="text-blue-600 hover:text-blue-700 font-medium">business brokers</Link>, and 
+                  <Link href="/services/financial-planners" className="text-blue-600 hover:text-blue-700 font-medium">financial planners</Link> across Australia.
                 </p>
                 
                 <div className="space-y-4">
@@ -670,30 +657,57 @@ export default function ConveyancersPage() {
               className="text-center mb-12"
             >
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
-                Other Professional Services
+                Professional Trust Account Audit Services
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                We also provide trust account audits for other professionals. 
-                Explore our specialized audit services.
+                We provide specialized trust account audits for various professionals across Australia. 
+                Explore our comprehensive <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium">audit services</Link> for your industry.
               </p>
             </Motion>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
                 {
                   title: "Real Estate Agents",
-                  desc: "Trust account audits for real estate professionals",
+                  desc: "ASIC compliant trust account audits for real estate professionals. Ensure compliance with Property and Stock Agents Act requirements and state regulations.",
                   link: "/services/real-estate-agents",
-                },
-                {
-                  title: "Accountants",
-                  desc: "Compliance audits for accounting practices",
-                  link: "/services/accountants",
+                  keywords: "real estate trust account audit, property agent compliance"
                 },
                 {
                   title: "Solicitors",
-                  desc: "Legal trust account audit services",
+                  desc: "Legal trust account audit services for law firms. Comprehensive audits ensuring compliance with Law Society regulations and professional standards.",
                   link: "/services/solicitors",
+                  keywords: "solicitor trust account audit, legal compliance audit"
+                },
+                {
+                  title: "Accountants",
+                  desc: "Professional compliance audits for accounting practices. Specialized audits for CPA, CA, and IPA members ensuring regulatory compliance.",
+                  link: "/services/accountants",
+                  keywords: "accountant compliance audit, professional standards audit"
+                },
+                {
+                  title: "SMSF Trustees",
+                  desc: "Self-Managed Super Fund audit services. ATO compliant SMSF audits ensuring compliance with superannuation regulations and tax obligations.",
+                  link: "/services/smsf-trustees",
+                  keywords: "SMSF audit, self managed super fund audit"
+                },
+                {
+                  title: "Business Brokers",
+                  desc: "Trust account audits for business brokers and intermediaries. Ensure compliance with business sale regulations and trust account requirements.",
+                  link: "/services/business-brokers",
+                  keywords: "business broker audit, intermediary compliance"
+                },
+                {
+                  title: "Financial Planners",
+                  desc: "Compliance audits for financial planning practices. ASIC RG 146 compliant audits ensuring adherence to financial services regulations.",
+                  link: "/services/financial-planners",
+                  keywords: "financial planner audit, AFSL compliance audit"
+                },
+                {
+                  title: "Mortgage Brokers",
+                  desc: "Trust account audits for mortgage brokers and credit licensees. Ensure compliance with NCCP and credit legislation requirements.",
+                  link: "/services/mortgage-brokers",
+                  keywords: "mortgage broker audit, credit compliance audit"
                 },
               ].map((service, index) => (
                 <Motion
@@ -704,16 +718,31 @@ export default function ConveyancersPage() {
                   className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
                 >
                   <h3 className="font-semibold text-blue-950 mb-2">{service.title}</h3>
-                  <p className="text-slate-600 text-sm mb-4">{service.desc}</p>
+                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{service.desc}</p>
                   <Link
                     href={service.link}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                    className="text-blue-600 hover:text-blue-700 text-sm font-medium inline-flex items-center gap-1"
+                    title={service.keywords}
                   >
                     Learn More →
                   </Link>
                 </Motion>
               ))}
             </div>
+
+            <Motion
+              {...motionVariants.fadeInUp}
+              viewport={motionViewport}
+              transition={{ ...motionTransitions.smooth, delay: 0.3 }}
+              className="text-center mt-12"
+            >
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                View All Professional Audit Services
+              </Link>
+            </Motion>
           </div>
         </section>
 

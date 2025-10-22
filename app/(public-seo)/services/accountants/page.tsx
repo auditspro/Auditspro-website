@@ -218,7 +218,7 @@ export default function AccountantsPage() {
       <SetBreadcrumbs
         items={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
+          { label: "Who We Are", href: "/#overview" },
           { label: "Accountants", href: "/services/accountants" },
         ]}
       />
@@ -239,61 +239,44 @@ export default function AccountantsPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative py-16 bg-gradient-to-br from-green-50 to-white">
+        <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
           <div className="container relative mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="flex justify-center">
               {/* Content Column */}
               <Motion
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
-                className="text-center lg:text-left"
+                className="text-center"
               >
                 {/* Header with respectful icon */}
-                <div className="flex flex-col items-center lg:items-start">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-green-200/70 bg-green-100/60 px-3 py-1.5 text-xs font-medium text-green-950 mb-3">
+                <div className="flex flex-col items-center">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
                     <Calculator className="size-4" />
                     <span className="tracking-widest">Accountants</span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-green-950">
+                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950">
                     Trust Account Audits for Accountants
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
                     CPA, CA ANZ, and IPA compliant trust account audits under APES 310 for accounting professionals.
+                    Our comprehensive <Link href="/services" className="text-green-800 hover:text-green-900 underline underline-offset-2">audit services</Link> also cover <Link href="/services/solicitors" className="text-green-800 hover:text-green-900 underline underline-offset-2">solicitors</Link> and <Link href="/services/real-estate-agents" className="text-green-800 hover:text-green-900 underline underline-offset-2">real estate agents</Link>.
                     Expert auditors with{" "}
                     <Link
                       href="/contact"
-                      className="text-green-800 hover:text-green-900 underline underline-offset-2"
+                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
                     >
                       24-hour response times
                     </Link>{" "}
                     and 5-10 day completion. Fixed pricing from $549 + GST. Learn more about{" "}
                     <Link
                       href="/how-it-works"
-                      className="text-green-800 hover:text-green-900 underline underline-offset-2"
+                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
                     >
                       our audit process
                     </Link>
                     .
                   </p>
-                </div>
-              </Motion>
-
-              {/* Image Column */}
-              <Motion
-                {...motionVariants.fadeInUp}
-                viewport={motionViewport}
-                transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="flex justify-center lg:justify-end"
-              >
-                <div className="relative">
-                  <Image
-                    src="/images/accountant-audit.png"
-                    alt="Trust Account Audit for Accountants - Professional Compliance Services"
-                    width={320}
-                    height={320}
-                    className="w-80 h-80 object-cover rounded-lg shadow-lg"
-                  />
                 </div>
               </Motion>
             </div>
@@ -332,8 +315,8 @@ export default function AccountantsPage() {
                 transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
                 className="text-center p-6 rounded-lg bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
               >
-                <benefit.icon className="size-8 text-green-600 mx-auto mb-3" />
-                <h3 className="font-semibold text-green-950 mb-2">{benefit.title}</h3>
+                <benefit.icon className="size-8 text-blue-600 mx-auto mb-3" />
+                <h3 className="font-semibold text-blue-950 mb-2">{benefit.title}</h3>
                 <p className="text-sm text-slate-600">{benefit.desc}</p>
               </Motion>
             ))}
@@ -349,7 +332,7 @@ export default function AccountantsPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-green-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
                 Why Accountants Need Trust Account Audits
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -398,8 +381,8 @@ export default function AccountantsPage() {
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-lg shadow-sm border border-slate-200"
                 >
-                  <item.icon className="size-8 text-green-600 mb-4" />
-                  <h3 className="font-semibold text-green-950 mb-2">{item.title}</h3>
+                  <item.icon className="size-8 text-blue-600 mb-4" />
+                  <h3 className="font-semibold text-blue-950 mb-2">{item.title}</h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
                 </Motion>
               ))}
@@ -416,12 +399,12 @@ export default function AccountantsPage() {
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-green-950 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
                   APES 310 Trust Account Audit Requirements
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
                   APES 310 sets out the requirements for accountants dealing with client money. 
-                  Our audits ensure full compliance with these professional standards.
+                  Our <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium">professional audit services</Link> ensure full compliance with these standards, similar to our audits for <Link href="/services/solicitors" className="text-blue-600 hover:text-blue-700 font-medium">solicitors</Link> and <Link href="/services/real-estate-agents" className="text-blue-600 hover:text-blue-700 font-medium">real estate agents</Link>.
                 </p>
                 
                 <div className="space-y-4">
@@ -434,7 +417,7 @@ export default function AccountantsPage() {
                     "Professional indemnity insurance requirements",
                   ].map((requirement, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <CheckCircle2 className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="size-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span className="text-slate-700">{requirement}</span>
                     </div>
                   ))}
@@ -447,7 +430,7 @@ export default function AccountantsPage() {
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
                 className="p-8 rounded-lg border border-slate-200"
               >
-                <h3 className="text-xl font-semibold text-green-950 mb-4">
+                <h3 className="text-xl font-semibold text-blue-950 mb-4">
                   When Accountants Need Trust Account Audits
                 </h3>
                 <ul className="space-y-3">
@@ -460,7 +443,7 @@ export default function AccountantsPage() {
                     "Operating as a registered tax agent",
                   ].map((situation, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <CheckCircle2 className="size-4 text-green-600 flex-shrink-0" />
+                      <CheckCircle2 className="size-4 text-blue-600 flex-shrink-0" />
                       <span className="text-slate-700">{situation}</span>
                     </li>
                   ))}
@@ -479,7 +462,7 @@ export default function AccountantsPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-green-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
                 Professional Body Compliance Requirements
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -525,11 +508,11 @@ export default function AccountantsPage() {
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-lg shadow-sm border border-slate-200"
                 >
-                  <h3 className="font-semibold text-green-950 mb-3 text-lg">{item.body}</h3>
+                  <h3 className="font-semibold text-blue-950 mb-3 text-lg">{item.body}</h3>
                   <ul className="space-y-2">
                     {item.requirements.map((req, reqIndex) => (
                       <li key={reqIndex} className="flex items-start gap-2">
-                        <CheckCircle2 className="size-4 text-green-600 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="size-4 text-blue-600 mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 text-sm">{req}</span>
                       </li>
                     ))}
@@ -549,7 +532,7 @@ export default function AccountantsPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-green-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
                 Our Accounting Trust Account Audit Process
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -588,10 +571,10 @@ export default function AccountantsPage() {
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="font-semibold text-green-950 mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-blue-950 mb-2">{item.title}</h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
                 </Motion>
               ))}
@@ -608,7 +591,7 @@ export default function AccountantsPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-green-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
                 Transparent Pricing for Accounting Practice Audits
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -625,10 +608,10 @@ export default function AccountantsPage() {
                 className="bg-white p-8 rounded-lg shadow-lg border border-slate-200"
               >
                 <div className="text-center">
-                  <h3 className="text-xl font-semibold text-green-950 mb-2">
+                  <h3 className="text-xl font-semibold text-blue-950 mb-2">
                     Accountant Trust Account Audit
                   </h3>
-                  <div className="text-3xl font-bold text-green-600 mb-4">
+                  <div className="text-3xl font-bold text-blue-600 mb-4">
                     $549 <span className="text-lg font-normal text-slate-600">+ GST</span>
                   </div>
                   <ul className="text-left space-y-2 mb-6">
@@ -641,14 +624,14 @@ export default function AccountantsPage() {
                       "Comprehensive audit certificate",
                     ].map((feature, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <CheckCircle2 className="size-4 text-green-600" />
+                        <CheckCircle2 className="size-4 text-blue-600" />
                         <span className="text-sm text-slate-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/book-demo"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
                   >
                     Book Your Audit
                   </Link>
@@ -667,7 +650,7 @@ export default function AccountantsPage() {
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-green-950 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
                   Get Your Accounting Practice Trust Account Audit
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
@@ -683,7 +666,7 @@ export default function AccountantsPage() {
                     { icon: DollarSign, text: "Fixed pricing from $549 + GST" },
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <item.icon className="size-5 text-green-600" />
+                      <item.icon className="size-5 text-blue-600" />
                       <span className="text-slate-700">{item.text}</span>
                     </div>
                   ))}
@@ -710,31 +693,58 @@ export default function AccountantsPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-green-950 mb-4">
-                Other Professional Services
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+                Professional Trust Account Audit Services
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                We also provide trust account audits for other professionals. 
-                Explore our specialized audit services.
+                We provide specialized trust account audits for various professionals across Australia. 
+                Explore our comprehensive <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium">audit services</Link> for different industries.
               </p>
             </Motion>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
                 {
                   title: "Real Estate Agents",
-                  desc: "Trust account audits for real estate professionals",
+                  desc: "PEXA compliant trust account audits for real estate professionals under state regulations",
                   link: "/services/real-estate-agents",
+                  keywords: "real estate trust account audit, PEXA compliance, property agent audit"
                 },
                 {
                   title: "Conveyancers",
-                  desc: "ASIC compliant audits for conveyancing practices",
+                  desc: "ASIC compliant audits for conveyancing practices under Corporations Act requirements",
                   link: "/services/conveyancers",
+                  keywords: "conveyancer trust account audit, ASIC compliance, conveyancing audit"
                 },
                 {
                   title: "Solicitors",
-                  desc: "Legal trust account audit services",
+                  desc: "Legal Practice Act compliant trust account audits for law firms and legal practitioners",
                   link: "/services/solicitors",
+                  keywords: "solicitor trust account audit, legal practice audit, law firm compliance"
+                },
+                {
+                  title: "SMSF Trustees",
+                  desc: "Self-managed superannuation fund compliance audits under SIS Act and SMSF regulations",
+                  link: "/services/smsf-trustees",
+                  keywords: "SMSF audit, superannuation fund audit, SMSF trustee compliance"
+                },
+                {
+                  title: "Business Brokers",
+                  desc: "Trust account audits for business brokers handling client deposits and transaction funds",
+                  link: "/services/business-brokers",
+                  keywords: "business broker audit, commercial transaction audit, broker compliance"
+                },
+                {
+                  title: "Financial Planners",
+                  desc: "AFSL compliant audits for financial planning practices managing client investment funds",
+                  link: "/services/financial-planners",
+                  keywords: "financial planner audit, AFSL compliance, investment fund audit"
+                },
+                {
+                  title: "Mortgage Brokers",
+                  desc: "Trust account compliance audits for mortgage brokers under NCCP and aggregator requirements",
+                  link: "/services/mortgage-brokers",
+                  keywords: "mortgage broker audit, NCCP compliance, loan broker audit"
                 },
               ].map((service, index) => (
                 <Motion
@@ -744,17 +754,32 @@ export default function AccountantsPage() {
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
                 >
-                  <h3 className="font-semibold text-green-950 mb-2">{service.title}</h3>
+                  <h3 className="font-semibold text-blue-950 mb-2">{service.title}</h3>
                   <p className="text-slate-600 text-sm mb-4">{service.desc}</p>
                   <Link
                     href={service.link}
-                    className="text-green-600 hover:text-green-700 text-sm font-medium"
+                    className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                    title={service.keywords}
                   >
                     Learn More →
                   </Link>
                 </Motion>
               ))}
             </div>
+
+            <Motion
+              {...motionVariants.fadeInUp}
+              viewport={motionViewport}
+              transition={{ ...motionTransitions.smooth, delay: 0.3 }}
+              className="text-center mt-12"
+            >
+              <Link
+                href="/services"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                View All Professional Audit Services
+              </Link>
+            </Motion>
           </div>
         </section>
 

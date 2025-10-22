@@ -12,6 +12,14 @@ import {
   FileCheck,
   Menu,
   Home,
+  ChevronDown,
+  Building,
+  Scale,
+  Calculator,
+  DollarSign,
+  TrendingUp,
+  Briefcase,
+  Wrench,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,6 +45,51 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
   }, [open]);
 
   const pathname = usePathname();
+
+  const services = [
+    {
+      title: "Real Estate Agents",
+      href: "/services/real-estate-agents",
+      icon: Building,
+      description: "ASIC compliant trust account audits for real estate agents",
+    },
+    {
+      title: "Conveyancers",
+      href: "/services/conveyancers",
+      icon: FileCheck,
+      description: "Professional trust account audits for conveyancers",
+    },
+    {
+      title: "Solicitors",
+      href: "/services/solicitors",
+      icon: Scale,
+      description: "Legal profession trust account audits for solicitors",
+    },
+    {
+      title: "Accountants",
+      href: "/services/accountants",
+      icon: Calculator,
+      description: "Professional trust account audits for accountants",
+    },
+    {
+      title: "Mortgage Brokers",
+      href: "/services/mortgage-brokers",
+      icon: DollarSign,
+      description: "NCCP compliant trust account audits for mortgage brokers",
+    },
+    {
+      title: "SMSF Trustees",
+      href: "/services/smsf-trustees",
+      icon: TrendingUp,
+      description: "Specialized trust account audits for SMSF trustees",
+    },
+    {
+      title: "Business Brokers",
+      href: "/services/business-brokers",
+      icon: Briefcase,
+      description: "Professional trust account audits for business brokers",
+    },
+  ];
 
   const navLinks = [
     { href: "/", label: "Home", Icon: Home, aria: "Home", description: "Return to homepage" },
@@ -78,6 +131,52 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
           role="navigation"
           aria-label="Main navigation"
         >
+          {/* Services Dropdown */}
+          <div className="relative group">
+            <Link
+              href="/services"
+              className="hover:text-blue-800 inline-flex items-center gap-2"
+              aria-label="Our audit services"
+            >
+              <Wrench className="size-4" />
+              Services
+              <ChevronDown className="size-3 transition-transform group-hover:rotate-180" />
+            </Link>
+            
+            {/* Dropdown Menu */}
+            <div className="absolute top-full left-0 mt-2 w-80 bg-white border border-blue-200/70 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="p-4">
+                <div className="mb-3">
+                  <Link
+                    href="/services"
+                    className="text-sm font-medium text-blue-950 hover:text-blue-700 flex items-center gap-2"
+                  >
+                    <Wrench className="size-4 text-blue-700" />
+                    All Services
+                  </Link>
+                  <p className="text-xs text-slate-500 mt-1">View all our audit services</p>
+                </div>
+                <div className="border-t border-blue-200/70 pt-3 space-y-2">
+                  {services.map(({ title, href, icon: Icon, description }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="block p-2 rounded-lg hover:bg-blue-50/60 transition-colors"
+                    >
+                      <div className="flex items-start gap-3">
+                        <Icon className="size-4 mt-0.5 text-blue-700 flex-shrink-0" />
+                        <div>
+                          <div className="text-sm font-medium text-blue-950">{title}</div>
+                          <div className="text-xs text-slate-500 line-clamp-2">{description}</div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
           {navLinks.slice(1).map(({ href, label, Icon, aria }) => (
             <Link
               key={href}
@@ -156,6 +255,58 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                       </SheetClose>
                     );
                   })}
+
+                  {/* Services Section */}
+                  <div className="space-y-2">
+                    <SheetClose asChild>
+                      <Link
+                        href="/services"
+                        aria-label="Our audit services"
+                        className={cn(
+                          "block rounded-xl border px-4 py-3",
+                          pathname === "/services" || pathname.startsWith("/services/")
+                            ? "bg-blue-100 border-blue-300"
+                            : "bg-white hover:bg-blue-50/60 border-blue-200/70"
+                        )}
+                      >
+                        <div className="flex items-start gap-3">
+                          <Wrench className="size-5 mt-0.5 text-blue-700" />
+                          <div className="flex-1">
+                            <div className="font-medium text-blue-950">Services</div>
+                            <div className="text-xs text-slate-500">Professional trust account audit services</div>
+                          </div>
+                          <CircleArrowRight className="size-4 text-blue-700" />
+                        </div>
+                      </Link>
+                    </SheetClose>
+
+                    {/* Individual Services */}
+                    <div className="ml-4 space-y-1">
+                      {services.map(({ title, href, icon: Icon, description }) => {
+                        const active = pathname === href;
+                        return (
+                          <SheetClose asChild key={href}>
+                            <Link
+                              href={href}
+                              className={cn(
+                                "block rounded-lg border px-3 py-2 text-sm",
+                                active
+                                  ? "bg-blue-50 border-blue-200"
+                                  : "bg-slate-50 hover:bg-blue-50/60 border-slate-200"
+                              )}
+                            >
+                              <div className="flex items-center gap-2">
+                                <Icon className="size-4 text-blue-600 flex-shrink-0" />
+                                <div className="flex-1">
+                                  <div className="font-medium text-blue-900">{title}</div>
+                                </div>
+                              </div>
+                            </Link>
+                          </SheetClose>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </nav>
 
                 {/* Sticky footer CTA */}
