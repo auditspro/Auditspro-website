@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -10,27 +9,19 @@ import {
 } from "@/components/ui/motion";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
 import {
-  Home,
   Clock,
   Shield,
   Award,
   CheckCircle2,
   FileText,
   Users,
-  AlertTriangle,
   DollarSign,
   Building,
   TrendingUp,
   Scale,
   Calculator,
   Briefcase,
-  MapPin,
-  Phone,
-  Mail,
   ArrowRight,
-  Star,
-  Zap,
-  Target,
 } from "lucide-react";
 
 // SEO Metadata
@@ -79,7 +70,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://auditspro.com.au"),
+  metadataBase: new URL("https://auditspro.com.au  "),
   alternates: {
     canonical: "/services",
   },
@@ -122,16 +113,16 @@ export const metadata: Metadata = {
 
 // Structured Data
 const jsonLd = {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org  ",
   "@type": "Service",
   name: "Professional Trust Account Audit Services",
   description:
     "Comprehensive trust account audit services for Australian professionals including real estate agents, conveyancers, solicitors, accountants, mortgage brokers, SMSF trustees, and business brokers. ASIC compliant audits with fixed pricing and fast turnaround.",
-  url: "https://auditspro.com.au/services",
+  url: "https://auditspro.com.au/services  ",
   provider: {
     "@type": "Organization",
     name: "AuditsPro AU",
-    url: "https://auditspro.com.au",
+    url: "https://auditspro.com.au  ",
     address: {
       "@type": "PostalAddress",
       streetAddress: "3 Albert Coates Lane",
@@ -162,7 +153,7 @@ const jsonLd = {
     price: "549",
     priceCurrency: "AUD",
     description: "Professional trust account audit services starting from $549 + GST",
-    availability: "https://schema.org/InStock",
+    availability: "https://schema.org/InStock  ",
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -233,13 +224,13 @@ const jsonLd = {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://auditspro.com.au",
+        item: "https://auditspro.com.au  ",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://auditspro.com.au/services",
+        item: "https://auditspro.com.au/services  ",
       },
     ],
   },
@@ -645,7 +636,7 @@ export default function ServicesPage() {
             </h2>
             <p className="mb-12 text-lg text-gray-600">
               Contact our expert team for professional <Link href="/services" className="text-blue-600 hover:text-blue-700 underline">trust account audit services</Link>. 
-              We'll provide a detailed quote and timeline for your specific requirements.
+              We&apos;ll provide a detailed quote and timeline for your specific requirements.
             </p>
           </Motion>
 

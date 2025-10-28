@@ -66,9 +66,33 @@ export function ContactForm({
       if (onSubmit) {
         await onSubmit(formData);
       } else {
-        // Default form submission logic
-        console.log("Form submitted:", formData);
-        // Here you would typically send to your API
+        // Submit to API route
+        const submissionData = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          company: formData.company || undefined,
+          message: formData.message,
+          preferredDate: formData.preferredDate || undefined,
+          preferredTime: formData.preferredTime || undefined,
+          auditType: formData.auditType || undefined,
+        };
+
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(submissionData),
+        });
+
+        const result = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to submit contact form');
+        }
+
+        console.log("Form submitted successfully:", result);
       }
 
       setSubmitStatus("success");

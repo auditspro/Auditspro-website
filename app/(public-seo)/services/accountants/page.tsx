@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,

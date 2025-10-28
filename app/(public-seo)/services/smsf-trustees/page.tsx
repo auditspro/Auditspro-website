@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -356,7 +355,7 @@ export default function SMSFTrusteesPage() {
                 {
                   icon: TrendingUp,
                   title: "Member Protection",
-                  desc: "Protect members' retirement savings through independent oversight and compliance verification.",
+                  desc: "Protect members&apos; retirement savings through independent oversight and compliance verification.",
                 },
                 {
                   icon: Building,
@@ -544,7 +543,7 @@ export default function SMSFTrusteesPage() {
                   title: "Trustee Obligations",
                   subtitle: "Fiduciary Duties",
                   requirements: [
-                    "Act in members' best interests",
+                    "Act in members&apos; best interests",
                     "Maintain fund for retirement benefits",
                     "Comply with trust deed",
                     "Keep proper records",
@@ -612,7 +611,7 @@ export default function SMSFTrusteesPage() {
                 {
                   step: "4",
                   title: "Report & Certificate",
-                  desc: "Provide audit report and independent auditor's report",
+                  desc: "Provide audit report and independent auditor&apos;s report",
                 },
               ].map((item, index) => (
                 <Motion
@@ -668,7 +667,7 @@ export default function SMSFTrusteesPage() {
                   <ul className="text-left space-y-2 mb-6">
                     {[
                       "ATO compliant audit report",
-                      "Independent auditor's report",
+                      "Independent auditor&apos;s report",
                       "24-hour response time",
                       "5-10 day completion",
                       "Expert SMSF auditors",
