@@ -1,4 +1,5 @@
 // app/layout.tsx
+import Script from 'next/script';
 import { Outfit, Manrope } from 'next/font/google';
 import "./globals.css";
 
@@ -92,17 +93,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTCYCG7JFG"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-WTCYCG7JFG');
-            `,
-          }}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WTCYCG7JFG"
+          strategy="afterInteractive"
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WTCYCG7JFG');
+          `}
+        </Script>
         
         <script
           type="application/ld+json"

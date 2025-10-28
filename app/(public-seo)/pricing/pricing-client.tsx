@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Motion } from "@/components/ui/motion";
 import {
   DollarSign,
   Shield,
@@ -130,115 +131,162 @@ export function PricingPageClient() {
   ];
 
   return (
-    <main>
+    <main className="relative">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-indigo-600/5" />
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-background to-brand-100/30" />
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-brand-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-300/20 rounded-full blur-3xl" />
 
         <div className="container relative mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-4xl mx-auto">
+          <Motion
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-4 py-2 text-sm font-medium text-blue-950 mb-6">
+            <Motion
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="trust-badge mb-6"
+            >
               <DollarSign className="size-4" />
               <span>Transparent Fixed Pricing</span>
-            </div>
+            </Motion>
 
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-blue-950 mb-6">
-              Trust Account Audit{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Pricing
-              </span>
-            </h1>
+            <Motion
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-950 mb-6">
+                Trust Account Audit{" "}
+                <span className="bg-gradient-to-r from-brand-600 to-brand-800 bg-clip-text text-transparent">
+                  Pricing
+                </span>
+              </h1>
+            </Motion>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <Motion
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
               Fixed transparent pricing for all Australian states and professions. 
               No hidden fees, no surprises – just professional audit services at competitive rates.
-            </p>
+            </Motion>
 
             {/* Key Benefits */}
-            <div className="flex flex-wrap justify-center gap-6 mb-10">
+            <Motion
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap justify-center gap-6 mb-10"
+            >
               {[
                 { icon: Shield, text: "No Hidden Fees" },
                 { icon: Clock, text: "Fast Turnaround" },
                 { icon: Award, text: "Professional Service" },
               ].map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2 text-slate-700">
-                  <benefit.icon className="size-5 text-blue-600" />
+                <Motion
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  className="flex items-center gap-2 text-foreground"
+                >
+                  <benefit.icon className="size-5 text-brand-600" />
                   <span className="font-medium">{benefit.text}</span>
-                </div>
+                </Motion>
               ))}
-            </div>
+            </Motion>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8">
+            <Motion
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Button size="lg" className="btn-primary-brand px-8">
                 Get Your Quote
                 <ArrowRight className="ml-2 size-4" />
               </Button>
-              <Button variant="outline" size="lg" className="border-blue-200 text-blue-700 hover:bg-blue-50 px-8">
+              <Button variant="outline" size="lg" className="btn-outline-brand px-8">
                 View Pricing Details
               </Button>
-            </div>
-          </div>
+            </Motion>
+          </Motion>
         </div>
       </section>
 
       {/* Pricing Tiers Overview */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+          <Motion
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
               Three Simple Pricing Tiers
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Our pricing is structured around three transparent tiers based on profession and state requirements.
             </p>
-          </div>
+          </Motion>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {pricingTiers.map((tier, index) => (
-              <div
+              <Motion
                 key={tier.price}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
                 className={`relative rounded-2xl border p-8 shadow-sm transition-all duration-300 hover:shadow-lg ${
-                  index === 1 ? 'border-blue-200 bg-blue-50/30' : 'border-slate-200 bg-white'
+                  index === 1 ? 'border-brand-200 bg-brand-50/30' : 'border-border bg-card'
                 }`}
               >
                 {index === 1 && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-brand-600 text-white px-4 py-1 rounded-full text-sm font-medium">
                       Most Popular
                     </span>
                   </div>
                 )}
                 
                 <div className="text-center">
-                  <h3 className="text-xl font-semibold text-blue-950 mb-2">{tier.label}</h3>
+                  <h3 className="text-xl font-semibold text-brand-950 mb-2">{tier.label}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-blue-950">{formatPrice(tier.price)}</span>
-                    <span className="text-slate-600 ml-1">+ GST</span>
+                    <span className="text-4xl font-bold text-brand-950">{formatPrice(tier.price)}</span>
+                    <span className="text-muted-foreground ml-1">+ GST</span>
                   </div>
-                  <p className="text-slate-600 text-sm mb-6">{tier.description}</p>
+                  <p className="text-muted-foreground text-sm mb-6">{tier.description}</p>
                   
                   <div className="space-y-3 mb-8">
-                    <div className="flex items-center text-sm text-slate-700">
+                    <div className="flex items-center text-sm text-foreground">
                       <CheckCircle className="size-4 text-green-600 mr-2 flex-shrink-0" />
                       <span>Complete audit report</span>
                     </div>
-                    <div className="flex items-center text-sm text-slate-700">
+                    <div className="flex items-center text-sm text-foreground">
                       <CheckCircle className="size-4 text-green-600 mr-2 flex-shrink-0" />
                       <span>Professional certification</span>
                     </div>
-                    <div className="flex items-center text-sm text-slate-700">
+                    <div className="flex items-center text-sm text-foreground">
                       <CheckCircle className="size-4 text-green-600 mr-2 flex-shrink-0" />
                       <span>Fast turnaround</span>
                     </div>
                     {tier.price === 194900 && (
-                      <div className="flex items-center text-sm text-slate-700">
+                      <div className="flex items-center text-sm text-foreground">
                         <CheckCircle className="size-4 text-green-600 mr-2 flex-shrink-0" />
                         <span>Enhanced legal compliance</span>
                       </div>
@@ -248,44 +296,56 @@ export function PricingPageClient() {
                   <Button 
                     className={`w-full ${
                       index === 1 
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                        : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                        ? 'btn-primary-brand' 
+                        : 'bg-muted hover:bg-muted/80 text-foreground'
                     }`}
                   >
                     Get Started
                   </Button>
                 </div>
-              </div>
+              </Motion>
             ))}
           </div>
         </div>
       </section>
 
       {/* Interactive Pricing Table */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+          <Motion
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
               Find Your Exact Pricing
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Use our interactive pricing tool to find the exact cost for your profession and state.
             </p>
-          </div>
+          </Motion>
 
           {/* Filters */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8 max-w-4xl mx-auto">
+          <Motion
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="bg-card rounded-xl border border-border p-6 mb-8 max-w-4xl mx-auto"
+          >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Business Type Filter */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   <Building className="inline size-4 mr-1" />
                   Business Type
                 </label>
                 <select
                   value={selectedBusinessType}
                   onChange={(e) => setSelectedBusinessType(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-600 bg-background text-foreground"
                 >
                   <option value="all">All Business Types</option>
                   {Object.entries(businessTypes).map(([key, type]) => (
@@ -296,14 +356,14 @@ export function PricingPageClient() {
 
               {/* State Filter */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   <MapPin className="inline size-4 mr-1" />
                   State
                 </label>
                 <select
                   value={selectedState}
                   onChange={(e) => setSelectedState(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-600 bg-background text-foreground"
                 >
                   <option value="all">All States</option>
                   {states.map((state) => (
@@ -314,7 +374,7 @@ export function PricingPageClient() {
 
               {/* Search */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   <Search className="inline size-4 mr-1" />
                   Search
                 </label>
@@ -323,16 +383,22 @@ export function PricingPageClient() {
                   placeholder="Search services..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-600 bg-background text-foreground"
                 />
               </div>
             </div>
-          </div>
+          </Motion>
 
           {/* Results Summary */}
-          <div className="text-center mb-6">
-            <p className="text-slate-600">
-              Showing <span className="font-semibold text-blue-950">{filteredPricing.length}</span> pricing options
+          <Motion
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-center mb-6"
+          >
+            <p className="text-muted-foreground">
+              Showing <span className="font-semibold text-brand-950">{filteredPricing.length}</span> pricing options
               {selectedBusinessType !== "all" && (
                 <span> for <span className="font-semibold">{businessTypes[selectedBusinessType as keyof typeof businessTypes]?.label}</span></span>
               )}
@@ -340,79 +406,78 @@ export function PricingPageClient() {
                 <span> in <span className="font-semibold">{selectedState}</span></span>
               )}
             </p>
-          </div>
+          </Motion>
 
           {/* Pricing Table */}
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <Motion
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="bg-card rounded-xl border border-border overflow-hidden"
+          >
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-slate-50 border-b border-slate-200">
+                <thead className="bg-muted border-b border-border">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-700">Service</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-700">State</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-700">AuditsPro Price</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-700">Competitor Price</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-700">You Save</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-700">Notes</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-foreground">Service</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-foreground">State</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-foreground">AuditsPro Price</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-foreground">Competitor Price</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-foreground">You Save</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-foreground">Notes</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200">
+                <tbody className="divide-y divide-border">
                   {filteredPricing.map((item, index) => {
                     const businessType = businessTypes[item.businessType as keyof typeof businessTypes];
                     const IconComponent = businessType?.icon || Building;
                     
                     return (
-                      <tr key={index} className="hover:bg-slate-50 transition-colors">
-                        <td className="px-6 py-4">
-                          <div className="flex items-center">
-                            <IconComponent className={`size-5 mr-3 ${businessType?.color || 'text-slate-600'}`} />
-                            <div>
-                              <div className="font-medium text-slate-900">{item.description}</div>
-                              <div className="text-sm text-slate-500">{businessType?.label}</div>
+                        <tr 
+                          key={index}
+                          className="hover:bg-muted/50 transition-colors"
+                        >
+                          <td className="px-6 py-4">
+                            <div className="flex items-center">
+                              <IconComponent className={`size-5 mr-3 ${businessType?.color || 'text-muted-foreground'}`} />
+                              <div>
+                                <div className="font-medium text-foreground">{item.description}</div>
+                                <div className="text-sm text-muted-foreground">{businessType?.label}</div>
+                              </div>
                             </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                            {item.state}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="font-semibold text-green-600 text-lg">{formatPrice(item.basePrice)}</div>
-                          <div className="text-xs text-slate-500">+ GST</div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="font-medium text-slate-600 line-through">{formatPrice(item.competitorPrice)}</div>
-                          <div className="text-xs text-slate-500">+ GST</div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center">
-                            <TrendingDown className="size-4 text-green-600 mr-1" />
-                            <span className="font-semibold text-green-600">{formatPrice(item.discount)}</span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm text-slate-600 max-w-xs">
-                            {item.notes}
-                          </div>
-                        </td>
-                      </tr>
+                          </td>
+                          <td className="px-6 py-4">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-100 text-brand-800">
+                              {item.state}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="font-semibold text-green-600 text-lg">{formatPrice(item.basePrice)}</div>
+                            <div className="text-xs text-muted-foreground">+ GST</div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="font-medium text-muted-foreground line-through">{formatPrice(item.competitorPrice)}</div>
+                            <div className="text-xs text-muted-foreground">+ GST</div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="flex items-center">
+                              <TrendingDown className="size-4 text-green-600 mr-1" />
+                              <span className="font-semibold text-green-600">{formatPrice(item.discount)}</span>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm text-muted-foreground max-w-xs">
+                              {item.notes}
+                            </div>
+                          </td>
+                        </tr>
                     );
                   })}
                 </tbody>
               </table>
             </div>
-          </div>
-
-          {filteredPricing.length === 0 && (
-            <div className="text-center py-12">
-              <div className="text-slate-400 mb-4">
-                <Search className="size-12 mx-auto" />
-              </div>
-              <h3 className="text-lg font-medium text-slate-900 mb-2">No results found</h3>
-              <p className="text-slate-600">Try adjusting your filters or search terms.</p>
-            </div>
-          )}
+          </Motion>
         </div>
       </section>
 
