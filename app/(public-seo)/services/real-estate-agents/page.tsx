@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +10,6 @@ import {
 } from "@/components/ui/motion";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
 import {
-  Home,
   Clock,
   Shield,
   Award,
@@ -249,7 +247,7 @@ const faqJsonLd = {
       name: "What documents do I need for a trust account audit?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You'll need bank statements, trust account registers, receipts, deposit books, and any relevant correspondence. We provide a complete checklist upon engagement.",
+        text: "You&apos;ll need bank statements, trust account registers, receipts, deposit books, and any relevant correspondence. We provide a complete checklist upon engagement.",
       },
     },
   ],
@@ -497,7 +495,7 @@ export default function RealEstateAgentsPage() {
                   bgColor: "bg-purple-50",
                   delay: 0.3
                 }
-              ].map((benefit, index) => (
+              ].map((benefit) => (
                 <Motion
                   key={benefit.title}
                   initial="hidden"
@@ -1047,7 +1045,7 @@ export default function RealEstateAgentsPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                  Get your professional trust account audit with Australia's leading audit specialists. 
+                  Get your professional trust account audit with Australia&apos;s leading audit specialists. 
                   Fast, reliable, and fully compliant.
                 </p>
               </div>
@@ -1172,7 +1170,7 @@ export default function RealEstateAgentsPage() {
                       Get Your Free Quote
                     </h3>
                     <p className="text-slate-600">
-                      Fill out the form below and we'll get back to you within 24 hours with a detailed quote.
+                      Fill out the form below and we&apos;ll get back to you within 24 hours with a detailed quote.
                     </p>
                   </div>
                   <ContactForm />

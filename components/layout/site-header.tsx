@@ -20,10 +20,15 @@ import {
   TrendingUp,
   Briefcase,
   Wrench,
+  LogIn,
+  UserPlus,
+  User,
+  LogOut,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { auth } from "@/lib/appwrite";
 
 interface SiteHeaderProps {
   breadcrumbs?: BreadcrumbItem[];
@@ -31,10 +36,18 @@ interface SiteHeaderProps {
 
 export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        setUserMenuOpen(false);
+      }
     };
     document.addEventListener("keydown", onKey);
     document.body.classList.toggle("overflow-hidden", open);
@@ -44,7 +57,35 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
     };
   }, [open]);
 
-  const pathname = usePathname();
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const result = await auth.getCurrentUser();
+        if (result.success && result.user) {
+          setUser(result.user);
+        }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (_error) {
+        console.log("Not authenticated");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await auth.logout();
+      setUser(null);
+      setUserMenuOpen(false);
+      router.push("/");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   const services = [
     {
@@ -191,6 +232,74 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* Authentication Section */}
+          {!loading && (
+            <div className="hidden md:flex items-center gap-3">
+              {user ? (
+                // User Menu
+                <div className="relative">
+                  <button
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg border border-blue-200 hover:bg-blue-50 text-blue-950"
+                    aria-label="User menu"
+                  >
+                    <User className="size-4" />
+                    <span className="text-sm font-medium">{user.name || user.email}</span>
+                    <ChevronDown className={cn("size-3 transition-transform", userMenuOpen && "rotate-180")} />
+                  </button>
+                  
+                  {userMenuOpen && (
+                    <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-blue-200 rounded-lg shadow-lg z-50">
+                      <div className="p-2">
+                        <Link
+                          href="/dashboard"
+                          className="flex items-center gap-2 px-3 py-2 text-sm text-blue-950 hover:bg-blue-50 rounded-md"
+                          onClick={() => setUserMenuOpen(false)}
+                        >
+                          <User className="size-4" />
+                          Dashboard
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-md w-full text-left"
+                        >
+                          <LogOut className="size-4" />
+                          Logout
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // Login/Register Buttons
+                <>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="gap-2 border-blue-200 text-blue-950 hover:bg-blue-50"
+                  >
+                    <Link href="/login">
+                      <LogIn className="size-4" />
+                      Login
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="default"
+                    size="sm"
+                    className="gap-2 bg-blue-900 hover:bg-blue-800 text-white"
+                  >
+                    <Link href="/register">
+                      <UserPlus className="size-4" />
+                      Register
+                    </Link>
+                  </Button>
+                </>
+              )}
+            </div>
+          )}
+
           {/* CTA only on md+ to keep mobile header clean */}
           <div className="hidden md:block">
             <Button
@@ -282,7 +391,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
 
                     {/* Individual Services */}
                     <div className="ml-4 space-y-1">
-                      {services.map(({ title, href, icon: Icon, description }) => {
+                      {services.map(({ title, href, icon: Icon }) => {
                         const active = pathname === href;
                         return (
                           <SheetClose asChild key={href}>
@@ -309,8 +418,57 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                   </div>
                 </nav>
 
-                {/* Sticky footer CTA */}
-                <div className="sticky bottom-0 border-t bg-white px-4 py-4">
+                {/* Sticky footer with Auth/CTA */}
+                <div className="sticky bottom-0 border-t bg-white px-4 py-4 space-y-3">
+                  {!loading && (
+                    <>
+                      {user ? (
+                        // User Actions
+                        <div className="space-y-2">
+                          <SheetClose asChild>
+                            <Button asChild variant="outline" size="lg" className="w-full gap-2 border-blue-200 text-blue-950">
+                              <Link href="/dashboard">
+                                <User className="size-4" />
+                                Dashboard
+                              </Link>
+                            </Button>
+                          </SheetClose>
+                          <button
+                            onClick={() => {
+                              handleLogout();
+                              setOpen(false);
+                            }}
+                            className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-red-600 border border-red-200 rounded-lg hover:bg-red-50"
+                          >
+                            <LogOut className="size-4" />
+                            Logout
+                          </button>
+                        </div>
+                      ) : (
+                        // Login/Register Buttons
+                        <div className="grid grid-cols-2 gap-2">
+                          <SheetClose asChild>
+                            <Button asChild variant="outline" size="lg" className="gap-2 border-blue-200 text-blue-950">
+                              <Link href="/login">
+                                <LogIn className="size-4" />
+                                Login
+                              </Link>
+                            </Button>
+                          </SheetClose>
+                          <SheetClose asChild>
+                            <Button asChild size="lg" className="gap-2 bg-blue-900 hover:bg-blue-800 text-white">
+                              <Link href="/register">
+                                <UserPlus className="size-4" />
+                                Register
+                              </Link>
+                            </Button>
+                          </SheetClose>
+                        </div>
+                      )}
+                    </>
+                  )}
+                  
+                  {/* Book Demo CTA */}
                   <SheetClose asChild>
                     <Button asChild size="lg" className="w-full gap-2 bg-blue-900 hover:bg-blue-800 text-white">
                       <Link href="/book-demo" aria-label="Book a demo of our audit platform">
