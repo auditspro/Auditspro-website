@@ -148,6 +148,13 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
       aria: "Document checklist for trust account audits",
       description: "Document checklist for trust account audits",
     },
+    {
+      href: "/pricing",
+      label: "Pricing",
+      Icon: DollarSign,
+      aria: "View pricing information",
+      description: "View pricing information",
+    },
     { href: "/about", label: "About", Icon: Info, aria: "About AuditsPro", description: "About AuditsPro" },
     {
       href: "/contact",

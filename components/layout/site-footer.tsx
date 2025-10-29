@@ -41,8 +41,8 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/services-by-state"
-                  aria-label="View pricing by state"
+                  href="/pricing"
+                  aria-label="View pricing"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
                   <Tag className="size-4" />

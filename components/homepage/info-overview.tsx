@@ -597,10 +597,10 @@ export function InfoOverview() {
                   or within 3 months of audit period end (state-dependent).
                 </div>
                 <Link
-                  href="/services-by-state"
+                  href="/pricing"
                   className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
                 >
-                  View state-by-state pricing →
+                  View pricing →
                 </Link>
               </div>
             </div>

@@ -272,7 +272,7 @@ export function TrustProof() {
               size="lg"
               className="gap-2 w-full border-blue-200 text-blue-950 hover:bg-blue-50"
             >
-              <Link href="/services-by-state" aria-label="View pricing">
+              <Link href="/pricing" aria-label="View pricing">
                 View Pricing
               </Link>
             </Button>
