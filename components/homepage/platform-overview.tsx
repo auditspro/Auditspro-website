@@ -228,8 +228,8 @@ export function PlatformOverview() {
             size="lg"
             className="gap-2 bg-blue-900 hover:bg-blue-800 text-white w-full sm:w-auto"
           >
-            <Link href="/book-demo" aria-label="Book a walkthrough">
-              Book Demo
+            <Link href="/book-demo" aria-label="Start your audit walkthrough">
+                  Start Audit
             </Link>
           </Button>
           <Button

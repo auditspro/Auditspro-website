@@ -653,7 +653,7 @@ export default function HowItWorks() {
                   className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
                 >
                   <Clock className="w-4 h-4" />
-                  Book Demo
+                  Start Audit
                 </Link>
                 <Link
                   href="/trust-account-audit-checklist"

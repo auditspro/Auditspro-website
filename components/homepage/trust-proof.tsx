@@ -262,8 +262,8 @@ export function TrustProof() {
               size="lg"
               className="gap-2 w-full bg-blue-900 hover:bg-blue-800 text-white"
             >
-              <Link href="/book-demo" aria-label="Book Demo your audit">
-                Book Demo Your Audit
+              <Link href="/book-demo" aria-label="Start your audit">
+                Start Audit
               </Link>
             </Button>
             <Button

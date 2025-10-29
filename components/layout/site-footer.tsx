@@ -144,8 +144,8 @@ export function SiteFooter() {
             size="lg"
             className="gap-2 bg-blue-900 hover:bg-blue-800 text-white"
           >
-            <Link href="/book-demo" aria-label="Book a demo of our audit platform">
-              Book Demo
+            <Link href="/book-demo" aria-label="Start your audit process">
+              Start Audit
             </Link>
           </Button>
         </div>

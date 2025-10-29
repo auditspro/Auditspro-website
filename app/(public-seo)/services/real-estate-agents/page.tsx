@@ -960,7 +960,7 @@ export default function RealEstateAgentsPage() {
                       <div className="space-y-4">
                         <Button size="lg" className="w-full text-lg py-6 h-auto shadow-lg hover:shadow-xl transition-all duration-300">
                           <FileCheck className="mr-2 h-5 w-5" />
-                          Book Your Audit Now
+                          Start Audit
                         </Button>
                         <Button variant="outline" size="lg" className="w-full text-lg py-4 h-auto border-2 hover:bg-blue-50 transition-all duration-300">
                           <Phone className="mr-2 h-5 w-5" />

@@ -306,7 +306,7 @@ export function InfoOverview() {
             size="sm"
             className="mt-4 w-full sm:w-auto bg-blue-900 hover:bg-blue-800 text-white"
           >
-            <Link href="/book-demo">Book Demo an audit</Link>
+            <Link href="/book-demo">Start Audit process</Link>
           </Button>
         </motion.div>
 
@@ -665,9 +665,9 @@ export function InfoOverview() {
           >
             <Link
               href="/book-demo"
-              aria-label="Book Demo your trust account audit"
+              aria-label="Start your trust account audit"
             >
-              Book Demo Audit
+              Start Audit
             </Link>
           </Button>
         </div>
