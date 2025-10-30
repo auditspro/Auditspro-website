@@ -16,6 +16,7 @@ import {
   Building,
   Scale,
   Calculator,
+  CreditCard,
   DollarSign,
   TrendingUp,
   Briefcase,
@@ -111,7 +112,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
     {
       href: "/pricing",
       label: "Pricing",
-      Icon: DollarSign,
+      Icon: CreditCard,
       aria: "View pricing information",
       description: "View pricing information",
     },
