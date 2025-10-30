@@ -108,25 +108,25 @@ export default function NotFound() {
                 {
                   icon: MagnifyingGlassIcon,
                   title: "Our Services",
-                  description: "Trust account audits",
+                  description: "Trust account audit services",
                   href: "/services"
                 },
                 {
                   icon: BanknotesIcon,
                   title: "Pricing",
-                  description: "View our rates",
+                  description: "View our pricing plans",
                   href: "/pricing"
                 },
                 {
                   icon: DocumentTextIcon,
                   title: "How It Works",
-                  description: "Our audit process",
+                  description: "Our audit process guide",
                   href: "/how-it-works"
                 },
                 {
                   icon: HandRaisedIcon,
                   title: "Contact Us",
-                  description: "Get in touch",
+                  description: "Get in touch with us",
                   href: "/contact"
                 }
               ].map((link, index) => (
@@ -139,13 +139,13 @@ export default function NotFound() {
                 >
                   <Link
                     href={link.href}
-                    className="flex flex-col items-center text-center p-6 rounded-xl border border-border bg-card hover:border-brand-300 hover:bg-brand-50/50 transition-all duration-200 group h-full min-h-[160px]"
+                    className="flex flex-col items-center text-center p-6 rounded-xl border border-border bg-card hover:border-brand-300 hover:bg-brand-50/50 transition-all duration-200 group h-full"
                   >
                     <div className="p-3 bg-brand-800 rounded-lg mb-4 group-hover:bg-brand-900 transition-colors duration-200 flex-shrink-0">
                        <link.icon className="size-6 text-white" />
                      </div>
-                    <h4 className="font-semibold text-brand-950 mb-2 flex-shrink-0">{link.title}</h4>
-                    <p className="text-sm text-muted-foreground flex-grow">{link.description}</p>
+                    <h4 className="font-semibold text-brand-950 mb-2 flex-shrink-0 min-h-[24px] flex items-center justify-center">{link.title}</h4>
+                    <p className="text-sm text-muted-foreground flex-grow min-h-[40px] flex items-center justify-center leading-relaxed">{link.description}</p>
                   </Link>
                 </Motion>
               ))}

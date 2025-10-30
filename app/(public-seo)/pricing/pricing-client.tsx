@@ -6,7 +6,6 @@ import { Motion } from "@/components/ui/motion";
 import {
   BanknotesIcon,
   ShieldCheckIcon,
-  ClockIcon,
   TrophyIcon,
   ArrowTopRightOnSquareIcon,
   CheckBadgeIcon,
@@ -79,7 +78,7 @@ const serviceTypes = [
     features: ["ASIC compliant", "5-10 day turnaround", "Professional report"],
   },
   {
-    id: "accounting", 
+    id: "accounting",
     title: "Accounting",
     description: "Accountant trust account audits",
     icon: CalculatorIcon,
@@ -87,7 +86,7 @@ const serviceTypes = [
   },
   {
     id: "conveyancing",
-    title: "Conveyancing", 
+    title: "Conveyancing",
     description: "Conveyancer trust account audits",
     icon: ReceiptPercentIcon,
     features: ["State compliant", "Quick turnaround", "Detailed report"],
@@ -95,7 +94,7 @@ const serviceTypes = [
   {
     id: "legal",
     title: "Legal/Solicitors",
-    description: "Solicitor trust account audits", 
+    description: "Solicitor trust account audits",
     icon: ScaleIcon,
     features: ["Enhanced compliance", "Legal expertise", "Comprehensive audit"],
   },
@@ -107,13 +106,13 @@ const getServicePrice = (serviceId: string, state: string): number => {
   const pricing = pricingData.find(
     (item) => item.businessType === businessType && item.state === state
   );
-  
+
   // Default pricing if not found in data
   if (!pricing) {
     if (serviceId === "legal") return 194900; // Default solicitor price
     return 54900; // Default price for other services
   }
-  
+
   return pricing.basePrice;
 };
 
@@ -171,8 +170,8 @@ export function PricingPageClient() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
             >
-              Professional trust account auditing with transparent pricing. Quality service for
-              established Australian businesses.
+              Professional trust account auditing with transparent pricing.
+              Quality service for established Australian businesses.
             </Motion>
 
             {/* Key Benefits */}
@@ -235,12 +234,20 @@ export function PricingPageClient() {
                 }`}
               >
                 <div className="flex flex-col items-center gap-2">
-                  <GlobeAltIcon className={`size-5 ${
-                    selectedState === state.code ? "text-brand-600" : "text-muted-foreground group-hover:text-brand-500"
-                  }`} />
+                  <GlobeAltIcon
+                    className={`size-5 ${
+                      selectedState === state.code
+                        ? "text-brand-600"
+                        : "text-muted-foreground group-hover:text-brand-500"
+                    }`}
+                  />
                   <div>
-                    <div className="font-semibold text-lg">{state.shortName}</div>
-                    <div className="text-xs mt-1 leading-tight text-muted-foreground">{state.name}</div>
+                    <div className="font-semibold text-lg">
+                      {state.shortName}
+                    </div>
+                    <div className="text-xs mt-1 leading-tight text-muted-foreground">
+                      {state.name}
+                    </div>
                   </div>
                 </div>
               </button>
@@ -261,65 +268,66 @@ export function PricingPageClient() {
             {serviceTypes.map((service, index) => {
               const currentPrice = getServicePrice(service.id, selectedState);
               return (
-              <Motion
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-200"
-              >
-
-                {/* Service Icon */}
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-brand-600 rounded-lg">
-                    <service.icon className="size-8 text-white" />
-                  </div>
-                </div>
-
-                {/* Service Title */}
-                <h3 className="text-xl font-semibold text-brand-950 mb-2 text-center">
-                  {service.title}
-                </h3>
-
-                {/* Service Description */}
-                <p className="text-muted-foreground text-sm mb-6 text-center">
-                  {service.description}
-                </p>
-
-                {/* Price */}
-                <div className="mb-6 text-center">
-                  <div className="text-4xl font-bold text-brand-950 mb-1">
-                    ${formatPrice(currentPrice)}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    per trust account
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    + GST
-                  </div>
-                </div>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature: string, featureIndex: number) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <CheckBadgeIcon className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Button 
-                  asChild
-                  className="w-full btn-primary-brand"
+                <Motion
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-200"
                 >
-                  <Link href="/book-demo">
-                    Start Audit
-                    <ArrowTopRightOnSquareIcon className="size-4 ml-2" />
-                  </Link>
-                </Button>
-              </Motion>
+                  {/* Service Icon */}
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-brand-600 rounded-lg">
+                      <service.icon className="size-8 text-white" />
+                    </div>
+                  </div>
+
+                  {/* Service Title */}
+                  <h3 className="text-xl font-semibold text-brand-950 mb-2 text-center">
+                    {service.title}
+                  </h3>
+
+                  {/* Service Description */}
+                  <p className="text-muted-foreground text-sm mb-6 text-center">
+                    {service.description}
+                  </p>
+
+                  {/* Price */}
+                  <div className="mb-6 text-center">
+                    <div className="text-4xl font-bold text-brand-950 mb-1">
+                      ${formatPrice(currentPrice)}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      per trust account
+                    </div>
+                    <div className="text-sm text-muted-foreground">+ GST</div>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map(
+                      (feature: string, featureIndex: number) => (
+                        <li
+                          key={featureIndex}
+                          className="flex items-start gap-3"
+                        >
+                          <CheckBadgeIcon className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground text-sm">
+                            {feature}
+                          </span>
+                        </li>
+                      )
+                    )}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <Button asChild className="w-full btn-primary-brand">
+                    <Link href="/book-demo">
+                      Start Audit
+                      <ArrowTopRightOnSquareIcon className="size-4 ml-2" />
+                    </Link>
+                  </Button>
+                </Motion>
               );
             })}
           </Motion>
@@ -336,7 +344,7 @@ export function PricingPageClient() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
-              What's Included in Every Audit
+              What&apos;s Included in Every Audit
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Comprehensive auditing service with no hidden fees
@@ -353,33 +361,39 @@ export function PricingPageClient() {
               {
                 icon: MagnifyingGlassIcon,
                 title: "Complete Trust Account Review",
-                description: "Thorough examination of all trust account transactions and records"
+                description:
+                  "Thorough examination of all trust account transactions and records",
               },
               {
                 icon: HandRaisedIcon,
                 title: "Expert Consultation",
-                description: "Access to experienced auditors for questions and guidance"
+                description:
+                  "Access to experienced auditors for questions and guidance",
               },
               {
                 icon: AcademicCapIcon,
                 title: "Compliance Verification",
-                description: "Ensure adherence to state-specific trust account regulations"
+                description:
+                  "Ensure adherence to state-specific trust account regulations",
               },
               {
                 icon: LockClosedIcon,
                 title: "Secure Document Handling",
-                description: "Bank-grade security for all sensitive financial documents"
+                description:
+                  "Bank-grade security for all sensitive financial documents",
               },
               {
                 icon: DocumentTextIcon,
                 title: "Professional Report",
-                description: "Detailed audit report suitable for regulatory submission"
+                description:
+                  "Detailed audit report suitable for regulatory submission",
               },
               {
                 icon: BoltIcon,
                 title: "24-Hour Turnaround",
-                description: "Express service to meet urgent compliance requirements"
-              }
+                description:
+                  "Express service to meet urgent compliance requirements",
+              },
             ].map((feature, index) => (
               <Motion
                 key={index}
@@ -420,7 +434,8 @@ export function PricingPageClient() {
               Why Choose AuditsPro?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Professional trust account auditing services with transparent pricing and no hidden fees.
+              Professional trust account auditing services with transparent
+              pricing and no hidden fees.
             </p>
           </Motion>
 
@@ -434,18 +449,21 @@ export function PricingPageClient() {
               {
                 icon: ShieldCheckIcon,
                 title: "No Hidden Fees",
-                description: "Transparent pricing with no surprise charges or additional costs."
+                description:
+                  "Transparent pricing with no surprise charges or additional costs.",
               },
               {
                 icon: ChartBarSquareIcon,
                 title: "Fast Turnaround",
-                description: "Quick and efficient audit process with timely delivery of reports."
+                description:
+                  "Quick and efficient audit process with timely delivery of reports.",
               },
               {
                 icon: TrophyIcon,
                 title: "Professional Service",
-                description: "Expert auditors with extensive experience in trust account compliance."
-              }
+                description:
+                  "Expert auditors with extensive experience in trust account compliance.",
+              },
             ].map((feature, index) => (
               <div key={index} className="text-center">
                 <div className="flex justify-center mb-4">
@@ -456,9 +474,7 @@ export function PricingPageClient() {
                 <h3 className="text-lg font-semibold text-brand-950 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground">
-                  {feature.description}
-                </p>
+                <p className="text-muted-foreground">{feature.description}</p>
               </div>
             ))}
           </Motion>
@@ -478,13 +494,10 @@ export function PricingPageClient() {
               Ready to Start Your Audit?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Get started with your trust account audit today. Professional service with transparent pricing.
+              Get started with your trust account audit today. Professional
+              service with transparent pricing.
             </p>
-            <Button 
-              asChild
-              size="lg"
-              className="btn-primary-brand px-8"
-            >
+            <Button asChild size="lg" className="btn-primary-brand px-8">
               <Link href="/book-demo">
                 Start Audit Process
                 <ArrowTopRightOnSquareIcon className="size-4 ml-2" />
