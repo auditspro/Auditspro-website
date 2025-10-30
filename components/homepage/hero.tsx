@@ -172,7 +172,7 @@ export function Hero({
             >
               <Link href="/book-demo" aria-label="Start your audit">
                 <CircleArrowRight className="size-4" aria-hidden="true" />
-                Book Demo
+                Start Audit
               </Link>
             </Button>
             <Button

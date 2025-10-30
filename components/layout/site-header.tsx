@@ -16,6 +16,7 @@ import {
   Building,
   Scale,
   Calculator,
+  CreditCard,
   DollarSign,
   TrendingUp,
   Briefcase,
@@ -31,10 +32,13 @@ interface SiteHeaderProps {
 
 export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
     };
     document.addEventListener("keydown", onKey);
     document.body.classList.toggle("overflow-hidden", open);
@@ -43,8 +47,6 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
       document.body.classList.remove("overflow-hidden");
     };
   }, [open]);
-
-  const pathname = usePathname();
 
   const services = [
     {
@@ -106,6 +108,13 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
       Icon: FileCheck,
       aria: "Document checklist for trust account audits",
       description: "Document checklist for trust account audits",
+    },
+    {
+      href: "/pricing",
+      label: "Pricing",
+      Icon: CreditCard,
+      aria: "View pricing information",
+      description: "View pricing information",
     },
     { href: "/about", label: "About", Icon: Info, aria: "About AuditsPro", description: "About AuditsPro" },
     {
@@ -199,8 +208,8 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
               size="lg"
               className="gap-2 bg-blue-900 hover:bg-blue-800 text-white"
             >
-              <Link href="/book-demo" aria-label="Book a demo of our audit platform">
-                Book Demo
+              <Link href="/book-demo" aria-label="Start your audit process">
+                Start Audit
                 <CircleArrowRight className="size-4" />
               </Link>
             </Button>
@@ -282,7 +291,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
 
                     {/* Individual Services */}
                     <div className="ml-4 space-y-1">
-                      {services.map(({ title, href, icon: Icon, description }) => {
+                      {services.map(({ title, href, icon: Icon }) => {
                         const active = pathname === href;
                         return (
                           <SheetClose asChild key={href}>
@@ -309,12 +318,13 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                   </div>
                 </nav>
 
-                {/* Sticky footer CTA */}
+                {/* Sticky footer with CTA */}
                 <div className="sticky bottom-0 border-t bg-white px-4 py-4">
+                  {/* Start Audit CTA */}
                   <SheetClose asChild>
                     <Button asChild size="lg" className="w-full gap-2 bg-blue-900 hover:bg-blue-800 text-white">
-                      <Link href="/book-demo" aria-label="Book a demo of our audit platform">
-                        Book Demo
+                      <Link href="/book-demo" aria-label="Start your audit process">
+                        Start Audit
                         <CircleArrowRight className="size-4" />
                       </Link>
                     </Button>

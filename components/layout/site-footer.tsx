@@ -41,8 +41,8 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/services-by-state"
-                  aria-label="View pricing by state"
+                  href="/pricing"
+                  aria-label="View pricing"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
                   <Tag className="size-4" />
@@ -144,8 +144,8 @@ export function SiteFooter() {
             size="lg"
             className="gap-2 bg-blue-900 hover:bg-blue-800 text-white"
           >
-            <Link href="/book-demo" aria-label="Book a demo of our audit platform">
-              Book Demo
+            <Link href="/book-demo" aria-label="Start your audit process">
+              Start Audit
             </Link>
           </Button>
         </div>

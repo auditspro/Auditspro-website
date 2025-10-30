@@ -1,4 +1,5 @@
 // app/layout.tsx
+import Script from 'next/script';
 import { Outfit, Manrope } from 'next/font/google';
 import "./globals.css";
 
@@ -90,6 +91,20 @@ export default function RootLayout({
         {/* DNS prefetch for performance */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WTCYCG7JFG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WTCYCG7JFG');
+          `}
+        </Script>
         
         <script
           type="application/ld+json"

@@ -206,7 +206,7 @@ export function HowItWorks() {
               size="lg"
               className="gap-2 bg-blue-900 hover:bg-blue-800 text-white"
             >
-              <Link href="/book-demo">Request a Quote</Link>
+              <Link href="/book-demo">Start Audit</Link>
             </Button>
             <Button
               asChild
@@ -214,7 +214,7 @@ export function HowItWorks() {
               size="lg"
               className="gap-2 border-blue-200 text-blue-950 hover:bg-blue-50"
             >
-              <Link href="/services-by-state">View Pricing</Link>
+              <Link href="/pricing">View Pricing</Link>
             </Button>
           </div>
         </div>
