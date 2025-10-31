@@ -5,23 +5,24 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from "@/components/ui/sheet";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/ui/breadcrumbs";
 import {
-  Layers,
-  Users,
-  Info,
-  CircleArrowRight,
-  FileCheck,
-  Menu,
-  Home,
-  ChevronDown,
-  Building,
-  Scale,
-  Calculator,
-  CreditCard,
-  DollarSign,
-  TrendingUp,
-  Briefcase,
-  Wrench,
-} from "lucide-react";
+  Squares2X2Icon,
+  UsersIcon,
+  InformationCircleIcon,
+  ArrowTopRightOnSquareIcon,
+  Bars3Icon,
+  HomeIcon,
+  ChevronDownIcon,
+  BuildingOfficeIcon,
+  ScaleIcon,
+  CalculatorIcon,
+  CreditCardIcon,
+  BanknotesIcon,
+  ArrowTrendingUpIcon,
+  BriefcaseIcon,
+  WrenchScrewdriverIcon,
+  ClipboardDocumentCheckIcon, 
+  DocumentTextIcon
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -52,75 +53,75 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
     {
       title: "Real Estate Agents",
       href: "/services/real-estate-agents",
-      icon: Building,
+      icon: BuildingOfficeIcon,
       description: "ASIC compliant trust account audits for real estate agents",
     },
     {
       title: "Conveyancers",
       href: "/services/conveyancers",
-      icon: FileCheck,
+      icon: DocumentTextIcon,
       description: "Professional trust account audits for conveyancers",
     },
     {
       title: "Solicitors",
       href: "/services/solicitors",
-      icon: Scale,
+      icon: ScaleIcon,
       description: "Legal profession trust account audits for solicitors",
     },
     {
       title: "Accountants",
       href: "/services/accountants",
-      icon: Calculator,
+      icon: CalculatorIcon,
       description: "Professional trust account audits for accountants",
     },
     {
       title: "Mortgage Brokers",
       href: "/services/mortgage-brokers",
-      icon: DollarSign,
+      icon: BanknotesIcon,
       description: "NCCP compliant trust account audits for mortgage brokers",
     },
     {
       title: "SMSF Trustees",
       href: "/services/smsf-trustees",
-      icon: TrendingUp,
+      icon: ArrowTrendingUpIcon,
       description: "Specialized trust account audits for SMSF trustees",
     },
     {
       title: "Business Brokers",
       href: "/services/business-brokers",
-      icon: Briefcase,
+      icon: BriefcaseIcon,
       description: "Professional trust account audits for business brokers",
     },
   ];
 
   const navLinks = [
-    { href: "/", label: "Home", Icon: Home, aria: "Home", description: "Return to homepage" },
+    { href: "/", label: "Home", Icon: HomeIcon, aria: "Home", description: "Return to homepage" },
     {
       href: "/how-it-works",
       label: "How It Works",
-      Icon: Layers,
+      Icon: Squares2X2Icon,
       aria: "How our audit process works",
       description: "How our audit process works",
     },
     {
       href: "/trust-account-audit-checklist",
       label: "Audit Checklist",
-      Icon: FileCheck,
+      Icon: ClipboardDocumentCheckIcon,
       aria: "Document checklist for trust account audits",
       description: "Document checklist for trust account audits",
     },
     {
       href: "/pricing",
       label: "Pricing",
-      Icon: CreditCard,
+      Icon: CreditCardIcon,
       aria: "View pricing information",
       description: "View pricing information",
     },
-    { href: "/about", label: "About", Icon: Info, aria: "About AuditsPro", description: "About AuditsPro" },
+    { href: "/about", label: "About", Icon: InformationCircleIcon, aria: "About AuditsPro", description: "About AuditsPro" },
     {
       href: "/contact",
       label: "Contact",
-      Icon: Users,
+      Icon: UsersIcon,
       aria: "Contact AuditsPro",
       description: "Contact AuditsPro",
     },
@@ -147,9 +148,9 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
               className="hover:text-blue-800 inline-flex items-center gap-2"
               aria-label="Our audit services"
             >
-              <Wrench className="size-4" />
+              <WrenchScrewdriverIcon className="size-4" />
               Services
-              <ChevronDown className="size-3 transition-transform group-hover:rotate-180" />
+              <ChevronDownIcon className="size-3 transition-transform group-hover:rotate-180" />
             </Link>
             
             {/* Dropdown Menu */}
@@ -160,7 +161,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                     href="/services"
                     className="text-sm font-medium text-blue-950 hover:text-blue-700 flex items-center gap-2"
                   >
-                    <Wrench className="size-4 text-blue-700" />
+                    <WrenchScrewdriverIcon className="size-4 text-blue-700" />
                     All Services
                   </Link>
                   <p className="text-xs text-slate-500 mt-1">View all our audit services</p>
@@ -210,7 +211,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
             >
               <Link href="/book-demo" aria-label="Start your audit process">
                 Start Audit
-                <CircleArrowRight className="size-4" />
+                <ArrowTopRightOnSquareIcon className="size-4" />
               </Link>
             </Button>
           </div>
@@ -224,7 +225,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                 aria-label={open ? "Close menu" : "Open menu"}
                 aria-expanded={open}
               >
-                <span className="inline-flex items-center gap-2"><Menu className="size-5" /> Menu</span>
+                <span className="inline-flex items-center gap-2"><Bars3Icon className="size-5" /> Menu</span>
               </button>
             </SheetTrigger>
             <SheetContent side="left" aria-label="Mobile navigation" className="border-r p-0 w-[24rem] sm:w-[26rem]">
@@ -258,7 +259,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                                 <div className="text-xs text-slate-500">{description}</div>
                               )}
                             </div>
-                            <CircleArrowRight className="size-4 text-blue-700" />
+                            <ArrowTopRightOnSquareIcon className="size-4 text-blue-700" />
                           </div>
                         </Link>
                       </SheetClose>
@@ -279,12 +280,12 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                         )}
                       >
                         <div className="flex items-start gap-3">
-                          <Wrench className="size-5 mt-0.5 text-blue-700" />
+                          <WrenchScrewdriverIcon className="size-5 mt-0.5 text-blue-700" />
                           <div className="flex-1">
                             <div className="font-medium text-blue-950">Services</div>
                             <div className="text-xs text-slate-500">Professional trust account audit services</div>
                           </div>
-                          <CircleArrowRight className="size-4 text-blue-700" />
+                          <ArrowTopRightOnSquareIcon className="size-4 text-blue-700" />
                         </div>
                       </Link>
                     </SheetClose>
@@ -325,7 +326,7 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
                     <Button asChild size="lg" className="w-full gap-2 bg-blue-900 hover:bg-blue-800 text-white">
                       <Link href="/book-demo" aria-label="Start your audit process">
                         Start Audit
-                        <CircleArrowRight className="size-4" />
+                        <ArrowTopRightOnSquareIcon className="size-4" />
                       </Link>
                     </Button>
                   </SheetClose>

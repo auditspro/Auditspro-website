@@ -1,14 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  FileText,
-  Upload,
-  Search,
-  CheckCircle2,
-  ArrowRight,
-  Clock,
-  MessageCircle,
-} from "lucide-react";
+  DocumentTextIcon,
+  ArrowUpTrayIcon,
+  MagnifyingGlassIcon,
+  CheckCircleIcon,
+  ArrowRightIcon,
+  ClockIcon,
+  ChatBubbleLeftRightIcon,
+} from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,7 +17,7 @@ export function HowItWorks() {
   const steps = [
     {
       number: "01",
-      icon: MessageCircle,
+      icon: ChatBubbleLeftRightIcon,
       title: "Request a quote",
       description:
         "Submit your details online. We respond within 24 hours with a fixed-fee proposal.",
@@ -25,7 +25,7 @@ export function HowItWorks() {
     },
     {
       number: "02",
-      icon: FileText,
+      icon: DocumentTextIcon,
       title: "Receive your checklist",
       description:
         "Access our digital checklist and secure portal to prepare your documentation.",
@@ -33,7 +33,7 @@ export function HowItWorks() {
     },
     {
       number: "03",
-      icon: Upload,
+      icon: ArrowUpTrayIcon,
       title: "Upload documents",
       description:
         "Securely upload your trust account records through our encrypted portal.",
@@ -41,7 +41,7 @@ export function HowItWorks() {
     },
     {
       number: "04",
-      icon: Search,
+      icon: MagnifyingGlassIcon,
       title: "We conduct the audit",
       description:
         "Our specialised trust account auditors review your records and perform compliance checks.",
@@ -49,7 +49,7 @@ export function HowItWorks() {
     },
     {
       number: "05",
-      icon: CheckCircle2,
+      icon: CheckCircleIcon,
       title: "Receive your report",
       description:
         "Download your audit report and any required regulatory submissions.",
@@ -91,7 +91,7 @@ export function HowItWorks() {
         className="text-center mb-12"
       >
         <div className="flex items-center justify-center gap-3 mb-3">
-          <Clock className="size-7 text-blue-700" aria-hidden="true" />
+          <ClockIcon className="size-7 text-blue-700" aria-hidden="true" />
           <h2
             id="how-it-works-heading"
             className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950"
@@ -169,7 +169,7 @@ export function HowItWorks() {
 
                 {/* Duration Badge */}
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-white/80 px-2.5 py-1 text-xs font-medium text-blue-700">
-                  <Clock className="size-3" />
+                  <ClockIcon className="size-3" />
                   {step.duration}
                 </div>
               </div>
@@ -177,7 +177,7 @@ export function HowItWorks() {
               {/* Arrow connector (desktop only, not after last item) */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:flex absolute top-12 -right-3 items-center justify-center w-6 h-6 rounded-full bg-blue-100 border-2 border-white z-10">
-                  <ArrowRight className="size-3.5 text-blue-700" />
+                  <ArrowRightIcon className="size-3.5 text-blue-700" />
                 </div>
               )}
             </motion.div>

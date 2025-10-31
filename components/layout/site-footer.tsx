@@ -1,7 +1,14 @@
 // D:\firstapps\auditsproAU\components\layout\site-footer.tsx
 
 import { AuditsProLogo } from "@/components/logo/auditsprologo";
-import { Box, Settings, Tag, Building2, Shield, Mail } from "lucide-react";
+import { 
+  CubeIcon, 
+  CogIcon, 
+  TagIcon, 
+  BuildingOffice2Icon, 
+  ShieldCheckIcon, 
+  EnvelopeIcon 
+} from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -26,7 +33,7 @@ export function SiteFooter() {
                   href="#features"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
-                  <Box className="size-4" />
+                  <CubeIcon className="size-4" />
                   Features
                 </a>
               </li>
@@ -35,7 +42,7 @@ export function SiteFooter() {
                   href="#partners"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
-                  <Settings className="size-4" />
+                  <CogIcon className="size-4" />
                   Integrations
                 </a>
               </li>
@@ -45,7 +52,7 @@ export function SiteFooter() {
                   aria-label="View pricing"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
-                  <Tag className="size-4" />
+                  <TagIcon className="size-4" />
                   Pricing
                 </Link>
               </li>
@@ -101,7 +108,7 @@ export function SiteFooter() {
                   aria-label="Learn about AuditsPro"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
-                  <Building2 className="size-4" />
+                  <BuildingOffice2Icon className="size-4" />
                   About
                 </Link>
               </li>
@@ -111,7 +118,7 @@ export function SiteFooter() {
                   aria-label="See how our audit process works"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
-                  <Shield className="size-4" />
+                  <ShieldCheckIcon className="size-4" />
                   How it works
                 </Link>
               </li>
@@ -121,7 +128,7 @@ export function SiteFooter() {
                   aria-label="Contact AuditsPro"
                   className="hover:text-blue-900 inline-flex items-center gap-2"
                 >
-                  <Mail className="size-4" />
+                  <EnvelopeIcon className="size-4" />
                   Contact
                 </Link>
               </li>

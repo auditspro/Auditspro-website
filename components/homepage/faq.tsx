@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { HelpCircle, Clock, CheckCircle2 } from "lucide-react";
+import { QuestionMarkCircleIcon, ClockIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -74,7 +74,7 @@ export function FAQ() {
           Frequently Asked Questions
         </div>
         <div className="flex items-center justify-center gap-3 mb-3">
-          <HelpCircle className="size-7 text-blue-700" aria-hidden="true" />
+          <QuestionMarkCircleIcon className="size-7 text-blue-700" aria-hidden="true" />
           <h2
             id="faq-heading"
             className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950"
@@ -124,7 +124,7 @@ export function FAQ() {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-              <CheckCircle2 className="size-4 text-blue-700" />
+              <CheckCircleIcon className="size-4 text-blue-700" />
               {q}
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">{a}</p>
@@ -146,21 +146,21 @@ export function FAQ() {
             href="/trust-account-audit-checklist"
             className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
           >
-            <CheckCircle2 className="w-4 h-4" />
+            <CheckCircleIcon className="w-4 h-4" />
             View Checklist
           </Link>
           <Link
             href="/how-it-works"
             className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
           >
-            <HelpCircle className="w-4 h-4" />
+            <QuestionMarkCircleIcon className="w-4 h-4" />
             How it works
           </Link>
           <Link
             href="/book-demo"
             className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
           >
-            <Clock className="w-4 h-4" />
+            <ClockIcon className="w-4 h-4" />
             Start Audit
           </Link>
         </div>

@@ -2,12 +2,12 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
-  CreditCard,
-  Shield,
-  FileCheck,
-  CircleArrowRight,
-  Server,
-} from "lucide-react";
+  CreditCardIcon,
+  ShieldCheckIcon,
+  DocumentCheckIcon,
+  ArrowTopRightOnSquareIcon,
+  ServerIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -171,7 +171,7 @@ export function Hero({
               className="gap-2 w-full sm:w-auto bg-blue-900 hover:bg-blue-800 text-white"
             >
               <Link href="/book-demo" aria-label="Start your audit">
-                <CircleArrowRight className="size-4" aria-hidden="true" />
+                <ArrowTopRightOnSquareIcon className="size-4" aria-hidden="true" />
                 Start Audit
               </Link>
             </Button>
@@ -182,7 +182,7 @@ export function Hero({
               className="gap-2 w-full sm:w-auto border-blue-200 text-blue-950 hover:bg-blue-50"
             >
               <Link href="/pricing">
-                <CreditCard className="size-4" aria-hidden="true" />
+                <CreditCardIcon className="size-4" aria-hidden="true" />
                 View Pricing
               </Link>
             </Button>
@@ -196,19 +196,19 @@ export function Hero({
             transition={{ delay: 0.5, duration: 0.5 }}
           >
             <div className="flex items-center gap-2">
-              <Shield className="size-4 text-blue-700" aria-hidden="true" />
+              <ShieldCheckIcon className="size-4 text-blue-700" aria-hidden="true" />
               <span>24h Response</span>
             </div>
             <div className="flex items-center gap-2">
-              <FileCheck className="size-4 text-blue-700" aria-hidden="true" />
+              <DocumentCheckIcon className="size-4 text-blue-700" aria-hidden="true" />
               <span>Trust Account Auditors</span>
             </div>
             <div className="flex items-center gap-2">
-              <CreditCard className="size-4 text-blue-700" aria-hidden="true" />
+              <CreditCardIcon className="size-4 text-blue-700" aria-hidden="true" />
               <span>Fixed Price</span>
             </div>
             <div className="flex items-center gap-2">
-              <Server className="size-4 text-blue-700" aria-hidden="true" />
+              <ServerIcon className="size-4 text-blue-700" aria-hidden="true" />
               <span>Data stored in Australia</span>
             </div>
           </motion.div>
@@ -256,7 +256,7 @@ export function Hero({
                 )
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-slate-200">
-                  <FileCheck
+                  <DocumentCheckIcon
                     className="size-16 text-blue-700/40"
                     aria-hidden="true"
                   />

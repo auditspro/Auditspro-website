@@ -1,23 +1,26 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  Home,
-  Calculator,
-  Building2,
-  Scale,
-  Users,
-  Briefcase,
-  CheckCircle2,
-  MapPin,
-  Award,
-  Clock,
-  Info,
-  FileText,
-  Shield,
-  Zap,
-  UserCheck,
-  Lock,
-} from "lucide-react";
+  HomeIcon,
+  CalculatorIcon,
+  BuildingOffice2Icon,
+  BuildingOfficeIcon,
+  ScaleIcon,
+  UsersIcon,
+  BriefcaseIcon,
+  CheckCircleIcon,
+  MapPinIcon,
+  TrophyIcon,
+  ClockIcon,
+  InformationCircleIcon,
+  DocumentTextIcon,
+  ShieldCheckIcon,
+  BoltIcon,
+  CheckIcon,
+  LockClosedIcon,
+  BanknotesIcon,
+  ArrowTrendingUpIcon,
+} from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,34 +29,34 @@ export function InfoOverview() {
   // Priority order: Real Estate, Conveyancers, Accountants, Solicitors, Others
   const orgs = [
     {
-      icon: Home,
+      icon: BuildingOfficeIcon,
       label: "Real Estate Agents",
       link: "/services/real-estate-agents",
     },
-    { icon: Scale, label: "Conveyancers", link: "/services/conveyancers" },
+    { icon: DocumentTextIcon, label: "Conveyancers", link: "/services/conveyancers" },
     {
-      icon: Calculator,
+      icon: CalculatorIcon,
       label: "Accountants (CPA/CA)",
       link: "/services/accountants",
     },
-    { icon: Scale, label: "Solicitors", link: "/services/solicitors" },
+    { icon: ScaleIcon, label: "Solicitors", link: "/services/solicitors" },
     {
-      icon: Building2,
+      icon: BriefcaseIcon,
       label: "Business Brokers",
       link: "/services/business-brokers",
     },
     {
-      icon: Briefcase,
+      icon: BriefcaseIcon,
       label: "Financial Planners",
       link: "/services/financial-planners",
     },
     {
-      icon: Users,
+      icon: BanknotesIcon,
       label: "Mortgage Brokers",
       link: "/services/mortgage-brokers",
     },
     {
-      icon: Building2,
+      icon: ArrowTrendingUpIcon,
       label: "SMSF Trustees",
       link: "/services/smsf-trustees",
     },
@@ -63,44 +66,44 @@ export function InfoOverview() {
 
   const coverageFeatures = [
     {
-      icon: CheckCircle2,
+      icon: CheckCircleIcon,
       label: "Unified workflow: communicate directly in the portal; no visits",
     },
     {
-      icon: CheckCircle2,
+      icon: CheckCircleIcon,
       label: "Remote engagements available. Contact us online",
     },
-    { icon: Shield, label: "Fast & reliable support anytime" },
-    { icon: FileText, label: "Secure self-service portal for audit requests" },
-    { icon: Clock, label: "Response within 24 hours (Mon–Fri)" },
-    { icon: Zap, label: "Fixed fee proposal before commencement" },
-    { icon: UserCheck, label: "Multi-user access for teams (Coming Soon)" },
-    { icon: Lock, label: "HTTPS (SSL/TLS) enforced" },
+    { icon: ShieldCheckIcon, label: "Fast & reliable support anytime" },
+    { icon: DocumentTextIcon, label: "Secure self-service portal for audit requests" },
+    { icon: ClockIcon, label: "Response within 24 hours (Mon–Fri)" },
+    { icon: BoltIcon, label: "Fixed fee proposal before commencement" },
+    { icon: CheckIcon, label: "Multi-user access for teams (Coming Soon)" },
+    { icon: LockClosedIcon, label: "HTTPS (SSL/TLS) enforced" },
   ];
 
   const outcomes = [
     {
-      icon: Clock,
+      icon: ClockIcon,
       stat: "Up to 40% faster",
       label: "Streamlined preparation with digital checklist",
     },
     {
-      icon: Award,
+      icon: TrophyIcon,
       stat: "Qualified auditors",
       label: "Specialised trust account auditors with industry expertise",
     },
     {
-      icon: CheckCircle2,
+      icon: CheckCircleIcon,
       stat: "5–10 business days",
       label: "Fast turnaround for standard audits",
     },
     {
-      icon: Shield,
+      icon: ShieldCheckIcon,
       stat: "Enterprise-grade security",
       label: "Encrypted portal for safe document handling",
     },
     {
-      icon: UserCheck,
+      icon: CheckIcon,
       stat: "Dedicated auditor",
       label: "Direct expert contact throughout your engagement",
     },
@@ -108,17 +111,17 @@ export function InfoOverview() {
 
   const advantages = [
     {
-      icon: Zap,
+      icon: BoltIcon,
       title: "Fixed Fee Pricing",
       desc: "Transparent costs with no hidden charges or surprises",
     },
     {
-      icon: Award,
+      icon: TrophyIcon,
       title: "Quality Guaranteed",
       desc: "High caliber qualified auditors, IPA Practice Qualified",
     },
     {
-      icon: FileText,
+      icon: DocumentTextIcon,
       title: "Cloud-Based System",
       desc: "100% online platform saves you time and money",
     },
@@ -161,7 +164,7 @@ export function InfoOverview() {
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Info className="size-7 sm:size-8 text-blue-700" />
+            <InformationCircleIcon className="size-7 sm:size-8 text-blue-700" />
           </motion.div>
           <h2
             className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950 text-center sm:text-left"
@@ -215,7 +218,7 @@ export function InfoOverview() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-            <CheckCircle2 className="size-4" />
+            <CheckCircleIcon className="size-4" />
             Who we help
           </div>
 
@@ -253,7 +256,7 @@ export function InfoOverview() {
           itemType="https://schema.org/Country"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-            <MapPin className="size-4" />
+            <MapPinIcon className="size-4" />
             Australia-wide coverage
           </div>
 
@@ -319,7 +322,7 @@ export function InfoOverview() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-            <CheckCircle2 className="size-4" />
+            <CheckCircleIcon className="size-4" />
             How we make it easier
           </div>
 
@@ -356,7 +359,7 @@ export function InfoOverview() {
       >
         <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-5">
-            <Award className="size-4" />
+            <TrophyIcon className="size-4" />
             Our Advantages
           </div>
 
@@ -396,7 +399,7 @@ export function InfoOverview() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-            <Scale className="size-4" />
+            <ScaleIcon className="size-4" />
             Regulatory framework
           </div>
 
@@ -404,7 +407,7 @@ export function InfoOverview() {
             {/* NSW Fair Trading */}
             <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircle2 className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
                   <strong className="text-blue-950">NSW Fair Trading:</strong>{" "}
                   Real estate agents must comply with Property, Stock and
@@ -432,7 +435,7 @@ export function InfoOverview() {
             {/* Consumer Affairs Victoria */}
             <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircle2 className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
                   <strong className="text-blue-950">
                     Consumer Affairs Victoria:
@@ -462,7 +465,7 @@ export function InfoOverview() {
             {/* Legal Services Boards */}
             <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircle2 className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
                   <strong className="text-blue-950">
                     Legal Services Boards:
@@ -500,7 +503,7 @@ export function InfoOverview() {
             {/* Professional Accounting Bodies */}
             <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircle2 className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
                   <strong className="text-blue-950">
                     Professional Accounting Bodies:
@@ -530,7 +533,7 @@ export function InfoOverview() {
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-            <Clock className="size-4" />
+            <ClockIcon className="size-4" />
             Key compliance deadlines
           </div>
 

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
 const Sheet = DialogPrimitive.Root;
@@ -64,7 +64,7 @@ const SheetContent = React.forwardRef<
         className="absolute right-4 top-4 rounded-md p-2 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-300"
         aria-label="Close"
       >
-        <X className="h-5 w-5" />
+        <XMarkIcon className="h-5 w-5" />
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </SheetPortal>
