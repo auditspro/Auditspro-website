@@ -1,12 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  HomeIcon,
   CalculatorIcon,
-  BuildingOffice2Icon,
   BuildingOfficeIcon,
   ScaleIcon,
-  UsersIcon,
   BriefcaseIcon,
   CheckCircleIcon,
   MapPinIcon,

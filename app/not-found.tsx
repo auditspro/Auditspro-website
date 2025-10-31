@@ -67,7 +67,7 @@ export default function NotFound() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto leading-relaxed"
           >
-            Sorry, we couldn't find the page you're looking for. The page may have been moved, 
+            Sorry, we couldn&apos;t find the page you&apos;re looking for. The page may have been moved, 
             deleted, or you may have entered an incorrect URL.
           </Motion>
 

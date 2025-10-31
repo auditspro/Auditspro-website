@@ -15,14 +15,11 @@ import {
   DollarSign,
   Shield,
   Calendar,
-  Users,
   Search,
-  Filter,
   Star,
   ThumbsUp,
   ExternalLink,
   ArrowRight,
-  Info,
   Lightbulb,
   BookOpen,
   Video,
@@ -511,7 +508,7 @@ export function FAQSection() {
               </div>
             ) : (
               <div className="space-y-4">
-                {displayedFAQs.map((faq, index) => {
+                {displayedFAQs.map((faq) => {
                   const isExpanded = expandedFAQ === faq.id;
 
                   return (
@@ -735,7 +732,7 @@ export function FAQSection() {
             </div>
 
             <h3 className="text-2xl font-semibold text-brand-950 mb-4">
-              Can't Find What You're Looking For?
+              Can&apos;t Find What You&apos;re Looking For?
             </h3>
 
             <p className="text-brand-700 max-w-2xl mx-auto mb-8 leading-relaxed">

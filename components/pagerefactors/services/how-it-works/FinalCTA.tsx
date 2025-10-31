@@ -19,7 +19,6 @@ import {
   AlertTriangle,
   Timer,
   DollarSign,
-  Target,
   Sparkles,
   Gift,
   Flame,
@@ -38,7 +37,6 @@ export function FinalCTA() {
   });
   const [selectedContactMethod, setSelectedContactMethod] =
     useState<string>("phone");
-  const [showUrgencyModal, setShowUrgencyModal] = useState<boolean>(false);
   const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
 
   // Countdown timer effect
@@ -66,7 +64,7 @@ export function FinalCTA() {
     }, 4000);
 
     return () => clearInterval(testimonialTimer);
-  }, []);
+  }, [trustIndicators.length]);
 
   const trustIndicators = [
     {
@@ -475,7 +473,7 @@ export function FinalCTA() {
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 rounded-full bg-amber-100/60 px-4 py-2 text-sm font-medium text-amber-900 mb-4">
                 <AlertTriangle className="size-4" />
-                <span>Don't Wait - Act Now</span>
+                <span>Don&apos;t Wait - Act Now</span>
               </div>
 
               <h3 className="text-2xl font-semibold text-brand-950 mb-4">
@@ -679,9 +677,9 @@ export function FinalCTA() {
             </h3>
 
             <p className="text-brand-700 max-w-3xl mx-auto mb-6 leading-relaxed">
-              We're so confident in our service that we offer a 100%
-              satisfaction guarantee. If you're not completely satisfied with
-              your audit, we'll make it right or refund your money.
+              We&apos;re so confident in our service that we offer a 100%
+              satisfaction guarantee. If you&apos;re not completely satisfied with
+              your audit, we&apos;ll make it right or refund your money.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

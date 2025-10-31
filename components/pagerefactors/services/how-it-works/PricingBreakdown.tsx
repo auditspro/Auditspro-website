@@ -5,7 +5,6 @@ import {
   DollarSign, 
   Calculator, 
   CheckCircle2, 
-  AlertCircle,
   TrendingUp,
   Shield,
   Clock,
@@ -409,7 +408,7 @@ export function PricingBreakdown() {
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 rounded-full bg-brand-100/60 px-4 py-2 text-sm font-medium text-brand-950 mb-4">
               <CheckCircle2 className="size-4 text-brand-700" />
-              <span>What's Included</span>
+              <span>What&apos;s Included</span>
             </div>
             <h3 className="text-2xl font-semibold text-brand-950 mb-2">
               Comprehensive Audit Package
@@ -420,7 +419,7 @@ export function PricingBreakdown() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {includedFeatures.map((feature, index) => {
+            {includedFeatures.map((feature) => {
               const FeatureIcon = feature.icon;
               const isExpanded = expandedSection === feature.category;
               
@@ -529,7 +528,7 @@ export function PricingBreakdown() {
                       </tr>
                     </thead>
                     <tbody>
-                      {competitorComparison.map((provider, index) => (
+                      {competitorComparison.map((provider) => (
                         <tr 
                           key={provider.provider}
                           className={`

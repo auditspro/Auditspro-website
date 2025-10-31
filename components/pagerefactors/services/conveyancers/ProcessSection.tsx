@@ -11,7 +11,6 @@ import {
   Download,
   Zap,
 } from "lucide-react";
-import { button } from "framer-motion/client";
 
 export function ProcessSection() {
   const processSteps = [
@@ -195,7 +194,7 @@ export function ProcessSection() {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-brand-950 mb-2">
-                  What You'll Need to Get Started
+                  What You&apos;ll Need to Get Started
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   <div className="flex items-center gap-2 text-sm text-slate-700">
