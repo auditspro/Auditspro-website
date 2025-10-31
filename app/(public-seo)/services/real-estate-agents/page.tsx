@@ -616,7 +616,7 @@ export default function RealEstateAgentsPage() {
                   </div>
                 </Motion>
 
-                <div className="grid lg:grid-cols-2 gap-12">
+                <div className="grid lg:grid-cols-2 gap-8">
                   {/* Legal Requirements */}
                   <Motion
                     initial="hidden"
@@ -627,12 +627,12 @@ export default function RealEstateAgentsPage() {
                       visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } }
                     }}
                   >
-                    <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 group">
+                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-200/70 hover:shadow-xl transition-all duration-300 group h-full">
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="p-3 bg-green-100 rounded-2xl group-hover:bg-green-200 transition-colors duration-300">
-                          <CheckCircle className="h-6 w-6 text-green-600" />
+                        <div className="p-3 bg-brand-100/80 rounded-xl group-hover:bg-brand-200/80 transition-colors duration-300">
+                          <CheckCircle className="h-6 w-6 text-brand-700" />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800">Legal Requirements</h3>
+                        <h3 className="text-2xl font-semibold text-brand-950">Legal Requirements</h3>
                       </div>
                       <div className="space-y-4">
                         {[
@@ -648,14 +648,14 @@ export default function RealEstateAgentsPage() {
                             text: "Consumer protection obligations under state legislation"
                           }
                         ].map((item, index) => (
-                          <div key={index} className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors duration-200">
-                            <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                          <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-50/60 transition-colors duration-200">
+                            <CheckCircle className="h-5 w-5 text-brand-700 mt-0.5 flex-shrink-0" />
                             <span className="text-slate-700 leading-relaxed">
                               {item.text}
                               {item.link && (
                                 <>
                                   {" (similar to "}
-                                  <Link href={item.link} className="text-blue-600 hover:text-blue-800 underline font-medium">
+                                  <Link href={item.link} className="text-brand-700 hover:text-brand-800 underline font-medium">
                                     {item.linkText}
                                   </Link>
                                   {")"}
@@ -678,12 +678,12 @@ export default function RealEstateAgentsPage() {
                       visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.4 } }
                     }}
                   >
-                    <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 group">
+                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-200/70 hover:shadow-xl transition-all duration-300 group h-full">
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="p-3 bg-blue-100 rounded-2xl group-hover:bg-blue-200 transition-colors duration-300">
-                          <Shield className="h-6 w-6 text-blue-600" />
+                        <div className="p-3 bg-brand-100/80 rounded-xl group-hover:bg-brand-200/80 transition-colors duration-300">
+                          <Shield className="h-6 w-6 text-brand-700" />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800">Business Protection</h3>
+                        <h3 className="text-2xl font-semibold text-brand-950">Business Protection</h3>
                       </div>
                       <div className="space-y-4">
                         {[
@@ -695,14 +695,14 @@ export default function RealEstateAgentsPage() {
                             linkText: "solicitor audit services"
                           }
                         ].map((item, index) => (
-                          <div key={index} className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors duration-200">
-                            <Shield className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                          <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-50/60 transition-colors duration-200">
+                            <Shield className="h-5 w-5 text-brand-700 mt-0.5 flex-shrink-0" />
                             <span className="text-slate-700 leading-relaxed">
                               {typeof item === 'string' ? item : (
                                 <>
                                   {item.text}
                                   {" (see our "}
-                                  <Link href={item.link} className="text-blue-600 hover:text-blue-800 underline font-medium">
+                                  <Link href={item.link} className="text-brand-700 hover:text-brand-800 underline font-medium">
                                     {item.linkText}
                                   </Link>
                                   {" for similar compliance requirements)"}
@@ -842,12 +842,12 @@ export default function RealEstateAgentsPage() {
                       visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.4 } }
                     }}
                   >
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-200">
+                    <div className="bg-gradient-to-br from-brand-50/80 to-brand-100/60 rounded-2xl p-8 border border-brand-200/70">
                       <div className="flex items-center gap-3 mb-8">
-                        <div className="p-3 bg-blue-100 rounded-2xl">
-                          <Building className="h-6 w-6 text-blue-600" />
+                        <div className="p-3 bg-brand-100/80 rounded-xl">
+                          <Building className="h-6 w-6 text-brand-700" />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800">Key Audit Areas</h3>
+                        <h3 className="text-2xl font-semibold text-brand-950">Key Audit Areas</h3>
                       </div>
                       <div className="space-y-4">
                         {[
@@ -858,8 +858,8 @@ export default function RealEstateAgentsPage() {
                           "Record keeping compliance",
                           "Regulatory reporting accuracy",
                         ].map((area, index) => (
-                          <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 group">
-                            <CheckCircle className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                          <div key={index} className="flex items-start gap-3 p-4 bg-white/80 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 group backdrop-blur">
+                            <CheckCircle className="h-5 w-5 text-brand-700 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
                             <span className="text-slate-700 leading-relaxed font-medium">{area}</span>
                           </div>
                         ))}
