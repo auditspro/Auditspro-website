@@ -39,33 +39,6 @@ export function FinalCTA() {
     useState<string>("phone");
   const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
 
-  // Countdown timer effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  // Testimonial rotation effect
-  useEffect(() => {
-    const testimonialTimer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % trustIndicators.length);
-    }, 4000);
-
-    return () => clearInterval(testimonialTimer);
-  }, [trustIndicators.length]);
-
   const trustIndicators = [
     {
       icon: Shield,
@@ -96,6 +69,33 @@ export function FinalCTA() {
       color: "text-blue-600",
     },
   ];
+
+  // Countdown timer effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        }
+        return prev;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // Testimonial rotation effect
+  useEffect(() => {
+    const testimonialTimer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % trustIndicators.length);
+    }, 4000);
+
+    return () => clearInterval(testimonialTimer);
+  }, [trustIndicators.length]);
 
   const keyBenefits = [
     {
@@ -588,7 +588,6 @@ export function FinalCTA() {
               </button>
 
               <button
-                onClick={() => setShowUrgencyModal(true)}
                 className="inline-flex items-center gap-2 rounded-lg border border-white/30 text-white px-6 py-3 font-medium hover:bg-white/10 transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-600"
                 aria-label="Learn more about fast-track service"
               >
