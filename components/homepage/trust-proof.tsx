@@ -158,7 +158,7 @@ export function TrustProof() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
             <Award className="size-4" />
             Credentials & memberships
           </div>
@@ -230,7 +230,7 @@ export function TrustProof() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
             <CheckCircle2 className="size-4" />
             What to expect
           </div>

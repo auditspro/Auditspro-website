@@ -450,7 +450,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6 }}
                 className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
               >
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
                   <Icon className="size-4" />
                   {title}
                 </div>

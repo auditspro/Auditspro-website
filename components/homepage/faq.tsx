@@ -123,8 +123,8 @@ export function FAQ() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-              <CheckCircleIcon className="size-4 text-blue-700" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
+              <CheckCircleIcon className="size-4" />
               {q}
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">{a}</p>

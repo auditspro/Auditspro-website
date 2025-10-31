@@ -154,8 +154,8 @@ export function HowItWorks() {
                   <span className="text-2xl font-medium text-blue-700/40">
                     {step.number}
                   </span>
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100/80 flex items-center justify-center border border-blue-200/50">
-                    <step.icon className="size-5 text-blue-700" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center border border-blue-200/50" style={{ backgroundColor: '#1d4ed8' }}>
+                    <step.icon className="size-5 text-white" />
                   </div>
                 </div>
 
@@ -176,8 +176,8 @@ export function HowItWorks() {
 
               {/* Arrow connector (desktop only, not after last item) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:flex absolute top-12 -right-3 items-center justify-center w-6 h-6 rounded-full bg-blue-100 border-2 border-white z-10">
-                  <ArrowRightIcon className="size-3.5 text-blue-700" />
+                <div className="hidden lg:flex absolute top-12 -right-3 items-center justify-center w-6 h-6 rounded-full border-2 border-white z-10" style={{ backgroundColor: '#1d4ed8' }}>
+                  <ArrowRightIcon className="size-3.5 text-white" />
                 </div>
               )}
             </motion.div>
