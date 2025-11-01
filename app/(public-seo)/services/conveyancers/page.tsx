@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
+import { PageWrapper } from "@/components/ui/page-wrapper";
+import { CrossPageCTA } from "@/components/ui/cross-page-cta";
 import {
   HeroSection,
   FeaturesSection,
@@ -163,31 +164,24 @@ export default function ConveyancersPage() {
   };
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <SetBreadcrumbs
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
-          { label: "Conveyancers", href: "/services/conveyancers" },
-        ]}
-      />
-
+    <PageWrapper
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Conveyancers", href: "/services/conveyancers" },
+      ]}
+      jsonLdData={[breadcrumbJsonLd, jsonLd]}
+    >
       <HeroSection />
       <FeaturesSection />
       <StateRequirements />
       <WhyChooseSection />
       <ProcessSection />
+      
+      {/* Cross-Page CTA */}
+      <CrossPageCTA variant="services-to-booking" />
+      
       <ContactSection />
-    </>
+    </PageWrapper>
   );
 }
