@@ -24,7 +24,7 @@ export function SiteFooter() {
             speed, clarity, and confidence.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
           <div>
             <div className="font-medium text-blue-950">Product</div>
             <ul className="mt-3 space-y-2 text-slate-600">
@@ -63,6 +63,15 @@ export function SiteFooter() {
             <ul className="mt-3 space-y-2 text-slate-600">
               <li>
                 <Link
+                  href="/services"
+                  aria-label="All trust account audit services"
+                  className="hover:text-blue-900 font-medium"
+                >
+                  All Services
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/services/real-estate-agents"
                   aria-label="Trust account audits for real estate agents"
                   className="hover:text-blue-900"
@@ -81,6 +90,15 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
+                  href="/services/solicitors"
+                  aria-label="Trust account audits for solicitors"
+                  className="hover:text-blue-900"
+                >
+                  Solicitors
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/services/accountants"
                   aria-label="Trust account audits for accountants"
                   className="hover:text-blue-900"
@@ -90,11 +108,11 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/services/solicitors"
-                  aria-label="Trust account audits for solicitors"
+                  href="/services/mortgage-brokers"
+                  aria-label="Trust account audits for mortgage brokers"
                   className="hover:text-blue-900"
                 >
-                  Solicitors
+                  Mortgage Brokers
                 </Link>
               </li>
             </ul>
@@ -130,6 +148,47 @@ export function SiteFooter() {
                 >
                   <EnvelopeIcon className="size-4" />
                   Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div className="font-medium text-blue-950">Resources</div>
+            <ul className="mt-3 space-y-2 text-slate-600">
+              <li>
+                <Link
+                  href="/trust-account-audit-checklist"
+                  aria-label="Trust account audit checklist"
+                  className="hover:text-blue-900"
+                >
+                  Audit Checklist
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/book-demo"
+                  aria-label="Book a demo or consultation"
+                  className="hover:text-blue-900"
+                >
+                  Book Demo
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/login"
+                  aria-label="Login to your account"
+                  className="hover:text-blue-900"
+                >
+                  Client Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/register"
+                  aria-label="Register for an account"
+                  className="hover:text-blue-900"
+                >
+                  Register
                 </Link>
               </li>
             </ul>

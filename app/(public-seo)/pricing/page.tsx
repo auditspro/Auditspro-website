@@ -1,7 +1,15 @@
 import React from "react";
 import { Metadata } from "next";
-import { PricingPageClient } from "./pricing-client";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
+import {
+  HeroSection,
+  PricingSection,
+  FeaturesSection,
+  WhyChooseSection,
+  ProcessSection,
+  ContactSection,
+} from "@/components/pagerefactors/pricing";
+import { CrossPageCTA } from "@/components/ui/cross-page-cta";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -202,7 +210,7 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-brand-50">
       {/* Set Breadcrumbs */}
       <SetBreadcrumbs
         items={[
@@ -225,7 +233,13 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       
-      <PricingPageClient />
+      {/* Page Content */}
+      <HeroSection />
+      <PricingSection />
+      <FeaturesSection />
+      <WhyChooseSection />
+      <ProcessSection />
+      <ContactSection />
     </div>
   );
 }
