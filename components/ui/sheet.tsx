@@ -4,6 +4,7 @@ import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
+import { VisuallyHidden } from "./visually-hidden";
 
 const Sheet = DialogPrimitive.Root;
 const SheetTrigger = DialogPrimitive.Trigger;
@@ -59,6 +60,9 @@ const SheetContent = React.forwardRef<
       )}
       {...props}
     >
+      <VisuallyHidden>
+        <DialogPrimitive.Title>Navigation Menu</DialogPrimitive.Title>
+      </VisuallyHidden>
       {children}
       <DialogPrimitive.Close
         className="absolute right-4 top-4 rounded-md p-2 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-300"
