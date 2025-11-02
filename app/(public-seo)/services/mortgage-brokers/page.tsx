@@ -26,21 +26,21 @@ import {
 // SEO Metadata
 export const metadata: Metadata = {
   title:
-    "Mortgage Broker Trust Account Audit Services | ASIC Compliance Audits",
+    "Mortgage Broker Trust Account Audit Services | NCCP Compliance Audits",
   description:
-    "Professional trust account audit services for mortgage brokers in Australia. Ensure ASIC compliance and NCCP requirements. 24-hour response, 5-10 day completion. Fixed pricing from $549 + GST. Expert auditors specializing in mortgage broker trust account compliance.",
+    "Professional trust account audit services for mortgage brokers in Australia. Ensure regulatory compliance and NCCP requirements. 24-hour response, 5-10 day completion. Fixed pricing from $549 + GST. Expert auditors specializing in mortgage broker trust account compliance.",
   keywords: [
     "mortgage broker trust account audit",
     "mortgage broker audit",
     "trust account audit mortgage broker",
     "mortgage broker compliance audit",
-    "ASIC mortgage broker audit",
+    "regulatory mortgage broker audit",
     "NCCP compliance audit",
     "mortgage broker trust fund audit",
     "home loan broker audit",
     "mortgage broker audit cost",
     "mortgage broker audit requirements",
-    "ASIC trust account audit",
+    "regulatory trust account audit",
     "mortgage broker compliance",
     "home loan trust account",
   ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mortgage Broker Trust Account Audit Services | AuditsPro AU",
     description:
-      "Professional trust account audits for mortgage brokers. Ensure ASIC compliance and NCCP requirements. Expert auditors, fast turnaround, fixed pricing.",
+      "Professional trust account audits for mortgage brokers. Ensure regulatory compliance and NCCP requirements. Expert auditors, fast turnaround, fixed pricing.",
     url: "/services/mortgage-brokers",
     siteName: "AuditsPro AU",
     images: [
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mortgage Broker Trust Account Audit Services | AuditsPro AU",
     description:
-      "Professional trust account audits for mortgage brokers. ASIC compliance, NCCP requirements, expert auditors, fast completion.",
+      "Professional trust account audits for mortgage brokers. Regulatory compliance, NCCP requirements, expert auditors, fast completion.",
     images: ["/twitter-mortgage-broker-audit.jpg"],
   },
   robots: {
@@ -99,7 +99,7 @@ const jsonLd = {
   "@type": "Service",
   name: "Mortgage Broker Trust Account Audit Services",
   description:
-    "Professional trust account audit services for mortgage brokers in Australia, ensuring ASIC compliance and NCCP requirements.",
+    "Professional trust account audit services for mortgage brokers in Australia, ensuring regulatory compliance and NCCP requirements.",
   url: "https://auditspro.com.au/services/mortgage-brokers",
   provider: {
     "@type": "Organization",
@@ -153,8 +153,8 @@ const jsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "ASIC Compliance Review",
-          description: "ASIC compliance assessment and review for mortgage brokers",
+          name: "Regulatory Compliance Review",
+          description: "Regulatory compliance assessment and review for mortgage brokers",
         },
       },
     ],
@@ -257,7 +257,7 @@ export default function MortgageBrokersPage() {
                     Trust Account Audits for Mortgage Brokers
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
-                    Professional trust account audits for mortgage brokers ensuring ASIC compliance and NCCP requirements.
+                    Professional trust account audits for mortgage brokers ensuring regulatory compliance and NCCP requirements.
                     Our comprehensive <Link href="/services" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">audit services</Link> cover 
                     all professional sectors, including <Link href="/services/real-estate-agents" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">real estate agents</Link> and 
                     <Link href="/services/financial-planners" className="text-blue-800 hover:text-blue-900 underline underline-offset-2"> financial planners</Link>.
@@ -289,8 +289,8 @@ export default function MortgageBrokersPage() {
             {[
               {
                 icon: Shield,
-                title: "ASIC Compliant",
-                desc: "All reports meet ASIC requirements and NCCP compliance standards",
+                title: "Regulatory Compliant",
+                desc: "All reports meet regulatory requirements and NCCP compliance standards",
               },
               {
                 icon: Clock,
@@ -337,7 +337,7 @@ export default function MortgageBrokersPage() {
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                 Mortgage brokers holding client funds or receiving commissions must maintain 
-                trust accounts and ensure compliance with ASIC regulations and NCCP requirements.
+                trust accounts and ensure compliance with regulatory requirements and NCCP requirements.
               </p>
             </Motion>
 
@@ -345,8 +345,8 @@ export default function MortgageBrokersPage() {
               {[
                 {
                   icon: FileText,
-                  title: "ASIC Compliance",
-                  desc: "Meet ASIC regulatory requirements for mortgage brokers holding client funds.",
+                  title: "Regulatory Compliance",
+                  desc: "Meet regulatory requirements for mortgage brokers holding client funds.",
                 },
                 {
                   icon: Shield,
@@ -390,7 +390,7 @@ export default function MortgageBrokersPage() {
           </div>
         </section>
 
-        {/* ASIC and NCCP Requirements */}
+        {/* Regulatory and NCCP Requirements */}
         <section className="py-16">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -400,15 +400,15 @@ export default function MortgageBrokersPage() {
                 transition={motionTransitions.smooth}
               >
                 <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
-                  ASIC and NCCP Trust Account Requirements
+                  Regulatory and NCCP Trust Account Requirements
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  Mortgage brokers must comply with ASIC regulations and NCCP requirements 
+                  Mortgage brokers must comply with regulatory requirements and NCCP requirements 
                   when handling client funds, receiving commissions, or managing trust accounts. 
                   Similar to <Link href="/services/financial-planners" className="text-blue-600 hover:text-blue-800 font-medium">financial planners</Link> and 
                   <Link href="/services/real-estate-agents" className="text-blue-600 hover:text-blue-800 font-medium ml-1">real estate agents</Link>, 
                   mortgage brokers require specialized <Link href="/services" className="text-blue-600 hover:text-blue-800 font-medium">audit services</Link> to 
-                  ensure regulatory compliance and client fund protection. Our ASIC registered auditors also provide 
+                  ensure regulatory compliance and client fund protection. Our expert auditors also provide 
                   <Link href="/services/conveyancers" className="text-blue-600 hover:text-blue-800 font-medium">conveyancer audits</Link> and 
                   <Link href="/services/smsf-trustees" className="text-blue-600 hover:text-blue-800 font-medium">SMSF trustee audits</Link> for 
                   comprehensive professional services compliance.
@@ -416,7 +416,7 @@ export default function MortgageBrokersPage() {
                 
                 <div className="space-y-4">
                   {[
-                    "ASIC Australian Credit License compliance",
+                    "Australian Credit License compliance",
                     "Trust account for client funds and commissions",
                     "NCCP responsible lending obligations",
                     "Regular audit and compliance reviews",
@@ -446,7 +446,7 @@ export default function MortgageBrokersPage() {
                     "Trust account reconciliation",
                     "Commission handling and distribution",
                     "Client fund segregation",
-                    "ASIC compliance verification",
+                    "Regulatory compliance verification",
                     "NCCP obligation assessment",
                     "Record keeping compliance",
                     "Fund movement tracking",
@@ -464,7 +464,7 @@ export default function MortgageBrokersPage() {
           </div>
         </section>
 
-        {/* ASIC License Types */}
+        {/* Regulatory License Types */}
         <section className="py-16 bg-slate-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
@@ -474,10 +474,10 @@ export default function MortgageBrokersPage() {
               className="text-center mb-12"
             >
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
-                ASIC License Types and Trust Account Requirements
+                License Types and Trust Account Requirements
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                Different ASIC license types have varying trust account requirements. 
+                Different license types have varying trust account requirements. 
                 Our audits ensure compliance with your specific license obligations.
               </p>
             </Motion>
@@ -555,7 +555,7 @@ export default function MortgageBrokersPage() {
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                 Comprehensive audit process designed to ensure full compliance 
-                with ASIC regulations and NCCP requirements for mortgage brokers.
+                with regulatory requirements and NCCP requirements for mortgage brokers.
               </p>
             </Motion>
 
@@ -564,7 +564,7 @@ export default function MortgageBrokersPage() {
                 {
                   step: "1",
                   title: "License Assessment",
-                  desc: "Review ASIC license type, conditions, and trust account obligations",
+                  desc: "Review license type, conditions, and trust account obligations",
                 },
                 {
                   step: "2",
@@ -574,7 +574,7 @@ export default function MortgageBrokersPage() {
                 {
                   step: "3",
                   title: "Compliance Testing",
-                  desc: "Test compliance with ASIC regulations and NCCP requirements",
+                  desc: "Test compliance with regulatory requirements and NCCP requirements",
                 },
                 {
                   step: "4",
@@ -635,7 +635,7 @@ export default function MortgageBrokersPage() {
                   <ul className="text-left space-y-2 mb-6">
                     {[
                       "Comprehensive trust account audit",
-                      "ASIC compliance verification",
+                      "Regulatory compliance verification",
                       "NCCP requirement assessment",
                       "24-hour response time",
                       "5-10 day completion",
@@ -674,14 +674,14 @@ export default function MortgageBrokersPage() {
                   Get Your Mortgage Broker Audit Today
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  Ready to ensure your ASIC compliance and trust account obligations? 
+                  Ready to ensure your regulatory compliance and trust account obligations? 
                   Contact our expert auditors for a professional audit tailored to your mortgage brokerage needs.
                 </p>
                 
                 <div className="space-y-4">
                   {[
                     { icon: Clock, text: "24-hour response guarantee" },
-                    { icon: Shield, text: "ASIC compliant reports" },
+                    { icon: Shield, text: "Regulatory compliant reports" },
                     { icon: Award, text: "Expert mortgage broker auditors" },
                     { icon: DollarSign, text: "Fixed pricing from $549 + GST" },
                   ].map((item, index) => (
@@ -734,9 +734,9 @@ export default function MortgageBrokersPage() {
                 },
                 {
                   title: "Business Brokers",
-                  desc: "Specialized audit services for business brokers managing client funds, transaction deposits, and ensuring compliance with ASIC business transfer regulations.",
+                  desc: "Specialized audit services for business brokers managing client funds, transaction deposits, and ensuring compliance with regulatory business transfer requirements.",
                   link: "/services/business-brokers",
-                  keywords: "business broker audit, ASIC compliance, transaction deposit audits"
+                  keywords: "business broker audit, regulatory compliance, transaction deposit audits"
                 },
                 {
                   title: "Accountants",
@@ -758,9 +758,9 @@ export default function MortgageBrokersPage() {
                 },
                 {
                   title: "Financial Planners",
-                  desc: "AFSL trust account audits for financial planning firms ensuring compliance with ASIC requirements, client money handling, and professional indemnity standards.",
+                  desc: "AFSL trust account audits for financial planning firms ensuring compliance with regulatory requirements, client money handling, and professional indemnity standards.",
                   link: "/services/financial-planners",
-                  keywords: "financial planner audit, AFSL compliance, ASIC trust account requirements"
+                  keywords: "financial planner audit, AFSL compliance, regulatory trust account requirements"
                 },
                 {
                   title: "SMSF Trustees",

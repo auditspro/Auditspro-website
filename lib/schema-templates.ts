@@ -1,16 +1,26 @@
-// Organization schema (reusable across all pages)
+// Enhanced Organization schema with LocalBusiness for better local SEO
 export const organizationSchema = {
-  "@type": "Organization",
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
   "name": "AuditsPro AU",
   "url": "https://auditspro.com.au",
   "logo": "https://auditspro.com.au/audits_pro_icon/apple-touch-icon.png",
-  "description": "Professional trust account audit services for Australian businesses",
+  "description": "Professional trust account auditing services for Australian businesses and professionals",
+  "priceRange": "$549 - $749",
+  "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+  "currenciesAccepted": "AUD",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+61-2-8006-2335",
     "contactType": "customer service",
     "areaServed": "AU",
-    "availableLanguage": "English"
+    "availableLanguage": "English",
+    "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
   },
   "address": {
     "@type": "PostalAddress",
@@ -19,6 +29,102 @@ export const organizationSchema = {
     "addressRegion": "VIC",
     "postalCode": "3000",
     "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -37.8136,
+    "longitude": 144.9631
+  },
+  "areaServed": [
+    {
+      "@type": "State",
+      "name": "New South Wales",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Australia"
+      }
+    },
+    {
+      "@type": "State", 
+      "name": "Victoria",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Australia"
+      }
+    },
+    {
+      "@type": "State",
+      "name": "Queensland", 
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Australia"
+      }
+    },
+    {
+      "@type": "State",
+      "name": "Western Australia",
+      "containedInPlace": {
+        "@type": "Country", 
+        "name": "Australia"
+      }
+    },
+    {
+      "@type": "State",
+      "name": "South Australia",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Australia"
+      }
+    },
+    {
+      "@type": "State",
+      "name": "Tasmania",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Australia"
+      }
+    }
+  ],
+  "serviceArea": {
+    "@type": "Country",
+    "name": "Australia"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Trust Account Auditing Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Real Estate Trust Account Auditing",
+          "description": "Professional trust account auditing for real estate agents"
+        }
+      },
+      {
+        "@type": "Offer", 
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Conveyancer Trust Account Auditing",
+          "description": "Specialized trust account auditing for conveyancers"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service", 
+          "name": "Solicitor Trust Account Auditing",
+          "description": "Professional trust account auditing for legal practices"
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
   },
   "sameAs": [
     "https://www.linkedin.com/company/auditspro-au",
@@ -177,7 +283,124 @@ export function generateBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]) {
   };
 }
 
-// Local Business schema template (for future location pages)
+// State-specific LocalBusiness schema template for better local SEO
+export interface StateBusinessData {
+  state: string;
+  stateCode: string;
+  serviceType: string;
+  regulatoryBody: string;
+  complianceAct?: string;
+  dueDate?: string;
+  majorCities: string[];
+}
+
+export function generateStateLocalBusinessSchema(stateData: StateBusinessData) {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "name": `AuditsPro AU - ${stateData.state} Trust Account Auditing`,
+    "description": `Professional trust account auditing services for ${stateData.serviceType} in ${stateData.state}. Compliant with ${stateData.regulatoryBody} requirements.`,
+    "url": `https://auditspro.com.au/services/${stateData.serviceType.toLowerCase().replace(/\s+/g, '-')}/${stateData.stateCode.toLowerCase()}`,
+    "telephone": "+61-2-8006-2335",
+    "email": "info@auditspro.com.au",
+    "priceRange": "$549 - $749",
+    "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+    "currenciesAccepted": "AUD",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3 Albert Coates Lane",
+      "addressLocality": "Melbourne",
+      "addressRegion": "VIC",
+      "postalCode": "3000",
+      "addressCountry": "AU"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": stateData.state,
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Australia"
+      }
+    },
+    "serviceArea": {
+      "@type": "State", 
+      "name": stateData.state,
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Australia"
+      }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `${stateData.state} Trust Account Auditing Services`,
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": `${stateData.state} ${stateData.serviceType} Trust Account Auditing`,
+            "description": `Professional trust account auditing for ${stateData.serviceType} in ${stateData.state}, compliant with ${stateData.regulatoryBody} requirements.`,
+            "provider": organizationSchema,
+            "areaServed": {
+              "@type": "State",
+              "name": stateData.state
+            }
+          },
+          "price": "549",
+          "priceCurrency": "AUD",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2024-12-31"
+        }
+      ]
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+61-2-8006-2335",
+      "contactType": "customer service",
+      "areaServed": stateData.stateCode,
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/auditspro-au",
+      "https://twitter.com/auditsproau"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating", 
+      "ratingValue": "4.9",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Regulatory Compliance",
+        "value": stateData.regulatoryBody
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Service Area",
+        "value": stateData.state
+      },
+      stateData.complianceAct ? {
+        "@type": "PropertyValue",
+        "name": "Compliance Act",
+        "value": stateData.complianceAct
+      } : null,
+      stateData.dueDate ? {
+        "@type": "PropertyValue", 
+        "name": "Annual Due Date",
+        "value": stateData.dueDate
+      } : null
+    ].filter(Boolean)
+  };
+}
 export interface LocalBusinessData {
   name: string;
   address: {

@@ -409,7 +409,7 @@ export default function BusinessBrokersPage() {
                   Similar to <Link href="/services/real-estate-agents" className="text-blue-600 hover:text-blue-700 font-medium">real estate agents</Link> and 
                   <Link href="/services/mortgage-brokers" className="text-blue-600 hover:text-blue-700 font-medium ml-1">mortgage brokers</Link>, 
                   business brokers require specialized <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium ml-1">audit services</Link> to ensure regulatory compliance. 
-                  Our ASIC registered auditors also provide comprehensive audits for 
+                  Our expert auditors also provide comprehensive audits for 
                   <Link href="/services/conveyancers" className="text-blue-600 hover:text-blue-700 font-medium">conveyancers</Link>, 
                   <Link href="/services/financial-planners" className="text-blue-600 hover:text-blue-700 font-medium">financial planners</Link>, and 
                   <Link href="/services/smsf-trustees" className="text-blue-600 hover:text-blue-700 font-medium">SMSF trustees</Link> across Australia.
@@ -771,9 +771,9 @@ export default function BusinessBrokersPage() {
                 },
                 {
                   title: "Mortgage Brokers",
-                  desc: "ASIC and NCCP compliant trust account audits for mortgage brokers handling client funds, commissions, and ensuring responsible lending obligations.",
+                  desc: "Regulatory and NCCP compliant trust account audits for mortgage brokers handling client funds, commissions, and ensuring responsible lending obligations.",
                   link: "/services/mortgage-brokers",
-                  keywords: "mortgage broker audit, ASIC compliance, NCCP requirements"
+                  keywords: "mortgage broker audit, regulatory compliance, NCCP requirements"
                 },
                 {
                   title: "Accountants",
@@ -783,9 +783,9 @@ export default function BusinessBrokersPage() {
                 },
                 {
                   title: "Financial Planners",
-                  desc: "AFSL trust account audits for financial planning firms ensuring compliance with ASIC requirements, client money handling, and professional indemnity standards.",
+                  desc: "AFSL trust account audits for financial planning firms ensuring compliance with regulatory requirements, client money handling, and professional indemnity standards.",
                   link: "/services/financial-planners",
-                  keywords: "financial planner audit, AFSL compliance, ASIC trust account requirements"
+                  keywords: "financial planner audit, AFSL compliance, regulatory trust account requirements"
                 },
                 {
                   title: "SMSF Trustees",

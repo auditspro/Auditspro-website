@@ -42,7 +42,7 @@ export function HowItWorksHero() {
           {/* Subtitle */}
           <p className="mb-8 text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             A complete, detailed guide to submitting your trust account audit
-            online. From email verification to receiving your ASIC-compliant
+            online. From email verification to receiving your regulatory-compliant
             audit report, we&apos;ll walk you through every step of the process.
           </p>
 

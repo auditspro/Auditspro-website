@@ -3,14 +3,25 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Motion } from "@/components/ui/motion";
+import {
+  EnvelopeIcon,
+  PhoneIcon,
+  BuildingOfficeIcon,
+  ChatBubbleLeftRightIcon,
+  CalendarDaysIcon,
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
+} from "@heroicons/react/24/outline";
 
 interface ContactFormProps {
   title?: string;
   subtitle?: string;
   showTitle?: boolean;
-  variant?: "default" | "booking" | "contact";
+  variant?: "default" | "booking" | "contact" | "legal" | "solicitor";
   onSubmit?: (data: ContactFormData) => void;
   className?: string;
+  theme?: "light" | "dark" | "brand";
+  size?: "sm" | "md" | "lg";
 }
 
 interface ContactFormData {
@@ -22,6 +33,8 @@ interface ContactFormData {
   preferredDate?: string;
   preferredTime?: string;
   auditType?: string;
+  practiceType?: string;
+  trustAccounts?: string;
 }
 
 export function ContactForm({
@@ -31,6 +44,8 @@ export function ContactForm({
   variant = "default",
   onSubmit,
   className = "",
+  theme = "light",
+  size = "md",
 }: ContactFormProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -41,6 +56,8 @@ export function ContactForm({
     preferredDate: "",
     preferredTime: "",
     auditType: "",
+    practiceType: "",
+    trustAccounts: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -76,6 +93,9 @@ export function ContactForm({
           preferredDate: formData.preferredDate || undefined,
           preferredTime: formData.preferredTime || undefined,
           auditType: formData.auditType || undefined,
+          practiceType: formData.practiceType || undefined,
+          trustAccounts: formData.trustAccounts || undefined,
+          formVariant: variant,
         };
 
         const response = await fetch('/api/contact', {
@@ -106,6 +126,8 @@ export function ContactForm({
         preferredDate: "",
         preferredTime: "",
         auditType: "",
+        practiceType: "",
+        trustAccounts: "",
       });
     } catch (error) {
       console.error("Form submission error:", error);
@@ -116,6 +138,38 @@ export function ContactForm({
   };
 
   const isBookingVariant = variant === "booking";
+  const isLegalVariant = variant === "legal" || variant === "solicitor";
+  
+  // Theme classes
+  const themeClasses = {
+    light: {
+      container: "bg-white border-slate-200",
+      label: "text-slate-700",
+      input: "border-slate-300 focus:ring-brand-500 focus:border-brand-500 bg-white text-slate-900",
+      button: "bg-brand-900 hover:bg-brand-800 text-white",
+    },
+    dark: {
+      container: "bg-slate-900 border-slate-700",
+      label: "text-slate-300",
+      input: "border-slate-600 focus:ring-brand-400 focus:border-brand-400 bg-slate-800 text-slate-100",
+      button: "bg-brand-600 hover:bg-brand-700 text-white",
+    },
+    brand: {
+      container: "bg-brand-50 border-brand-200",
+      label: "text-brand-900",
+      input: "border-brand-300 focus:ring-brand-500 focus:border-brand-500 bg-white text-brand-900",
+      button: "bg-brand-900 hover:bg-brand-800 text-white",
+    },
+  };
+
+  const currentTheme = themeClasses[theme];
+  
+  // Size classes
+  const sizeClasses = {
+    sm: "text-sm",
+    md: "text-base",
+    lg: "text-lg",
+  };
 
   return (
     <Motion
@@ -126,8 +180,12 @@ export function ContactForm({
     >
       {showTitle && (
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
-          <p className="text-lg text-gray-600">{subtitle}</p>
+          <h2 className={`text-3xl font-bold text-brand-950 mb-4 ${sizeClasses[size]}`}>
+            {title}
+          </h2>
+          <p className={`text-slate-600 ${sizeClasses[size]}`}>
+            {subtitle}
+          </p>
         </div>
       )}
 
@@ -137,9 +195,11 @@ export function ContactForm({
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
             >
-              Full Name *
+              <div className="flex items-center gap-2">
+                <span>Full Name *</span>
+              </div>
             </label>
             <input
               type="text"
@@ -148,7 +208,7 @@ export function ContactForm({
               value={formData.name}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
               placeholder="Enter your full name"
             />
           </div>
@@ -157,9 +217,12 @@ export function ContactForm({
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
             >
-              Email Address *
+              <div className="flex items-center gap-2">
+                <EnvelopeIcon className="size-4" />
+                <span>Email Address *</span>
+              </div>
             </label>
             <input
               type="email"
@@ -168,7 +231,7 @@ export function ContactForm({
               value={formData.email}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
               placeholder="Enter your email address"
             />
           </div>
@@ -179,9 +242,12 @@ export function ContactForm({
           <div>
             <label
               htmlFor="phone"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
             >
-              Phone Number {isBookingVariant ? "*" : "(Optional)"}
+              <div className="flex items-center gap-2">
+                <PhoneIcon className="size-4" />
+                <span>Phone Number {isBookingVariant || isLegalVariant ? "*" : "(Optional)"}</span>
+              </div>
             </label>
             <input
               type="tel"
@@ -189,8 +255,8 @@ export function ContactForm({
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              required={isBookingVariant}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              required={isBookingVariant || isLegalVariant}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
               placeholder="Enter your phone number"
             />
           </div>
@@ -199,9 +265,15 @@ export function ContactForm({
           <div>
             <label
               htmlFor="company"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
             >
-              Company/Organization {isBookingVariant ? "*" : "(Optional)"}
+              <div className="flex items-center gap-2">
+                <BuildingOfficeIcon className="size-4" />
+                <span>
+                  {isLegalVariant ? "Legal Practice/Firm" : "Company/Organization"} 
+                  {isBookingVariant || isLegalVariant ? " *" : " (Optional)"}
+                </span>
+              </div>
             </label>
             <input
               type="text"
@@ -209,12 +281,66 @@ export function ContactForm({
               name="company"
               value={formData.company}
               onChange={handleInputChange}
-              required={isBookingVariant}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-              placeholder="Enter your company name"
+              required={isBookingVariant || isLegalVariant}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
+              placeholder={isLegalVariant ? "Enter your legal practice name" : "Enter your company name"}
             />
           </div>
         </div>
+
+        {/* Legal-specific fields */}
+        {isLegalVariant && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Practice Type */}
+            <div>
+              <label
+                htmlFor="practiceType"
+                className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
+              >
+                Practice Type *
+              </label>
+              <select
+                id="practiceType"
+                name="practiceType"
+                value={formData.practiceType}
+                onChange={handleInputChange}
+                required
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
+              >
+                <option value="">Select practice type</option>
+                <option value="sole-practitioner">Sole Practitioner</option>
+                <option value="small-firm">Small Firm (2-10 lawyers)</option>
+                <option value="medium-firm">Medium Firm (11-50 lawyers)</option>
+                <option value="large-firm">Large Firm (50+ lawyers)</option>
+                <option value="in-house">In-House Legal</option>
+              </select>
+            </div>
+
+            {/* Trust Accounts */}
+            <div>
+              <label
+                htmlFor="trustAccounts"
+                className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
+              >
+                Number of Trust Accounts *
+              </label>
+              <select
+                id="trustAccounts"
+                name="trustAccounts"
+                value={formData.trustAccounts}
+                onChange={handleInputChange}
+                required
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
+              >
+                <option value="">Select number</option>
+                <option value="1">1 Trust Account</option>
+                <option value="2-3">2-3 Trust Accounts</option>
+                <option value="4-5">4-5 Trust Accounts</option>
+                <option value="6+">6+ Trust Accounts</option>
+              </select>
+            </div>
+          </div>
+        )}
 
         {/* Booking-specific fields */}
         {isBookingVariant && (
@@ -224,9 +350,12 @@ export function ContactForm({
               <div>
                 <label
                   htmlFor="preferredDate"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
                 >
-                  Preferred Date *
+                  <div className="flex items-center gap-2">
+                    <CalendarDaysIcon className="size-4" />
+                    <span>Preferred Date *</span>
+                  </div>
                 </label>
                 <input
                   type="date"
@@ -236,7 +365,7 @@ export function ContactForm({
                   onChange={handleInputChange}
                   required
                   min={new Date().toISOString().split("T")[0]}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
                 />
               </div>
 
@@ -244,7 +373,7 @@ export function ContactForm({
               <div>
                 <label
                   htmlFor="preferredTime"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
                 >
                   Preferred Time *
                 </label>
@@ -254,7 +383,7 @@ export function ContactForm({
                   value={formData.preferredTime}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
                 >
                   <option value="">Select a time</option>
                   <option value="09:00">9:00 AM</option>
@@ -271,7 +400,7 @@ export function ContactForm({
             <div>
               <label
                 htmlFor="auditType"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
               >
                 Audit Type *
               </label>
@@ -281,7 +410,7 @@ export function ContactForm({
                 value={formData.auditType}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${currentTheme.input}`}
               >
                 <option value="">Select audit type</option>
                 <option value="trust-account">Trust Account Audit</option>
@@ -297,9 +426,15 @@ export function ContactForm({
         <div>
           <label
             htmlFor="message"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className={`block text-sm font-medium mb-2 ${currentTheme.label}`}
           >
-            {isBookingVariant ? "Additional Requirements" : "Message"} *
+            <div className="flex items-center gap-2">
+              <ChatBubbleLeftRightIcon className="size-4" />
+              <span>
+                {isBookingVariant ? "Additional Requirements" : 
+                 isLegalVariant ? "Legal Audit Requirements" : "Message"} *
+              </span>
+            </div>
           </label>
           <textarea
             id="message"
@@ -308,9 +443,11 @@ export function ContactForm({
             onChange={handleInputChange}
             required
             rows={5}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical"
+            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors resize-vertical ${currentTheme.input}`}
             placeholder={
-              isBookingVariant
+              isLegalVariant
+                ? "Please describe your legal practice audit requirements, compliance concerns, or specific Law Society requirements..."
+                : isBookingVariant
                 ? "Please describe your specific audit requirements, any compliance concerns, or questions you have..."
                 : "Tell us about your project or how we can help you..."
             }
@@ -323,7 +460,7 @@ export function ContactForm({
             type="submit"
             disabled={isSubmitting}
             size="lg"
-            className="w-full md:w-auto gap-2 bg-blue-900 hover:bg-blue-800 text-white"
+            className={`w-full md:w-auto gap-2 ${currentTheme.button}`}
           >
             {isSubmitting ? (
               <>
@@ -349,8 +486,10 @@ export function ContactForm({
                 </svg>
                 Submitting...
               </>
+            ) : isLegalVariant ? (
+              "Start Legal Audit"
             ) : isBookingVariant ? (
-              "Start Audit"
+              "Book Consultation"
             ) : (
               "Send Message"
             )}
@@ -364,11 +503,16 @@ export function ContactForm({
             animate={{ opacity: 1, y: 0 }}
             className="text-center p-4 bg-green-50 border border-green-200 rounded-lg"
           >
-            <p className="text-green-800 font-medium">
-              {isBookingVariant
-                ? "Demo booking request submitted successfully! We&apos;ll contact you within 24 hours to confirm your appointment."
-                : "Message sent successfully! We&apos;ll get back to you soon."}
-            </p>
+            <div className="flex items-center justify-center gap-2 text-green-800 font-medium">
+              <CheckCircleIcon className="size-5" />
+              <p>
+                {isLegalVariant
+                  ? "Legal audit request submitted successfully! We'll contact you within 24 hours to discuss your Law Society compliance requirements."
+                  : isBookingVariant
+                  ? "Consultation booking submitted successfully! We'll contact you within 24 hours to confirm your appointment."
+                  : "Message sent successfully! We'll get back to you soon."}
+              </p>
+            </div>
           </Motion>
         )}
 
@@ -378,10 +522,14 @@ export function ContactForm({
             animate={{ opacity: 1, y: 0 }}
             className="text-center p-4 bg-red-50 border border-red-200 rounded-lg"
           >
-            <p className="text-red-800 font-medium">
-              There was an error submitting your request. Please try again or
-              contact us directly.
-            </p>
+            <div className="flex items-center justify-center gap-2 text-red-800 font-medium">
+              <ExclamationTriangleIcon className="size-5" />
+              <p>
+                There was an error submitting your request. Please try again or
+                contact us directly at{" "}
+                <a href="tel:1300283487" className="underline">1300 AUDITS</a>.
+              </p>
+            </div>
           </Motion>
         )}
       </form>

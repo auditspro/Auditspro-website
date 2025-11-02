@@ -1,217 +1,751 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { Motion } from "@/components/ui/motion";
 import {
-  BookOpen,
-  Clock,
-  CheckCircle2,
-  ArrowRight,
-  Mail,
-  Building2,
-  FileText,
-  Download,
-  Zap,
-} from "lucide-react";
+  ReactFlow,
+  Background,
+  Controls,
+  MiniMap,
+  Handle,
+  Position,
+  Node,
+  Edge,
+  useReactFlow,
+  ReactFlowProvider,
+  applyNodeChanges,
+  applyEdgeChanges,
+  Panel,
+  NodeProps,
+  OnNodesChange,
+  OnEdgesChange,
+} from "@xyflow/react";
+import "@xyflow/react/dist/style.css";
+import {
+  Motion,
+  motionVariants,
+  motionTransitions,
+  motionViewport,
+} from "@/components/ui/motion";
+import {
+  DocumentTextIcon,
+  MagnifyingGlassIcon,
+  ShieldCheckIcon,
+  DocumentCheckIcon,
+  ClockIcon,
+  CheckCircleIcon,
+  CreditCardIcon,
+  ArrowRightIcon,
+  UserIcon,
+  InformationCircleIcon,
+  HomeIcon,
+  BuildingOfficeIcon,
+  BookOpenIcon,
+  EnvelopeIcon,
+  BuildingOffice2Icon,
+  ArrowDownTrayIcon,
+  BoltIcon,
+} from "@heroicons/react/24/outline";
 
-export function ProcessSection() {
-  const processSteps = [
-    {
-      step: 1,
-      icon: Mail,
-      title: "Book Online",
-      description:
-        "Request your audit through our secure online portal. Verify your email and complete quick profile setup.",
-      timeEstimate: "2 mins",
-      features: [
-        "Email verification",
-        "Quick profile setup",
-        "Instant confirmation",
-      ],
-      delay: 0.1,
-    },
-    {
-      step: 2,
-      icon: Building2,
-      title: "Business Details",
-      description:
-        "Enter your ABN or search by business name. We auto-populate your company details from the Australian Business Register.",
-      timeEstimate: "3 mins",
-      features: ["ABN lookup", "Auto-fill details", "Multi-account support"],
-      delay: 0.2,
-    },
-    {
-      step: 3,
-      icon: FileText,
-      title: "Trust Account Setup",
-      description:
-        "Add your trust account details including BSB, account numbers, and state-specific compliance information.",
-      timeEstimate: "5 mins",
-      features: [
-        "Secure data entry",
-        "State compliance checks",
-        "Guided checklist",
-      ],
-      delay: 0.3,
-    },
-    {
-      step: 4,
-      icon: Download,
-      title: "Review & Submit",
-      description:
-        "Review your information, see transparent pricing, and submit. Download your comprehensive audit report within 5-10 business days.",
-      timeEstimate: "2 mins",
-      features: [
-        "Fixed pricing preview",
-        "Secure submission",
-        "Report download portal",
-      ],
-      delay: 0.4,
-    },
-  ];
+// Type definitions
+interface FlowNodeData {
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  iconBg: string;
+  iconColor: string;
+  badge?: string;
+  badgeColor?: string;
+  detail?: string;
+  detailColor?: string;
+  borderColor: string;
+  details: string;
+}
 
-  const quickStats = [
-    { value: "15-30", label: "Minutes to Complete", icon: Clock },
-    { value: "100%", label: "Online Process", icon: Zap },
-    { value: "5-10", label: "Days Turnaround", icon: CheckCircle2 },
-  ];
+interface CustomNodeData {
+  node: FlowNodeData;
+  isComplete: boolean;
+  onClick: (nodeData: FlowNodeData) => void;
+}
+
+// Custom Node Component with proper typing
+function CustomFlowNode({ data }: NodeProps<CustomNodeData>) {
+  const { node, isComplete, onClick } = data;
 
   return (
-    <section className="container relative mx-auto px-4 sm:px-6 pb-16">
-      <div className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-8 md:p-12 supports-[backdrop-filter]:bg-white/40">
-        {/* Header */}
-        <Motion
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-900 mb-4">
-            <Zap className="size-4" />
-            <span>Simple & Fast Process</span>
+    <div
+      className="relative group cursor-pointer"
+      onClick={() => onClick(node)}
+    >
+      <Handle type="target" position={Position.Top} className="!opacity-0" />
+
+      <div
+        className={`rounded-xl lg:rounded-2xl border-2 ${node.borderColor} ${
+          isComplete
+            ? "bg-gradient-to-br from-green-50/30 to-white"
+            : "bg-white"
+        } p-4 shadow-md hover:shadow-2xl transition-all duration-500 ease-out w-[180px] hover:scale-105`}
+      >
+        <div
+          className={`absolute inset-0 rounded-xl lg:rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 ease-out ${
+            isComplete
+              ? "bg-gradient-to-br from-green-50/20"
+              : "bg-gradient-to-br from-brand-50/20"
+          } to-transparent pointer-events-none`}
+        />
+
+        <div className="relative z-10">
+          <div
+            className={`inline-flex rounded-lg ${node.iconBg} p-2.5 mb-2.5 group-hover:scale-110 transition-transform duration-300 ease-out`}
+          >
+            <node.icon className={`size-5 ${node.iconColor}`} />
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-brand-950 mb-4">
-            How Our Conveyancer Audit Process Works
-          </h2>
+          {node.badge && (
+            <div
+              className={`inline-block px-2.5 py-1 rounded-full text-xs font-semibold mb-2 border ${node.badgeColor}`}
+            >
+              {node.badge}
+            </div>
+          )}
+          {node.detail && (
+            <div
+              className={`inline-block px-2.5 py-1 rounded-full text-xs font-semibold mb-2 border ${node.detailColor}`}
+            >
+              {node.detail}
+            </div>
+          )}
 
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-6">
-            Complete your trust account audit submission in just 15-30 minutes.
-            Simple, efficient, and completely online.
+          <h3
+            className={`font-bold mb-1 text-sm ${
+              isComplete ? "text-green-900" : "text-brand-950"
+            }`}
+          >
+            {node.title}
+          </h3>
+          <p className="text-xs font-medium mb-1.5 text-brand-600">
+            {node.subtitle}
+          </p>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            {node.description}
+          </p>
+        </div>
+      </div>
+
+      <Handle type="source" position={Position.Bottom} className="!opacity-0" />
+    </div>
+  );
+}
+
+const nodeTypes = {
+  custom: CustomFlowNode,
+};
+
+// Conveyancer-specific flow nodes data
+const flowNodesData: Record<string, FlowNodeData> = {
+  start: {
+    title: "Conveyancer Inquiry",
+    subtitle: "Initial Contact",
+    description: "Submit your conveyancing practice audit requirements",
+    icon: UserIcon,
+    iconBg: "bg-brand-100",
+    iconColor: "text-brand-700",
+    badge: "Start Here",
+    badgeColor: "bg-green-100 text-green-700 border-green-200",
+    borderColor: "border-brand-300",
+    details:
+      "Contact us with your conveyancing practice details and trust account audit requirements. We'll provide initial consultation and scope assessment. Average response time: 24 hours.",
+  },
+  review: {
+    title: "Trust Account Review",
+    subtitle: "Expert Analysis",
+    description: "IPA qualified auditors examine your conveyancing records",
+    icon: MagnifyingGlassIcon,
+    iconBg: "bg-purple-100",
+    iconColor: "text-purple-700",
+    detail: "24-48 hours",
+    detailColor: "bg-purple-50 text-purple-700 border-purple-200",
+    borderColor: "border-purple-300",
+    details:
+      "Our IPA-qualified auditors with conveyancing expertise thoroughly review your trust account records, property settlement funds, and compliance procedures.",
+  },
+  compliance: {
+    title: "State Compliance Check",
+    subtitle: "Regulatory Assessment",
+    description: "Comprehensive state-specific compliance review",
+    icon: ShieldCheckIcon,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-700",
+    detail: "State-specific",
+    detailColor: "bg-blue-50 text-blue-700 border-blue-200",
+    borderColor: "border-blue-300",
+    details:
+      "We verify compliance with state conveyancing regulations and Property Law requirements. This includes trust account procedures, settlement fund handling, and regulatory reporting requirements.",
+  },
+  report: {
+    title: "Conveyancing Audit Report",
+    subtitle: "Final Delivery",
+    description: "State compliant audit report with findings",
+    icon: DocumentCheckIcon,
+    iconBg: "bg-amber-100",
+    iconColor: "text-amber-700",
+    detail: "5-10 days",
+    detailColor: "bg-amber-50 text-amber-700 border-amber-200",
+    borderColor: "border-amber-300",
+    details:
+      "You receive a comprehensive state-compliant audit report with detailed findings, recommendations, and compliance certification. Reports are submission-ready for regulatory authorities.",
+  },
+  complete: {
+    title: "State Compliant",
+    subtitle: "Certification",
+    description: "Your conveyancing practice audit is complete and compliant",
+    icon: CheckCircleIcon,
+    iconBg: "bg-green-100",
+    iconColor: "text-green-700",
+    badge: "Complete",
+    badgeColor: "bg-green-100 text-green-700 border-green-200",
+    borderColor: "border-green-300",
+    details:
+      "Congratulations! Your conveyancing practice trust account audit is complete and fully state compliant. You'll receive your certification and can proceed with confidence.",
+  },
+};
+
+// Process steps data for mobile fallback
+const processSteps = [
+  {
+    step: 1,
+    icon: EnvelopeIcon,
+    title: "Book Online",
+    description:
+      "Request your audit through our secure online portal. Verify your email and complete quick profile setup.",
+    timeEstimate: "2 mins",
+    features: [
+      "Email verification",
+      "Quick profile setup",
+      "Instant confirmation",
+    ],
+    delay: 0.1,
+  },
+  {
+    step: 2,
+    icon: BuildingOffice2Icon,
+    title: "Business Details",
+    description:
+      "Enter your ABN or search by business name. We auto-populate your company details from the Australian Business Register.",
+    timeEstimate: "3 mins",
+    features: ["ABN lookup", "Auto-fill details", "Multi-account support"],
+    delay: 0.2,
+  },
+  {
+    step: 3,
+    icon: DocumentTextIcon,
+    title: "Trust Account Setup",
+    description:
+      "Add your trust account details including BSB, account numbers, and state-specific compliance information.",
+    timeEstimate: "5 mins",
+    features: [
+      "Secure data entry",
+      "State compliance checks",
+      "Guided checklist",
+    ],
+    delay: 0.3,
+  },
+  {
+    step: 4,
+    icon: ArrowDownTrayIcon,
+    title: "Review & Submit",
+    description:
+      "Review your information, see transparent pricing, and submit. Download your comprehensive audit report within 5-10 business days.",
+    timeEstimate: "2 mins",
+    features: [
+      "Fixed pricing preview",
+      "Secure submission",
+      "Report download portal",
+    ],
+    delay: 0.4,
+  },
+];
+
+const quickStats = [
+  { value: "15-30", label: "Minutes to Complete", icon: ClockIcon },
+    { value: "100%", label: "Online Process", icon: BoltIcon },
+    { value: "5-10", label: "Days Turnaround", icon: CheckCircleIcon },
+];
+
+// Layout function for positioning nodes
+function getLayoutedElements(
+  nodes: Node<CustomNodeData>[],
+  direction = "LR"
+): Node<CustomNodeData>[] {
+  const nodeWidth = 180;
+  const nodeHeight = 120;
+  const horizontalSpacing = 250;
+  const verticalSpacing = 150;
+
+  if (direction === "TB") {
+    return nodes.map((node, index) => ({
+      ...node,
+      position: {
+        x: 0,
+        y: index * verticalSpacing,
+      },
+    }));
+  }
+
+  return nodes.map((node, index) => ({
+    ...node,
+    position: {
+      x: index * horizontalSpacing,
+      y: 0,
+    },
+  }));
+}
+
+// Interactive Flow Diagram Component
+function InteractiveFlowDiagram() {
+  const { fitView } = useReactFlow();
+  const [isMobile, setIsMobile] = useState(false);
+  const [selectedNode, setSelectedNode] = useState<FlowNodeData | null>(null);
+
+  // Handle node click
+  const handleNodeClick = useCallback((nodeData: FlowNodeData) => {
+    setSelectedNode(nodeData);
+  }, []);
+
+  // Define initial nodes with click handler
+  const getInitialNodes = useCallback((): Node<CustomNodeData>[] => {
+    return [
+      {
+        id: "1",
+        type: "custom",
+        position: { x: 0, y: 0 },
+        data: {
+          node: flowNodesData.start,
+          isComplete: false,
+          onClick: handleNodeClick,
+        },
+      },
+      {
+        id: "2",
+        type: "custom",
+        position: { x: 0, y: 0 },
+        data: {
+          node: flowNodesData.review,
+          isComplete: false,
+          onClick: handleNodeClick,
+        },
+      },
+      {
+        id: "3",
+        type: "custom",
+        position: { x: 0, y: 0 },
+        data: {
+          node: flowNodesData.compliance,
+          isComplete: false,
+          onClick: handleNodeClick,
+        },
+      },
+      {
+        id: "4",
+        type: "custom",
+        position: { x: 0, y: 0 },
+        data: {
+          node: flowNodesData.report,
+          isComplete: false,
+          onClick: handleNodeClick,
+        },
+      },
+      {
+        id: "5",
+        type: "custom",
+        position: { x: 0, y: 0 },
+        data: {
+          node: flowNodesData.complete,
+          isComplete: true,
+          onClick: handleNodeClick,
+        },
+      },
+    ];
+  }, [handleNodeClick]);
+
+  const [nodes, setNodes] = useState<Node<CustomNodeData>[]>(() =>
+    getInitialNodes()
+  );
+  const [edges, setEdges] = useState<Edge[]>([
+    {
+      id: "e1-2",
+      source: "1",
+      target: "2",
+      type: "smoothstep",
+      animated: true,
+      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+    },
+    {
+      id: "e2-3",
+      source: "2",
+      target: "3",
+      type: "smoothstep",
+      animated: true,
+      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+    },
+    {
+      id: "e3-4",
+      source: "3",
+      target: "4",
+      type: "smoothstep",
+      animated: true,
+      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+    },
+    {
+      id: "e4-5",
+      source: "4",
+      target: "5",
+      type: "smoothstep",
+      animated: true,
+      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+    },
+  ]);
+
+  // Handle node changes with proper typing
+  const onNodesChange: OnNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    []
+  );
+
+  const onEdgesChange: OnEdgesChange = useCallback(
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    []
+  );
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const direction = isMobile ? "TB" : "LR";
+
+  useEffect(() => {
+    const layoutedNodes = getLayoutedElements(getInitialNodes(), direction);
+    setNodes(layoutedNodes);
+
+    setTimeout(() => {
+      fitView({ padding: 0.2, duration: 800 });
+    }, 100);
+  }, [direction, fitView, getInitialNodes]);
+
+  return (
+    <>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        nodeTypes={nodeTypes}
+        fitView
+        nodesDraggable={true}
+        nodesConnectable={false}
+        elementsSelectable={true}
+        zoomOnScroll={true}
+        panOnScroll={false}
+        panOnDrag={true}
+        zoomOnPinch={true}
+        zoomOnDoubleClick={true}
+        preventScrolling={true}
+        className="bg-transparent"
+        proOptions={{ hideAttribution: true }}
+        minZoom={0.3}
+        maxZoom={2}
+      >
+        <Background gap={20} size={1} color="#c7d2fe" className="opacity-30" />
+        <Controls
+          position="bottom-right"
+          showInteractive={false}
+          className="!bg-white !border-brand-200 !rounded-lg !shadow-lg"
+        />
+        <MiniMap
+          nodeColor={(node) => {
+            if (node.id === "5") return "#dcfce7";
+            return "#ffffff";
+          }}
+          className="!bg-white !border-2 !border-brand-200 !rounded-lg !shadow-lg"
+          position="top-right"
+        />
+
+        {/* Info Panel */}
+        <Panel
+          position="top-left"
+          className="bg-white border-2 border-brand-200/70 rounded-lg shadow-lg p-3 max-w-xs"
+        >
+          <div className="flex items-start gap-2">
+            <InformationCircleIcon className="size-5 text-brand-600 flex-shrink-0 mt-0.5" />
+            <div>
+              <h4 className="text-sm font-bold text-brand-950 mb-1">
+                Interactive Conveyancing Audit Flow
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {isMobile
+                  ? "Pinch to zoom, drag to pan, tap nodes for details."
+                  : "Zoom with scroll, drag to pan, click nodes for details, drag nodes to reposition."}
+              </p>
+            </div>
+          </div>
+        </Panel>
+
+        {/* Selected Node Details Panel */}
+        {selectedNode && (
+          <Panel
+            position="bottom-left"
+            className="bg-white border-2 border-brand-200/70 rounded-lg shadow-xl p-4 max-w-sm"
+          >
+            <button
+              onClick={() => setSelectedNode(null)}
+              className="absolute top-2 right-2 text-slate-400 hover:text-slate-600 transition-colors"
+            >
+              ✕
+            </button>
+            <div className="flex items-start gap-3 mb-3">
+              <div
+                className={`inline-flex rounded-lg ${selectedNode.iconBg} p-2.5`}
+              >
+                <selectedNode.icon
+                  className={`size-5 ${selectedNode.iconColor}`}
+                />
+              </div>
+              <div className="flex-1">
+                <h4 className="text-sm font-bold text-brand-950 mb-1">
+                  {selectedNode.title}
+                </h4>
+                <p className="text-xs font-medium text-brand-600">
+                  {selectedNode.subtitle}
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              {selectedNode.details}
+            </p>
+          </Panel>
+        )}
+      </ReactFlow>
+    </>
+  );
+}
+
+export function ProcessSection() {
+  return (
+    <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-brand-50/30 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <Motion
+          initial="hidden"
+          whileInView="visible"
+          viewport={motionViewport}
+          variants={motionVariants.fadeInUp}
+          transition={motionTransitions.smooth}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <div className="mb-6 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
+              <ClockIcon className="size-4" />
+              <span>Interactive Conveyancing Process</span>
+            </div>
+          </div>
+
+          <h2 className="mb-4 text-3xl lg:text-4xl font-bold text-brand-950 leading-tight">
+            Your Conveyancing Audit Journey
+          </h2>
+          <p className="mb-4 text-base lg:text-lg text-slate-600 leading-relaxed">
+            From initial inquiry to state compliance certification in{" "}
+            <span className="font-semibold text-brand-600">
+              5-10 business days
+            </span>
+            . Explore our streamlined{" "}
+            <Link
+              href="/services"
+              className="text-brand-600 hover:text-brand-700 underline font-medium"
+            >
+              conveyancing audit process
+            </Link>{" "}
+            - click any step for details.
           </p>
 
-          {/* Quick Stats */}
-          <div className="flex flex-wrap justify-center gap-6 mt-8">
-            {quickStats.map(({ value, label, icon: Icon }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-50 border border-brand-200/50"
-              >
-                <Icon className="size-5 text-brand-700" />
-                <div className="text-left">
-                  <div className="text-lg font-bold text-brand-900">
-                    {value}
-                  </div>
-                  <div className="text-xs text-slate-600">{label}</div>
-                </div>
-              </div>
-            ))}
+          <div className="mb-12">
+            <Link
+              href="/how-it-works"
+              className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-medium transition-colors duration-200"
+            >
+              View detailed conveyancing audit guide
+              <ArrowRightIcon className="size-4" />
+            </Link>
           </div>
         </Motion>
 
-        {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {processSteps.map((step) => (
-            <Motion
-              key={step.step}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: step.delay }}
-              className="relative"
-            >
-              <div className="group h-full rounded-xl border border-brand-200/70 bg-gradient-to-br from-brand-50/60 to-white/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40 hover:shadow-lg hover:border-brand-300 transition-all duration-300">
-                {/* Step Number Badge */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="inline-flex items-center justify-center rounded-full bg-brand-900 size-10 text-white font-semibold text-base group-hover:scale-110 transition-transform duration-300">
-                    {step.step}
-                  </div>
+        {/* Interactive Flow Diagram */}
+        <div className="relative mb-12 mx-auto max-w-7xl">
+          <div className="relative rounded-2xl lg:rounded-3xl border-2 border-brand-300/50 bg-gradient-to-br from-white via-brand-50/20 to-white p-6 sm:p-8 lg:p-12 shadow-lg">
+            <div
+              className="absolute inset-0 rounded-2xl lg:rounded-3xl opacity-20 pointer-events-none"
+              style={{
+                backgroundImage: `radial-gradient(circle, #c7d2fe 1px, transparent 1px)`,
+                backgroundSize: "20px 20px",
+              }}
+            />
 
-                  {/* Time Estimate */}
-                  <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/80 border border-brand-200/50">
-                    <Clock className="size-3 text-brand-700" />
-                    <span className="text-xs font-medium text-brand-900">
-                      {step.timeEstimate}
-                    </span>
-                  </div>
-                </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-50/5 via-transparent to-purple-50/5 rounded-2xl lg:rounded-3xl pointer-events-none" />
 
-                {/* Icon */}
-                <div className="inline-flex items-center justify-center rounded-lg bg-brand-100/60 p-3 mb-4 group-hover:bg-brand-200/80 transition-colors duration-300">
-                  <step.icon className="size-6 text-brand-900" />
-                </div>
-
-                {/* Title and Description */}
-                <h3 className="font-semibold text-brand-950 mb-2 text-base">
-                  {step.title}
-                </h3>
-
-                <p className="text-sm text-slate-700 leading-relaxed mb-4">
-                  {step.description}
-                </p>
-
-                {/* Features Checklist */}
-                <ul className="space-y-1.5">
-                  {step.features.map((feature, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2 text-xs text-slate-600"
-                    >
-                      <CheckCircle2 className="size-3.5 text-brand-700 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Step Connector Arrow (Hidden on last item and mobile) */}
-                {step.step < 4 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="size-6 text-brand-300" />
-                  </div>
-                )}
-              </div>
-            </Motion>
-          ))}
+            {/* Fully Interactive & Responsive Flow */}
+            <div className="relative" style={{ height: "600px" }}>
+              <ReactFlowProvider>
+                <InteractiveFlowDiagram />
+              </ReactFlowProvider>
+            </div>
+          </div>
         </div>
+
+        {/* Traditional Process Steps - Mobile Fallback */}
+        <div className="block lg:hidden mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {processSteps.map((step) => (
+              <Motion
+                key={step.step}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: step.delay }}
+                className="relative"
+              >
+                <div className="group h-full rounded-xl border border-brand-200/70 bg-gradient-to-br from-brand-50/60 to-white/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40 hover:shadow-lg hover:border-brand-300 transition-all duration-300">
+                  {/* Step Number Badge */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="inline-flex items-center justify-center rounded-full bg-brand-900 size-10 text-white font-semibold text-base group-hover:scale-110 transition-transform duration-300">
+                      {step.step}
+                    </div>
+
+                    {/* Time Estimate */}
+                    <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/80 border border-brand-200/50">
+                      <ClockIcon className="size-3 text-brand-700" />
+                      <span className="text-xs font-medium text-brand-900">
+                        {step.timeEstimate}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Icon */}
+                  <div className="inline-flex items-center justify-center rounded-lg bg-brand-100/60 p-3 mb-4 group-hover:bg-brand-200/80 transition-colors duration-300">
+                    <step.icon className="size-6 text-brand-900" />
+                  </div>
+
+                  {/* Title and Description */}
+                  <h3 className="font-semibold text-brand-950 mb-2 text-base">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-sm text-slate-700 leading-relaxed mb-4">
+                    {step.description}
+                  </p>
+
+                  {/* Features Checklist */}
+                  <ul className="space-y-1.5">
+                    {step.features.map((feature, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-xs text-slate-600"
+                      >
+                        <CheckCircleIcon className="size-3.5 text-brand-700 mt-0.5 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Step Connector Arrow (Hidden on last item and mobile) */}
+                  {step.step < 4 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                      <ArrowRightIcon className="size-6 text-brand-300" />
+                    </div>
+                  )}
+                </div>
+              </Motion>
+            ))}
+          </div>
+        </div>
+
+        {/* Benefits Bar */}
+        <Motion
+          initial="hidden"
+          whileInView="visible"
+          viewport={motionViewport}
+          variants={motionVariants.fadeInUp}
+          transition={{ ...motionTransitions.smooth, delay: 0.5 }}
+          className="mb-12"
+        >
+          <div className="rounded-xl bg-white border border-brand-200/70 p-4 sm:p-6 shadow-sm">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
+              <div className="flex items-center gap-2">
+                <CheckCircleIcon className="size-4 sm:size-5 text-brand-600 flex-shrink-0" />
+                <span className="text-slate-700 font-medium">
+                  State Compliant
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircleIcon className="size-4 sm:size-5 text-brand-600 flex-shrink-0" />
+                <span className="text-slate-700 font-medium">
+                  Fixed Transparent Pricing
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircleIcon className="size-4 sm:size-5 text-brand-600 flex-shrink-0" />
+                <span className="text-slate-700 font-medium">
+                  IPA Qualified Conveyancing Auditors
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircleIcon className="size-4 sm:size-5 text-brand-600 flex-shrink-0" />
+                <span className="text-slate-700 font-medium">
+                  All Australian States
+                </span>
+              </div>
+            </div>
+          </div>
+        </Motion>
 
         {/* What You'll Need Section */}
         <Motion
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={motionViewport}
+          variants={motionVariants.fadeInUp}
+          transition={{ ...motionTransitions.smooth, delay: 0.6 }}
         >
-          <div className="rounded-xl border border-brand-200/70 bg-gradient-to-br from-brand-50/40 to-white/40 backdrop-blur p-6 mb-8">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-              <div className="rounded-lg bg-brand-100/60 p-3">
-                <FileText className="size-6 text-brand-900" />
+          <div className="rounded-xl lg:rounded-2xl border border-brand-200/70 bg-gradient-to-br from-brand-50/40 to-white/40 backdrop-blur p-4 sm:p-6 lg:p-8 mb-8">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6">
+              <div className="rounded-lg bg-brand-100/60 p-3 flex-shrink-0">
+                <DocumentTextIcon className="size-6 text-brand-900" />
               </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-brand-950 mb-2">
+              <div className="flex-1 w-full">
+                <h3 className="font-semibold text-brand-950 mb-3 text-base sm:text-lg">
                   What You&apos;ll Need to Get Started
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                  <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <div className="size-1.5 rounded-full bg-brand-700"></div>
-                    <span>ABN or Business Name</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
+                  <div className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 min-w-0">
+                    <div className="size-1.5 rounded-full bg-brand-700 flex-shrink-0"></div>
+                    <span className="truncate">ABN or Business Name</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <div className="size-1.5 rounded-full bg-brand-700"></div>
-                    <span>Trust Account BSB & Numbers</span>
+                  <div className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 min-w-0">
+                    <div className="size-1.5 rounded-full bg-brand-700 flex-shrink-0"></div>
+                    <span className="truncate">Trust Account BSB & Numbers</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <div className="size-1.5 rounded-full bg-brand-700"></div>
-                    <span>State License Details (NSW UID)</span>
+                  <div className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 min-w-0">
+                    <div className="size-1.5 rounded-full bg-brand-700 flex-shrink-0"></div>
+                    <span className="truncate">State License Details (NSW UID)</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <div className="size-1.5 rounded-full bg-brand-700"></div>
-                    <span>Operating State(s)</span>
+                  <div className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 min-w-0">
+                    <div className="size-1.5 rounded-full bg-brand-700 flex-shrink-0"></div>
+                    <span className="truncate">Operating State(s)</span>
                   </div>
                 </div>
               </div>
@@ -221,33 +755,63 @@ export function ProcessSection() {
 
         {/* CTA Section */}
         <Motion
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={motionViewport}
+          variants={motionVariants.fadeInUp}
+          transition={{ ...motionTransitions.smooth, delay: 0.7 }}
           className="text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4">
-            <Link href="/start-audit">
-              <button className="group inline-flex items-center gap-2 rounded-lg bg-brand-900 px-8 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:bg-brand-800 hover:shadow-md">
-                <span>Start Your Audit Now</span>
-                <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-            </Link>
-
-            <Link href="/how-it-works">
-              <button className="inline-flex items-center gap-2 rounded-lg border border-brand-200 bg-white px-8 py-3.5 text-base font-medium text-brand-950 shadow-sm transition-all hover:bg-brand-50 hover:border-brand-300">
-                <BookOpen className="size-5" />
-                <span>View Detailed Guide</span>
-              </button>
-            </Link>
+          <div className="rounded-xl lg:rounded-2xl bg-gradient-to-r from-brand-50 to-brand-100/50 border border-brand-200/50 p-6 sm:p-8">
+            <h3 className="mb-4 text-xl sm:text-2xl font-bold text-brand-950">
+              Ready to Start Your Conveyancing Audit?
+            </h3>
+            <p className="mb-6 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Join hundreds of Australian conveyancing professionals who trust us with their
+              compliance requirements. Whether you need{" "}
+              <Link
+                href="/services/real-estate-agents"
+                className="text-brand-600 hover:text-brand-700 underline font-medium"
+              >
+                real estate audits
+              </Link>
+              ,{" "}
+              <Link
+                href="/services/conveyancers"
+                className="text-brand-600 hover:text-brand-700 underline font-medium"
+              >
+                conveyancer services
+              </Link>
+              , or{" "}
+              <Link
+                href="/services/solicitors"
+                className="text-brand-600 hover:text-brand-700 underline font-medium"
+              >
+                legal profession audits
+              </Link>{" "}
+              - get your state compliant audit completed fast.
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+              <Link href="/contact">
+                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-brand-900 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base text-white font-medium shadow-sm transition-all hover:bg-brand-800 hover:shadow-md active:scale-95">
+                  <CheckCircleIcon className="size-4 sm:size-5" />
+                  Start Your Conveyancing Audit
+                </button>
+              </Link>
+              <Link href="/pricing">
+                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-brand-200 bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base text-brand-950 font-medium shadow-sm transition-all hover:bg-brand-50 hover:border-brand-300 active:scale-95">
+                  <CreditCardIcon className="size-4 sm:size-5" />
+                  View Pricing
+                </button>
+              </Link>
+              <Link href="/how-it-works">
+                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-brand-200 bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base text-brand-950 font-medium shadow-sm transition-all hover:bg-brand-50 hover:border-brand-300 active:scale-95">
+                  <DocumentTextIcon className="size-4 sm:size-5" />
+                  Learn More
+                </button>
+              </Link>
+            </div>
           </div>
-
-          {/* Trust Indicator */}
-          <p className="mt-6 text-sm text-slate-600">
-            <CheckCircle2 className="inline size-4 text-green-600 mr-1" />
-            Secure, encrypted submission • No credit card required to start •
-            Fixed transparent pricing
-          </p>
         </Motion>
       </div>
     </section>

@@ -480,8 +480,6 @@ export function PricingPageClient() {
           </Motion>
         </div>
       </section>
-
-
     </main>
   );
 }

@@ -34,7 +34,7 @@ const reasons = [
     icon: ShieldCheckIcon,
     title: "100% Compliance",
     shortDescription: "Meet all regulatory requirements with confidence",
-    detailedDescription: "Our audits are designed to meet ASIC, APES 310, and all state-specific requirements, ensuring your business stays compliant.",
+    detailedDescription: "Our audits are designed to meet regulatory, APES 310, and all state-specific requirements, ensuring your business stays compliant.",
     statistic: "100%",
     highlight: "Compliance rate",
   },

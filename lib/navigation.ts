@@ -32,6 +32,58 @@ export interface NavGroup {
   href?: string; // For single items that also act as groups
 }
 
+// State-specific Real Estate Agent Services
+export const realEstateStateServices: NavItem[] = [
+  {
+    href: "/services/real-estate-agents/nsw",
+    label: "NSW Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "NSW Fair Trading compliant trust account audits",
+  },
+  {
+    href: "/services/real-estate-agents/vic",
+    label: "VIC Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "Consumer Affairs Victoria compliant audits",
+  },
+  {
+    href: "/services/real-estate-agents/qld",
+    label: "QLD Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "REIAQ compliant trust account audits",
+  },
+  {
+    href: "/services/real-estate-agents/wa",
+    label: "WA Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "REIWA compliant trust account audits",
+  },
+  {
+    href: "/services/real-estate-agents/sa",
+    label: "SA Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "REISA compliant trust account audits",
+  },
+  {
+    href: "/services/real-estate-agents/tas",
+    label: "TAS Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "REIT compliant trust account audits",
+  },
+  {
+    href: "/services/real-estate-agents/nt",
+    label: "NT Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "REINT compliant trust account audits",
+  },
+  {
+    href: "/services/real-estate-agents/act",
+    label: "ACT Real Estate Audits",
+    icon: BuildingOfficeIcon,
+    description: "ACTREIQ compliant trust account audits",
+  },
+];
+
 // Services Configuration
 export const servicesConfig: NavItem[] = [
   {
@@ -168,6 +220,10 @@ export const getNavItemByHref = (href: string): NavItem | undefined => {
     }
   }
   
+  // Check state-specific real estate services
+  const stateItem = realEstateStateServices.find(item => item.href === href);
+  if (stateItem) return stateItem;
+  
   return undefined;
 };
 
@@ -176,6 +232,10 @@ export const getActiveGroup = (pathname: string): NavGroup | undefined => {
     if (group.href === pathname) return true;
     if (group.items) {
       return group.items.some(item => item.href === pathname);
+    }
+    // Check if it's a state-specific real estate page
+    if (pathname.startsWith('/services/real-estate-agents/') && group.id === 'services') {
+      return true;
     }
     return false;
   });

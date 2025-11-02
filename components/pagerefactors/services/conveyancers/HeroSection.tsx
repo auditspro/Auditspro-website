@@ -1,8 +1,11 @@
-import Link from "next/link";
+"use client";
+
+import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Motion } from "@/components/ui/motion";
 import {
-  Scale,
+  FileStack,
   CheckCircle2,
   BookOpen,
   Clock,
@@ -10,7 +13,74 @@ import {
   Shield,
 } from "lucide-react";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  state?: string;
+  stateName?: string;
+}
+
+// State-specific data for conveyancers based on Australian regulations
+const stateData = {
+  NSW: {
+    authority: "NSW Fair Trading",
+    legislation: "Conveyancers Licensing Act 2003",
+    deadline: "30 September",
+    pricing: "$549",
+    regulator: "NSW Fair Trading Commissioner",
+  },
+  VIC: {
+    authority: "Consumer Affairs Victoria",
+    legislation: "Conveyancers Act 2006",
+    deadline: "31 October",
+    pricing: "$549",
+    regulator: "Director of Consumer Affairs Victoria",
+  },
+  QLD: {
+    authority: "Queensland Law Society",
+    legislation: "Legal Profession Act 2007",
+    deadline: "31 October",
+    pricing: "$749",
+    regulator: "Queensland Law Society (Lawyers Only)",
+  },
+  WA: {
+    authority: "Consumer Protection DMIRS",
+    legislation: "Settlement Agents Act 1981",
+    deadline: "31 October",
+    pricing: "$749",
+    regulator: "Consumer Protection WA (Settlement Agents)",
+  },
+  SA: {
+    authority: "Consumer and Business Services SA",
+    legislation: "Conveyancers Act 1994",
+    deadline: "31 October",
+    pricing: "$749",
+    regulator: "Consumer and Business Services",
+  },
+  TAS: {
+    authority: "Consumer, Building and Occupational Services",
+    legislation: "Conveyancing Act 2004",
+    deadline: "31 October",
+    pricing: "$549",
+    regulator: "CBOS Tasmania",
+  },
+  NT: {
+    authority: "NT Agents Licensing Board",
+    legislation: "Agents Licensing Act 1979",
+    deadline: "31 October",
+    pricing: "$749",
+    regulator: "NT Agents Licensing Board",
+  },
+  ACT: {
+    authority: "Law Society of the ACT",
+    legislation: "Legal Profession Act 2006",
+    deadline: "31 October",
+    pricing: "$549",
+    regulator: "Law Society of the ACT (Lawyers Only)",
+  },
+};
+
+export function HeroSection({ state, stateName }: HeroSectionProps) {
+  const isStateSpecific = state && stateName;
+  const stateInfo = state ? stateData[state as keyof typeof stateData] : null;
   return (
     <section className="relative overflow-hidden border-b border-brand-200/70 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40 mt-8">
       {/* Background Pattern */}
@@ -30,22 +100,82 @@ export function HeroSection() {
           >
             {/* Service Badge */}
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
-              <Scale className="size-4" />
+              <FileStack className="size-4" />
               <span>Licensed Conveyancers</span>
             </div>
 
             <h1 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-950">
-              Professional Trust Account Audits for{" "}
-              <span className="bg-gradient-to-r from-brand-700 to-brand-900 bg-clip-text text-transparent">
-                Licensed Conveyancers
-              </span>
+              {isStateSpecific ? (
+                <>
+                  Professional Trust Account Audits for{" "}
+                  <span className="bg-gradient-to-r from-brand-700 to-brand-900 bg-clip-text text-transparent">
+                    {stateName}{" "}
+                    {stateInfo?.regulator.includes("Lawyers Only")
+                      ? "Lawyers"
+                      : stateInfo?.regulator.includes("Settlement Agents")
+                      ? "Settlement Agents"
+                      : "Licensed Conveyancers"}
+                  </span>
+                </>
+              ) : (
+                <>
+                  Professional Trust Account Audits for{" "}
+                  <span className="bg-gradient-to-r from-brand-700 to-brand-900 bg-clip-text text-transparent">
+                    Licensed Conveyancers
+                  </span>
+                </>
+              )}
             </h1>
 
-            <p className="mb-8 text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
-              ASIC compliant trust account auditing services designed
-              specifically for licensed conveyancers across Australia. Fixed
-              pricing, fast turnaround, and 100% online process through our
-              secure cloud-based portal.
+            <p className="mb-8 text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              {isStateSpecific && stateInfo ? (
+                <>
+                  Comprehensive trust account audits for {stateName}{" "}
+                  {stateInfo.regulator.includes("Lawyers Only")
+                    ? "lawyers handling conveyancing"
+                    : stateInfo.regulator.includes("Settlement Agents")
+                    ? "settlement agents"
+                    : "licensed conveyancers"}
+                  . Compliant with {stateInfo.authority} requirements under the{" "}
+                  {stateInfo.legislation}. Annual audit deadline:{" "}
+                  {stateInfo.deadline}. Starting from {stateInfo.pricing} + GST.
+                </>
+              ) : (
+                <>
+                  State regulator compliant trust account auditing services designed
+                  specifically for licensed conveyancers across Australia. Our
+                  comprehensive{" "}
+                  <Link
+                    href="/services"
+                    className="text-brand-600 hover:text-brand-700 underline underline-offset-2"
+                  >
+                    professional audit services
+                  </Link>{" "}
+                  also cover{" "}
+                  <Link
+                    href="/services/real-estate-agents"
+                    className="text-brand-600 hover:text-brand-700 underline underline-offset-2"
+                  >
+                    real estate agents
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/services/solicitors"
+                    className="text-brand-600 hover:text-brand-700 underline underline-offset-2"
+                  >
+                    solicitors
+                  </Link>
+                  . Fixed pricing, fast turnaround, and 100% online process
+                  through our secure cloud-based portal with{" "}
+                  <Link
+                    href="/contact"
+                    className="text-brand-600 hover:text-brand-700 underline underline-offset-2"
+                  >
+                    expert support
+                  </Link>
+                  .
+                </>
+              )}
             </p>
 
             {/* CTA Buttons */}
@@ -53,7 +183,7 @@ export function HeroSection() {
               <Link href="/book-audit">
                 <button className="inline-flex items-center gap-2 rounded-lg bg-brand-900 px-6 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-brand-800 hover:shadow-md">
                   <CheckCircle2 className="size-5" />
-                  Book Your Audit
+                  Start Your Audit
                 </button>
               </Link>
               <Link href="/how-it-works">
@@ -76,31 +206,45 @@ export function HeroSection() {
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="size-4 text-brand-700" />
-                <span>IPA Qualified Auditors</span>
+                <span>Qualified Trust Account Auditors</span>
+              </div>
+            </div>
+
+            {/* Additional Trust Elements */}
+            <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
+              <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
+                <Shield className="size-4 text-brand-700" />
+                <span>State Regulator Compliant</span>
+              </div>
+              <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
+                <CheckCircle2 className="size-4 text-brand-700" />
+                <span>Expert Conveyancer Auditors</span>
               </div>
             </div>
           </Motion>
 
-          {/* Image Column */}
+          {/* Enhanced Image Column with Professional Conveyancer Image */}
           <Motion
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
+            className="relative"
           >
-            <div className="relative">
-              {/* Decorative background circle */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-100 to-brand-200 rounded-full transform scale-110 opacity-20"></div>
+            <div className="relative mx-auto max-w-lg">
+              {/* Background blur effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-600 rounded-full blur-3xl opacity-15"></div>
 
-              {/* Main image with circular frame */}
-              <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+              {/* Professional Conveyancer Services Image - SEO Optimized with Ellipse Shape */}
+              <div className="relative overflow-hidden rounded-full aspect-square shadow-2xl">
                 <Image
                   src="/images/Trust_Account_Audits_for_Conveyancers_new.png"
-                  alt="Trust Account Audits for Licensed Conveyancers"
-                  width={320}
-                  height={320}
+                  alt="Professional Trust Account Audit Services for Licensed Conveyancers - State Regulator Compliant - AuditsPro Australia"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover"
-                  priority
+                  priority={true}
+                  quality={90}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 />
               </div>
             </div>
