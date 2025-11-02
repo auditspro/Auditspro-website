@@ -149,6 +149,16 @@ export interface ServiceSchemaData {
 }
 
 export function generateServiceSchema(serviceData: ServiceSchemaData) {
+  const baseOffer = {
+    "@type": "Offer",
+    "price": serviceData.price,
+    "priceCurrency": "AUD",
+    "description": `${serviceData.name} starting from $${serviceData.price} + GST`,
+    "availability": "https://schema.org/InStock",
+    "priceValidUntil": "2024-12-31",
+    "seller": organizationSchema
+  };
+
   const baseSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -166,15 +176,7 @@ export function generateServiceSchema(serviceData: ServiceSchemaData) {
       "@type": "Country",
       "name": "Australia",
     },
-    "offers": {
-      "@type": "Offer",
-      "price": serviceData.price,
-      "priceCurrency": "AUD",
-      "description": `${serviceData.name} starting from $${serviceData.price} + GST`,
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2024-12-31",
-      "seller": organizationSchema
-    },
+    "offers": baseOffer as any, // Will be reassigned below
     "serviceOutput": "Regulatory Compliant Trust Account Audit Report",
     "hoursAvailable": {
       "@type": "OpeningHoursSpecification",
@@ -198,7 +200,9 @@ export function generateServiceSchema(serviceData: ServiceSchemaData) {
     }));
 
     // Convert single offer to array and add additional offers
-    baseSchema.offers = [baseSchema.offers, ...additionalOffers];
+    baseSchema.offers = [baseOffer, ...additionalOffers];
+  } else {
+    baseSchema.offers = baseOffer;
   }
 
   return baseSchema;

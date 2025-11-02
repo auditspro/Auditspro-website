@@ -75,7 +75,7 @@ interface FlowNodeData {
   details: string;
 }
 
-interface CustomNodeData {
+interface CustomNodeData extends Record<string, unknown> {
   node: FlowNodeData;
   isComplete: boolean;
   onClick: (nodeData: FlowNodeData) => void;
@@ -151,7 +151,7 @@ const flowNodesData: Record<string, FlowNodeData> = {
 };
 
 // Custom Node Component - memoized for performance
-const CustomFlowNode = memo(({ data }: NodeProps<CustomNodeData>) => {
+const CustomFlowNode = memo(({ data }: { data: CustomNodeData }) => {
   const { node, isComplete, onClick } = data;
 
   return (
@@ -355,7 +355,7 @@ function InteractiveFlowDiagram() {
 
   // Handle node changes with proper typing
   const onNodesChange: OnNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds) as Node<CustomNodeData>[]),
     []
   );
 

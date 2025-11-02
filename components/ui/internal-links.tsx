@@ -35,10 +35,10 @@ export function InternalLinks({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      variants={motionVariants.container}
+      variants={motionVariants.fadeInUp}
       className={`bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 ${className}`}
     >
-      <Motion variants={motionVariants.item}>
+      <Motion variants={motionVariants.fadeInUp}>
         <h3 className="text-2xl font-bold text-gray-900 mb-6">{title}</h3>
       </Motion>
       
@@ -46,7 +46,7 @@ export function InternalLinks({
         {links.map((link, index) => (
           <Motion
             key={link.href}
-            variants={motionVariants.item}
+            variants={motionVariants.fadeInUp}
             custom={index}
           >
             <Link
@@ -152,10 +152,10 @@ export function RelatedServices({ currentPath, className = "" }: RelatedServices
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      variants={motionVariants.container}
+      variants={motionVariants.fadeInUp}
       className={`bg-white rounded-2xl border border-gray-200 p-8 ${className}`}
     >
-      <Motion variants={motionVariants.item}>
+      <Motion variants={motionVariants.fadeInUp}>
         <h3 className="text-2xl font-bold text-gray-900 mb-6">Related Services</h3>
       </Motion>
       
@@ -163,7 +163,7 @@ export function RelatedServices({ currentPath, className = "" }: RelatedServices
         {relatedLinks.slice(0, 3).map((link, index) => (
           <Motion
             key={link.href}
-            variants={motionVariants.item}
+            variants={motionVariants.fadeInUp}
             custom={index}
           >
             <Link

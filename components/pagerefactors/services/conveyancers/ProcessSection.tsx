@@ -409,7 +409,7 @@ function InteractiveFlowDiagram() {
 
   // Handle node changes with proper typing
   const onNodesChange: OnNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds) as Node<CustomNodeData>[]),
     []
   );
 
