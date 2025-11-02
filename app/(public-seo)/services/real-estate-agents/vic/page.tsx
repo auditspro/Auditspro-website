@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { generateMetadata } from "@/lib/seo-utils";
 import { organizationSchema, generateStateLocalBusinessSchema, StateBusinessData } from "@/lib/schema-templates";
-import { InternalLinks } from "@/components/seo/internal-links";
+import { InternalLinks, realEstateLinks } from "@/components/seo/internal-links";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
 import {
   HeroSection,
@@ -147,7 +147,7 @@ export default function VICRealEstateAgentsPage() {
       <TrustAccountAuditSection state="VIC" />
       
       {/* Enhanced Internal Linking for SEO */}
-      <InternalLinks linkSet="realEstate" />
+      <InternalLinks links={realEstateLinks} />
     </>
   );
 }

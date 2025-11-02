@@ -113,7 +113,7 @@ export function ContactSection() {
             <ContactForm
               title="Start Your Conveyancing Audit"
               subtitle="Get your regulatory compliant audit started with our conveyancing specialists."
-              variant="conveyancer"
+              variant="legal"
               theme="light"
               showTitle={true}
               className="max-w-none"

@@ -70,7 +70,7 @@ interface CustomNodeData {
 }
 
 // Custom Node Component with proper typing
-function CustomFlowNode({ data }: NodeProps<CustomNodeData>) {
+function CustomFlowNode({ data }: { data: CustomNodeData }) {
   const { node, isComplete, onClick } = data;
 
   return (

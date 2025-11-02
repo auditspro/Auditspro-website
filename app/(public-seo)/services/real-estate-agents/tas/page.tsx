@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
-import { generateMetadata, organizationSchema } from "@/lib/seo-utils";
-import { generateStateLocalBusinessSchema, StateBusinessData } from "@/lib/schema-templates";
-import { InternalLinks } from "@/components/seo/internal-links";
+import { generateMetadata } from "@/lib/seo-utils";
+import { generateStateLocalBusinessSchema, StateBusinessData, organizationSchema } from "@/lib/schema-templates";
+import { InternalLinks, realEstateLinks } from "@/components/seo/internal-links";
 import {
   HeroSection,
   BenefitsSection,
@@ -101,16 +101,11 @@ export const metadata: Metadata = {
 // Tasmania State Data for LocalBusiness Schema
 const tasStateData: StateBusinessData = {
   state: "Tasmania",
-  stateAbbr: "TAS",
+  stateCode: "TAS",
   serviceType: "Real Estate Trust Account Auditing",
   regulatoryBody: "Real Estate Institute of Tasmania (REIT)",
   complianceAct: "Property Agents and Land Transactions Act 2016",
-  majorCities: ["Hobart", "Launceston", "Devonport", "Burnie", "Kingston", "Ulverstone", "Glenorchy", "Clarence"],
-  complianceDetails: {
-    auditDeadline: "Within 3 months of financial year end",
-    penaltyAmount: "Up to $20,000 for non-compliance",
-    licenseRequirement: "Property agent license under Property Agents and Land Transactions Act 2016"
-  }
+  majorCities: ["Hobart", "Launceston", "Devonport", "Burnie", "Kingston", "Ulverstone", "Glenorchy", "Clarence"]
 };
 
 // Generate Enhanced LocalBusiness Schema for Tasmania
@@ -235,7 +230,7 @@ export default function TASRealEstateAgentsPage() {
       <HeroSection state="TAS" stateName="Tasmania" />
       <BenefitsSection />
       <FeaturesSection />
-      <InternalLinks linkSet="realEstate" />
+      <InternalLinks links={realEstateLinks} />
       <RequirementsSection state="TAS" stateName="Tasmania" />
       <PricingSection state="TAS" stateName="Tasmania" />
       <ProcessSection />

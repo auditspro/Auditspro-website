@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
-import { generateMetadata, organizationSchema } from "@/lib/seo-utils";
-import { generateStateLocalBusinessSchema, StateBusinessData } from "@/lib/schema-templates";
-import { InternalLinks } from "@/components/seo/internal-links";
+import { generateMetadata } from "@/lib/seo-utils";
+import { generateStateLocalBusinessSchema, StateBusinessData, organizationSchema } from "@/lib/schema-templates";
+import { InternalLinks, realEstateLinks } from "@/components/seo/internal-links";
 import {
   HeroSection,
   BenefitsSection,
@@ -101,16 +101,11 @@ export const metadata: Metadata = {
 // South Australia State Data for LocalBusiness Schema
 const saStateData: StateBusinessData = {
   state: "South Australia",
-  stateAbbr: "SA",
+  stateCode: "SA",
   serviceType: "Real Estate Trust Account Auditing",
   regulatoryBody: "Real Estate Institute of South Australia (REISA)",
   complianceAct: "Land and Business (Sale and Conveyancing) Act 1994",
-  majorCities: ["Adelaide", "Mount Gambier", "Whyalla", "Murray Bridge", "Port Augusta", "Port Pirie", "Victor Harbor", "Gawler"],
-  complianceDetails: {
-    auditDeadline: "Within 3 months of financial year end",
-    penaltyAmount: "Up to $10,000 for non-compliance",
-    licenseRequirement: "Real estate license under Land and Business (Sale and Conveyancing) Act 1994"
-  }
+  majorCities: ["Adelaide", "Mount Gambier", "Whyalla", "Murray Bridge", "Port Augusta", "Port Pirie", "Victor Harbor", "Gawler"]
 };
 
 // Generate Enhanced LocalBusiness Schema for South Australia
@@ -235,7 +230,7 @@ export default function SARealEstateAgentsPage() {
       <HeroSection state="SA" stateName="South Australia" />
       <BenefitsSection />
       <FeaturesSection />
-      <InternalLinks linkSet="realEstate" />
+      <InternalLinks links={realEstateLinks} />
       <RequirementsSection state="SA" stateName="South Australia" />
       <PricingSection state="SA" stateName="South Australia" />
       <ProcessSection />

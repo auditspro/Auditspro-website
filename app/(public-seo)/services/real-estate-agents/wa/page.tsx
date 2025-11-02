@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
-import { generateMetadata, organizationSchema } from "@/lib/seo-utils";
-import { generateStateLocalBusinessSchema, StateBusinessData } from "@/lib/schema-templates";
-import { InternalLinks } from "@/components/seo/internal-links";
+import { generateMetadata } from "@/lib/seo-utils";
+import { generateStateLocalBusinessSchema, StateBusinessData, organizationSchema } from "@/lib/schema-templates";
+import { InternalLinks, realEstateLinks } from "@/components/seo/internal-links";
 import {
   HeroSection,
   BenefitsSection,
@@ -101,16 +101,11 @@ export const metadata: Metadata = {
 // Western Australia State Data for LocalBusiness Schema
 const waStateData: StateBusinessData = {
   state: "Western Australia",
-  stateAbbr: "WA",
+  stateCode: "WA",
   serviceType: "Real Estate Trust Account Auditing",
   regulatoryBody: "Real Estate Institute of Western Australia (REIWA)",
   complianceAct: "Real Estate and Business Agents Act 1978",
-  majorCities: ["Perth", "Fremantle", "Joondalup", "Rockingham", "Mandurah", "Bunbury", "Geraldton", "Kalgoorlie"],
-  complianceDetails: {
-    auditDeadline: "Within 3 months of financial year end",
-    penaltyAmount: "Up to $25,000 for non-compliance",
-    licenseRequirement: "Real estate license under Real Estate and Business Agents Act 1978"
-  }
+  majorCities: ["Perth", "Fremantle", "Joondalup", "Rockingham", "Mandurah", "Bunbury", "Geraldton", "Kalgoorlie"]
 };
 
 // Generate Enhanced LocalBusiness Schema for Western Australia
@@ -235,7 +230,7 @@ export default function WARealEstateAgentsPage() {
       <HeroSection state="WA" stateName="Western Australia" />
       <BenefitsSection />
       <FeaturesSection />
-      <InternalLinks linkSet="realEstate" />
+      <InternalLinks links={realEstateLinks} />
       <RequirementsSection state="WA" stateName="Western Australia" />
       <PricingSection state="WA" stateName="Western Australia" />
       <ProcessSection />

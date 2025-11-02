@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
-import { generateMetadata, organizationSchema } from "@/lib/seo-utils";
-import { generateStateLocalBusinessSchema, StateBusinessData } from "@/lib/schema-templates";
-import { InternalLinks } from "@/components/seo/internal-links";
+import { generateMetadata } from "@/lib/seo-utils";
+import { generateStateLocalBusinessSchema, StateBusinessData, organizationSchema } from "@/lib/schema-templates";
+import { InternalLinks, realEstateLinks } from "@/components/seo/internal-links";
 import {
   HeroSection,
   BenefitsSection,
@@ -101,16 +101,11 @@ export const metadata: Metadata = {
 // Queensland State Data for LocalBusiness Schema
 const qldStateData: StateBusinessData = {
   state: "Queensland",
-  stateAbbr: "QLD",
+  stateCode: "QLD",
   serviceType: "Real Estate Trust Account Auditing",
   regulatoryBody: "Real Estate Institute of Queensland (REIQ)",
   complianceAct: "Property Occupations Act 2014",
-  majorCities: ["Brisbane", "Gold Coast", "Sunshine Coast", "Townsville", "Cairns", "Toowoomba", "Rockhampton", "Mackay"],
-  complianceDetails: {
-    auditDeadline: "Within 3 months of financial year end",
-    penaltyAmount: "Up to $13,345 for non-compliance",
-    licenseRequirement: "Real estate license under Property Occupations Act 2014"
-  }
+  majorCities: ["Brisbane", "Gold Coast", "Sunshine Coast", "Townsville", "Cairns", "Toowoomba", "Rockhampton", "Mackay"]
 };
 
 // Generate Enhanced LocalBusiness Schema for Queensland
@@ -235,7 +230,7 @@ export default function QLDRealEstateAgentsPage() {
       <HeroSection state="QLD" stateName="Queensland" />
       <BenefitsSection />
       <FeaturesSection />
-      <InternalLinks linkSet="realEstate" />
+      <InternalLinks links={realEstateLinks} />
       <RequirementsSection state="QLD" stateName="Queensland" />
       <PricingSection state="QLD" stateName="Queensland" />
       <ProcessSection />

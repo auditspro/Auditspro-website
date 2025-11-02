@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
-import { generateMetadata, organizationSchema } from "@/lib/seo-utils";
-import { generateStateLocalBusinessSchema, StateBusinessData } from "@/lib/schema-templates";
-import { InternalLinks } from "@/components/seo/internal-links";
+import { generateMetadata } from "@/lib/seo-utils";
+import { generateStateLocalBusinessSchema, StateBusinessData, organizationSchema } from "@/lib/schema-templates";
+import { InternalLinks, realEstateLinks } from "@/components/seo/internal-links";
 import {
   HeroSection,
   BenefitsSection,
@@ -101,16 +101,11 @@ export const metadata: Metadata = {
 // Australian Capital Territory State Data for LocalBusiness Schema
 const actStateData: StateBusinessData = {
   state: "Australian Capital Territory",
-  stateAbbr: "ACT",
+  stateCode: "ACT",
   serviceType: "Real Estate Trust Account Auditing",
   regulatoryBody: "ACT Real Estate Institute of Queensland (ACTREIQ)",
   complianceAct: "Agents Act 2003",
-  majorCities: ["Canberra", "Gungahlin", "Tuggeranong", "Woden", "Belconnen", "Molonglo Valley", "Jerrabomberra", "Queanbeyan"],
-  complianceDetails: {
-    auditDeadline: "Within 3 months of financial year end",
-    penaltyAmount: "Up to $20,000 for non-compliance",
-    licenseRequirement: "Agent license under Agents Act 2003"
-  }
+  majorCities: ["Canberra", "Gungahlin", "Tuggeranong", "Woden", "Belconnen", "Molonglo Valley", "Jerrabomberra", "Queanbeyan"]
 };
 
 // Generate Enhanced LocalBusiness Schema for Australian Capital Territory
@@ -235,7 +230,7 @@ export default function ACTRealEstateAgentsPage() {
       <HeroSection state="ACT" stateName="Australian Capital Territory" />
       <BenefitsSection />
       <FeaturesSection />
-      <InternalLinks linkSet="realEstate" />
+      <InternalLinks links={realEstateLinks} />
       <RequirementsSection state="ACT" stateName="Australian Capital Territory" />
       <PricingSection state="ACT" stateName="Australian Capital Territory" />
       <ProcessSection />

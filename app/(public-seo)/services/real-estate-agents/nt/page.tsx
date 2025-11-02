@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
-import { generateMetadata, organizationSchema } from "@/lib/seo-utils";
-import { generateStateLocalBusinessSchema, StateBusinessData } from "@/lib/schema-templates";
-import { InternalLinks } from "@/components/seo/internal-links";
+import { generateMetadata } from "@/lib/seo-utils";
+import { generateStateLocalBusinessSchema, StateBusinessData, organizationSchema } from "@/lib/schema-templates";
+import { InternalLinks, realEstateLinks } from "@/components/seo/internal-links";
 import {
   HeroSection,
   BenefitsSection,
@@ -101,16 +101,11 @@ export const metadata: Metadata = {
 // Northern Territory State Data for LocalBusiness Schema
 const ntStateData: StateBusinessData = {
   state: "Northern Territory",
-  stateAbbr: "NT",
+  stateCode: "NT",
   serviceType: "Real Estate Trust Account Auditing",
   regulatoryBody: "Real Estate Institute of Northern Territory (REINT)",
   complianceAct: "Agents Licensing Act 1979",
-  majorCities: ["Darwin", "Alice Springs", "Palmerston", "Katherine", "Nhulunbuy", "Tennant Creek", "Casuarina", "Marrara"],
-  complianceDetails: {
-    auditDeadline: "Within 3 months of financial year end",
-    penaltyAmount: "Up to $15,000 for non-compliance",
-    licenseRequirement: "Agent license under Agents Licensing Act 1979"
-  }
+  majorCities: ["Darwin", "Alice Springs", "Palmerston", "Katherine", "Nhulunbuy", "Tennant Creek", "Casuarina", "Marrara"]
 };
 
 // Generate Enhanced LocalBusiness Schema for Northern Territory
@@ -235,7 +230,7 @@ export default function NTRealEstateAgentsPage() {
       <HeroSection state="NT" stateName="Northern Territory" />
       <BenefitsSection />
       <FeaturesSection />
-      <InternalLinks linkSet="realEstate" />
+      <InternalLinks links={realEstateLinks} />
       <RequirementsSection state="NT" stateName="Northern Territory" />
       <PricingSection state="NT" stateName="Northern Territory" />
       <ProcessSection />
