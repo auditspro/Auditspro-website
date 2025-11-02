@@ -175,7 +175,7 @@ export function generateServiceSchema(serviceData: ServiceSchemaData) {
       "priceValidUntil": "2024-12-31",
       "seller": organizationSchema
     },
-    "serviceOutput": "ASIC Compliant Trust Account Audit Report",
+    "serviceOutput": "Regulatory Compliant Trust Account Audit Report",
     "hoursAvailable": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

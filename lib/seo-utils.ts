@@ -71,11 +71,11 @@ export function generateMetadata(config: SEOConfig): Metadata {
 export function generateServiceSEO(serviceName: string, serviceSlug: string): SEOConfig {
   return {
     title: `${serviceName} Trust Account Audit | Expert Auditors | AuditsPro AU`,
-    description: `Professional ${serviceName.toLowerCase()} trust account audits. ASIC compliant, fixed pricing from $549 + GST, fast turnaround. Expert auditors across Australia.`,
+    description: `Professional ${serviceName.toLowerCase()} trust account audits. Regulatory compliant, fixed pricing from $549 + GST, fast turnaround. Expert auditors across Australia.`,
     keywords: [
       `${serviceName.toLowerCase()} trust account audit`,
       `${serviceName.toLowerCase()} audit services`,
-      'ASIC compliance audit',
+      'regulatory compliance audit',
       'professional audit services australia',
       `${serviceName.toLowerCase()} compliance`,
       'trust account auditor',
@@ -94,7 +94,7 @@ export function generatePricingSEO(): SEOConfig {
       'trust account audit cost',
       'audit pricing australia',
       'trust account audit fees',
-      'ASIC audit cost',
+      'regulatory audit cost',
       'professional audit pricing',
       'fixed price audit services',
     ],
@@ -107,13 +107,13 @@ export function generatePricingSEO(): SEOConfig {
 export function generateLocationSEO(city: string, state: string): SEOConfig {
   return {
     title: `Trust Account Audits ${city} | Local Experts | AuditsPro AU`,
-    description: `Professional trust account audits in ${city}, ${state}. Local expertise, ASIC compliance, fixed pricing. Serving ${city} businesses with expert audit services.`,
+    description: `Professional trust account audits in ${city}, ${state}. Local expertise, regulatory compliance, fixed pricing. Serving ${city} businesses with expert audit services.`,
     keywords: [
       `trust account audit ${city}`,
       `${city} audit services`,
       `${state} trust account audit`,
       `auditor ${city}`,
-      `ASIC compliance ${city}`,
+      `regulatory compliance ${city}`,
     ],
     canonical: `/locations/${city.toLowerCase().replace(' ', '-')}`,
   };

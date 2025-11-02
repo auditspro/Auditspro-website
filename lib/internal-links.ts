@@ -38,7 +38,7 @@ export const internalLinkConfig: InternalLinkConfig = {
     {
       href: "/services/real-estate-agents",
       title: "Real Estate Agent Audits",
-      description: "ASIC compliant audits for real estate professionals",
+      description: "Regulatory compliant audits for real estate professionals",
       context: "related-service"
     }
   ],

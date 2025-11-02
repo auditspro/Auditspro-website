@@ -75,7 +75,7 @@ const serviceTypes = [
     title: "Real Estate",
     description: "Estate agent trust account audits",
     icon: BuildingOffice2Icon,
-    features: ["ASIC compliant", "5-10 day turnaround", "Professional report"],
+    features: ["Regulatory compliant", "5-10 day turnaround", "Professional report"],
   },
   {
     id: "accounting",

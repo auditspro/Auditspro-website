@@ -113,7 +113,7 @@ export const generalServiceLinks: InternalLink[] = [
   {
     href: "/services/mortgage-brokers",
     text: "Mortgage Broker Trust Account Auditing", 
-    description: "ASIC compliant auditing for mortgage brokers"
+    description: "Regulatory compliant auditing for mortgage brokers"
   },
   {
     href: "/pricing",

@@ -520,13 +520,13 @@ export default function SMSFTrusteesPage() {
                   ],
                 },
                 {
-                  title: "ASIC Requirements",
+                  title: "Regulatory Requirements",
                   subtitle: "Australian Securities and Investments Commission",
                   requirements: [
                     "Corporate trustee obligations",
                     "Director duties",
                     "Company compliance",
-                    "ASIC annual review",
+                    "Regulatory annual review",
                   ],
                 },
                 {

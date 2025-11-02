@@ -255,11 +255,11 @@ export function ContactSection() {
       >
         <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-200/50 rounded-2xl p-8 shadow-lg">
           <h3 className="text-xl font-semibold mb-2 text-brand-950">
-            Ready to Ensure ASIC Compliance?
+            Ready to Ensure Regulatory Compliance?
           </h3>
           <p className="text-slate-600 mb-6 max-w-md mx-auto">
-            Don't risk regulatory action. Our real estate audit experts are standing by 
-            to help you maintain ASIC compliance with professional audit services.
+            Don&apos;t risk regulatory action. Our real estate audit experts are standing by 
+            to help you maintain regulatory compliance with professional audit services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">

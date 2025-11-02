@@ -90,7 +90,7 @@ export const servicesConfig: NavItem[] = [
     href: "/services/real-estate-agents",
     label: "Real Estate Agents",
     icon: BuildingOfficeIcon,
-    description: "ASIC compliant trust account audits for real estate agents",
+    description: "Regulatory compliant trust account audits for real estate agents",
   },
   {
     href: "/services/conveyancers",

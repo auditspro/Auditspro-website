@@ -192,7 +192,7 @@ const serviceJsonLd = {
     "@type": "Country",
     name: "Australia",
   },
-  serviceOutput: "ASIC Compliant Trust Account Audit Report",
+  serviceOutput: "Regulatory Compliant Trust Account Audit Report",
   hoursAvailable: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -227,7 +227,7 @@ const pricingFAQSchema = {
       name: "What's included in the audit price?",
       acceptedAnswer: {
         "@type": "Answer", 
-        text: "Our fixed price includes complete audit examination, comprehensive compliance report, detailed recommendations, ongoing support, and ASIC-compliant documentation. No additional fees for standard audit requirements."
+        text: "Our fixed price includes complete audit examination, comprehensive compliance report, detailed recommendations, ongoing support, and regulatory-compliant documentation. No additional fees for standard audit requirements."
       }
     },
     {

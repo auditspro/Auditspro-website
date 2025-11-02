@@ -7,7 +7,7 @@ export const metadata = {
   metadataBase: new URL("https://auditspro.com.au"),
   title: "AuditsPro - Professional Trust Account Audits Australia",
   description: "Professional trust account audit services for real estate agents, conveyancers, solicitors and accountants. Fixed pricing from $549 + GST with fast turnaround.",
-  keywords: "trust account audit, ASIC compliance, real estate audit, conveyancer audit, solicitor audit, accountant audit, Australia",
+  keywords: "trust account audit, regulatory compliance, real estate audit, conveyancer audit, solicitor audit, accountant audit, Australia",
   manifest: "/audits_pro_icon/site.webmanifest",
   icons: {
     icon: [

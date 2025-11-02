@@ -274,7 +274,7 @@ export default function ContactPage() {
               },
               {
                 icon: Award,
-                title: "ASIC Compliant",
+                title: "Fully Compliant",
                 desc: "Reports meet all Australian regulatory requirements and standards",
               },
               {
@@ -589,10 +589,10 @@ export default function ContactPage() {
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
                 <CheckCircle2 className="size-4 text-blue-700" />
-                Are your audits ASIC compliant?
+                Are your audits regulatory compliant?
               </div>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Yes, all our audits are fully ASIC compliant and conducted by
+                Yes, all our audits are fully regulatory compliant and conducted by
                 certified auditors. We ensure your trust account meets all
                 regulatory requirements.
               </p>

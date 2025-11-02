@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Trust Account Audits | AuditsPro",
   description:
     "Professional trust account audits with a unified, online workflow. Request audits and communicate directly in the portal. Fixed pricing and fast turnaround.",
-  keywords: "trust account audit, ASIC compliance, real estate audit, conveyancer audit, solicitor audit, accountant audit, Australia",
+  keywords: "trust account audit, regulatory compliance, real estate audit, conveyancer audit, solicitor audit, accountant audit, Australia",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Trust Account Audits | AuditsPro",

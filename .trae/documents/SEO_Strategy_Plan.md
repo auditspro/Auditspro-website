@@ -249,7 +249,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 **Primary Keywords:**
 - "trust account audit" (high volume, high competition)
-- "ASIC compliance audit" (medium volume, medium competition)
+- "regulatory compliance audit" (medium volume, medium competition)
 - "[profession] trust account audit" (targeted, lower competition)
 
 **Long-tail Strategy:**

@@ -212,8 +212,8 @@ export default function AboutPage() {
             {[
               {
                 icon: Shield,
-                title: "ASIC Compliant",
-                desc: "All reports meet Australian regulatory requirements and ASIC compliance standards",
+                title: "Fully Compliant",
+                desc: "All reports meet Australian regulatory requirements and compliance standards",
               },
               {
                 icon: Clock,
@@ -303,7 +303,7 @@ export default function AboutPage() {
                   </div>
                   <p className="text-slate-700 leading-relaxed">
                     To provide exceptional trust account auditing services that
-                    ensure ASIC compliance, build client confidence, and protect
+                    ensure regulatory compliance, build client confidence, and protect
                     the interests of professionals and their stakeholders across
                     Australia.
                   </p>
@@ -326,7 +326,7 @@ export default function AboutPage() {
             >
               <ContactForm
                 title="Get Your Trust Account Audit Quote"
-                subtitle="Ready to ensure your trust accounts are ASIC compliant? Get your personalized quote with 24-hour response guarantee."
+                subtitle="Ready to ensure your trust accounts are regulatory compliant? Get your personalized quote with 24-hour response guarantee."
                 variant="contact"
                 showTitle={true}
               />

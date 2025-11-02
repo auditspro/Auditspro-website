@@ -96,7 +96,7 @@ export function ContactSection() {
         </h2>
 
         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-          Ready to ensure compliance with ASIC requirements? Our expert conveyancing auditors 
+          Ready to ensure compliance with regulatory requirements? Our expert conveyancing auditors 
           are here to help you maintain professional standards and regulatory compliance.
         </p>
       </Motion>
@@ -112,7 +112,7 @@ export function ContactSection() {
           <div className="bg-white/80 backdrop-blur border border-brand-200/50 rounded-2xl p-8 supports-[backdrop-filter]:bg-white/60 shadow-lg">
             <ContactForm
               title="Start Your Conveyancing Audit"
-              subtitle="Get your ASIC compliant audit started with our conveyancing specialists."
+              subtitle="Get your regulatory compliant audit started with our conveyancing specialists."
               variant="conveyancer"
               theme="light"
               showTitle={true}
@@ -244,7 +244,7 @@ export function ContactSection() {
           </h3>
           <p className="text-slate-600 mb-6 max-w-md mx-auto">
             Don't risk regulatory action. Our conveyancing audit experts are standing by 
-            to help you maintain ASIC compliance with professional audit services.
+            to help you maintain regulatory compliance with professional audit services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
