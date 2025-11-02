@@ -63,7 +63,7 @@ interface FlowNodeData {
   details: string;
 }
 
-interface CustomNodeData {
+interface CustomNodeData extends Record<string, unknown> {
   node: FlowNodeData;
   isComplete: boolean;
   onClick: (nodeData: FlowNodeData) => void;
