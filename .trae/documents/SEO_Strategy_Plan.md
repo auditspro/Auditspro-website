@@ -255,7 +255,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 **Long-tail Strategy:**
 - "trust account audit cost Australia"
 - "how much does trust account audit cost"
-- "ASIC compliant auditor [state]"
+- "regulatory compliant auditor [state]"
 
 ### **2. Content Structure Templates**
 
@@ -290,7 +290,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 - Location: "Trust Account Audits [City] | Local Experts | AuditsPro AU"
 
 **Description Templates:**
-- Service: "Professional [service] trust account audits. ASIC compliant, fixed pricing from $549 + GST, fast turnaround. Expert auditors across Australia."
+- Service: "Professional [service] trust account audits. Regulatory compliant, fixed pricing from $549 + GST, fast turnaround. Expert auditors across Australia."
 - Pricing: "Transparent trust account audit pricing. Fixed rates from $549 + GST with no hidden fees. Get your quote today and ensure compliance."
 
 ---
