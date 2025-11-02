@@ -26,21 +26,21 @@ import {
 // SEO Metadata
 export const metadata: Metadata = {
   title:
-    "Financial Planner Trust Account Audit Services | ASIC Compliance Audits",
+    "Financial Planner Trust Account Audit Services | AFSL Compliance Audits",
   description:
-    "Professional trust account audit services for financial planners in Australia. Ensure ASIC compliance and AFSL requirements. 24-hour response, 5-10 day completion. Fixed pricing from $549 + GST. Expert auditors specializing in financial planning trust account compliance.",
+    "Professional trust account audit services for financial planners in Australia. Ensure regulatory compliance and AFSL requirements. 24-hour response, 5-10 day completion. Fixed pricing from $549 + GST. Expert auditors specializing in financial planning trust account compliance.",
   keywords: [
     "financial planner trust account audit",
     "financial planner audit",
     "trust account audit financial planner",
     "financial planner compliance audit",
-    "ASIC financial planner audit",
+    "regulatory compliance financial planner audit",
     "AFSL compliance audit",
     "financial planner trust fund audit",
     "financial advisor audit",
     "financial planner audit cost",
     "financial planner audit requirements",
-    "ASIC trust account audit",
+    "regulatory trust account audit",
     "financial planner compliance",
     "client money trust account",
   ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Financial Planner Trust Account Audit Services | AuditsPro AU",
     description:
-      "Professional trust account audits for financial planners. Ensure ASIC compliance and AFSL requirements. Expert auditors, fast turnaround, fixed pricing.",
+      "Professional trust account audits for financial planners. Ensure regulatory compliance and AFSL requirements. Expert auditors, fast turnaround, fixed pricing.",
     url: "/services/financial-planners",
     siteName: "AuditsPro AU",
     images: [
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Financial Planner Trust Account Audit Services | AuditsPro AU",
     description:
-      "Professional trust account audits for financial planners. ASIC compliance, AFSL requirements, expert auditors, fast completion.",
+      "Professional trust account audits for financial planners. Regulatory compliance, AFSL requirements, expert auditors, fast completion.",
     images: ["/twitter-financial-planner-audit.jpg"],
   },
   robots: {
@@ -99,7 +99,7 @@ const jsonLd = {
   "@type": "Service",
   name: "Financial Planner Trust Account Audit Services",
   description:
-    "Professional trust account audit services for financial planners in Australia, ensuring ASIC compliance and AFSL requirements.",
+    "Professional trust account audit services for financial planners in Australia, ensuring regulatory compliance and AFSL requirements.",
   url: "https://auditspro.com.au/services/financial-planners",
   provider: {
     "@type": "Organization",
@@ -153,8 +153,8 @@ const jsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "ASIC Compliance Review",
-          description: "ASIC compliance assessment and review for financial planners",
+          name: "Regulatory Compliance Review",
+          description: "Regulatory compliance assessment and review for financial planners",
         },
       },
     ],
@@ -257,7 +257,7 @@ export default function FinancialPlannersPage() {
                     Trust Account Audits for Financial Planners
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
-                    Professional trust account audits for financial planners ensuring ASIC compliance and AFSL requirements.
+                    Professional trust account audits for financial planners ensuring regulatory compliance and AFSL requirements.
                     Our comprehensive <Link href="/services" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">audit services</Link> also cover <Link href="/services/accountants" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">accountants</Link> and <Link href="/services/solicitors" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">solicitors</Link>. Ensure regulatory compliance with{" "}
                     <Link
                       href="/contact"
@@ -286,8 +286,8 @@ export default function FinancialPlannersPage() {
             {[
               {
                 icon: Shield,
-                title: "ASIC Compliant",
-                desc: "All reports meet ASIC requirements and AFSL compliance standards",
+                title: "AFSL Compliant",
+                desc: "All reports meet regulatory requirements and AFSL compliance standards",
               },
               {
                 icon: Clock,
@@ -334,7 +334,7 @@ export default function FinancialPlannersPage() {
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                 Financial planners holding client funds or receiving fees must maintain 
-                trust accounts and ensure compliance with ASIC regulations and AFSL requirements.
+                trust accounts and ensure compliance with regulatory requirements and AFSL requirements.
               </p>
             </Motion>
 
@@ -342,8 +342,8 @@ export default function FinancialPlannersPage() {
               {[
                 {
                   icon: FileText,
-                  title: "ASIC Compliance",
-                  desc: "Meet ASIC regulatory requirements for financial planners holding client funds.",
+                  title: "Regulatory Compliance",
+                  desc: "Meet regulatory requirements for financial planners holding client funds.",
                 },
                 {
                   icon: Shield,
@@ -387,7 +387,7 @@ export default function FinancialPlannersPage() {
           </div>
         </section>
 
-        {/* ASIC and AFSL Requirements */}
+        {/* Regulatory and AFSL Requirements */}
         <section className="py-16">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -397,10 +397,10 @@ export default function FinancialPlannersPage() {
                 transition={motionTransitions.smooth}
               >
                 <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
-                  ASIC and AFSL Trust Account Requirements
+                  Regulatory and AFSL Trust Account Requirements
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  Financial planners must comply with ASIC regulations and AFSL requirements 
+                  Financial planners must comply with regulatory requirements and AFSL requirements 
                   when handling client funds, receiving fees, or managing trust accounts. Our comprehensive 
                   <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium"> audit services</Link> ensure 
                   compliance across all professional sectors, including <Link href="/services/accountants" className="text-blue-600 hover:text-blue-700 font-medium">accountants</Link>, 
@@ -412,7 +412,7 @@ export default function FinancialPlannersPage() {
                 
                 <div className="space-y-4">
                   {[
-                    "ASIC Australian Financial Services License compliance",
+                    "Australian Financial Services License compliance",
                     "Trust account for client funds and fees",
                     "Client money handling obligations",
                     "Regular audit and compliance reviews",
@@ -442,7 +442,7 @@ export default function FinancialPlannersPage() {
                     "Trust account reconciliation",
                     "Client money handling and segregation",
                     "Fee collection and distribution",
-                    "ASIC compliance verification",
+                    "Regulatory compliance verification",
                     "AFSL obligation assessment",
                     "Record keeping compliance",
                     "Fund movement tracking",
@@ -551,7 +551,7 @@ export default function FinancialPlannersPage() {
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                 Comprehensive audit process designed to ensure full compliance 
-                with ASIC regulations and AFSL requirements for financial planners.
+                with regulatory requirements and AFSL requirements for financial planners.
               </p>
             </Motion>
 
@@ -570,7 +570,7 @@ export default function FinancialPlannersPage() {
                 {
                   step: "3",
                   title: "Compliance Testing",
-                  desc: "Test compliance with ASIC regulations and AFSL requirements",
+                  desc: "Test compliance with regulatory requirements and AFSL requirements",
                 },
                 {
                   step: "4",
@@ -631,7 +631,7 @@ export default function FinancialPlannersPage() {
                   <ul className="text-left space-y-2 mb-6">
                     {[
                       "Comprehensive trust account audit",
-                      "ASIC compliance verification",
+                      "Regulatory compliance verification",
                       "AFSL requirement assessment",
                       "24-hour response time",
                       "5-10 day completion",
@@ -670,14 +670,14 @@ export default function FinancialPlannersPage() {
                   Get Your Financial Planner Audit Today
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  Ready to ensure your ASIC compliance and trust account obligations? 
+                  Ready to ensure your regulatory compliance and trust account obligations? 
                   Contact our expert auditors for a professional audit tailored to your financial planning practice.
                 </p>
                 
                 <div className="space-y-4">
                   {[
                     { icon: Clock, text: "24-hour response guarantee" },
-                    { icon: Shield, text: "ASIC compliant reports" },
+                    { icon: Shield, text: "Regulatory compliant reports" },
                     { icon: Award, text: "Expert financial planning auditors" },
                     { icon: DollarSign, text: "Fixed pricing from $549 + GST" },
                   ].map((item, index) => (
@@ -746,9 +746,9 @@ export default function FinancialPlannersPage() {
                 },
                 {
                   title: "Conveyancers",
-                  desc: "ASIC compliant audits for conveyancing practices under Corporations Act requirements",
+                  desc: "Regulatory compliant audits for conveyancing practices under Corporations Act requirements",
                   link: "/services/conveyancers",
-                  keywords: "conveyancer trust account audit, ASIC compliance, conveyancing audit"
+                  keywords: "conveyancer trust account audit, regulatory compliance, conveyancing audit"
                 },
                 {
                   title: "SMSF Trustees",

@@ -1,6 +1,8 @@
-export { HeroSection } from './HeroSection';
-export { FeaturesSection } from './FeaturesSection';
-export { StateRequirements } from './StateRequirements';
-export { WhyChooseSection } from './WhyChooseSection';
-export { ProcessSection } from './ProcessSection';
-export { ContactSection } from './ContactSection';
+export { HeroSection } from "./HeroSection";
+export { BenefitsSection } from "./BenefitsSection";
+export { FeaturesSection } from "./FeaturesSection";
+export { RequirementsSection } from "./RequirementsSection";
+export { ProcessSection } from "./ProcessSection";
+export { PricingSection } from "./PricingSection";
+export { FAQSection } from "./FAQSection";
+export { ContactSection } from "./ContactSection";

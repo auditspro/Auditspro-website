@@ -520,13 +520,13 @@ export default function SMSFTrusteesPage() {
                   ],
                 },
                 {
-                  title: "ASIC Requirements",
+                  title: "Regulatory Requirements",
                   subtitle: "Australian Securities and Investments Commission",
                   requirements: [
                     "Corporate trustee obligations",
                     "Director duties",
                     "Company compliance",
-                    "ASIC annual review",
+                    "Regulatory annual review",
                   ],
                 },
                 {
@@ -777,15 +777,15 @@ export default function SMSFTrusteesPage() {
                 },
                 {
                   title: "Financial Planners",
-                  desc: "AFSL trust account audits for financial planning firms ensuring compliance with ASIC requirements, client money handling, and professional indemnity standards.",
+                  desc: "AFSL trust account audits for financial planning firms ensuring compliance with regulatory requirements, client money handling, and professional indemnity standards.",
                   link: "/services/financial-planners",
-                  keywords: "financial planner audit, AFSL compliance, ASIC trust account requirements"
+                  keywords: "financial planner audit, AFSL compliance, regulatory trust account requirements"
                 },
                 {
                   title: "Mortgage Brokers",
-                  desc: "ASIC and NCCP compliant trust account audits for mortgage brokers handling client funds, commissions, and ensuring responsible lending obligations.",
+                  desc: "Regulatory and NCCP compliant trust account audits for mortgage brokers handling client funds, commissions, and ensuring responsible lending obligations.",
                   link: "/services/mortgage-brokers",
-                  keywords: "mortgage broker audit, ASIC compliance, NCCP requirements"
+                  keywords: "mortgage broker audit, regulatory compliance, NCCP requirements"
                 },
                 {
                   title: "Business Brokers",

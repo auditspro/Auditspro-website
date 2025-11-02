@@ -1,7 +1,15 @@
 import React from "react";
 import { Metadata } from "next";
-import { PricingPageClient } from "./pricing-client";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
+import {
+  HeroSection,
+  PricingSection,
+  FeaturesSection,
+  WhyChooseSection,
+  ProcessSection,
+  ContactSection,
+} from "@/components/pagerefactors/pricing";
+import { CrossPageCTA } from "@/components/ui/cross-page-cta";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -69,18 +77,100 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured Data
-const jsonLd = {
+// Enhanced Pricing Schema - Comprehensive Product/Offer Structured Data
+const pricingSchemaData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Trust Account Audit Pricing",
+  description: "Transparent pricing for professional trust account audit services across Australia",
+  itemListElement: [
+    {
+      "@type": "Product",
+      position: 1,
+      name: "Standard Trust Account Audit",
+      description: "Comprehensive trust account audit for small to medium practices including Real Estate Agents, Accountants, and Conveyancers",
+      offers: {
+        "@type": "Offer",
+        price: "549",
+        priceCurrency: "AUD",
+        availability: "https://schema.org/InStock",
+        priceValidUntil: "2024-12-31",
+        seller: {
+          "@type": "Organization",
+          name: "AuditsPro AU",
+          url: "https://auditspro.com.au"
+        },
+        description: "Fixed price includes complete audit examination, compliance report, and recommendations"
+      },
+      category: "Professional Services",
+      audience: {
+        "@type": "Audience",
+        audienceType: "Real Estate Agents, Accountants, Conveyancers, Mortgage Brokers"
+      }
+    },
+    {
+      "@type": "Product", 
+      position: 2,
+      name: "Solicitor Trust Account Audit",
+      description: "Specialized trust account audit for legal practices with enhanced compliance requirements",
+      offers: {
+        "@type": "Offer",
+        price: "649",
+        priceCurrency: "AUD",
+        availability: "https://schema.org/InStock",
+        priceValidUntil: "2024-12-31",
+        seller: {
+          "@type": "Organization",
+          name: "AuditsPro AU",
+          url: "https://auditspro.com.au"
+        },
+        description: "Specialized legal practice audit with enhanced regulatory compliance"
+      },
+      category: "Legal Services",
+      audience: {
+        "@type": "Audience",
+        audienceType: "Solicitors, Legal Practices, Law Firms"
+      }
+    },
+    {
+      "@type": "Product",
+      position: 3, 
+      name: "Premium Trust Account Audit",
+      description: "Advanced audit solution for large organizations with multiple trust accounts",
+      offers: {
+        "@type": "Offer",
+        price: "749",
+        priceCurrency: "AUD", 
+        availability: "https://schema.org/InStock",
+        priceValidUntil: "2024-12-31",
+        seller: {
+          "@type": "Organization",
+          name: "AuditsPro AU",
+          url: "https://auditspro.com.au"
+        },
+        description: "Comprehensive audit for complex trust account structures with priority support"
+      },
+      category: "Enterprise Services",
+      audience: {
+        "@type": "Audience",
+        audienceType: "Large Practices, Multi-location Businesses, Enterprise Clients"
+      }
+    }
+  ]
+};
+
+// Service Schema for SEO
+const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Trust Account Audit Pricing",
-  description:
-    "Transparent fixed pricing for professional trust account audits across all Australian states and professions.",
+  name: "Trust Account Audit Services",
+  description: "Professional trust account audit services with transparent fixed pricing across all Australian states",
   url: "https://auditspro.com.au/pricing",
   provider: {
     "@type": "Organization",
     name: "AuditsPro AU",
     url: "https://auditspro.com.au",
+    logo: "https://auditspro.com.au/audits_pro_icon/apple-touch-icon.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: "3 Albert Coates Lane",
@@ -91,7 +181,7 @@ const jsonLd = {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+61-1300-AUDITS",
+      telephone: "+61-2-8006-2335",
       contactType: "customer service",
       availableLanguage: ["English"],
       areaServed: "AU",
@@ -102,45 +192,17 @@ const jsonLd = {
     "@type": "Country",
     name: "Australia",
   },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Standard Trust Account Audit",
-      price: "549",
-      priceCurrency: "AUD",
-      description: "Professional trust account audit for most professions",
-      availability: "https://schema.org/InStock",
-    },
-    {
-      "@type": "Offer",
-      name: "Solicitor Trust Account Audit",
-      price: "649",
-      priceCurrency: "AUD",
-      description: "Specialized trust account audit for legal practices",
-      availability: "https://schema.org/InStock",
-    },
-  ],
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://auditspro.com.au",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pricing",
-        item: "https://auditspro.com.au/pricing",
-      },
-    ],
+  serviceOutput: "Regulatory Compliant Trust Account Audit Report",
+  hoursAvailable: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "17:00",
   },
 };
 
-// FAQ Structured Data
-const faqJsonLd = {
+// Enhanced FAQ Structured Data for Pricing
+const pricingFAQSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
@@ -149,34 +211,58 @@ const faqJsonLd = {
       name: "How much does a trust account audit cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our trust account audits start from $549 + GST for most professions, with specialized pricing for solicitors at $649 + GST. All pricing is fixed with no hidden fees.",
-      },
+        text: "Our trust account audits start from $549 + GST with transparent fixed pricing. Costs vary by profession and audit complexity: Standard audits $549, Solicitor audits $649, Premium audits $749. No hidden fees included."
+      }
+    },
+    {
+      "@type": "Question", 
+      name: "Are there different prices for different states?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, pricing varies slightly by state due to different regulatory requirements. NSW, VIC, QLD, WA, SA, TAS, ACT, and NT each have specific compliance needs reflected in our transparent pricing structure."
+      }
     },
     {
       "@type": "Question",
-      name: "Do prices vary by state?",
+      name: "What's included in the audit price?",
       acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our pricing is consistent across all Australian states and territories. We maintain fixed transparent pricing regardless of your location.",
-      },
+        "@type": "Answer", 
+        text: "Our fixed price includes complete audit examination, comprehensive compliance report, detailed recommendations, ongoing support, and regulatory-compliant documentation. No additional fees for standard audit requirements."
+      }
     },
     {
       "@type": "Question",
-      name: "Are there any additional fees?",
+      name: "How long does the audit process take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No, our pricing is all-inclusive with no hidden fees. The quoted price covers the complete audit process including report delivery.",
-      },
+        text: "Most trust account audits are completed within 5-10 business days from receipt of all required documentation, depending on complexity and state-specific requirements."
+      }
     },
     {
       "@type": "Question",
       name: "Do you offer discounts for multiple trust accounts?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, we offer volume discounts for businesses with multiple trust accounts. Contact us for a customized quote.",
-      },
+        text: "Yes, we provide volume discounts for businesses with multiple trust accounts or recurring audit needs. Contact us for a customized enterprise quote with preferential pricing."
+      }
     },
-  ],
+    {
+      "@type": "Question",
+      name: "Is GST included in the quoted prices?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All quoted prices are exclusive of GST. GST will be added to the final invoice as required by Australian tax regulations. Final price = quoted price + 10% GST."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What payment methods do you accept?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We accept all major payment methods including credit cards, bank transfers, and business accounts. Payment terms are flexible with options for upfront or completion-based billing."
+      }
+    }
+  ]
 };
 
 
@@ -202,7 +288,7 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-brand-50">
       {/* Set Breadcrumbs */}
       <SetBreadcrumbs
         items={[
@@ -211,21 +297,31 @@ export default function PricingPage() {
         ]}
       />
       
-      {/* Structured Data */}
+      {/* Enhanced Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchemaData) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFAQSchema) }}
       />
       
-      <PricingPageClient />
+      {/* Page Content */}
+      <HeroSection />
+      <PricingSection />
+      <FeaturesSection />
+      <WhyChooseSection />
+      <ProcessSection />
+      <ContactSection />
     </div>
   );
 }

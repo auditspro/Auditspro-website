@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "trust account compliance",
     "audit submission guide",
     "online audit process",
-    "ASIC audit submission",
+    "Regulatory audit submission",
   ],
   authors: [{ name: "AuditsPro AU" }],
   creator: "AuditsPro AU",

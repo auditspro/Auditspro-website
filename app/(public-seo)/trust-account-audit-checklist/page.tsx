@@ -13,7 +13,7 @@ import { CheckCheck, Grip } from "lucide-react";
 export const metadata: Metadata = {
   title: "Trust Account Audit Checklist - Document Requirements | AuditsPro",
   description: "Complete document checklist for trust account audits. Prepare bank statements, reconciliation reports, and system access for a smooth audit process.",
-  keywords: "trust account audit checklist, audit documents, bank statements, reconciliation reports, audit preparation, ASIC compliance",
+  keywords: "trust account audit checklist, audit documents, bank statements, reconciliation reports, audit preparation, regulatory compliance",
   alternates: {
     canonical: "https://auditspro.com.au/trust-account-audit-checklist",
   },

@@ -711,9 +711,9 @@ export default function AccountantsPage() {
                 },
                 {
                   title: "Conveyancers",
-                  desc: "ASIC compliant audits for conveyancing practices under Corporations Act requirements",
+                  desc: "Regulatory compliant audits for conveyancing practices under Corporations Act requirements",
                   link: "/services/conveyancers",
-                  keywords: "conveyancer trust account audit, ASIC compliance, conveyancing audit"
+                  keywords: "conveyancer trust account audit, regulatory compliance, conveyancing audit"
                 },
                 {
                   title: "Solicitors",

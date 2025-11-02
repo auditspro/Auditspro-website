@@ -2,13 +2,14 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
+import { CrossPageCTA } from "@/components/ui/cross-page-cta";
 import {
   Motion,
   motionVariants,
   motionTransitions,
   motionViewport,
 } from "@/components/ui/motion";
-import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
+import { PageWrapper } from "@/components/ui/page-wrapper";
 import {
   MapPin,
   Clock,
@@ -23,10 +24,8 @@ import {
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title:
-    "About AuditsPro AU - Expert Trust Account Auditing & Compliance Services",
-  description:
-    "Learn about AuditsPro AU, Australia's leading trust account auditing firm. Our certified auditors provide comprehensive compliance services, financial reviews, and expert guidance for legal and real estate professionals.",
+  title: "About AuditsPro AU - Expert Trust Account Auditing & Compliance Services",
+  description: "Learn about AuditsPro AU, Australia's leading trust account auditing firm. Our certified auditors provide comprehensive compliance services, financial reviews, and expert guidance for legal and real estate professionals.",
   keywords: [
     "about audits pro australia",
     "trust account auditing experts",
@@ -50,8 +49,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "About AuditsPro AU - Expert Trust Account Auditing Services",
-    description:
-      "Discover AuditsPro AU's expertise in trust account auditing and compliance. Our certified team provides professional auditing services across Australia.",
+    description: "Discover AuditsPro AU's expertise in trust account auditing and compliance. Our certified team provides professional auditing services across Australia.",
     url: "/about",
     siteName: "AuditsPro AU",
     images: [
@@ -68,8 +66,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About AuditsPro AU - Expert Trust Account Auditing",
-    description:
-      "Learn about Australia's leading trust account auditing firm and our commitment to compliance excellence.",
+    description: "Learn about Australia's leading trust account auditing firm and our commitment to compliance excellence.",
     images: ["/twitter-about.jpg"],
   },
   robots: {
@@ -90,14 +87,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About AuditsPro AU",
-  description:
-    "About page for AuditsPro AU, Australia's leading trust account auditing and compliance services firm",
+  description: "About page for AuditsPro AU, Australia's leading trust account auditing and compliance services firm",
   url: "https://auditspro.com.au/about",
   mainEntity: {
     "@type": "Organization",
     name: "AuditsPro AU",
-    description:
-      "Professional trust account auditing and compliance services across Australia",
+    description: "Professional trust account auditing and compliance services across Australia",
     url: "https://auditspro.com.au",
     foundingDate: "2020",
     numberOfEmployees: "10-50",
@@ -119,53 +114,6 @@ const jsonLd = {
     sameAs: [
       "https://linkedin.com/company/auditspro-au",
       "https://twitter.com/auditsproau",
-    ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Auditing Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Trust Account Auditing",
-            description: "Comprehensive trust account compliance audits",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Compliance Reviews",
-            description: "Regulatory compliance assessments and reviews",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Financial Auditing",
-            description: "Professional financial audit services",
-          },
-        },
-      ],
-    },
-  },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://auditspro.com.au",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "About",
-        item: "https://auditspro.com.au/about",
-      },
     ],
   },
 };
@@ -191,30 +139,14 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col">
-      {/* Set Breadcrumbs */}
-      <SetBreadcrumbs
-        items={[
-          { label: "Home", href: "/" },
-          { label: "About", href: "/about" },
-        ]}
-      />
-      
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      {/* Main Content */}
-      <main className="flex-1">
-
+    <PageWrapper
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "About", href: "/about" },
+      ]}
+      jsonLdData={[breadcrumbJsonLd, jsonLd]}
+    >
+      <main className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
           <div className="container relative mx-auto px-4 sm:px-6">
@@ -226,10 +158,8 @@ export default function AboutPage() {
                 transition={motionTransitions.smooth}
                 className="text-center lg:text-left"
               >
-                {/* Header with respectful icon */}
                 <div className="flex flex-col items-center lg:items-start">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
-                    {/* About icon */}
+                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
                     <Grip className="size-4" />
                     <span className="tracking-widest">About us</span>
                   </div>
@@ -245,14 +175,7 @@ export default function AboutPage() {
                     >
                       24-hour response times
                     </Link>{" "}
-                    and 5-10 day completion targets. Learn more about{" "}
-                    <Link
-                      href="/how-it-works"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
-                    >
-                      how our audit process works
-                    </Link>
-                    .
+                    and 5-10 day completion targets.
                   </p>
                 </div>
               </Motion>
@@ -265,21 +188,16 @@ export default function AboutPage() {
                 className="flex justify-center lg:justify-end"
               >
                 <div className="relative">
-                  {/* Decorative background circle */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full transform scale-110 opacity-20"></div>
-                  
-                  {/* Main image with circular frame */}
                   <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
                     <Image
-                      src="/images/about audits.png"
+                      src="/images/about-audits.png"
                       alt="About AuditsPro AU - Professional Auditing Services"
                       width={320}
                       height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  
-                  {/* Decorative elements */}
                   <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-80"></div>
                   <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-blue-300 rounded-full opacity-60"></div>
                 </div>
@@ -294,8 +212,8 @@ export default function AboutPage() {
             {[
               {
                 icon: Shield,
-                title: "ASIC Compliant",
-                desc: "All reports meet Australian regulatory requirements and ASIC compliance standards",
+                title: "Fully Compliant",
+                desc: "All reports meet Australian regulatory requirements and compliance standards",
               },
               {
                 icon: Clock,
@@ -315,12 +233,12 @@ export default function AboutPage() {
             ].map(({ icon: Icon, title, desc }) => (
               <Motion
                 key={title}
-                className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+                className="rounded-xl border border-blue-200 bg-blue-50 backdrop-blur p-6"
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
                   <Icon className="size-4" />
                   <span>{title}</span>
                 </div>
@@ -330,9 +248,11 @@ export default function AboutPage() {
           </div>
         </section>
 
+
+
         {/* Our Story Section */}
         <section className="container relative mx-auto px-4 sm:px-6 pb-16">
-          <div className="rounded-2xl border border-blue-200/70 bg-gradient-to-br from-blue-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-blue-50/40">
+          <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white backdrop-blur p-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <Motion
                 initial={{ opacity: 0, x: -20 }}
@@ -364,8 +284,8 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative"
               >
-                <div className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-8 supports-[backdrop-filter]:bg-white/40">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                <div className="rounded-xl border border-blue-200 bg-white backdrop-blur p-8">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
                     <svg
                       className="size-4"
                       fill="none"
@@ -383,7 +303,7 @@ export default function AboutPage() {
                   </div>
                   <p className="text-slate-700 leading-relaxed">
                     To provide exceptional trust account auditing services that
-                    ensure ASIC compliance, build client confidence, and protect
+                    ensure regulatory compliance, build client confidence, and protect
                     the interests of professionals and their stakeholders across
                     Australia.
                   </p>
@@ -393,191 +313,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="container relative mx-auto px-4 sm:px-6 pb-16">
-          <Motion
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
-              Why Choose AuditsPro AU?
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              We combine certified expertise, advanced technology, and
-              personalized service to deliver exceptional audit results.
-            </p>
-          </Motion>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Award,
-                title: "Certified Expertise",
-                desc: "Our team consists of certified auditors with extensive experience in trust account compliance and Australian regulatory requirements.",
-              },
-              {
-                icon: MapPin,
-                title: "Nationwide Coverage",
-                desc: "We serve clients across all Australian states and territories, providing consistent, high-quality auditing services nationwide.",
-              },
-              {
-                icon: Shield,
-                title: "Technology-Driven",
-                desc: "We leverage cutting-edge auditing technology and digital processes to ensure accuracy, efficiency, and comprehensive reporting.",
-              },
-              {
-                icon: Clock,
-                title: "Fast Turnaround",
-                desc: "We understand the importance of timely compliance. Our streamlined processes ensure 5-10 day completion without compromising quality.",
-              },
-              {
-                icon: CheckCircle2,
-                title: "Proven Track Record",
-                desc: "With over 1,000 successful audits completed, we have established ourselves as Australia's most trusted compliance partner.",
-              },
-              {
-                icon: MessageCircle,
-                title: "Client-Focused Service",
-                desc: "We prioritize clear communication, 24-hour response times, and building long-term relationships with our clients.",
-              },
-            ].map(({ icon: Icon, title, desc }) => (
-              <Motion
-                key={title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
-              >
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
-                  <Icon className="size-4" />
-                  {title}
-                </div>
-                <p className="text-sm text-slate-700 leading-relaxed">{desc}</p>
-              </Motion>
-            ))}
-          </div>
-        </section>
-
-        {/* Our Core Values Section */}
-        <section className="container relative mx-auto px-4 sm:px-6 pb-16">
-          <div className="rounded-2xl border border-blue-200/70 bg-gradient-to-br from-blue-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-blue-50/40">
-            <Motion
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
-                Our Core Values
-              </h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">
-                The principles that guide everything we do in delivering
-                exceptional audit services
-              </p>
-            </Motion>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Motion
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-center"
-              >
-                <div className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                    <svg
-                      className="size-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                      />
-                    </svg>
-                    Integrity
-                  </div>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    We conduct our business with the highest ethical standards,
-                    ensuring transparency and honesty in all our audit processes
-                    and client interactions.
-                  </p>
-                </div>
-              </Motion>
-
-              <Motion
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-center"
-              >
-                <div className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                    <svg
-                      className="size-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                      />
-                    </svg>
-                    Excellence
-                  </div>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    We strive for excellence in every audit, continuously
-                    improving our processes and exceeding client expectations
-                    with superior service delivery.
-                  </p>
-                </div>
-              </Motion>
-
-              <Motion
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-center"
-              >
-                <div className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                    <svg
-                      className="size-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      />
-                    </svg>
-                    Client Focus
-                  </div>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    Our clients are at the heart of everything we do. We listen,
-                    understand, and deliver tailored compliance solutions with
-                    24-hour response times.
-                  </p>
-                </div>
-              </Motion>
-            </div>
-          </div>
-        </section>
+        {/* Cross-Page CTA */}
+        <CrossPageCTA variant="general-to-contact" />
 
         {/* Contact Form Section */}
         <section className="container relative mx-auto px-4 sm:px-6 pb-16">
-          <div className="rounded-2xl border border-blue-200/70 bg-white/70 backdrop-blur p-8 supports-[backdrop-filter]:bg-white/40">
+          <div className="rounded-2xl border border-blue-200 bg-white backdrop-blur p-8">
             <Motion
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -585,7 +326,7 @@ export default function AboutPage() {
             >
               <ContactForm
                 title="Get Your Trust Account Audit Quote"
-                subtitle="Ready to ensure your trust accounts are ASIC compliant? Get your personalized quote with 24-hour response guarantee."
+                subtitle="Ready to ensure your trust accounts are regulatory compliant? Get your personalized quote with 24-hour response guarantee."
                 variant="contact"
                 showTitle={true}
               />
@@ -593,6 +334,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-    </div>
+    </PageWrapper>
   );
 }

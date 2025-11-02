@@ -4,9 +4,10 @@ import { Outfit, Manrope } from 'next/font/google';
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://auditspro.com.au"),
   title: "AuditsPro - Professional Trust Account Audits Australia",
   description: "Professional trust account audit services for real estate agents, conveyancers, solicitors and accountants. Fixed pricing from $549 + GST with fast turnaround.",
-  keywords: "trust account audit, ASIC compliance, real estate audit, conveyancer audit, solicitor audit, accountant audit, Australia",
+  keywords: "trust account audit, regulatory compliance, real estate audit, conveyancer audit, solicitor audit, accountant audit, Australia",
   manifest: "/audits_pro_icon/site.webmanifest",
   icons: {
     icon: [
@@ -18,8 +19,6 @@ export const metadata = {
       { url: "/audits_pro_icon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  themeColor: "#ffffff",
-  viewport: "width=device-width, initial-scale=1",
   robots: {
     index: true,
     follow: true,
@@ -56,6 +55,12 @@ export const metadata = {
   alternates: {
     canonical: "https://auditspro.com.au/",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#ffffff",
 };
 
 const outfit = Outfit({
