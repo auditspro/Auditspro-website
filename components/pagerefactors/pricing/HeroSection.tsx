@@ -88,7 +88,7 @@ export function HeroSection() {
               </div>
               <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
                 <TrophyIcon className="size-4 text-brand-700" />
-                <span className="text-brand-900 font-medium">ASIC Compliant</span>
+                <span className="text-brand-900 font-medium">Fully Compliant</span>
               </div>
             </div>
           </Motion>

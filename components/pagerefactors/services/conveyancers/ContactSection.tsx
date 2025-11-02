@@ -61,8 +61,8 @@ const keyBenefits = [
   },
   {
     icon: ShieldCheckIcon,
-    text: "State compliant audit reports",
-    desc: "All audits meet ASIC and state regulatory standards",
+    text: "Regulatory compliant reports",
+    desc: "All audits meet regulatory standards",
   },
   {
     icon: CheckCircleIcon,

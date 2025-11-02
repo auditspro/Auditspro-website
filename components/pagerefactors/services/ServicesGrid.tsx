@@ -29,17 +29,17 @@ const services = [
   {
     title: "Real Estate Agents",
     description:
-      "ASIC compliant trust account audits for real estate agents across all Australian states. Comprehensive review of client money handling, trust account reconciliations, and regulatory compliance requirements.",
+      "Regulatory compliant trust account audits for real estate agents across all Australian states. Comprehensive review of client money handling, trust account reconciliations, and regulatory compliance requirements.",
     href: "/services/real-estate-agents",
     icon: BuildingOfficeIcon,
     features: [
-      "ASIC Compliance Review",
+      "Regulatory Compliance Review",
       "Client Money Audit",
       "Trust Account Reconciliation",
       "Regulatory Compliance Report",
     ],
     keywords:
-      "real estate trust account audit, ASIC real estate audit, property agent audit",
+      "real estate trust account audit, regulatory real estate audit, property agent audit",
     pricing: "$549",
     turnaround: "5-10 business days",
     color: "from-blue-500/10 to-blue-600/5",
@@ -49,11 +49,11 @@ const services = [
   {
     title: "Conveyancers",
     description:
-      "Professional trust account audits for conveyancers ensuring ASIC compliance and proper client money management throughout property settlement processes across Australia.",
+      "Professional trust account audits for conveyancers ensuring regulatory compliance and proper client money management throughout property settlement processes across Australia.",
     href: "/services/conveyancers",
     icon: DocumentTextIcon,
     features: [
-      "ASIC Compliance Standards",
+      "Regulatory Compliance Standards",
       "Settlement Fund Audit",
       "Client Money Management Review",
       "State Regulatory Requirements",
@@ -110,12 +110,12 @@ const services = [
   {
     title: "Mortgage Brokers",
     description:
-      "NCCP compliant trust account audits for mortgage brokers. Comprehensive review of client money handling, ASIC compliance, and home loan settlement processes.",
+      "NCCP compliant trust account audits for mortgage brokers. Comprehensive review of client money handling, regulatory compliance, and home loan settlement processes.",
     href: "/services/mortgage-brokers",
     icon: CurrencyDollarIcon,
     features: [
       "NCCP Compliance Review",
-      "ASIC Regulatory Requirements",
+      "Regulatory Requirements",
       "Settlement Process Audit",
       "Client Money Handling Review",
     ],
@@ -263,7 +263,7 @@ export function ServicesGrid() {
                 href="/pricing"
                 className="text-brand-600 hover:text-brand-700 underline font-medium"
               >
-                ASIC compliant auditing services
+                regulatory compliant auditing services
               </Link>{" "}
               meet specific regulatory requirements for each profession in all
               Australian states.
@@ -286,7 +286,7 @@ export function ServicesGrid() {
               <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
                 <ShieldCheckIcon className="size-4 text-brand-700" />
                 <span className="text-brand-900 font-medium">
-                  100% ASIC Compliant
+                  100% Fully Compliant
                 </span>
               </div>
             </div>
@@ -363,7 +363,7 @@ export function ServicesGrid() {
                       </span>
                       <span className="flex items-center gap-1">
                         <ShieldCheckIcon className="size-3" />
-                        ASIC Compliant
+                        Fully Compliant
                       </span>
                     </div>
                     {service.note && (

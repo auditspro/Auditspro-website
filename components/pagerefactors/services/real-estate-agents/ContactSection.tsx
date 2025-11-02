@@ -61,7 +61,7 @@ const keyBenefits = [
   },
   {
     icon: ShieldCheckIcon,
-    text: "ASIC compliant reports",
+    text: "Regulatory compliant reports",
     desc: "All audits meet professional regulatory standards",
   },
   {
@@ -96,7 +96,7 @@ export function ContactSection() {
         </h2>
 
         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-          Ready to ensure compliance with ASIC requirements? Our expert real estate auditors 
+          Ready to ensure compliance with regulatory requirements? Our expert real estate auditors 
           are here to help you maintain professional standards and regulatory compliance.
           We also provide specialized services for{" "}
           <Link
@@ -127,7 +127,7 @@ export function ContactSection() {
           <div className="bg-white/80 backdrop-blur border border-brand-200/50 rounded-2xl p-8 supports-[backdrop-filter]:bg-white/60 shadow-lg">
             <ContactForm
               title="Start Your Real Estate Audit"
-              subtitle="Get your ASIC compliant audit started with our real estate specialists."
+              subtitle="Get your regulatory compliant audit started with our real estate specialists."
               variant="default"
               theme="light"
               showTitle={true}

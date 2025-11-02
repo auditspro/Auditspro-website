@@ -30,7 +30,7 @@ const ctaConfigs = {
     features: [
       "Fixed pricing from $549 + GST",
       "5-10 business day turnaround",
-      "ASIC compliant audits",
+      "Regulatory compliant audits",
     ],
   },
   "pricing-to-booking": {

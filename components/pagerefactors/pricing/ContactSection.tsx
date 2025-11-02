@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     question: "Are your audits compliant with all states?",
-    answer: "Yes, our audits meet ASIC, APES 310, and all state-specific requirements across Australia.",
+    answer: "Yes, our audits meet regulatory, APES 310, and all state-specific requirements across Australia.",
   },
 ];
 

@@ -41,7 +41,7 @@ const stateAuditData = {
       "Trust account compliance with Section 111 & 113 of the Act",
     ],
     whoCanAudit: [
-      "Auditors registered with ASIC",
+      "Auditors registered with professional bodies",
       "Qualified under section 115 of the Property Stock and Business Agents Act 2002",
       "Registered audit companies",
       "Authorised company auditors",

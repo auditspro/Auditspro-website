@@ -23,7 +23,7 @@ const features = [
   {
     icon: ShieldCheckIcon,
     title: "100% Compliant",
-    description: "All audits meet ASIC, APES 310, and state requirements",
+    description: "All audits meet regulatory, APES 310, and state requirements",
     highlight: "Fully compliant",
   },
   {

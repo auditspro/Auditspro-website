@@ -5,7 +5,7 @@ import { Motion, motionVariants, motionTransitions, motionViewport } from "@/com
 const faqItems = [
   {
     question: "What is included in a trust account audit?",
-    answer: "Our comprehensive ASIC compliant trust account audit includes review of trust account records, client money handling procedures, bank reconciliations, compliance with regulatory requirements, and detailed reporting with recommendations. All audits meet professional standards for real estate agents, conveyancers, solicitors, and other Australian professionals."
+    answer: "Our comprehensive regulatory compliant trust account audit includes review of trust account records, client money handling procedures, bank reconciliations, compliance with regulatory requirements, and detailed reporting with recommendations. All audits meet professional standards for real estate agents, conveyancers, solicitors, and other Australian professionals."
   },
   {
     question: "How long does the trust account audit process take?",
@@ -13,11 +13,11 @@ const faqItems = [
   },
   {
     question: "What documentation do I need to provide for my audit?",
-    answer: "You'll need trust account statements, monthly reconciliations, client ledgers, deposit books, and any relevant correspondence. We provide a detailed audit checklist upon engagement that covers all ASIC requirements for your specific profession and state."
+    answer: "You'll need trust account statements, monthly reconciliations, client ledgers, deposit books, and any relevant correspondence. We provide a detailed audit checklist upon engagement that covers all regulatory requirements for your specific profession and state."
   },
   {
-    question: "Are your trust account audits ASIC compliant?",
-    answer: "Yes, all our trust account audits meet ASIC requirements and relevant professional regulatory standards across all Australian states. Our IPA qualified auditors have extensive experience in trust account compliance for real estate, conveyancing, legal, and accounting professions."
+    question: "Are your trust account audits regulatory compliant?",
+    answer: "Yes, all our trust account audits meet regulatory requirements and relevant professional regulatory standards across all Australian states. Our IPA qualified auditors have extensive experience in trust account compliance for real estate, conveyancing, legal, and accounting professions."
   },
   {
     question: "What are your trust account audit fees?",

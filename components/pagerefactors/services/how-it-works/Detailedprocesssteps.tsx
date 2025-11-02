@@ -279,7 +279,7 @@ export function DetailedProcessSteps() {
       timeEstimate: "5-10 business days",
       route: "/dashboard",
       description:
-        "Our IPA qualified auditors review your trust accounts for ASIC compliance. You'll receive your comprehensive audit report via secure download.",
+        "Our IPA qualified auditors review your trust accounts for regulatory compliance. You'll receive your comprehensive audit report via secure download.",
       detailedSteps: [
         {
           icon: Clock,
@@ -297,7 +297,7 @@ export function DetailedProcessSteps() {
           icon: Download,
           title: "Report Download",
           description:
-            "Receive notification when your report is ready. Download your ASIC-compliant audit report from the secure portal.",
+            "Receive notification when your report is ready. Download your regulatory-compliant audit report from the secure portal.",
         },
       ],
       requirements: [
@@ -308,7 +308,7 @@ export function DetailedProcessSteps() {
       tips: [
         "Reports are typically completed within 5-10 business days",
         "You can contact support anytime with questions (24h response)",
-        "Reports are ready for immediate ASIC submission",
+        "Reports are ready for immediate regulatory submission",
         "All reports stored securely in your portal",
       ],
     },
