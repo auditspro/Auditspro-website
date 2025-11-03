@@ -218,7 +218,7 @@ For technical support or business inquiries:
 - **Phone**: +61-2-8006-2335
 - **Business Hours**: Monday - Friday, 9:00 AM - 5:00 PM (AEST)
 
-## 🏢 About AuditsPro
+## 🏢 About AuditsPro AU
 
 AuditsPro specializes in providing professional trust account auditing services across Australia. We serve:
 
