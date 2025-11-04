@@ -1,6 +1,6 @@
 // app/layout.tsx
-import Script from 'next/script';
 import { Outfit, Manrope } from 'next/font/google';
+import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 import "./globals.css";
 
 export const metadata = {
@@ -33,7 +33,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_AU",
-    url: "https://auditspro.com.au/",
+    url: "https://auditspro.com.au",
     siteName: "AuditsPro",
     title: "AuditsPro - Professional Trust Account Audits Australia",
     description: "Professional trust account audit services for real estate agents, conveyancers, solicitors and accountants. Fixed pricing from $549 + GST with fast turnaround.",
@@ -53,7 +53,7 @@ export const metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://auditspro.com.au/",
+    canonical: "https://auditspro.com.au",
   },
 };
 
@@ -89,28 +89,13 @@ export default function RootLayout({
   return (
     <html lang="en-AU" className={`${outfit.variable} ${manrope.variable}`}>
       <head>
-        {/* Preconnect to external domains for better performance */}
+        {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        
-        {/* DNS prefetch for performance */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-WTCYCG7JFG"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-WTCYCG7JFG');
-          `}
-        </Script>
-        
+
+        {/* Structured data (Schema.org) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -119,7 +104,7 @@ export default function RootLayout({
               "@type": "WebSite",
               name: "AuditsPro AU",
               alternateName: "AuditsPro",
-              url: "https://auditspro.com.au/"
+              url: "https://auditspro.com.au"
             }),
           }}
         />
@@ -130,7 +115,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "AuditsPro AU",
-              url: "https://auditspro.com.au/",
+              url: "https://auditspro.com.au",
               logo: "https://auditspro.com.au/audits_pro_icon/apple-touch-icon.png",
               description: "Professional trust account audit services for Australian businesses",
               contactPoint: {
@@ -144,15 +129,12 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 addressCountry: "AU"
               },
-              sameAs: [
-                "https://auditspro.com.au/"
-              ]
+              sameAs: ["https://auditspro.com.au"]
             }),
           }}
         />
       </head>
       <body className="min-h-dvh bg-white text-black/90 antialiased">
-        {/* Skip to main content for accessibility and better UX */}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50 transition-all"
@@ -163,6 +145,9 @@ export default function RootLayout({
         <div id="main-content">
           {children}
         </div>
+
+        {/* ✅ Google Analytics goes in the body */}
+        <GoogleAnalytics />
       </body>
     </html>
   );

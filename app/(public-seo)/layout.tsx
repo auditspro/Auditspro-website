@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from '@/components/layout/site-footer';
 import { BreadcrumbProvider } from '@/components/ui/breadcrumb-context';
 import { HeaderWithBreadcrumbs } from "@/components/layout/header-with-breadcrumbs";
+// Removed duplicate Google Analytics scripts; GA is initialized in root layout
 
 export const metadata: Metadata = {
   title: {
@@ -14,10 +15,12 @@ export const metadata: Metadata = {
 
 export default function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
-    <BreadcrumbProvider>
-      <HeaderWithBreadcrumbs />
-      <main className="pt-20">{children}</main>
-      <SiteFooter />
-    </BreadcrumbProvider>
+    <>
+      <BreadcrumbProvider>
+        <HeaderWithBreadcrumbs />
+        <main className="pt-20">{children}</main>
+        <SiteFooter />
+      </BreadcrumbProvider>
+    </>
   );
 }
