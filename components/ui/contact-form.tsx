@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/ga";
 import { Button } from "@/components/ui/button";
 import { Motion } from "@/components/ui/motion";
 import {
@@ -79,6 +80,12 @@ export function ContactForm({
     setIsSubmitting(true);
 
     try {
+      // Fire GA event for submit start
+      trackEvent('contact_form_submit_start', {
+        variant,
+        name_present: !!formData.name,
+        email_present: !!formData.email,
+      });
       // Custom onSubmit handler if provided
       if (onSubmit) {
         await onSubmit(formData);
@@ -113,6 +120,12 @@ export function ContactForm({
         }
 
         console.log("Form submitted successfully:", result);
+        // Fire GA event for successful submit
+        trackEvent('contact_form_submit_success', {
+          variant,
+          has_phone: !!formData.phone,
+          has_company: !!formData.company,
+        });
       }
 
       setSubmitStatus("success");
@@ -131,6 +144,10 @@ export function ContactForm({
       });
     } catch (error) {
       console.error("Form submission error:", error);
+      // Fire GA event for submit error
+      trackEvent('contact_form_submit_error', {
+        variant,
+      });
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

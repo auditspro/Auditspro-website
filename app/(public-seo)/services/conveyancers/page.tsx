@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
-import { PageAnalytics } from "@/components/analytics/page-analytics";
 import {
   HeroSection,
   FeaturesSection,
@@ -165,16 +164,7 @@ export default function ConveyancersPage() {
 
   return (
     <>
-      {/* Analytics tracking for this page */}
-      <PageAnalytics 
-        pageName="Conveyancers Service Page" 
-        serviceType="conveyancers"
-        additionalData={{
-          page_category: 'service',
-          service_price_range: '600-800',
-          target_audience: 'Licensed Conveyancers'
-        }}
-      />
+      {/* Analytics tracking removed */}
       
       <script
         type="application/ld+json"

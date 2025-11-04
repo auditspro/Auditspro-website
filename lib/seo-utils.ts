@@ -9,7 +9,7 @@ export interface SEOConfig {
   ogImage?: string;
   twitterImage?: string;
   noIndex?: boolean;
-  structuredData?: any[];
+  structuredData?: unknown[];
 }
 
 // Generate standardized metadata

@@ -1,10 +1,11 @@
 // app/layout.tsx
 import { Outfit, Manrope } from 'next/font/google';
-import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 import "./globals.css";
+// 👇 Import Google Analytics
+import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 
 export const metadata = {
-  metadataBase: new URL("https://auditspro.com.au"),
+  metadataBase: new URL("https://auditspro.com.au"), // ✂️ Removed trailing spaces
   title: "AuditsPro - Professional Trust Account Audits Australia",
   description: "Professional trust account audit services for real estate agents, conveyancers, solicitors and accountants. Fixed pricing from $549 + GST with fast turnaround.",
   keywords: "trust account audit, regulatory compliance, real estate audit, conveyancer audit, solicitor audit, accountant audit, Australia",
@@ -33,7 +34,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_AU",
-    url: "https://auditspro.com.au",
+    url: "https://auditspro.com.au", // ✂️ Removed trailing spaces
     siteName: "AuditsPro",
     title: "AuditsPro - Professional Trust Account Audits Australia",
     description: "Professional trust account audit services for real estate agents, conveyancers, solicitors and accountants. Fixed pricing from $549 + GST with fast turnaround.",
@@ -53,7 +54,7 @@ export const metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://auditspro.com.au",
+    canonical: "https://auditspro.com.au", // ✂️ Removed trailing spaces
   },
 };
 
@@ -89,13 +90,13 @@ export default function RootLayout({
   return (
     <html lang="en-AU" className={`${outfit.variable} ${manrope.variable}`}>
       <head>
-        {/* Preconnect to external domains */}
+        {/* Preconnect to external domains — also cleaned up trailing spaces */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
 
-        {/* Structured data (Schema.org) */}
+        {/* Structured data (Schema.org) — cleaned URLs */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -146,7 +147,7 @@ export default function RootLayout({
           {children}
         </div>
 
-        {/* ✅ Google Analytics goes in the body */}
+        {/* ✅ Google Analytics — now added */}
         <GoogleAnalytics />
       </body>
     </html>

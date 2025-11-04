@@ -1,34 +1,48 @@
-// app/components/analytics/google-analytics.tsx
 'use client';
 
 import Script from 'next/script';
+import { Suspense, useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
-// Declare gtag for TypeScript
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
-interface GoogleAnalyticsProps {
-  measurementId?: string;
+interface PageViewTrackerProps {
+  measurementId: string;
 }
 
-export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
-  // Prioritize: prop → env → nothing (do not fallback to old ID)
-  const GA_MEASUREMENT_ID =
-    measurementId ||
-    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+function PageViewTracker({ measurementId }: PageViewTrackerProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  // Don't render if no valid ID
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const path = pathname + (searchParams && searchParams.toString() ? `?${searchParams.toString()}` : '');
+    const title = document.title;
+    const url = window.location.href;
+
+    const gtag = window.gtag;
+    if (gtag) {
+      gtag('event', 'page_view', {
+        page_title: title,
+        page_location: url,
+        page_path: path,
+      });
+    }
+  }, [pathname, searchParams, measurementId]);
+
+  return null;
+}
+
+export function GoogleAnalytics() {
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   if (!GA_MEASUREMENT_ID) {
-    console.warn('Google Analytics is disabled: no Measurement ID provided.');
-    return null;
-  }
-
-  // Skip in development unless debug mode is on
-  if (process.env.NODE_ENV === 'development' && !process.env.NEXT_PUBLIC_GA_DEBUG) {
+    console.warn('Google Analytics disabled: NEXT_PUBLIC_GA_MEASUREMENT_ID not set.');
     return null;
   }
 
@@ -37,20 +51,28 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
-        onLoad={() => console.log('Google Analytics loaded')}
-        onError={(e) => console.error('Google Analytics failed to load:', e)}
       />
       <Script
-        id="google-analytics-config"
+        id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag(){dataLayer.push(arguments);} 
+
+            // Consent Mode v2 baseline (adjust per your policy)
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              analytics_storage: 'granted',
+              functionality_storage: 'granted',
+              security_storage: 'granted'
+            });
+
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_title: document.title,
-              page_location: window.location.href,
+              send_page_view: false, // Manual SPA page_view tracking
               anonymize_ip: true,
               allow_google_signals: false,
               allow_ad_personalization_signals: false
@@ -58,65 +80,11 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
           `,
         }}
       />
+
+      {/* Track pageviews on route changes (App Router SPA) */}
+      <Suspense fallback={null}>
+        <PageViewTracker measurementId={GA_MEASUREMENT_ID} />
+      </Suspense>
     </>
   );
 }
-
-// ✅ Corrected: Use 'page_view' event instead of re-configuring
-export const trackPageView = (url: string, title?: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'page_view', {
-      page_location: url,
-      page_title: title || document.title,
-    });
-  }
-};
-
-// Generic event tracking
-export const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, parameters);
-  }
-};
-
-// Predefined business events (great for AuditsPro!)
-export const trackAuditEvents = {
-  contactFormSubmit: (formType: string) =>
-    trackEvent('contact_form_submit', {
-      form_type: formType,
-      event_category: 'engagement',
-      event_label: 'Contact Form',
-    }),
-
-  servicePageView: (serviceType: string) =>
-    trackEvent('service_page_view', {
-      service_type: serviceType,
-      event_category: 'engagement',
-      event_label: 'Service Interest',
-    }),
-
-  pricingView: () =>
-    trackEvent('pricing_page_view', {
-      event_category: 'engagement',
-      event_label: 'Pricing Interest',
-    }),
-
-  demoBooking: () =>
-    trackEvent('demo_booking', {
-      event_category: 'conversion',
-      event_label: 'Demo Request',
-      value: 1,
-    }),
-
-  phoneClick: () =>
-    trackEvent('phone_click', {
-      event_category: 'engagement',
-      event_label: 'Phone Contact',
-    }),
-
-  emailClick: () =>
-    trackEvent('email_click', {
-      event_category: 'engagement',
-      event_label: 'Email Contact',
-    }),
-};

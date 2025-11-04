@@ -176,7 +176,7 @@ export function generateServiceSchema(serviceData: ServiceSchemaData) {
       "@type": "Country",
       "name": "Australia",
     },
-    "offers": baseOffer as any, // Will be reassigned below
+    "offers": baseOffer as unknown, // Will be reassigned below
     "serviceOutput": "Regulatory Compliant Trust Account Audit Report",
     "hoursAvailable": {
       "@type": "OpeningHoursSpecification",
