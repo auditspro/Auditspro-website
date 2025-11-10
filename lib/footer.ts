@@ -38,7 +38,7 @@ export interface FooterSection {
 // Legal Links Configuration
 export const legalLinks: FooterLink[] = [
   {
-    href: "/privacy",
+    href: "/privacy-policy",
     label: "Privacy Policy",
     icon: LockClosedIcon,
     description: "Our privacy policy and data protection practices",

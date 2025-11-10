@@ -23,7 +23,7 @@ export function SiteFooter() {
           </div>
 
           {/* Footer Sections - Responsive Grid */}
-          {footerConfig.map((section, index) => (
+          {footerConfig.map((section) => (
             <div key={section.id} className={cn(
               "space-y-3",
               // Responsive column spanning
@@ -84,6 +84,18 @@ export function SiteFooter() {
                   </Link>
                 );
               })}
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new CustomEvent('open-cookie-banner'));
+                  }
+                }}
+                className="text-slate-600 hover:text-brand-900 transition-colors duration-200 inline-flex items-center gap-2 text-sm"
+                aria-label="Manage Cookies preferences"
+              >
+                Manage Cookies
+              </button>
             </div>
           </div>
         </div>
