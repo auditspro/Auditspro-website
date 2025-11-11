@@ -10,7 +10,16 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Relax CSP so client-side analytics (Clarity, GA) can load.
+    // Note: Next.js applies this CSP via a meta tag for image optimization.
+    // We include script-src to explicitly allow required analytics domains.
+    contentSecurityPolicy:
+      "default-src 'self' https://www.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com; " +
+      "script-src 'self' 'unsafe-inline' https://www.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com; " +
+      "style-src 'self' 'unsafe-inline'; " +
+      "img-src 'self' data: https:; " +
+      "connect-src 'self' https://www.clarity.ms https://www.google-analytics.com https://www.googletagmanager.com; " +
+      "frame-ancestors 'none'; sandbox;",
   },
   
   // Enable compression
