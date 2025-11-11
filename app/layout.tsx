@@ -1,5 +1,6 @@
 // app/layout.tsx
 import { Outfit, Manrope } from 'next/font/google';
+import Script from 'next/script';
 import "./globals.css";
 import { GoogleAnalyticsWithConsent } from '@/components/analytics/GoogleAnalyticsWithConsent';
 
@@ -135,6 +136,16 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-dvh bg-white text-black/90 antialiased">
+        {/* Microsoft Clarity */}
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "u3u4s77ayy");
+          `}
+        </Script>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50 transition-all"
