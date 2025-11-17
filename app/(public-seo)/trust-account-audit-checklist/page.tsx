@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "AuditsPro",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/auditspro-services.png",
         width: 1200,
         height: 630,
         alt: "Trust Account Audit Checklist - AuditsPro",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Trust Account Audit Checklist - Document Requirements | AuditsPro",
     description: "Complete document checklist for trust account audits. Prepare bank statements, reconciliation reports, and system access for a smooth audit process.",
-    images: ["/og-image.jpg"],
+    images: ["/images/auditspro-services.png"],
   },
   robots: {
     index: true,
@@ -106,7 +106,7 @@ export default function ChecklistPage() {
               "@type": "WebPage",
               "@id": "https://auditspro.com.au/trust-account-audit-checklist"
             },
-            image: "https://auditspro.com.au/og-image.jpg"
+            image: "https://auditspro.com.au/images/auditspro-services.png"
           }),
         }}
       />
@@ -701,7 +701,7 @@ export default function ChecklistPage() {
               "@type": "WebPage",
               "@id": "https://auditspro.com.au/trust-account-audit-checklist"
             },
-            "image": "https://auditspro.com.au/og-image.jpg"
+            "image": "https://auditspro.com.au/images/auditspro-services.png"
           }),
         }}
       />
@@ -715,7 +715,7 @@ export default function ChecklistPage() {
             "@type": "HowTo",
             "name": "How to Prepare Documents for Trust Account Audit",
             "description": "Step-by-step guide to prepare all necessary documents for your trust account audit",
-            "image": "https://auditspro.com.au/og-image.jpg",
+            "image": "https://auditspro.com.au/images/auditspro-services.png",
             "totalTime": "PT30M",
             "estimatedCost": {
               "@type": "MonetaryAmount",

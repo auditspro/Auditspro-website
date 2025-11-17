@@ -3,6 +3,7 @@ import { Outfit, Manrope } from 'next/font/google';
 import Script from 'next/script';
 import "./globals.css";
 import { GoogleAnalyticsWithConsent } from '@/components/analytics/GoogleAnalyticsWithConsent';
+import ClarityWithConsent from '@/components/analytics/ClarityWithConsent';
 
 export const metadata = {
   metadataBase: new URL("https://auditspro.com.au"),
@@ -40,7 +41,7 @@ export const metadata = {
     description: "Professional trust account audit services for real estate agents, conveyancers, solicitors and accountants. Fixed pricing from $549 + GST with fast turnaround.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/auditspro-services.png",
         width: 1200,
         height: 630,
         alt: "AuditsPro - Professional Trust Account Audits",
@@ -51,7 +52,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "AuditsPro - Professional Trust Account Audits Australia",
     description: "Professional trust account audit services for real estate agents, conveyancers, solicitors and accountants. Fixed pricing from $549 + GST with fast turnaround.",
-    images: ["/og-image.jpg"],
+    images: ["/images/auditspro-services.png"],
   },
   alternates: {
     canonical: "https://auditspro.com.au",
@@ -87,6 +88,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || "u3u4s77ayy";
   return (
     <html lang="en-AU" className={`${outfit.variable} ${manrope.variable}`}>
       <head>
@@ -136,16 +138,8 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-dvh bg-white text-black/90 antialiased">
-        {/* Microsoft Clarity */}
-        <Script id="ms-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "u3u4s77ayy");
-          `}
-        </Script>
+        {/* Microsoft Clarity gated by consent */}
+        {CLARITY_ID && <ClarityWithConsent clarityId={CLARITY_ID} />}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50 transition-all"

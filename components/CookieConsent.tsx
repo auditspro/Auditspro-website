@@ -6,7 +6,9 @@ import 'cookieconsent/build/cookieconsent.min.css';
 
 declare global {
   interface Window {
-    cookieconsent: any;
+    cookieconsent?: {
+      initialise: (options: unknown) => void;
+    };
   }
 }
 

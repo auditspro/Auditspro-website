@@ -38,7 +38,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
       siteName: "AuditsPro AU",
       images: [
         {
-          url: config.ogImage || "/og-image.jpg",
+          url: config.ogImage || "/images/auditspro-services.png",
           width: 1200,
           height: 630,
           alt: config.title,
@@ -51,7 +51,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
       card: "summary_large_image",
       title: config.title,
       description: config.description,
-      images: [config.twitterImage || config.ogImage || "/og-image.jpg"],
+      images: [config.twitterImage || config.ogImage || "/images/auditspro-services.png"],
     },
     robots: {
       index: !config.noIndex,

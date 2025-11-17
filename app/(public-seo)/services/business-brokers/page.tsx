@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
@@ -22,6 +23,7 @@ import {
   Building,
   TrendingUp,
 } from "lucide-react";
+import { RequirementsSection as BusinessBrokersRequirementsSection } from "@/components/pagerefactors/services/business-brokers/RequirementsSection";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -236,48 +238,114 @@ export default function BusinessBrokersPage() {
       {/* Main Content */}
       <main className="flex-1">
 
-        {/* Hero Section */}
-        <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
-          <div className="container relative mx-auto px-4 sm:px-6">
-            <div className="flex justify-center">
+        {/* Hero Section - matched to shared services layout and classes */}
+        <section className="relative overflow-hidden border-b border-brand-200/70 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40 mt-8">
+          {/* Background Pattern */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute -left-1/4 top-0 size-96 rounded-full bg-brand-100/40 blur-3xl" />
+            <div className="absolute -right-1/4 bottom-0 size-96 rounded-full bg-brand-100/40 blur-3xl" />
+          </div>
+
+          <div className="container relative mx-auto px-4 sm:px-6 py-16 sm:py-20">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Content Column */}
               <Motion
-                {...motionVariants.fadeInUp}
-                viewport={motionViewport}
-                transition={motionTransitions.smooth}
-                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center lg:text-left"
               >
-                {/* Header with respectful icon */}
-                <div className="flex flex-col items-center">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
-                    <Briefcase className="size-4" />
-                    <span className="tracking-widest">BUSINESS BROKERS</span>
+                {/* Service Badge */}
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
+                  <Briefcase className="size-4" />
+                  <span>Business Brokers</span>
+                </div>
+
+                <h1 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-950">
+                  Professional Trust Account Auditing for {" "}
+                  <span className="bg-gradient-to-r from-brand-700 to-brand-900 bg-clip-text text-transparent">Business Brokers</span>
+                </h1>
+
+                <p className="mb-8 text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                  State regulator compliant trust account auditing services for business brokers across Australia. Our comprehensive {" "}
+                  <Link href="/services" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">professional audit services</Link>{" "}
+                  also cover {" "}
+                  <Link href="/services/real-estate-agents" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">real estate agents</Link>{" "}
+                  and {" "}
+                  <Link href="/services/mortgage-brokers" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">mortgage brokers</Link>. Expert auditors with {" "}
+                  <Link href="/contact" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">24-hour response times</Link>{" "}
+                  and 5–10 day completion.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                  <Link href="/contact">
+                    <button className="inline-flex items-center gap-2 rounded-lg bg-brand-900 px-6 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-brand-800 hover:shadow-md">
+                      <CheckCircle2 className="size-5" />
+                      Start Your Audit
+                    </button>
+                  </Link>
+                  <Link href="/how-it-works">
+                    <button className="inline-flex items-center gap-2 rounded-lg border border-brand-200 bg-white px-6 py-3 text-base font-medium text-brand-950 shadow-sm transition-all hover:bg-brand-50 hover:border-brand-300">
+                      <FileText className="size-5" />
+                      How It Works
+                    </button>
+                  </Link>
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <Clock className="size-4 text-brand-700" />
+                    <span>5–10 Day Turnaround</span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950">
-                    Trust Account Audits for Business Brokers
-                  </h1>
-                  <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
-                    Professional trust account audits for business brokers handling client funds.
-                    Our comprehensive <Link href="/services" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">audit services</Link> ensure 
-                    compliance with state regulations, similar to our specialized audits for{" "}
-                    <Link href="/services/real-estate-agents" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">real estate agents</Link> and{" "}
-                    <Link href="/services/mortgage-brokers" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">mortgage brokers</Link>. 
-                    Get started with{" "}
-                    <Link
-                      href="/contact"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
-                    >
-                      24-hour response times
-                    </Link>{" "}
-                    and 5-10 day completion. Fixed pricing from $549 + GST. Learn more about{" "}
-                    <Link
-                      href="/how-it-works"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
-                    >
-                      our audit process
-                    </Link>
-                    .
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="size-4 text-brand-700" />
+                    <span>Fixed Pricing – No Hidden Fees</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Shield className="size-4 text-brand-700" />
+                    <span>Qualified Trust Account Auditors</span>
+                  </div>
+                </div>
+
+                {/* Additional Trust Elements */}
+                <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
+                  <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
+                    <Shield className="size-4 text-brand-700" />
+                    <span>State Regulator Compliant</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
+                    <CheckCircle2 className="size-4 text-brand-700" />
+                    <span>Expert Business Broker Auditors</span>
+                  </div>
+                </div>
+              </Motion>
+
+              {/* Image Column */}
+              <Motion
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative"
+              >
+                <div className="relative mx-auto max-w-lg">
+                  {/* Background blur effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-600 rounded-full blur-3xl opacity-15"></div>
+
+                  {/* Professional Business Broker Services Image - Ellipse */}
+                  <div className="relative overflow-hidden rounded-full aspect-square shadow-2xl">
+                    <Image
+                      src="/images/auditspro-services.png"
+                      alt="Professional Trust Account Audit Services for Business Brokers - Regulatory Compliant - AuditsPro Australia"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                      priority={true}
+                      quality={90}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                    />
+                  </div>
                 </div>
               </Motion>
             </div>
@@ -626,65 +694,10 @@ export default function BusinessBrokersPage() {
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <section className="py-16 bg-slate-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <Motion
-              {...motionVariants.fadeInUp}
-              viewport={motionViewport}
-              transition={motionTransitions.smooth}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
-                Transparent Business Broker Audit Pricing
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Fixed pricing with no hidden costs. Professional trust account audits 
-                designed specifically for business brokers and commercial agents.
-              </p>
-            </Motion>
+        {/* Pricing Section intentionally removed per request */}
 
-            <div className="max-w-md mx-auto">
-              <Motion
-                {...motionVariants.fadeInUp}
-                viewport={motionViewport}
-                transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="bg-white p-8 rounded-lg shadow-lg border border-slate-200"
-              >
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold text-blue-950 mb-2">
-                    Trust Account Audit
-                  </h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">
-                    $549 <span className="text-lg font-normal text-slate-600">+ GST</span>
-                  </div>
-                  <ul className="text-left space-y-2 mb-6">
-                    {[
-                      "Comprehensive trust account audit",
-                      "State compliance verification",
-                      "24-hour response time",
-                      "5-10 day completion",
-                      "Expert business broker auditors",
-                      "Detailed compliance report",
-                      "Recommendations for improvement",
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <CheckCircle2 className="size-4 text-blue-600" />
-                        <span className="text-sm text-slate-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/book-demo"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-                  >
-                    Start Audit
-                  </Link>
-                </div>
-              </Motion>
-            </div>
-          </div>
-        </section>
+        {/* State Requirements Section */}
+        <BusinessBrokersRequirementsSection />
 
         {/* Contact Form Section */}
         <section className="py-16">

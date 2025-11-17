@@ -14,11 +14,11 @@ const nextConfig: NextConfig = {
     // Note: Next.js applies this CSP via a meta tag for image optimization.
     // We include script-src to explicitly allow required analytics domains.
     contentSecurityPolicy:
-      "default-src 'self' https://www.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com; " +
-      "script-src 'self' 'unsafe-inline' https://www.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com; " +
+      "default-src 'self' https://www.clarity.ms https://scripts.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com; " +
+      "script-src 'self' 'unsafe-inline' https://www.clarity.ms https://scripts.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com; " +
       "style-src 'self' 'unsafe-inline'; " +
       "img-src 'self' data: https:; " +
-      "connect-src 'self' https://www.clarity.ms https://www.google-analytics.com https://www.googletagmanager.com; " +
+      "connect-src 'self' https://www.clarity.ms https://l.clarity.ms https://www.google-analytics.com https://www.googletagmanager.com; " +
       "frame-ancestors 'none'; sandbox;",
   },
   

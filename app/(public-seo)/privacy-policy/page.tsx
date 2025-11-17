@@ -4,7 +4,7 @@ import { ManageCookiesButton } from "@/components/privacy/ManageCookiesButton";
 export const metadata = {
   title: "Privacy Policy | AuditsPro",
   description:
-    "Learn how AuditsPro collects, uses, and protects your data, including cookie usage and Google Analytics consent.",
+    "Learn how AuditsPro collects, uses, and protects your data, including cookie usage, Google Analytics, and Microsoft Clarity consent.",
   alternates: { canonical: "/privacy-policy" },
 };
 
@@ -55,6 +55,19 @@ export default function PrivacyPolicyPage() {
           <p className="text-slate-600">
             You can withdraw or change your consent at any time using the
             Manage Cookies button above.
+          </p>
+        </section>
+
+        <section className="mt-8 space-y-4">
+          <h2 className="text-xl font-medium text-brand-900">Microsoft Clarity</h2>
+          <p className="text-slate-600">
+            With your consent, we may use Microsoft Clarity to understand how users interact with our website.
+            Clarity provides aggregated heatmaps and session insights to help improve usability. It does not load
+            unless you accept cookies, and is disabled when consent is denied.
+          </p>
+          <p className="text-slate-600">
+            Data processed by Clarity is subject to Microsoft’s privacy terms. You can change your consent at any time
+            using the Manage Cookies button above.
           </p>
         </section>
 

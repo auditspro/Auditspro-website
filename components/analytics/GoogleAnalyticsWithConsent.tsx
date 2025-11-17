@@ -37,6 +37,9 @@ export function GoogleAnalyticsWithConsent() {
     localStorage.setItem(COOKIE_NAME, 'granted');
     setConsent(true);
     setShowBanner(false);
+    try {
+      window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: { consent: 'granted' } }));
+    } catch {}
     updateConsent({
       analytics_storage: 'granted',
       ad_storage: 'denied',
@@ -51,6 +54,9 @@ export function GoogleAnalyticsWithConsent() {
     localStorage.setItem(COOKIE_NAME, 'denied');
     setConsent(false);
     setShowBanner(false);
+    try {
+      window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: { consent: 'denied' } }));
+    } catch {}
     updateConsent({
       analytics_storage: 'denied',
       ad_storage: 'denied',
