@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Motion, motionVariants, motionTransitions, motionViewport } from "@/components/ui/motion";
 import {
   CheckCircleIcon,
-  CurrencyDollarIcon,
   ClockIcon,
   ShieldCheckIcon,
   StarIcon,

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon as ArrowRight } from "@heroicons/react/24/outline";
-import { getInternalLinks, generateContextualLinks, type InternalLink } from "@/lib/internal-links";
+import { getInternalLinks, generateContextualLinks } from "@/lib/internal-links";
 import { Motion, motionVariants } from "./motion";
 
 interface InternalLinksProps {

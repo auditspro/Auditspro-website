@@ -1,14 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { Motion, motionVariants, motionTransitions, motionViewport } from "@/components/ui/motion";
 import {
   ClipboardDocumentListIcon,
   MagnifyingGlassIcon,
-  ShieldCheckIcon,
   DocumentCheckIcon,
-  CheckCircleIcon,
-  ClockIcon,
   CalculatorIcon,
 } from "@heroicons/react/24/outline";
 

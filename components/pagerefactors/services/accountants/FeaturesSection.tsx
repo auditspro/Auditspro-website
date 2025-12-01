@@ -6,13 +6,9 @@ import {
   DocumentCheckIcon,
   ShieldCheckIcon,
   BookOpenIcon,
-  CheckCircleIcon,
-  ChatBubbleLeftRightIcon,
   ClockIcon,
-  DocumentTextIcon,
   ChartBarIcon,
   LockClosedIcon,
-  CircleStackIcon,
   CalculatorIcon,
   Squares2X2Icon,
 } from "@heroicons/react/24/outline";

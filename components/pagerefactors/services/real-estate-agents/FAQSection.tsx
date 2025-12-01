@@ -253,7 +253,7 @@ export function FAQSection() {
                 Still Have Questions?
               </h3>
               <p className="text-slate-600 mb-6">
-                Can't find the answer you're looking for? Our real estate audit experts are here to help. 
+                Can’t find the answer you’re looking for? Our real estate audit experts are here to help. 
                 We also provide specialized audit services for{" "}
                 <Link
                   href="/services/solicitors"

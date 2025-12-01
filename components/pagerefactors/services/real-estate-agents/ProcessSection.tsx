@@ -16,7 +16,6 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   Panel,
-  NodeProps,
   OnNodesChange,
   OnEdgesChange,
 } from "@xyflow/react";
@@ -30,7 +29,6 @@ import {
 import {
   DocumentTextIcon,
   MagnifyingGlassIcon,
-  ShieldCheckIcon,
   DocumentCheckIcon,
   ClockIcon,
   CheckCircleIcon,
@@ -602,7 +600,7 @@ export function ProcessSection() {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
-                  What You'll Need to Get Started
+                  What You’ll Need to Get Started
                 </h3>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   Prepare these documents for your real estate audit

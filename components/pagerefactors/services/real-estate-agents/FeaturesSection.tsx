@@ -4,7 +4,6 @@ import { Motion, motionVariants, motionTransitions, motionViewport } from "@/com
 import {
   DocumentCheckIcon,
   ShieldCheckIcon,
-  BookOpenIcon,
   CheckCircleIcon,
   TrophyIcon,
   ChatBubbleLeftRightIcon,

@@ -243,7 +243,7 @@ export function ContactSection() {
             Ready to Ensure Legal Compliance?
           </h3>
           <p className="text-slate-600 mb-6 max-w-md mx-auto">
-            Don't risk regulatory action. Our legal audit experts are standing by 
+            Don’t risk regulatory action. Our legal audit experts are standing by 
             to help you maintain Law Society compliance with professional audit services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

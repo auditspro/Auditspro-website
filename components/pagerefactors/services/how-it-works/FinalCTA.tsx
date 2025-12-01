@@ -9,7 +9,6 @@ import {
   ChatBubbleLeftRightIcon,
   ShieldCheckIcon,
   ClockIcon,
-  CheckCircleIcon,
   StarIcon,
   UsersIcon,
   TrophyIcon,
@@ -18,7 +17,6 @@ import {
   CalendarIcon,
   DocumentTextIcon,
   ExclamationTriangleIcon,
-  CurrencyDollarIcon,
   GiftIcon,
   FireIcon,
   ChevronRightIcon,
@@ -96,44 +94,7 @@ export function FinalCTA() {
     return () => clearInterval(testimonialTimer);
   }, [trustIndicators.length]);
 
-  const keyBenefits = [
-    {
-      icon: ClockIcon,
-      title: "5-10 Day Turnaround",
-      description: "Fastest audit completion in the industry",
-      highlight: true,
-    },
-    {
-      icon: CurrencyDollarIcon,
-      title: "Transparent Pricing",
-      description: "No hidden fees, upfront cost clarity",
-      highlight: false,
-    },
-    {
-      icon: ShieldCheckIcon,
-      title: "Bank-Grade Security",
-      description: "Your data protected with military-grade encryption",
-      highlight: false,
-    },
-    {
-      icon: CheckCircleIcon,
-      title: "100% Compliance",
-      description: "Guaranteed regulatory compliance or money back",
-      highlight: true,
-    },
-    {
-      icon: UsersIcon,
-      title: "Expert Support",
-      description: "Dedicated audit specialists throughout the process",
-      highlight: false,
-    },
-    {
-      icon: StarIcon,
-      title: "5-Star Service",
-      description: "Consistently rated excellent by our clients",
-      highlight: false,
-    },
-  ];
+  // keyBenefits reserved for future enhancement; suppress lint by using const
 
   const urgencyReasons = [
     {
@@ -424,10 +385,10 @@ export function FinalCTA() {
         >
           <div className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-8 supports-[backdrop-filter]:bg-white/70">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-amber-100/60 px-4 py-2 text-sm font-medium text-amber-900 mb-4">
-                <ExclamationTriangleIcon className="size-4" />
-                <span>Don't Wait - Act Now</span>
-              </div>
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-100/60 px-4 py-2 text-sm font-medium text-amber-900 mb-4">
+            <ExclamationTriangleIcon className="size-4" />
+            <span>Don’t Wait - Act Now</span>
+          </div>
 
               <h3 className="text-2xl font-semibold text-brand-950 mb-4">
                 Why You Should Start Today

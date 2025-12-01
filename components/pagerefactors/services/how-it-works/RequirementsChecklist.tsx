@@ -10,7 +10,6 @@ import {
   DocumentChartBarIcon as FileSpreadsheet,
   PhotoIcon as FileImage,
   ServerStackIcon as HardDrive,
-  CloudIcon as Cloud,
   ShieldCheckIcon as Shield,
   ClockIcon as Clock,
   ChevronDownIcon as ChevronDown,
@@ -149,38 +148,6 @@ export function RequirementsChecklist() {
     },
   ];
 
-  const softwareOptions = [
-    {
-      name: "MYOB",
-      icon: HardDrive,
-      compatibility: "Excellent",
-      exportFormats: ["PDF", "Excel", "CSV"],
-    },
-    {
-      name: "Xero",
-      icon: Cloud,
-      compatibility: "Excellent",
-      exportFormats: ["PDF", "Excel", "CSV", "QIF"],
-    },
-    {
-      name: "QuickBooks",
-      icon: HardDrive,
-      compatibility: "Good",
-      exportFormats: ["PDF", "Excel", "QBO"],
-    },
-    {
-      name: "Sage",
-      icon: HardDrive,
-      compatibility: "Good",
-      exportFormats: ["PDF", "Excel", "CSV"],
-    },
-    {
-      name: "Custom Systems",
-      icon: FileText,
-      compatibility: "Variable",
-      exportFormats: ["PDF", "Excel"],
-    },
-  ];
 
   const fileFormats = [
     {
@@ -634,12 +601,12 @@ export function RequirementsChecklist() {
             </div>
 
             <h3 className="text-2xl font-semibold text-brand-950 mb-4">
-              Documents Ready? Let's Get Started
+              Documents Ready? Let’s Get Started
             </h3>
 
             <p className="text-brand-700 max-w-2xl mx-auto mb-6 leading-relaxed">
-              Once you've gathered all required documents, our team will handle
-              the rest. Upload your files securely and we'll begin your audit
+              Once you’ve gathered all required documents, our team will handle
+              the rest. Upload your files securely and we’ll begin your audit
               process immediately.
             </p>
 

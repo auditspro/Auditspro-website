@@ -14,12 +14,10 @@ import {
   LockClosedIcon,
   CircleStackIcon,
   CheckIcon,
-  BuildingOfficeIcon,
   UsersIcon,
   CalculatorIcon,
   Squares2X2Icon,
   ArrowRightIcon,
-  PlayIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 

@@ -464,8 +464,8 @@ export function TimelineSection() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {keyBenefits.map((benefit, index) => {
-                const BenefitIcon = benefit.icon;
+            {keyBenefits.map((benefit) => {
+              const BenefitIcon = benefit.icon;
 
                 return (
                   <div
@@ -516,7 +516,7 @@ export function TimelineSection() {
 
             <p className="text-amber-800 max-w-2xl mx-auto mb-6 leading-relaxed">
               Trust account audits must be completed within specific timeframes
-              set by each state. Don't wait until the last minute - start your
+              set by each state. Don’t wait until the last minute — start your
               audit process early to ensure compliance.
             </p>
 

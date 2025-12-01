@@ -16,7 +16,6 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   Panel,
-  NodeProps,
   OnNodesChange,
   OnEdgesChange,
 } from "@xyflow/react";

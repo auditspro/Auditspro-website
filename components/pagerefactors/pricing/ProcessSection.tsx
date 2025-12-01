@@ -3,11 +3,7 @@
 import React from "react";
 import { Motion } from "@/components/ui/motion";
 import Link from "next/link";
-import {
-  ArrowRightIcon,
-  ClockIcon,
-  QuestionMarkCircleIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowRightIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 
 export function ProcessSection() {
   return (

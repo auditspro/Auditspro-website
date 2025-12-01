@@ -9,7 +9,6 @@ import {
   ServerStackIcon as Server,
   KeyIcon as Key,
   CheckCircleIcon as CheckCircle2,
-  ExclamationTriangleIcon as AlertTriangle,
   UsersIcon as Users,
   ClockIcon as Clock,
   TrophyIcon as Award,
@@ -21,7 +20,6 @@ import {
   ArrowRightIcon as ArrowRight,
   GlobeAltIcon as Globe,
   CircleStackIcon as Database,
-  FingerPrintIcon as Fingerprint,
   ShieldCheckIcon as ShieldCheck,
 } from "@heroicons/react/24/outline";
 
@@ -276,7 +274,7 @@ export function SecuritySection() {
           className="mb-12"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {securityStats.map((stat, index) => {
+            {securityStats.map((stat) => {
               const StatIcon = stat.icon;
 
               return (
@@ -322,7 +320,7 @@ export function SecuritySection() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {securityFeatures.map((feature, index) => {
+            {securityFeatures.map((feature) => {
               const FeatureIcon = feature.icon;
               const isExpanded = expandedFeature === feature.id;
 
@@ -415,7 +413,7 @@ export function SecuritySection() {
               Secure Data Handling Process
             </h3>
             <p className="text-brand-700 max-w-2xl mx-auto">
-              Follow your data's journey through our secure audit process with
+              Follow your data’s journey through our secure audit process with
               complete transparency and control.
             </p>
           </div>

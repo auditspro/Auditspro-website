@@ -3,14 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Motion, motionVariants, motionTransitions, motionViewport } from "@/components/ui/motion";
-import {
-  CheckCircleIcon,
-  ClockIcon,
-  ShieldCheckIcon,
-  StarIcon,
-  ArrowRightIcon,
-  CurrencyDollarIcon,
-} from "@heroicons/react/24/outline";
+import { CheckCircleIcon, ClockIcon, ShieldCheckIcon, StarIcon, CurrencyDollarIcon } from "@heroicons/react/24/outline";
 
 // States data
 const states = [
@@ -47,10 +40,9 @@ const formatPrice = (price: number) => `${(price / 100).toFixed(0)}`;
 
 interface PricingSectionProps {
   state?: string;
-  stateName?: string;
 }
 
-export function PricingSection({ state, stateName }: PricingSectionProps = {}) {
+export function PricingSection({ state }: PricingSectionProps = {}) {
   const [selectedState, setSelectedState] = useState<string>(state || "NSW");
   const price = getConveyancingPrice(selectedState);
   const formattedPrice = formatPrice(price);

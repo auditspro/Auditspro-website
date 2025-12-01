@@ -16,7 +16,6 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   Panel,
-  NodeProps,
   OnNodesChange,
   OnEdgesChange,
 } from "@xyflow/react";
@@ -38,13 +37,9 @@ import {
   ArrowRightIcon,
   UserIcon,
   InformationCircleIcon,
-  HomeIcon,
-  BuildingOfficeIcon,
-  BookOpenIcon,
   EnvelopeIcon,
   BuildingOffice2Icon,
   ArrowDownTrayIcon,
-  BoltIcon,
 } from "@heroicons/react/24/outline";
 
 // Type definitions
@@ -266,20 +261,11 @@ const processSteps = [
     delay: 0.4,
   },
 ];
-
-const quickStats = [
-  { value: "15-30", label: "Minutes to Complete", icon: ClockIcon },
-    { value: "100%", label: "Online Process", icon: BoltIcon },
-    { value: "5-10", label: "Days Turnaround", icon: CheckCircleIcon },
-];
-
 // Layout function for positioning nodes
 function getLayoutedElements(
   nodes: Node<CustomNodeData>[],
   direction = "LR"
 ): Node<CustomNodeData>[] {
-  const nodeWidth = 180;
-  const nodeHeight = 120;
   const horizontalSpacing = 250;
   const verticalSpacing = 150;
 

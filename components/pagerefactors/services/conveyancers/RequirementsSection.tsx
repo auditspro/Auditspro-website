@@ -7,7 +7,6 @@ import {
   CalendarIcon,
   DocumentTextIcon,
   CurrencyDollarIcon,
-  ExclamationTriangleIcon,
   ArrowTopRightOnSquareIcon,
   CheckBadgeIcon,
   BuildingOfficeIcon,

@@ -9,7 +9,6 @@ import {
   ClockIcon,
   ShieldCheckIcon,
   StarIcon,
-  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 
 // States data
@@ -54,7 +53,7 @@ export function PricingSection({ state, stateName }: PricingSectionProps) {
   const isStateSpecific = state && stateName;
   const [selectedState, setSelectedState] = useState<string>(state || "NSW");
   const currentPrice = getRealEstatePrice(selectedState);
-  const formattedPrice = formatPrice(currentPrice);
+  // formattedPrice not needed directly; use formatPrice inline
   return (
     <section className="py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

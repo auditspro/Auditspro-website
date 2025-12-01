@@ -16,7 +16,6 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   Panel,
-  NodeProps,
   OnNodesChange,
   OnEdgesChange,
 } from "@xyflow/react";
@@ -30,7 +29,6 @@ import {
 import {
   DocumentTextIcon,
   MagnifyingGlassIcon,
-  ShieldCheckIcon,
   DocumentCheckIcon,
   ClockIcon,
   CheckCircleIcon,

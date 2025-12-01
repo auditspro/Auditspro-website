@@ -1,6 +1,5 @@
 // app/layout.tsx
 import { Outfit, Manrope } from 'next/font/google';
-import Script from 'next/script';
 import "./globals.css";
 import { GoogleAnalyticsWithConsent } from '@/components/analytics/GoogleAnalyticsWithConsent';
 import ClarityWithConsent from '@/components/analytics/ClarityWithConsent';
