@@ -11,16 +11,16 @@ import {
 } from "@/components/ui/motion";
 import { PageWrapper } from "@/components/ui/page-wrapper";
 import {
-  MapPin,
-  Clock,
-  CreditCard,
-  Award,
-  Users,
-  Shield,
-  MessageCircle,
-  CheckCircle2,
-  Grip,
-} from "lucide-react";
+  MapPinIcon as MapPin,
+  ClockIcon as Clock,
+  CreditCardIcon as CreditCard,
+  TrophyIcon as Award,
+  UsersIcon as Users,
+  ShieldCheckIcon as Shield,
+  ChatBubbleLeftRightIcon as MessageCircle,
+  CheckCircleIcon as CheckCircle2,
+  ChatBubbleLeftRightIcon as Grip,
+} from "@heroicons/react/24/outline";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -146,9 +146,9 @@ export default function AboutPage() {
       ]}
       jsonLdData={[breadcrumbJsonLd, jsonLd]}
     >
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40">
         {/* Hero Section */}
-        <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
+        <section className="relative py-16 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40">
           <div className="container relative mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Content Column */}
@@ -159,11 +159,11 @@ export default function AboutPage() {
                 className="text-center lg:text-left"
               >
                 <div className="flex flex-col items-center lg:items-start">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-100 px-3 py-1.5 text-xs font-medium text-brand-950 mb-3">
                     <Grip className="size-4" />
                     <span className="tracking-widest">About us</span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950">
+                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950">
                     About AuditsPro AU
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
@@ -171,7 +171,7 @@ export default function AboutPage() {
                     providing professional compliance services with{" "}
                     <Link
                       href="/contact"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                      className="text-brand-800 hover:text-brand-900 underline underline-offset-2"
                     >
                       24-hour response times
                     </Link>{" "}
@@ -185,21 +185,18 @@ export default function AboutPage() {
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="flex justify-center lg:justify-end"
+                className="relative lg:justify-self-end"
               >
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full transform scale-110 opacity-20"></div>
-                  <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                <div className="relative mx-auto lg:ml-auto">
+                  <div className="relative circle-image">
                     <Image
-                      src="/images/about-audits.png"
+                      src="/images/about audits.png"
                       alt="About AuditsPro AU - Professional Auditing Services"
-                      width={320}
-                      height={320}
+                      fill
                       className="w-full h-full object-cover"
+                      sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
                     />
                   </div>
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-80"></div>
-                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-blue-300 rounded-full opacity-60"></div>
                 </div>
               </Motion>
             </div>
@@ -207,7 +204,7 @@ export default function AboutPage() {
         </section>
 
         {/* Key Benefits Section */}
-        <section className="container relative mx-auto px-4 sm:px-6 pb-16">
+        <section className="container relative mx-auto px-4 sm:px-6 pt-8 pb-16">
           <div className="grid gap-6 md:grid-cols-4">
             {[
               {
@@ -233,15 +230,15 @@ export default function AboutPage() {
             ].map(({ icon: Icon, title, desc }) => (
               <Motion
                 key={title}
-                className="rounded-xl border border-blue-200 bg-blue-50 backdrop-blur p-6"
+                className="rounded-xl border border-brand-200 bg-brand-50 backdrop-blur p-6"
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                  <Icon className="size-4" />
-                  <span>{title}</span>
+                <div className="rounded-lg bg-brand-100/60 p-3 inline-flex items-center justify-center border border-brand-200/50 mb-3">
+                  <Icon className="size-6 text-brand-900" />
                 </div>
+                <h3 className="text-lg font-semibold text-brand-950 mb-1">{title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{desc}</p>
               </Motion>
             ))}
@@ -252,14 +249,14 @@ export default function AboutPage() {
 
         {/* Our Story Section */}
         <section className="container relative mx-auto px-4 sm:px-6 pb-16">
-          <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white backdrop-blur p-8">
+          <div className="rounded-2xl border border-brand-200 bg-gradient-to-br from-brand-50 to-white backdrop-blur p-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <Motion
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-6">
                   Our Story
                 </h2>
                 <p className="text-slate-700 mb-6 leading-relaxed">
@@ -284,8 +281,8 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative"
               >
-                <div className="rounded-xl border border-blue-200 bg-white backdrop-blur p-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                <div className="rounded-xl border border-brand-200 bg-white backdrop-blur p-8">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-100 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
                     <svg
                       className="size-4"
                       fill="none"
@@ -318,7 +315,7 @@ export default function AboutPage() {
 
         {/* Contact Form Section */}
         <section className="container relative mx-auto px-4 sm:px-6 pb-16">
-          <div className="rounded-2xl border border-blue-200 bg-white backdrop-blur p-8">
+          <div className="rounded-2xl border border-brand-200 bg-white backdrop-blur p-8">
             <Motion
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -10,18 +10,18 @@ import {
 } from "@/components/ui/motion";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
 import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  CreditCard,
-  Award,
-  Users,
-  Shield,
-  HelpCircle,
-  CheckCircle2,
-  Grip,
-} from "lucide-react";
+  PhoneIcon as Phone,
+  EnvelopeIcon as Mail,
+  MapPinIcon as MapPin,
+  ClockIcon as Clock,
+  CreditCardIcon as CreditCard,
+  TrophyIcon as Award,
+  UsersIcon as Users,
+  ShieldCheckIcon as Shield,
+  QuestionMarkCircleIcon as HelpCircle,
+  CheckCircleIcon as CheckCircle2,
+  ChatBubbleLeftRightIcon as Grip,
+} from "@heroicons/react/24/outline";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -168,7 +168,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col bg-gradient-to-br from-blue-50/60 to-white/60">
+    <div className="flex min-h-dvh flex-col bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40">
       {/* Set Breadcrumbs */}
       <SetBreadcrumbs
         items={[
@@ -193,7 +193,7 @@ export default function ContactPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
+        <section className="relative py-16 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40">
           <div className="container relative mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <Motion
@@ -204,12 +204,12 @@ export default function ContactPage() {
               >
                 {/* Header with respectful icon */}
                 <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-xs font-medium text-brand-950 mb-3">
                     {/* Contact icon */}
                     <Grip className="size-4" />
                     <span className="tracking-widest">Contact us</span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950">
+                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950">
                     Contact Our Expert Team
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
@@ -218,7 +218,7 @@ export default function ContactPage() {
                     and comprehensive audit services.{" "}
                     <Link
                       href="/how-it-works"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                      className="text-brand-800 hover:text-brand-900 underline underline-offset-2"
                     >
                       Learn about our process
                     </Link>{" "}
@@ -228,24 +228,21 @@ export default function ContactPage() {
               </Motion>
               
               <Motion
-                className="flex justify-center lg:justify-end"
+                className="flex justify-center"
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
               >
-                <div className="relative">
-                  <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-200/50 shadow-2xl bg-white">
+                <div className="relative mx-auto">
+                  <div className="relative circle-image border-0 shadow-none">
                     <Image
                       src="/images/contact audit.png"
                       alt="Contact AuditsPro AU - Professional Trust Account Auditing Services"
-                      width={320}
-                      height={320}
+                      fill
                       className="w-full h-full object-cover"
+                      sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
                     />
                   </div>
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-20"></div>
-                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-blue-300 rounded-full opacity-30"></div>
                 </div>
               </Motion>
             </div>
@@ -253,7 +250,7 @@ export default function ContactPage() {
         </section>
 
         {/* Key Benefits Section */}
-        <section className="relative py-16 bg-gradient-to-br from-blue-50/60 to-white/60">
+        <section className="relative py-16 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40">
           <div className="container relative mx-auto px-4 sm:px-6">
             <Motion
               className="grid gap-6 md:grid-cols-4"
@@ -285,12 +282,12 @@ export default function ContactPage() {
             ].map(({ icon: Icon, title, desc }) => (
               <Motion
                 key={title}
-                className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+                className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
                   <Icon className="size-4" />
                   {title}
                 </div>
@@ -305,13 +302,13 @@ export default function ContactPage() {
         <section className="relative py-16 bg-white/70 backdrop-blur">
           <div className="container relative mx-auto px-4 sm:px-6">
             <Motion
-              className="rounded-2xl border border-blue-200/70 bg-gradient-to-br from-blue-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-blue-50/40"
+              className="rounded-2xl border border-brand-200/70 bg-gradient-to-br from-brand-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-brand-50/40"
               {...motionVariants.fadeInUp}
               viewport={motionViewport}
               transition={motionTransitions.smooth}
             >
             <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Get In Touch
               </h2>
               <p className="text-slate-600 max-w-2xl mx-auto">
@@ -332,12 +329,12 @@ export default function ContactPage() {
                 {/* Contact Methods */}
                 <div className="space-y-6">
                   <Motion
-                    className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
+                    className="rounded-xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
                     {...motionVariants.fadeInUp}
                     viewport={motionViewport}
                     transition={motionTransitions.smooth}
                   >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
                       <Phone className="size-4" />
                       Phone Support
                     </div>
@@ -350,12 +347,12 @@ export default function ContactPage() {
                   </Motion>
 
                   <Motion
-                    className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
+                    className="rounded-xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
                     {...motionVariants.fadeInUp}
                     viewport={motionViewport}
                     transition={{ ...motionTransitions.smooth, delay: 0.1 }}
                   >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
                       <Mail className="size-4" />
                       Email Support
                     </div>
@@ -368,12 +365,12 @@ export default function ContactPage() {
                   </Motion>
 
                   <Motion
-                    className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
+                    className="rounded-xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
                     {...motionVariants.fadeInUp}
                     viewport={motionViewport}
                     transition={{ ...motionTransitions.smooth, delay: 0.2 }}
                   >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
                       <MapPin className="size-4" />
                       Office Location
                     </div>
@@ -391,25 +388,25 @@ export default function ContactPage() {
 
                 {/* Quick Links */}
                 <Motion
-                  className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
+                  className="rounded-xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40"
                   {...motionVariants.fadeInUp}
                   viewport={motionViewport}
                   transition={{ ...motionTransitions.smooth, delay: 0.3 }}
                 >
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
                     <Shield className="size-4" />
                     Quick Links
                   </div>
                   <div className="space-y-3">
                     <Link
                       href="/how-it-works"
-                      className="flex items-center text-blue-800 hover:text-blue-900 underline underline-offset-2 text-sm"
+                      className="flex items-center text-brand-800 hover:text-brand-900 underline underline-offset-2 text-sm"
                     >
                       → How It Works
                     </Link>
                     <Link
                       href="/trust-account-audit-checklist"
-                      className="flex items-center text-blue-800 hover:text-blue-900 underline underline-offset-2 text-sm"
+                      className="flex items-center text-brand-800 hover:text-brand-900 underline underline-offset-2 text-sm"
                     >
                       → Document Checklist
                     </Link>
@@ -424,8 +421,8 @@ export default function ContactPage() {
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: 0.1 }}
               >
-                <div className="rounded-xl border border-blue-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-6">
+                <div className="rounded-xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/40">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-6">
                     <Mail className="size-4" />
                     Send us a message
                   </div>
@@ -445,7 +442,7 @@ export default function ContactPage() {
         {/* FAQ Section */}
         <section
           id="faq"
-          className="relative py-16 bg-gradient-to-br from-blue-50/60 to-white/60 border-t border-blue-200/50"
+          className="relative py-16 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40 border-t border-brand-200/50"
           aria-labelledby="faq-heading"
         >
           <div className="container relative mx-auto px-4 sm:px-6">
@@ -465,10 +462,10 @@ export default function ContactPage() {
               Frequently Asked Questions
             </div>
             <div className="flex items-center justify-center gap-3 mb-3">
-              <HelpCircle className="size-7 text-blue-700" aria-hidden="true" />
+              <HelpCircle className="size-7 text-brand-700" aria-hidden="true" />
               <h2
                 id="faq-heading"
-                className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950"
+                className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950"
               >
                 Contact & audit questions
               </h2>
@@ -481,13 +478,13 @@ export default function ContactPage() {
 
           <div className="grid gap-6 md:gap-8 md:grid-cols-2">
             <Motion
-              className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+              className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                <CheckCircle2 className="size-4 text-blue-700" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+                <CheckCircle2 className="size-4 text-brand-700" />
                 How quickly can you start an audit?
               </div>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -497,13 +494,13 @@ export default function ContactPage() {
             </Motion>
 
             <Motion
-              className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+              className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                <CheckCircle2 className="size-4 text-blue-700" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+                <CheckCircle2 className="size-4 text-brand-700" />
                 What information do you need to get started?
               </div>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -514,13 +511,13 @@ export default function ContactPage() {
             </Motion>
 
             <Motion
-              className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+              className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                <CheckCircle2 className="size-4 text-blue-700" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+                <CheckCircle2 className="size-4 text-brand-700" />
                 Do you work with firms outside of Melbourne?
               </div>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -531,13 +528,13 @@ export default function ContactPage() {
             </Motion>
 
             <Motion
-              className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+              className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                <CheckCircle2 className="size-4 text-blue-700" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+                <CheckCircle2 className="size-4 text-brand-700" />
                 What is your response time for inquiries?
               </div>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -548,13 +545,13 @@ export default function ContactPage() {
             </Motion>
 
             <Motion
-              className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+              className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                <CheckCircle2 className="size-4 text-blue-700" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+                <CheckCircle2 className="size-4 text-brand-700" />
                 How long does a typical audit take to complete?
               </div>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -599,9 +596,9 @@ export default function ContactPage() {
             </Motion>
           </div>
 
-          <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40 mt-8 flex items-center justify-between gap-4 flex-col sm:flex-row">
+          <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40 mt-8 flex items-center justify-between gap-4 flex-col sm:flex-row">
             <div>
-              <h3 className="text-lg font-medium text-blue-950">
+              <h3 className="text-lg font-medium text-brand-950">
                 Still have questions?
               </h3>
               <p className="text-sm text-slate-600">
@@ -611,21 +608,21 @@ export default function ContactPage() {
             <div className="flex gap-2 w-full sm:w-auto">
               <Link
                 href="/trust-account-audit-checklist"
-                className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
+                className="text-sm text-brand-800 hover:text-brand-900 underline underline-offset-2 inline-flex items-center gap-1"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 View Checklist
               </Link>
               <Link
                 href="/how-it-works"
-                className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
+                className="text-sm text-brand-800 hover:text-brand-900 underline underline-offset-2 inline-flex items-center gap-1"
               >
                 <HelpCircle className="w-4 h-4" />
                 How it works
               </Link>
               <Link
                 href="/book-demo"
-                className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
+                className="text-sm text-brand-800 hover:text-brand-900 underline underline-offset-2 inline-flex items-center gap-1"
               >
                 <Clock className="w-4 h-4" />
                 Start Audit

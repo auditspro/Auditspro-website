@@ -1,33 +1,32 @@
 "use client";
 import { Motion } from "@/components/ui/motion";
+import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import {
-  ArrowRight,
-  Phone,
-  Mail,
-  MessageCircle,
-  Shield,
-  Clock,
-  CheckCircle2,
-  Star,
-  Users,
-  Award,
-  TrendingUp,
-  Zap,
-  Calendar,
-  FileText,
-  AlertTriangle,
-  Timer,
-  DollarSign,
-  Sparkles,
-  Gift,
-  Flame,
-  ChevronRight,
-  ExternalLink,
-  Play,
-  Download,
-  BookOpen,
-} from "lucide-react";
+  ArrowRightIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  ChatBubbleLeftRightIcon,
+  ShieldCheckIcon,
+  ClockIcon,
+  CheckCircleIcon,
+  StarIcon,
+  UsersIcon,
+  TrophyIcon,
+  ArrowTrendingUpIcon,
+  BoltIcon,
+  CalendarIcon,
+  DocumentTextIcon,
+  ExclamationTriangleIcon,
+  CurrencyDollarIcon,
+  GiftIcon,
+  FireIcon,
+  ChevronRightIcon,
+  ArrowTopRightOnSquareIcon,
+  PlayIcon,
+  ArrowDownTrayIcon,
+  BookOpenIcon,
+} from "@heroicons/react/24/outline";
 
 export function FinalCTA() {
   const [timeLeft, setTimeLeft] = useState({
@@ -41,32 +40,32 @@ export function FinalCTA() {
 
   const trustIndicators = [
     {
-      icon: Shield,
+      icon: ShieldCheckIcon,
       stat: "99.9%",
       label: "Security Uptime",
       description: "Bank-grade security protecting your sensitive data",
       color: "text-green-600",
     },
     {
-      icon: Users,
+      icon: UsersIcon,
       stat: "5,000+",
       label: "Satisfied Clients",
       description: "Professionals trust us with their audit requirements",
       color: "text-brand-600",
     },
     {
-      icon: Award,
+      icon: TrophyIcon,
       stat: "ISO 27001",
       label: "Certified",
       description: "Internationally recognized security standards",
       color: "text-purple-600",
     },
     {
-      icon: TrendingUp,
+      icon: ArrowTrendingUpIcon,
       stat: "98%",
       label: "Success Rate",
       description: "First-time compliance achievement rate",
-      color: "text-blue-600",
+      color: "text-brand-700",
     },
   ];
 
@@ -99,37 +98,37 @@ export function FinalCTA() {
 
   const keyBenefits = [
     {
-      icon: Clock,
+      icon: ClockIcon,
       title: "5-10 Day Turnaround",
       description: "Fastest audit completion in the industry",
       highlight: true,
     },
     {
-      icon: DollarSign,
+      icon: CurrencyDollarIcon,
       title: "Transparent Pricing",
       description: "No hidden fees, upfront cost clarity",
       highlight: false,
     },
     {
-      icon: Shield,
+      icon: ShieldCheckIcon,
       title: "Bank-Grade Security",
       description: "Your data protected with military-grade encryption",
       highlight: false,
     },
     {
-      icon: CheckCircle2,
+      icon: CheckCircleIcon,
       title: "100% Compliance",
       description: "Guaranteed regulatory compliance or money back",
       highlight: true,
     },
     {
-      icon: Users,
+      icon: UsersIcon,
       title: "Expert Support",
       description: "Dedicated audit specialists throughout the process",
       highlight: false,
     },
     {
-      icon: Star,
+      icon: StarIcon,
       title: "5-Star Service",
       description: "Consistently rated excellent by our clients",
       highlight: false,
@@ -138,25 +137,25 @@ export function FinalCTA() {
 
   const urgencyReasons = [
     {
-      icon: AlertTriangle,
+      icon: ExclamationTriangleIcon,
       title: "Audit Deadline Approaching",
       description: "Don't risk penalties - secure your spot now",
       severity: "high",
     },
     {
-      icon: Timer,
+      icon: ClockIcon,
       title: "Limited Capacity",
       description: "Only 12 audit slots remaining this month",
       severity: "medium",
     },
     {
-      icon: TrendingUp,
+      icon: ArrowTrendingUpIcon,
       title: "Peak Season Pricing",
       description: "Rates increase 25% during busy periods",
       severity: "medium",
     },
     {
-      icon: Flame,
+      icon: FireIcon,
       title: "Fast-Track Available",
       description: "48-hour completion for urgent cases",
       severity: "high",
@@ -166,7 +165,7 @@ export function FinalCTA() {
   const contactMethods = [
     {
       id: "phone",
-      icon: Phone,
+      icon: PhoneIcon,
       title: "Call Now",
       subtitle: "Speak with an expert",
       contact: "1800 AUDIT PRO",
@@ -177,7 +176,7 @@ export function FinalCTA() {
     },
     {
       id: "email",
-      icon: Mail,
+      icon: EnvelopeIcon,
       title: "Email Us",
       subtitle: "Detailed consultation",
       contact: "start@auditspro.com.au",
@@ -188,7 +187,7 @@ export function FinalCTA() {
     },
     {
       id: "chat",
-      icon: MessageCircle,
+      icon: ChatBubbleLeftRightIcon,
       title: "Live Chat",
       subtitle: "Quick questions",
       contact: "Available on website",
@@ -201,28 +200,28 @@ export function FinalCTA() {
 
   const quickActions = [
     {
-      icon: Calendar,
+      icon: CalendarIcon,
       title: "Schedule Consultation",
       description: "Free 15-minute consultation call",
       action: "Book Now",
       popular: true,
     },
     {
-      icon: FileText,
+      icon: DocumentTextIcon,
       title: "Get Quote",
       description: "Instant pricing based on your requirements",
       action: "Calculate",
       popular: false,
     },
     {
-      icon: Download,
+      icon: ArrowDownTrayIcon,
       title: "Download Guide",
       description: "Trust account audit preparation checklist",
       action: "Download",
       popular: false,
     },
     {
-      icon: Play,
+      icon: PlayIcon,
       title: "Watch Demo",
       description: "See our audit process in action",
       action: "Watch",
@@ -285,7 +284,7 @@ export function FinalCTA() {
           </div>
         </Motion>
 
-        {/* Main CTA */}
+        {/* Main CTA - Brand style */}
         <Motion
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -293,75 +292,30 @@ export function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-brand-100/60 px-4 py-2 text-sm font-medium text-brand-950 mb-6">
-            <Sparkles className="size-4 text-brand-700" />
-            <span>Ready to Get Started?</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-950 mb-6">
-            Start Your{" "}
-            <span className="bg-gradient-to-r from-brand-700 to-brand-900 bg-clip-text text-transparent">
-              Trust Account Audit
-            </span>{" "}
-            Today
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950 mb-3">
+            Ready to schedule your audit?
           </h2>
-
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Join thousands of professionals who trust us with their compliance
-            requirements. Get started in minutes with our streamlined process.
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto mb-6">
+            Talk to our team to confirm scope, pricing, and timelines.
           </p>
-
-          {/* Key Benefits Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 max-w-5xl mx-auto">
-            {keyBenefits.map((benefit, index) => {
-              const BenefitIcon = benefit.icon;
-
-              return (
-                <div
-                  key={index}
-                  className={`
-                    rounded-xl border p-4 transition-all duration-300 hover:shadow-md
-                    ${
-                      benefit.highlight
-                        ? "border-brand-300 bg-brand-50/60 hover:bg-brand-50/80"
-                        : "border-brand-200/70 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/70"
-                    }
-                  `}
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`
-                      rounded-lg p-2
-                      ${
-                        benefit.highlight
-                          ? "bg-brand-100/80"
-                          : "bg-brand-100/60"
-                      }
-                    `}
-                    >
-                      <BenefitIcon
-                        className={`
-                        size-5
-                        ${
-                          benefit.highlight
-                            ? "text-brand-900"
-                            : "text-brand-700"
-                        }
-                      `}
-                      />
-                    </div>
-                    <div className="text-left">
-                      <h4 className="font-semibold text-brand-950 text-sm">
-                        {benefit.title}
-                      </h4>
-                      <p className="text-xs text-brand-700">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
+            <Button asChild size="lg" className="gap-2 btn-primary-brand font-medium">
+              <a href="/contact" aria-label="Contact our team">
+                <PhoneIcon className="size-5" />
+                Contact us
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="gap-2 btn-outline-brand bg-white font-medium"
+            >
+              <a href="mailto:start@auditspro.com.au" aria-label="Email our team">
+                <EnvelopeIcon className="size-5" />
+                Email
+              </a>
+            </Button>
           </div>
         </Motion>
 
@@ -418,7 +372,7 @@ export function FinalCTA() {
                     </div>
                     {method.popular && (
                       <span className="inline-flex items-center gap-1 text-xs bg-brand-600 text-white px-2 py-1 rounded-full">
-                        <Star className="size-3" />
+                        <StarIcon className="size-3" />
                         Popular
                       </span>
                     )}
@@ -447,13 +401,12 @@ export function FinalCTA() {
 
           {/* Primary CTA Button */}
           <div className="text-center">
-            <button
-              className="inline-flex items-center gap-3 rounded-lg bg-brand-600 text-white px-8 py-4 text-lg font-semibold hover:bg-brand-700 transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 shadow-lg hover:shadow-xl"
-              aria-label="Start your trust account audit now"
-            >
-              <span>Start Your Audit Now</span>
-              <ArrowRight className="size-5" />
-            </button>
+            <Button asChild size="lg" className="gap-3 btn-primary-brand">
+              <a href="/book-demo" aria-label="Start your trust account audit now">
+                Start Your Audit Now
+                <ArrowRightIcon className="size-5" />
+              </a>
+            </Button>
 
             <p className="text-sm text-brand-600 mt-3">
               No commitment required • Free consultation • Instant quote
@@ -472,8 +425,8 @@ export function FinalCTA() {
           <div className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-8 supports-[backdrop-filter]:bg-white/70">
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 rounded-full bg-amber-100/60 px-4 py-2 text-sm font-medium text-amber-900 mb-4">
-                <AlertTriangle className="size-4" />
-                <span>Don&apos;t Wait - Act Now</span>
+                <ExclamationTriangleIcon className="size-4" />
+                <span>Don't Wait - Act Now</span>
               </div>
 
               <h3 className="text-2xl font-semibold text-brand-950 mb-4">
@@ -543,7 +496,7 @@ export function FinalCTA() {
         >
           <div className="rounded-2xl border border-brand-300 bg-gradient-to-r from-brand-600 to-brand-700 p-8 text-white text-center">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm font-medium mb-6">
-              <Gift className="size-4" />
+              <GiftIcon className="size-4" />
               <span>Limited Time Fast-Track Offer</span>
             </div>
 
@@ -584,7 +537,7 @@ export function FinalCTA() {
                 aria-label="Claim fast-track offer"
               >
                 <span>Claim Fast-Track Offer</span>
-                <Zap className="size-4" />
+                <BoltIcon className="size-4" />
               </button>
 
               <button
@@ -592,7 +545,7 @@ export function FinalCTA() {
                 aria-label="Learn more about fast-track service"
               >
                 <span>Learn More</span>
-                <ExternalLink className="size-4" />
+                <ArrowTopRightOnSquareIcon className="size-4" />
               </button>
             </div>
           </div>
@@ -631,7 +584,7 @@ export function FinalCTA() {
                     </div>
                     {action.popular && (
                       <span className="inline-flex items-center gap-1 text-xs bg-brand-600 text-white px-2 py-1 rounded-full">
-                        <Star className="size-3" />
+                        <StarIcon className="size-3" />
                         Popular
                       </span>
                     )}
@@ -649,7 +602,7 @@ export function FinalCTA() {
                     <span className="text-sm font-medium text-brand-600 group-hover:text-brand-700 transition-colors">
                       {action.action}
                     </span>
-                    <ChevronRight className="size-4 text-brand-600 group-hover:text-brand-700 transition-colors" />
+                    <ChevronRightIcon className="size-4 text-brand-600 group-hover:text-brand-700 transition-colors" />
                   </div>
                 </div>
               );
@@ -667,7 +620,7 @@ export function FinalCTA() {
         >
           <div className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-8 supports-[backdrop-filter]:bg-white/70">
             <div className="inline-flex items-center gap-2 rounded-full bg-green-100/60 px-4 py-2 text-sm font-medium text-green-900 mb-6">
-              <Shield className="size-4" />
+              <ShieldCheckIcon className="size-4" />
               <span>100% Satisfaction Guarantee</span>
             </div>
 
@@ -687,7 +640,7 @@ export function FinalCTA() {
                 aria-label="Get started with confidence"
               >
                 <span>Get Started with Confidence</span>
-                <ArrowRight className="size-4" />
+                <ArrowRightIcon className="size-4" />
               </button>
 
               <button
@@ -695,7 +648,7 @@ export function FinalCTA() {
                 aria-label="Read our guarantee terms"
               >
                 <span>Read Our Guarantee</span>
-                <BookOpen className="size-4" />
+                <BookOpenIcon className="size-4" />
               </button>
             </div>
           </div>

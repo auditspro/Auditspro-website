@@ -113,9 +113,9 @@ export function Hero({
       <div className="grid gap-8 md:gap-10 lg:gap-16 md:grid-cols-2 md:items-center">
         {/* Content Column */}
         <div className="space-y-6">
-          {/* Trust badge - Blue-950 theme matching logo */}
+          {/* Trust badge - brand blue theme matching logo */}
           <motion.div
-            className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-50/80 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-blue-950 backdrop-blur supports-[backdrop-filter]:bg-blue-50/60"
+            className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-50/80 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-brand-950 backdrop-blur supports-[backdrop-filter]:bg-brand-50/60"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.4 }}
@@ -123,7 +123,7 @@ export function Hero({
             aria-label="Registered Australian auditors with 24 hour response time and fixed pricing"
           >
             <span
-              className="inline-block h-2 w-2 rounded-full bg-blue-700 animate-pulse flex-shrink-0"
+              className="inline-block h-2 w-2 rounded-full bg-brand-700 animate-pulse flex-shrink-0"
               aria-hidden="true"
             />
             <span className="leading-tight">
@@ -133,7 +133,7 @@ export function Hero({
 
           <motion.h1
             id="hero-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-blue-950"
+            className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-brand-950"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -152,7 +152,7 @@ export function Hero({
             24‑hour response—no hidden fees, no surprises. Use our{" "}
             <Link
               href="/trust-account-audit-checklist"
-              className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+              className="text-brand-800 hover:text-brand-900 underline underline-offset-2"
             >
               document checklist
             </Link>{" "}
@@ -168,7 +168,7 @@ export function Hero({
             <Button
               asChild
               size="lg"
-              className="gap-2 w-full sm:w-auto bg-blue-900 hover:bg-blue-800 text-white"
+              className="btn-primary-brand gap-2 w-full sm:w-auto"
             >
               <Link href="/book-demo" aria-label="Start your audit">
                 <ArrowTopRightOnSquareIcon className="size-4" aria-hidden="true" />
@@ -179,7 +179,7 @@ export function Hero({
               asChild
               variant="outline"
               size="lg"
-              className="gap-2 w-full sm:w-auto border-blue-200 text-blue-950 hover:bg-blue-50"
+              className="btn-outline-brand gap-2 w-full sm:w-auto"
             >
               <Link href="/pricing">
                 <CreditCardIcon className="size-4" aria-hidden="true" />
@@ -196,19 +196,19 @@ export function Hero({
             transition={{ delay: 0.5, duration: 0.5 }}
           >
             <div className="flex items-center gap-2">
-              <ShieldCheckIcon className="size-4 text-blue-700" aria-hidden="true" />
+              <ShieldCheckIcon className="size-4 text-brand-700" aria-hidden="true" />
               <span>24h Response</span>
             </div>
             <div className="flex items-center gap-2">
-              <DocumentCheckIcon className="size-4 text-blue-700" aria-hidden="true" />
+              <DocumentCheckIcon className="size-4 text-brand-700" aria-hidden="true" />
               <span>Trust Account Auditors</span>
             </div>
             <div className="flex items-center gap-2">
-              <CreditCardIcon className="size-4 text-blue-700" aria-hidden="true" />
+              <CreditCardIcon className="size-4 text-brand-700" aria-hidden="true" />
               <span>Fixed Price</span>
             </div>
             <div className="flex items-center gap-2">
-              <ServerIcon className="size-4 text-blue-700" aria-hidden="true" />
+              <ServerIcon className="size-4 text-brand-700" aria-hidden="true" />
               <span>Data stored in Australia</span>
             </div>
           </motion.div>
@@ -224,10 +224,10 @@ export function Hero({
         >
           <div
             ref={containerRef}
-            className="relative mx-auto w-full max-w-[280px] sm:max-w-[340px] md:max-w-[400px] lg:max-w-[480px] aspect-square"
+            className="relative mx-auto circle-image"
           >
-            {/* Circular masked media with blue-themed gradient */}
-            <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-blue-50 to-slate-100">
+            {/* Circular masked media with brand-themed gradient */}
+            <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-brand-50 to-slate-100">
               {!mediaError ? (
                 preferredType === "video" && shouldLoadVideo ? (
                   <video
@@ -250,14 +250,14 @@ export function Hero({
                     fill
                     className="object-cover"
                     priority={true}
-                    sizes="(max-width: 640px) 280px, (max-width: 768px) 340px, (max-width: 1024px) 400px, 480px"
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
                     onError={() => setMediaError(true)}
                   />
                 )
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-slate-200">
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-100 to-slate-200">
                   <DocumentCheckIcon
-                    className="size-16 text-blue-700/40"
+                    className="size-16 text-brand-700/40"
                     aria-hidden="true"
                   />
                 </div>

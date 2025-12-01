@@ -169,11 +169,11 @@ const flowNodesData: Record<string, FlowNodeData> = {
     subtitle: "Legal Assessment",
     description: "Comprehensive Law Society compliance review",
     icon: ScaleIcon,
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-700",
+    iconBg: "bg-brand-100",
+    iconColor: "text-brand-700",
     detail: "State-specific",
-    detailColor: "bg-blue-50 text-blue-700 border-blue-200",
-    borderColor: "border-blue-300",
+    detailColor: "bg-brand-50 text-brand-700 border-brand-200",
+    borderColor: "border-brand-300",
     details:
       "We verify compliance with Law Society requirements and Legal Profession Uniform Law. This includes trust account procedures, client money handling, and regulatory reporting requirements.",
   },
@@ -303,7 +303,7 @@ function InteractiveFlowDiagram() {
       target: "2",
       type: "smoothstep",
       animated: true,
-      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+      style: { stroke: "var(--color-brand-200)", strokeWidth: 2.5 },
     },
     {
       id: "e2-3",
@@ -311,7 +311,7 @@ function InteractiveFlowDiagram() {
       target: "3",
       type: "smoothstep",
       animated: true,
-      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+      style: { stroke: "var(--color-brand-200)", strokeWidth: 2.5 },
     },
     {
       id: "e3-4",
@@ -319,7 +319,7 @@ function InteractiveFlowDiagram() {
       target: "4",
       type: "smoothstep",
       animated: true,
-      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+      style: { stroke: "var(--color-brand-200)", strokeWidth: 2.5 },
     },
     {
       id: "e4-5",
@@ -327,7 +327,7 @@ function InteractiveFlowDiagram() {
       target: "5",
       type: "smoothstep",
       animated: true,
-      style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+      style: { stroke: "var(--color-brand-200)", strokeWidth: 2.5 },
     },
   ]);
 
@@ -387,7 +387,7 @@ function InteractiveFlowDiagram() {
         minZoom={0.3}
         maxZoom={2}
       >
-        <Background gap={20} size={1} color="#c7d2fe" className="opacity-30" />
+        <Background gap={20} size={1} color="var(--color-brand-200)" className="opacity-30" />
         <Controls
           position="bottom-right"
           showInteractive={false}
@@ -516,7 +516,7 @@ export function ProcessSection() {
             <div
               className="absolute inset-0 rounded-2xl lg:rounded-3xl opacity-20 pointer-events-none"
               style={{
-                backgroundImage: `radial-gradient(circle, #c7d2fe 1px, transparent 1px)`,
+                backgroundImage: `radial-gradient(circle, var(--color-brand-200) 1px, transparent 1px)`,
                 backgroundSize: "20px 20px",
               }}
             />

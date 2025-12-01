@@ -5,13 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Motion } from "@/components/ui/motion";
 import {
-  FileStack,
-  CheckCircle2,
-  BookOpen,
-  Clock,
-  CreditCard,
-  Shield,
-} from "lucide-react";
+  DocumentDuplicateIcon as FileStack,
+  CheckCircleIcon as CheckCircle2,
+  BookOpenIcon as BookOpen,
+  ClockIcon as Clock,
+  CreditCardIcon as CreditCard,
+  ShieldCheckIcon as Shield,
+} from "@heroicons/react/24/outline";
 
 interface HeroSectionProps {
   state?: string;
@@ -90,7 +90,7 @@ export function HeroSection({ state, stateName }: HeroSectionProps) {
       </div>
 
       <div className="container relative mx-auto px-4 sm:px-6 py-16 sm:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center">
           {/* Content Column */}
           <Motion
             initial={{ opacity: 0, y: 20 }}
@@ -228,23 +228,18 @@ export function HeroSection({ state, stateName }: HeroSectionProps) {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative lg:justify-self-end"
           >
-            <div className="relative mx-auto max-w-lg">
-              {/* Background blur effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-600 rounded-full blur-3xl opacity-15"></div>
-
-              {/* Professional Conveyancer Services Image - SEO Optimized with Ellipse Shape */}
-              <div className="relative overflow-hidden rounded-full aspect-square shadow-2xl">
+            <div className="relative mx-auto lg:ml-auto">
+              <div className="relative circle-image">
                 <Image
                   src="/images/Trust_Account_Audits_for_Conveyancers_new.png"
                   alt="Professional Trust Account Audit Services for Licensed Conveyancers - State Regulator Compliant - AuditsPro Australia"
-                  width={600}
-                  height={600}
+                  fill
                   className="w-full h-full object-cover"
                   priority={true}
                   quality={90}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
                 />
               </div>
             </div>

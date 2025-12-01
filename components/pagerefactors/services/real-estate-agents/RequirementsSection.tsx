@@ -63,7 +63,7 @@ export function RequirementsSection({ state, stateName }: RequirementsSectionPro
         "Report lodged with NSW Fair Trading",
       ],
       delay: 0.1,
-      color: "from-blue-500/10 to-blue-600/5",
+      color: "from-brand-700/10 to-brand-700/5",
     },
     {
       state: "Victoria (VIC)",

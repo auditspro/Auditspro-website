@@ -60,7 +60,7 @@ export function RequirementsSection({ state, stateName }: RequirementsSectionPro
         "Contraventions reported to ATO where required",
       ],
       delay: 0.1,
-      color: "from-blue-500/10 to-blue-600/5",
+      color: "from-brand-700/10 to-brand-700/5",
     },
     {
       state: "Victoria (VIC)",
@@ -323,7 +323,7 @@ export function RequirementsSection({ state, stateName }: RequirementsSectionPro
                   <details className="group mt-4">
                     <summary className="flex items-center justify-between cursor-pointer list-none p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                       <div className="flex items-center gap-3">
-                        <CheckBadgeIcon className="h-5 w-5 text-blue-600" />
+                        <CheckBadgeIcon className="h-5 w-5 text-brand-700" />
                         <span className="font-medium text-gray-900">Key Requirements ({requirement.keyRequirements.length})</span>
                       </div>
                       <div className="text-gray-400 group-open:rotate-180 transition-transform">
@@ -335,7 +335,7 @@ export function RequirementsSection({ state, stateName }: RequirementsSectionPro
                     <div className="mt-3 space-y-2">
                       {requirement.keyRequirements.map((req: string, idx: number) => (
                         <div key={idx} className="flex items-start gap-3 p-3 bg-white rounded border border-gray-100">
-                          <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                          <div className="flex-shrink-0 w-2 h-2 bg-brand-700 rounded-full mt-2"></div>
                           <span className="text-gray-700 text-sm">{req}</span>
                         </div>
                       ))}

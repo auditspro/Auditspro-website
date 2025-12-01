@@ -75,7 +75,7 @@ const serviceTypes = [
     title: "Real Estate",
     description: "Estate agent trust account audits",
     icon: BuildingOffice2Icon,
-    features: ["Regulatory compliant", "5-10 day turnaround", "Professional report"],
+    features: ["ASIC compliant", "5-10 day turnaround", "Professional report"],
   },
   {
     id: "accounting",
@@ -477,6 +477,32 @@ export function PricingPageClient() {
                 <p className="text-muted-foreground">{feature.description}</p>
               </div>
             ))}
+          </Motion>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
+          <Motion
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
+              Ready to Start Your Audit?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Get started with your trust account audit today. Professional
+              service with transparent pricing.
+            </p>
+            <Button asChild size="lg" className="btn-primary-brand px-8">
+              <Link href="/book-demo">
+                Start Audit Process
+                <ArrowTopRightOnSquareIcon className="size-4 ml-2" />
+              </Link>
+            </Button>
           </Motion>
         </div>
       </section>

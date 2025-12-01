@@ -42,9 +42,9 @@ const services = [
       "real estate trust account audit, regulatory real estate audit, property agent audit",
     pricing: "$549",
     turnaround: "5-10 business days",
-    color: "from-blue-500/10 to-blue-600/5",
-    iconBg: "bg-blue-100/60",
-    iconColor: "text-blue-900",
+    color: "from-brand-700/10 to-brand-700/5",
+    iconBg: "bg-brand-100/60",
+    iconColor: "text-brand-900",
   },
   {
     title: "Conveyancers",
@@ -188,9 +188,9 @@ const additionalServices = [
     isCustom: true,
     description:
       "Specialized comprehensive audits for Australian Financial Services license holders with complex regulatory requirements.",
-    color: "from-blue-500/10 to-blue-600/5",
-    iconBg: "bg-blue-100/60",
-    iconColor: "text-blue-700",
+    color: "from-brand-700/10 to-brand-700/5",
+    iconBg: "bg-brand-100/60",
+    iconColor: "text-brand-700",
   },
   {
     title: "Body Corporate & Strata Audits",
@@ -423,25 +423,23 @@ export function ServicesGrid() {
                     ...motionTransitions.smooth,
                     delay: 0.8 + index * 0.1,
                   }}
-                  className="group relative rounded-xl border border-brand-200/70 bg-white/70 backdrop-blur p-5 supports-[backdrop-filter]:bg-white/40 hover:shadow-lg hover:bg-white/90 transition-all duration-300"
+                  className="group relative rounded-xl border border-brand-200/70 bg-white/70 backdrop-blur p-5 supports-[backdrop-filter]:bg-white/40 hover:shadow-lg hover:bg-white/90 transition-all duration-300 h-full flex flex-col"
                 >
                   {/* Hover gradient overlay */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300`}
                   ></div>
 
-                  <div className="relative">
+                  <div className="relative flex-1 flex flex-col">
                     {/* Icon */}
                     <div
-                      className={`inline-flex rounded-lg ${service.iconBg} p-2.5 mb-3 group-hover:scale-110 transition-transform duration-300`}
+                      className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${service.color} p-2.5 mb-3`}
                     >
                       <service.icon className={`size-5 ${service.iconColor}`} />
+                      <span className="font-semibold text-brand-950 text-base leading-snug">
+                        {service.title}
+                      </span>
                     </div>
-
-                    {/* Title */}
-                    <h4 className="font-semibold text-brand-950 mb-2 text-base leading-snug">
-                      {service.title}
-                    </h4>
 
                     {/* Description */}
                     <p className="text-xs text-slate-600 mb-4 leading-relaxed">
@@ -449,12 +447,12 @@ export function ServicesGrid() {
                     </p>
 
                     {/* Pricing */}
-                    <div className="pt-3 border-t border-brand-200/50">
+                    <div className="pt-3 border-t border-brand-200/50 mt-auto">
                       {service.isCustom ? (
                         <Link href="/contact">
-                          <div className="text-lg font-bold text-brand-600 hover:text-brand-700 cursor-pointer transition-colors duration-200">
+                          <div className="text-lg font-bold text-brand-900 hover:text-brand-800 cursor-pointer transition-colors duration-200">
                             {service.pricing}
-                            <span className="text-xs font-normal text-slate-600 ml-1">
+                            <span className="text-xs font-normal text-brand-700 ml-1">
                               →
                             </span>
                           </div>

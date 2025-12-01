@@ -20,7 +20,7 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
           const baseClasses =
             "inline-flex h-9 items-center rounded-full border px-3 sm:px-4 text-sm transition-colors";
           const activeClasses =
-            "border-blue-200 bg-blue-50 text-blue-900";
+            "border-brand-200 bg-brand-100 text-brand-950";
           const inactiveClasses =
             "border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100";
 

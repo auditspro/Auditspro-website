@@ -1,17 +1,17 @@
 import { Motion } from "@/components/ui/motion";
 import {
-  Mail,
-  User,
-  Building2,
-  Search,
-  FileText,
-  CreditCard,
-  Shield,
-  Download,
-  CheckCircle2,
-  Clock,
-  AlertCircle,
-} from "lucide-react";
+  EnvelopeIcon as Mail,
+  UserIcon as User,
+  BuildingOffice2Icon as Building2,
+  MagnifyingGlassIcon as Search,
+  DocumentTextIcon as FileText,
+  CreditCardIcon as CreditCard,
+  ShieldCheckIcon as Shield,
+  ArrowDownTrayIcon as Download,
+  CheckCircleIcon as CheckCircle2,
+  ClockIcon as Clock,
+  ExclamationCircleIcon as AlertCircle,
+} from "@heroicons/react/24/outline";
 
 export function DetailedProcessSteps() {
   const processSteps = [
@@ -360,7 +360,7 @@ export function DetailedProcessSteps() {
                     <span className="text-xs font-medium text-brand-700 px-2 py-1 rounded-full bg-brand-50 border border-brand-200">
                       {step.phase}
                     </span>
-                    <span className="text-xs font-medium text-slate-600 px-2 py-1 rounded-full bg-slate-50 border border-slate-200 flex items-center gap-1">
+                    <span className="text-xs font-medium text-slate-600 px-2 py-1 rounded-full bg-brand-50 border border-brand-200 flex items-center gap-1">
                       <Clock className="size-3" />
                       {step.timeEstimate}
                     </span>
@@ -438,7 +438,7 @@ export function DetailedProcessSteps() {
                         key={idx}
                         className="flex items-start gap-2 text-sm text-slate-700"
                       >
-                        <CheckCircle2 className="size-4 text-green-600 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="size-4 text-brand-700 mt-0.5 flex-shrink-0" />
                         <span>{tip}</span>
                       </li>
                     ))}

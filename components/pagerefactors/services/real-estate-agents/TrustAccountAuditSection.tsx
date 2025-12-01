@@ -135,8 +135,8 @@ export function TrustAccountAuditSection({ state }: TrustAccountAuditSectionProp
         >
           <div className="bg-white rounded-xl border border-slate-200/70 p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 bg-blue-100/60 rounded-lg">
-                <CalendarIcon className="size-5 text-blue-900" />
+              <div className="p-2 bg-brand-100/60 rounded-lg">
+                <CalendarIcon className="size-5 text-brand-900" />
               </div>
               <h3 className="font-medium text-slate-900">Audit Period</h3>
             </div>
@@ -201,11 +201,11 @@ export function TrustAccountAuditSection({ state }: TrustAccountAuditSectionProp
           {activeTab === "requirements" && (
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-blue-100/60 rounded-lg">
-                  <DocumentTextIcon className="size-6 text-blue-900" />
-                </div>
-                <h3 className="text-xl font-medium text-slate-900">Who Must Have Trust Accounts Audited?</h3>
+              <div className="p-2 bg-brand-100/60 rounded-lg">
+                <DocumentTextIcon className="size-6 text-brand-900" />
               </div>
+              <h3 className="text-xl font-medium text-slate-900">Who Must Have Trust Accounts Audited?</h3>
+            </div>
               
               <div className="space-y-4 mb-8">
                 <p className="text-slate-600 leading-relaxed">
@@ -223,12 +223,12 @@ export function TrustAccountAuditSection({ state }: TrustAccountAuditSectionProp
                 </div>
               </div>
 
-              <div className="bg-blue-50/70 border border-blue-200/70 rounded-lg p-6">
+              <div className="bg-brand-50/70 border border-brand-200/70 rounded-lg p-6">
                 <div className="flex items-start gap-3">
-                  <InformationCircleIcon className="size-5 text-blue-700 flex-shrink-0 mt-0.5" />
+                  <InformationCircleIcon className="size-5 text-brand-700 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-medium text-blue-900 mb-2">Important Note</h4>
-                    <p className="text-blue-800 text-sm leading-relaxed">
+                    <h4 className="font-medium text-brand-900 mb-2">Important Note</h4>
+                    <p className="text-brand-800 text-sm leading-relaxed">
                       In most cases, it is the licensed corporation that receives and is responsible for trust funds. 
                       However, if an individual licensee receives and is responsible for trust money, then a trust 
                       account audit must be effectuated by the individual licensee.

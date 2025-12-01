@@ -252,4 +252,22 @@
   .btn-outline-brand {
     @apply border-brand-200 text-brand-950 hover:bg-brand-50 transition-colors;
   }
+
+  .circle-image {
+    @apply rounded-full overflow-hidden border-4 border-brand-200/50 bg-white;
+    width: 20rem;
+    height: 20rem;
+  }
+  @media (min-width: 640px) {
+    .circle-image {
+      width: 22rem;
+      height: 22rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .circle-image {
+      width: 28rem;
+      height: 28rem;
+    }
+  }
 }

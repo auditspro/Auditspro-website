@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { AuditsProLogo } from "@/components/logo/auditsprologo";
 import { Button } from "@/components/ui/button";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/ui/breadcrumbs";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { DesktopNavigation } from "./desktop-navigation";
 import { MobileNavigation } from "./mobile-navigation";
@@ -58,10 +58,8 @@ export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
               )}
             >
               <Link href="/book-demo" aria-label="Start your audit process">
-                {/* CRITICAL FIX: Show "Start Audit" at laptop: (1200px+) instead of lg: */}
-                <span className="hidden laptop:inline">Start Audit</span>
-                <span className="laptop:hidden">Start</span>
-                <ArrowTopRightOnSquareIcon className={cn(
+                <span>Start Audit</span>
+                <ClipboardDocumentCheckIcon className={cn(
                   "transition-all duration-200",
                   "size-4 lg:size-4 laptop:size-4 xl:size-5"
                 )} />

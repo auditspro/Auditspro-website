@@ -8,7 +8,7 @@ import {
   motionTransitions,
   motionViewport,
 } from "@/components/ui/motion";
-import { CheckCheck, Grip } from "lucide-react";
+import { CheckCircleIcon, CheckBadgeIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
   title: "Trust Account Audit Checklist - Document Requirements | AuditsPro",
@@ -164,7 +164,7 @@ export default function ChecklistPage() {
       <main>
 
         {/* Hero Section */}
-        <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
+        <section className="relative py-16 bg-gradient-to-br from-brand-50 to-white overflow-hidden">
           <div className="container relative mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Content Column */}
@@ -175,13 +175,13 @@ export default function ChecklistPage() {
                 transition={motionTransitions.smooth}
               >
                 <div className="flex flex-col items-center lg:items-start">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-6">
-                    <Grip className="size-4" />
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-xs font-medium text-brand-950 mb-6">
+                    <CheckBadgeIcon className="size-4" />
                     <span className="tracking-widest">
                       Built for professional trust account audits
                     </span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-blue-950 mb-6">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-950 mb-6">
                     Trust Account Audit Checklist
                   </h1>
                   <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
@@ -189,14 +189,14 @@ export default function ChecklistPage() {
                     a smooth audit. For cloud systems, you may grant read‑only access to{" "}
                     <a
                       href="mailto:info@auditspro.com.au"
-                      className="text-blue-800 hover:text-blue-900"
+                      className="text-brand-700 hover:text-brand-800"
                     >
                       info@auditspro.com.au
                     </a>
                     . Learn more about{" "}
                     <Link
                       href="/how-it-works"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                      className="text-brand-700 hover:text-brand-800 underline underline-offset-2"
                     >
                       our audit process
                     </Link>
@@ -210,26 +210,18 @@ export default function ChecklistPage() {
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="flex justify-center lg:justify-end"
+                className="flex justify-center"
               >
                 <div className="relative">
-                  {/* Decorative background circle */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full transform scale-110 opacity-20"></div>
-                  
-                  {/* Main image with circular frame */}
-                  <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                  <div className="relative circle-image border-white">
                     <Image
                       src="/images/audit checklist.png"
                       alt="Trust Account Audit Checklist - Professional Audit Documentation"
-                      width={320}
-                      height={320}
+                      fill
                       className="w-full h-full object-cover"
+                      sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
                     />
                   </div>
-                  
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-80"></div>
-                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-blue-300 rounded-full opacity-60"></div>
                 </div>
               </Motion>
             </div>
@@ -237,44 +229,44 @@ export default function ChecklistPage() {
         </section>
 
       {/* Checklist content */}
-      <section className="relative py-16 bg-gradient-to-br from-blue-50/60 to-white/60">
+      <section className="relative py-16 bg-gradient-to-br from-brand-50/60 to-white/60">
         <div className="container relative mx-auto px-4 sm:px-6">
           <Motion
-            className="bg-white/70 backdrop-blur rounded-xl border border-blue-200/70 p-8"
+            className="bg-white/70 backdrop-blur rounded-xl border border-brand-200/70 p-8"
             {...motionVariants.fadeInUp}
             viewport={motionViewport}
             transition={motionTransitions.smooth}
           >
             <div className="grid gap-6 md:grid-cols-2">
           {/* Enhanced document checklist */}
-          <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+            <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
               Document Checklist
             </div>
             <div className="space-y-4">
               <div className="text-sm text-slate-700 leading-relaxed space-y-2">
                 <p>
-                  <CheckCheck className="inline h-4 w-4 text-green-600 mr-1.5" />
+                  <CheckCircleIcon className="inline h-4 w-4 text-green-600 mr-1.5" />
                   <strong>Previous audit report</strong> (if applicable) -
                   Upload your last audit report for reference
                 </p>
                 <p>
-                  <CheckCheck className="inline h-4 w-4 text-green-600 mr-1.5" />
+                  <CheckCircleIcon className="inline h-4 w-4 text-green-600 mr-1.5" />
                   <strong>Trust account bank statements</strong> - Provide
                   complete monthly statements in PDF format
                 </p>
                 <p>
-                  <CheckCheck className="inline h-4 w-4 text-green-600 mr-1.5" />
+                  <CheckCircleIcon className="inline h-4 w-4 text-green-600 mr-1.5" />
                   <strong>System reconciliation reports</strong> - Export
                   reconciliation data from your accounting system
                 </p>
                 <p>
-                  <CheckCheck className="inline h-4 w-4 text-green-600 mr-1.5" />
+                  <CheckCircleIcon className="inline h-4 w-4 text-green-600 mr-1.5" />
                   <strong>Trial balance & ledgers</strong> - Include detailed
                   trial balance and general ledger reports
                 </p>
                 <p>
-                  <CheckCheck className="inline h-4 w-4 text-green-600 mr-1.5" />
+                  <CheckCircleIcon className="inline h-4 w-4 text-green-600 mr-1.5" />
                   <strong>Payment & receipt records</strong> - Comprehensive
                   transaction history for the audit period
                 </p>
@@ -294,7 +286,7 @@ export default function ChecklistPage() {
                     <span>CSV Exports</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <div className="w-2 h-2 bg-brand-600 rounded-full"></div>
                     <span>Bank Feeds Portal</span>
                   </div>
                 </div>
@@ -324,8 +316,8 @@ export default function ChecklistPage() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 p-4">
-                <h4 className="text-sm font-semibold text-blue-900 mb-2">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-100 rounded-lg border border-brand-200 p-4">
+                <h4 className="text-sm font-semibold text-brand-950 mb-2">
                   Cloud System Access (Recommended)
                 </h4>
                 <p className="text-sm text-slate-700 mb-3">
@@ -333,7 +325,7 @@ export default function ChecklistPage() {
                   accounting system instead of uploading individual files.{" "}
                   <Link
                     href="/"
-                    className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                    className="text-brand-700 hover:text-brand-800 underline underline-offset-2"
                   >
                     Start your audit
                   </Link>{" "}
@@ -346,7 +338,7 @@ export default function ChecklistPage() {
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="text-blue-600"
+                    className="text-brand-700"
                   >
                     <path
                       d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
@@ -366,7 +358,7 @@ export default function ChecklistPage() {
                   <span className="text-slate-600">Invite:</span>
                   <a
                     href="mailto:info@auditspro.com.au"
-                    className="text-blue-800 hover:text-blue-900 font-medium"
+                    className="text-brand-700 hover:text-brand-800 font-medium"
                   >
                     info@auditspro.com.au
                   </a>
@@ -376,8 +368,8 @@ export default function ChecklistPage() {
           </div>
 
           {/* NSW portal information (kept subtle) */}
-          <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
               NSW Estate Agents & Conveyancers — information (collected in
               portal)
             </div>
@@ -436,7 +428,7 @@ export default function ChecklistPage() {
                 href="https://www.fairtrading.nsw.gov.au/housing-and-property/property-professionals/running-a-property-agency/trust-accounts"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                className="text-brand-700 hover:text-brand-800 underline underline-offset-2"
               >
                 Fair Trading guidance
               </a>
@@ -457,32 +449,13 @@ export default function ChecklistPage() {
             viewport={motionViewport}
             transition={motionTransitions.smooth}
           >
-            <div className="rounded-xl border border-blue-200/70 bg-gradient-to-br from-blue-50/60 to-indigo-50/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-blue-50/40">
+          <div className="rounded-xl border border-brand-200/70 bg-gradient-to-br from-brand-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-brand-50/40">
             <div className="text-center mb-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M21 15a3 3 0 0 1-3 3H9l-4 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v9Z"
-                    stroke="#0c2a6f"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M9 9h6M9 13h3"
-                    stroke="#0c2a6f"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+                <QuestionMarkCircleIcon className="size-4 text-brand-700" />
                 Have Questions?
               </div>
-              <h2 className="text-2xl font-semibold text-blue-950 mb-2">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-2">
                 Need Help with Your Audit?
               </h2>
               <p className="text-slate-600">
@@ -505,7 +478,7 @@ export default function ChecklistPage() {
                     id="firstName"
                     name="firstName"
                     required
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80"
+                    className="w-full px-3 py-2 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-700 focus:border-brand-700 bg-white/80"
                     placeholder="Your first name"
                   />
                 </div>
@@ -521,7 +494,7 @@ export default function ChecklistPage() {
                     id="lastName"
                     name="lastName"
                     required
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80"
+                    className="w-full px-3 py-2 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-700 focus:border-brand-700 bg-white/80"
                     placeholder="Your last name"
                   />
                 </div>
@@ -539,7 +512,7 @@ export default function ChecklistPage() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80"
+                  className="w-full px-3 py-2 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-700 focus:border-brand-700 bg-white/80"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -555,7 +528,7 @@ export default function ChecklistPage() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80"
+                  className="w-full px-3 py-2 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-700 focus:border-brand-700 bg-white/80"
                   placeholder="(02) 1234 5678"
                 />
               </div>
@@ -571,7 +544,7 @@ export default function ChecklistPage() {
                   id="subject"
                   name="subject"
                   required
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80"
+                  className="w-full px-3 py-2 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-700 focus:border-brand-700 bg-white/80"
                 >
                   <option value="">Select a topic</option>
                   <option value="checklist-question">
@@ -596,7 +569,7 @@ export default function ChecklistPage() {
                   name="message"
                   rows={4}
                   required
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80 resize-none"
+                  className="w-full px-3 py-2 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-700 focus:border-brand-700 bg-white/80 resize-none"
                   placeholder="Please describe your question or request..."
                 ></textarea>
               </div>
@@ -604,7 +577,7 @@ export default function ChecklistPage() {
               <div className="flex items-center gap-3 pt-2">
                 <button
                   type="submit"
-                  className="flex-1 bg-blue-900 hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="flex-1 btn-primary-brand rounded-lg py-3 px-6"
                 >
                   Send Message
                 </button>
@@ -612,7 +585,7 @@ export default function ChecklistPage() {
                   <p className="text-xs text-slate-500">or</p>
                   <a
                     href="mailto:info@auditspro.com.au"
-                    className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                    className="text-sm text-brand-700 hover:text-brand-800 underline underline-offset-2"
                   >
                     Email directly
                   </a>
@@ -625,7 +598,7 @@ export default function ChecklistPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="relative py-16 bg-white/70 backdrop-blur">
+      <section className="relative py-16 bg-brand-50">
         <div className="container relative mx-auto px-4 sm:px-6">
           <Motion
             className="text-center"
@@ -633,34 +606,34 @@ export default function ChecklistPage() {
             viewport={motionViewport}
             transition={motionTransitions.smooth}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
               Ready to Start Your Audit?
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
               Now that you know what documents you need, learn more about our audit process or book a demo to get started.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/book-demo"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-medium btn-primary-brand"
               >
                 Start Audit
               </Link>
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center justify-center px-6 py-3 border border-blue-300 text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-medium btn-outline-brand"
               >
                 How It Works
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-medium btn-outline-brand"
               >
                 About Us
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-medium btn-outline-brand"
               >
                 Contact Us
               </Link>

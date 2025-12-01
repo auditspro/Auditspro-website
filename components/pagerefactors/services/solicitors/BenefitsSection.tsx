@@ -25,9 +25,9 @@ const keyBenefits = [
       "State-specific requirements covered",
       "Professional regulatory reporting included",
     ],
-    color: "from-blue-500/10 to-blue-600/5",
-    iconBg: "bg-blue-100/60",
-    iconColor: "text-blue-900",
+    color: "from-brand-700/10 to-brand-700/5",
+    iconBg: "bg-brand-100/60",
+    iconColor: "text-brand-900",
   },
   {
     icon: ClockIcon,
@@ -163,22 +163,16 @@ export function BenefitsSection() {
               ></div>
 
               <div className="relative">
-                {/* Icon and Title */}
-                <div className="flex items-start gap-3 mb-4">
-                  <div
-                    className={`rounded-lg ${benefit.iconBg} p-3 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <benefit.icon className={`size-5 ${benefit.iconColor}`} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-brand-950 mb-1">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {benefit.shortDesc}
-                    </p>
+                {/* Title badge line */}
+                <div className="mb-4">
+                  <div className={`inline-flex items-center gap-2 ${benefit.iconBg} text-sm font-medium rounded-full px-3 py-1.5`}>
+                    <benefit.icon className={`size-4 ${benefit.iconColor}`} />
+                    <span>{benefit.title}</span>
                   </div>
                 </div>
+                <p className="text-sm text-slate-600 leading-relaxed mb-3">
+                  {benefit.shortDesc}
+                </p>
 
                 {/* Full Description */}
                 <p className="text-slate-600 mb-4 leading-relaxed text-sm">

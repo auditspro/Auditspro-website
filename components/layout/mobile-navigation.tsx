@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { AuditsProLogo } from "@/components/logo/auditsprologo";
-import { ArrowTopRightOnSquareIcon, Bars3Icon } from "@heroicons/react/24/outline";
+import { ClipboardDocumentCheckIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import { navigationConfig, isActiveNavItem } from "@/lib/navigation";
 
 interface MobileNavigationProps {
@@ -88,7 +88,7 @@ export function MobileNavigation({ open, onOpenChange }: MobileNavigationProps) 
                               </div>
                             )}
                           </div>
-                          <ArrowTopRightOnSquareIcon className="size-4 text-brand-700 opacity-60" />
+                          <ClipboardDocumentCheckIcon className="size-4 text-brand-700 opacity-60" />
                         </div>
                       </Link>
                     </SheetClose>
@@ -131,7 +131,7 @@ export function MobileNavigation({ open, onOpenChange }: MobileNavigationProps) 
                               {group.description}
                             </div>
                           </div>
-                          <ArrowTopRightOnSquareIcon className="size-4 text-brand-700 opacity-60" />
+                          <ClipboardDocumentCheckIcon className="size-4 text-brand-700 opacity-60" />
                         </div>
                       </Link>
                     </SheetClose>
@@ -181,7 +181,7 @@ export function MobileNavigation({ open, onOpenChange }: MobileNavigationProps) 
               <Button asChild size="lg" className="w-full gap-2 bg-brand-900 hover:bg-brand-800 text-white shadow-lg hover:shadow-xl transition-all duration-200">
                 <Link href="/book-demo" aria-label="Start your audit process">
                   Start Audit
-                  <ArrowTopRightOnSquareIcon className="size-4" />
+                  <ClipboardDocumentCheckIcon className="size-4" />
                 </Link>
               </Button>
             </SheetClose>

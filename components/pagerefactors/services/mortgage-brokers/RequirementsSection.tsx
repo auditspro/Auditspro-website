@@ -61,7 +61,7 @@ export function RequirementsSection({ state, stateName }: RequirementsSectionPro
         "Report retained for compliance and lender confidence",
       ],
       delay: 0.1,
-      color: "from-blue-500/10 to-blue-600/5",
+      color: "from-brand-700/10 to-brand-700/5",
     },
     {
       state: "Victoria (VIC)",
@@ -217,7 +217,7 @@ export function RequirementsSection({ state, stateName }: RequirementsSectionPro
     : stateRequirements;
 
   return (
-    <section className="container relative mx-auto px-4 sm:px-6 pb-16">
+    <section className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div className="rounded-2xl border border-brand-200/70 bg-gradient-to-br from-brand-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-brand-50/40">
         <Motion
           initial={{ opacity: 0, y: 20 }}

@@ -40,7 +40,7 @@ import {
   InformationCircleIcon,
   BuildingOfficeIcon,
 } from "@heroicons/react/24/outline";
-import { FileText } from "lucide-react";
+import { DocumentTextIcon as FileText } from "@heroicons/react/24/outline";
 
 // Type definitions
 interface FlowNodeData {
@@ -170,11 +170,11 @@ const flowNodesData: Record<string, FlowNodeData> = {
     subtitle: "Regulatory Assessment",
     description: "Comprehensive regulatory compliance review",
     icon: BuildingOfficeIcon,
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-700",
+    iconBg: "bg-brand-100",
+    iconColor: "text-brand-700",
     detail: "State-specific",
-    detailColor: "bg-blue-50 text-blue-700 border-blue-200",
-    borderColor: "border-blue-300",
+    detailColor: "bg-brand-50 text-brand-700 border-brand-200",
+    borderColor: "border-brand-300",
     details:
       "We verify compliance with regulatory requirements and Real Estate Authority regulations. This includes trust account procedures, client money handling, and regulatory reporting requirements.",
   },
@@ -388,7 +388,7 @@ function InteractiveFlowDiagram() {
         minZoom={0.3}
         maxZoom={2}
       >
-        <Background gap={20} size={1} color="#c7d2fe" className="opacity-30" />
+        <Background gap={20} size={1} color="var(--color-brand-200)" className="opacity-30" />
         <Controls
           position="bottom-right"
           showInteractive={false}
@@ -531,7 +531,7 @@ export function ProcessSection() {
             <div
               className="absolute inset-0 rounded-2xl lg:rounded-3xl opacity-20 pointer-events-none"
               style={{
-                backgroundImage: `radial-gradient(circle, #c7d2fe 1px, transparent 1px)`,
+                backgroundImage: `radial-gradient(circle, var(--color-brand-200) 1px, transparent 1px)`,
                 backgroundSize: "20px 20px",
               }}
             />
@@ -611,25 +611,25 @@ export function ProcessSection() {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
+              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg transition-colors">
                 <CheckCircleIcon className="size-4 sm:size-5 text-green-600 flex-shrink-0" />
                 <span className="text-sm sm:text-base text-slate-700 font-medium truncate">
                   ABN or Business Name
                 </span>
               </div>
-              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
+              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg transition-colors">
                 <CheckCircleIcon className="size-4 sm:size-5 text-green-600 flex-shrink-0" />
                 <span className="text-sm sm:text-base text-slate-700 font-medium truncate">
                   Trust Account BSB & Numbers
                 </span>
               </div>
-              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
+              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg transition-colors">
                 <CheckCircleIcon className="size-4 sm:size-5 text-green-600 flex-shrink-0" />
                 <span className="text-sm sm:text-base text-slate-700 font-medium truncate">
                   Real Estate License Details
                 </span>
               </div>
-              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
+              <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-lg transition-colors">
                 <CheckCircleIcon className="size-4 sm:size-5 text-green-600 flex-shrink-0" />
                 <span className="text-sm sm:text-base text-slate-700 font-medium truncate">
                   Operating State(s)
@@ -646,7 +646,7 @@ export function ProcessSection() {
           viewport={motionViewport}
           variants={motionVariants.fadeInUp}
           transition={{ ...motionTransitions.smooth, delay: 0.6 }}
-          className="text-center"
+          className="text-center mt-8"
         >
           <div className="rounded-xl lg:rounded-2xl bg-gradient-to-r from-brand-50 to-brand-100/50 border border-brand-200/50 p-6 sm:p-8">
             <h3 className="mb-4 text-xl sm:text-2xl font-bold text-brand-950">

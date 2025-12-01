@@ -77,7 +77,7 @@ export function HowItWorks() {
       {/* Divider */}
       <div className="container relative mx-auto px-4 sm:px-6 pb-10">
         <div
-          className="h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent"
+          className="h-px w-full bg-gradient-to-r from-transparent via-brand-200 to-transparent"
           aria-hidden="true"
         />
       </div>
@@ -91,10 +91,10 @@ export function HowItWorks() {
         className="text-center mb-12"
       >
         <div className="flex items-center justify-center gap-3 mb-3">
-          <ClockIcon className="size-7 text-blue-700" aria-hidden="true" />
+          <ClockIcon className="size-7 text-brand-700" aria-hidden="true" />
           <h2
             id="how-it-works-heading"
-            className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950"
+            className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950"
           >
             How It Works
           </h2>
@@ -112,20 +112,20 @@ export function HowItWorks() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="flex justify-center mb-12"
       >
-        <div className="relative w-72 h-72 sm:w-80 sm:h-80">
+        <div className="relative circle-image">
           {/* Circular frame with gradient background */}
-          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 via-blue-50 to-white border-4 border-blue-200/30 shadow-xl">
+          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-brand-100 via-brand-50 to-white border-4 border-brand-200/30 shadow-xl">
             <Image
               src="/images/Gemini_Generated_Image_c151msc151msc151.png"
               alt="Step-by-step workflow diagram showing audit process"
               fill
               className="object-cover"
-              sizes="(max-width: 640px) 288px, 320px"
+              sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
               priority={false}
             />
           </div>
           {/* Subtle glow effect */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-600/10 to-transparent pointer-events-none" />
         </div>
       </motion.div>
 
@@ -133,7 +133,7 @@ export function HowItWorks() {
       <div className="relative">
         {/* Desktop: Horizontal connector line */}
         <div
-          className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200"
+          className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-brand-200 via-brand-300 to-brand-200"
           aria-hidden="true"
         />
 
@@ -148,19 +148,19 @@ export function HowItWorks() {
               className="relative"
             >
               {/* Step Card */}
-              <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40 h-full">
+              <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40 h-full">
                 {/* Step Number */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-medium text-blue-700/40">
+                  <span className="text-2xl font-medium text-brand-700/40">
                     {step.number}
                   </span>
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center border border-blue-200/50" style={{ backgroundColor: '#1d4ed8' }}>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center border border-brand-200/50 bg-brand-900">
                     <step.icon className="size-5 text-white" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-base font-medium text-blue-950 mb-2">
+                <h3 className="text-base font-medium text-brand-950 mb-2">
                   {step.title}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed mb-3">
@@ -168,7 +168,7 @@ export function HowItWorks() {
                 </p>
 
                 {/* Duration Badge */}
-                <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-white/80 px-2.5 py-1 text-xs font-medium text-blue-700">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-brand-200/70 bg-white/80 px-2.5 py-1 text-xs font-medium text-brand-700">
                   <ClockIcon className="size-3" />
                   {step.duration}
                 </div>
@@ -176,7 +176,7 @@ export function HowItWorks() {
 
               {/* Arrow connector (desktop only, not after last item) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:flex absolute top-12 -right-3 items-center justify-center w-6 h-6 rounded-full border-2 border-white z-10" style={{ backgroundColor: '#1d4ed8' }}>
+                <div className="hidden lg:flex absolute top-12 -right-3 items-center justify-center w-6 h-6 rounded-full border-2 border-white z-10 bg-brand-900">
                   <ArrowRightIcon className="size-3.5 text-white" />
                 </div>
               )}
@@ -193,8 +193,8 @@ export function HowItWorks() {
         transition={{ duration: 0.5, delay: 0.6 }}
         className="mt-12 text-center"
       >
-        <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-blue-50/40 inline-block">
-          <h3 className="text-xl sm:text-2xl font-medium text-blue-950 mb-3">
+        <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-brand-50/40 inline-block">
+          <h3 className="text-xl sm:text-2xl font-medium text-brand-950 mb-3">
             Ready to get started?
           </h3>
           <p className="text-sm sm:text-base text-slate-600 mb-4 max-w-lg">
@@ -203,8 +203,9 @@ export function HowItWorks() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               asChild
+              variant="default"
               size="lg"
-              className="gap-2 bg-blue-900 hover:bg-blue-800 text-white"
+              className="gap-2 btn-primary-brand"
             >
               <Link href="/book-demo">Start Audit</Link>
             </Button>
@@ -212,7 +213,7 @@ export function HowItWorks() {
               asChild
               variant="outline"
               size="lg"
-              className="gap-2 border-blue-200 text-blue-950 hover:bg-blue-50"
+              className="gap-2 btn-outline-brand"
             >
               <Link href="/pricing">View Pricing</Link>
             </Button>

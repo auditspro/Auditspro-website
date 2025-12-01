@@ -51,11 +51,11 @@ const NODE_SPACING = 120;
 const EDGE_STYLE = {
   type: "smoothstep" as const,
   animated: true,
-  style: { stroke: "#c7d2fe", strokeWidth: 2.5 },
+  style: { stroke: "var(--color-brand-200)", strokeWidth: 2.5 },
 };
 
 const BACKGROUND_PATTERN_STYLE = {
-  backgroundImage: `radial-gradient(circle, #c7d2fe 1px, transparent 1px)`,
+  backgroundImage: `radial-gradient(circle, var(--color-brand-200) 1px, transparent 1px)`,
   backgroundSize: "20px 20px",
 };
 
@@ -114,11 +114,11 @@ const flowNodesData: Record<string, FlowNodeData> = {
     subtitle: "Regulatory Assessment",
     description: "Comprehensive regulatory compliance review",
     icon: ShieldCheckIcon,
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-700",
+    iconBg: "bg-brand-100",
+    iconColor: "text-brand-700",
     detail: "State-specific",
-    detailColor: "bg-blue-50 text-blue-700 border-blue-200",
-    borderColor: "border-blue-300",
+    detailColor: "bg-brand-50 text-brand-700 border-brand-200",
+    borderColor: "border-brand-300",
     details:
       "We verify compliance with regulatory requirements and state-specific regulations. This includes checking trust account procedures, record-keeping, and reporting requirements.",
   },
@@ -444,7 +444,7 @@ function InteractiveFlowDiagram() {
         minZoom={0.3}
         maxZoom={2}
       >
-        <Background gap={20} size={1} color="#c7d2fe" className="opacity-30" />
+        <Background gap={20} size={1} color="var(--color-brand-200)" className="opacity-30" />
         <Controls
           position="bottom-right"
           showInteractive={false}

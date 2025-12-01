@@ -1,24 +1,24 @@
 "use client";
 import { Motion } from "@/components/ui/motion";
 import { useState } from "react";
-import { 
-  DollarSign, 
-  Calculator, 
-  CheckCircle2, 
-  TrendingUp,
-  Shield,
-  Clock,
-  Users,
-  Star,
-  Info,
-  ChevronDown,
-  ChevronUp,
-  Zap,
-  Award,
-  Target,
-  ArrowRight,
-  ExternalLink
-} from "lucide-react";
+import {
+  CurrencyDollarIcon as DollarSign,
+  CalculatorIcon as Calculator,
+  CheckCircleIcon as CheckCircle2,
+  ArrowTrendingUpIcon as TrendingUp,
+  ShieldCheckIcon as Shield,
+  ClockIcon as Clock,
+  UsersIcon as Users,
+  StarIcon as Star,
+  InformationCircleIcon as Info,
+  ChevronDownIcon as ChevronDown,
+  ChevronUpIcon as ChevronUp,
+  BoltIcon as Zap,
+  TrophyIcon as Award,
+  ChartBarSquareIcon as Target,
+  ArrowRightIcon as ArrowRight,
+  ArrowTopRightOnSquareIcon as ExternalLink,
+} from "@heroicons/react/24/outline";
 
 export function PricingBreakdown() {
   const [selectedState, setSelectedState] = useState<string>("NSW");

@@ -2,22 +2,22 @@
 import { Motion } from "@/components/ui/motion";
 import { useState } from "react";
 import {
-  Calendar,
-  Clock,
-  CheckCircle2,
-  FileText,
-  Send,
-  Download,
-  MessageSquare,
-  Shield,
-  AlertTriangle,
-  ChevronRight,
-  Play,
-  Pause,
-  RotateCcw,
-  ExternalLink,
-  Info,
-} from "lucide-react";
+  CalendarIcon as Calendar,
+  ClockIcon as Clock,
+  CheckCircleIcon as CheckCircle2,
+  DocumentTextIcon as FileText,
+  PaperAirplaneIcon as Send,
+  ArrowDownTrayIcon as Download,
+  ChatBubbleLeftRightIcon as MessageSquare,
+  ShieldCheckIcon as Shield,
+  ExclamationTriangleIcon as AlertTriangle,
+  ChevronRightIcon as ChevronRight,
+  PlayIcon as Play,
+  PauseIcon as Pause,
+  ArrowPathIcon as RotateCcw,
+  ArrowTopRightOnSquareIcon as ExternalLink,
+  InformationCircleIcon as Info,
+} from "@heroicons/react/24/outline";
 
 export function TimelineSection() {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -420,12 +420,12 @@ export function TimelineSection() {
                             </div>
 
                             {/* Tips */}
-                            <div className="p-3 rounded-lg bg-blue-50/60 border border-blue-200/50">
-                              <h4 className="text-sm font-semibold text-blue-900 mb-1 flex items-center gap-2">
-                                <Info className="size-4 text-blue-700" />
+                            <div className="p-3 rounded-lg bg-brand-50/60 border border-brand-200/50">
+                              <h4 className="text-sm font-semibold text-brand-950 mb-1 flex items-center gap-2">
+                                <Info className="size-4 text-brand-700" />
                                 Pro Tip
                               </h4>
-                              <p className="text-sm text-blue-700">
+                              <p className="text-sm text-brand-700">
                                 {step.tips}
                               </p>
                             </div>

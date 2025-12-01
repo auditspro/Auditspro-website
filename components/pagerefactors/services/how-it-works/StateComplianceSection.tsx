@@ -3,17 +3,17 @@
 import { Motion } from "@/components/ui/motion";
 import Link from "next/link";
 import {
-  MapPin,
-  FileText,
-  Clock,
-  CheckCircle2,
-  AlertTriangle,
-  Building2,
-  Scale,
-  Calendar,
-  ExternalLink,
-  Info,
-} from "lucide-react";
+  MapPinIcon as MapPin,
+  DocumentTextIcon as FileText,
+  ClockIcon as Clock,
+  CheckCircleIcon as CheckCircle2,
+  ExclamationTriangleIcon as AlertTriangle,
+  BuildingOffice2Icon as Building2,
+  ScaleIcon as Scale,
+  CalendarIcon as Calendar,
+  ArrowTopRightOnSquareIcon as ExternalLink,
+  InformationCircleIcon as Info,
+} from "@heroicons/react/24/outline";
 
 const STATES = [
   {
@@ -245,12 +245,12 @@ export function StateComplianceSection() {
                       </ul>
                     </div>
 
-                    <div className="p-3 rounded-lg bg-blue-50 border border-blue-100">
-                      <h4 className="text-sm font-semibold text-blue-900 mb-1 flex items-center gap-2">
-                        <Info className="size-4 text-blue-700" />
+                    <div className="p-3 rounded-lg bg-brand-50 border border-brand-200">
+                      <h4 className="text-sm font-semibold text-brand-950 mb-1 flex items-center gap-2">
+                        <Info className="size-4 text-brand-700" />
                         Important notes
                       </h4>
-                      <p className="text-sm text-blue-700">{s.notes}</p>
+                      <p className="text-sm text-brand-700">{s.notes}</p>
                     </div>
 
                     <div className="flex flex-wrap gap-3 pt-1 text-sm font-medium text-brand-900">

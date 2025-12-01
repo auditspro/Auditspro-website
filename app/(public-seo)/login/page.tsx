@@ -60,7 +60,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100/50 flex items-center justify-center p-4">
       <Motion
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function LoginPage() {
                 onChange={handleInputChange}
                 required
                 disabled={isLoading}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -108,7 +108,7 @@ export default function LoginPage() {
                   onChange={handleInputChange}
                   required
                   disabled={isLoading}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
                 <button
                   type="button"
@@ -131,7 +131,7 @@ export default function LoginPage() {
 
             {/* Forgot Password Link */}
             <div className="text-right">
-              <Link href="/forgot-password" className="text-sm text-blue-600 hover:underline">
+              <Link href="/forgot-password" className="text-sm text-brand-600 hover:underline">
                 Forgot your password?
               </Link>
             </div>
@@ -174,7 +174,7 @@ export default function LoginPage() {
             {/* Register Link */}
             <div className="text-center text-sm">
               <span className="text-gray-600">Don&apos;t have an account? </span>
-              <Link href="/register" className="text-blue-600 hover:underline font-medium">
+              <Link href="/register" className="text-brand-600 hover:underline font-medium">
                 Create one
               </Link>
             </div>

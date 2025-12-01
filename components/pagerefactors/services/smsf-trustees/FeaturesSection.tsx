@@ -32,9 +32,9 @@ export function FeaturesSection() {
         "Member transactions review",
         "Year-end journal examination",
       ],
-      color: "from-blue-500/10 to-blue-600/5",
-      iconBg: "bg-blue-100/60",
-      iconColor: "text-blue-900",
+      color: "from-brand-700/10 to-brand-700/5",
+      iconBg: "bg-brand-100/60",
+      iconColor: "text-brand-900",
     },
     {
       icon: ShieldCheckIcon,
@@ -199,13 +199,13 @@ export function FeaturesSection() {
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${color} rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
             <div className="relative">
-              <div className={`rounded-lg ${iconBg} p-3 group-hover:scale-110 transition-transform duration-300`}>
-                <Icon className={`size-6 ${iconColor}`} />
+              <div className="mb-3">
+                <div className={`inline-flex items-center gap-2 ${iconBg} text-sm font-medium rounded-full px-3 py-1.5`}>
+                  <Icon className={`size-4 ${iconColor}`} />
+                  <span>{title}</span>
+                </div>
               </div>
-              <div className="mt-3">
-                <h3 className="text-xl font-semibold text-brand-950 mb-1">{title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{shortDesc}</p>
-              </div>
+              <p className="text-sm text-slate-600 leading-relaxed">{shortDesc}</p>
               <div className="mt-4 p-4 rounded-lg bg-brand-50/60 border border-brand-200/60">
                 <p className="text-sm text-slate-700 mb-3">{fullDesc}</p>
                 <ul className="grid grid-cols-1 gap-2">

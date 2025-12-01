@@ -25,9 +25,9 @@ const keyBenefits = [
       "Priority processing available",
       "Dedicated project management",
     ],
-    color: "from-blue-500/10 to-blue-600/5",
-    iconBg: "bg-blue-100/60",
-    iconColor: "text-blue-900",
+    color: "from-brand-700/10 to-brand-700/5",
+    iconBg: "bg-brand-100/60",
+    iconColor: "text-brand-900",
   },
   {
     icon: CurrencyDollarIcon,

@@ -143,7 +143,7 @@ export function InfoOverview() {
       />
       <div className="container relative mx-auto px-4 sm:px-6 pb-10">
         <div
-          className="h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent"
+          className="h-px w-full bg-gradient-to-r from-transparent via-brand-200 to-transparent"
           aria-hidden="true"
         />
       </div>
@@ -161,10 +161,10 @@ export function InfoOverview() {
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            <InformationCircleIcon className="size-7 sm:size-8 text-blue-700" />
+            <InformationCircleIcon className="size-7 sm:size-8 text-brand-700" />
           </motion.div>
           <h2
-            className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950 text-center sm:text-left"
+            className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950 text-center sm:text-left"
             itemProp="name"
           >
             Who We Help & Where We Operate
@@ -187,20 +187,20 @@ export function InfoOverview() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="flex justify-center mb-12"
       >
-        <div className="relative w-72 h-72 sm:w-80 sm:h-80">
+        <div className="relative circle-image">
           {/* Circular frame with gradient background */}
-          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 via-blue-50 to-white border-4 border-blue-200/30 shadow-xl">
+          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-brand-100 via-brand-50 to-white border-4 border-brand-200/30 shadow-xl">
             <Image
               src="/images/Gemini_Generated_Image_fo5td0fo5td0fo5t.png"
               alt="Diverse group of professionals collaborating on trust account audits"
               fill
               className="object-cover"
-              sizes="(max-width: 640px) 288px, 320px"
+              sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
               priority={false}
             />
           </div>
           {/* Subtle glow effect */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-600/10 to-transparent pointer-events-none" />
         </div>
       </motion.div>
 
@@ -208,13 +208,13 @@ export function InfoOverview() {
       <div className="grid gap-6 md:gap-8 lg:grid-cols-3 mb-8">
         {/* WHO WE HELP */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <CheckCircleIcon className="size-4" />
             Who we help
           </div>
@@ -224,16 +224,16 @@ export function InfoOverview() {
               <Link
                 key={label}
                 href={link}
-                className="flex items-center gap-2.5 rounded-lg border border-blue-200/50 bg-white/80 px-3 py-2.5 text-sm backdrop-blur hover:border-blue-300 hover:bg-white transition-all duration-200"
+                className="flex items-center gap-2.5 rounded-lg border border-brand-200/50 bg-white/80 px-3 py-2.5 text-sm backdrop-blur hover:border-brand-300 hover:bg-white transition-all duration-200"
                 itemProp="availableService"
                 itemScope
                 itemType="https://schema.org/Offer"
               >
                 <Icon
-                  className="size-4 text-blue-700 flex-shrink-0"
+                  className="size-4 text-brand-700 flex-shrink-0"
                   aria-hidden="true"
                 />
-                <span className="text-blue-950" itemProp="name">
+                <span className="text-brand-950" itemProp="name">
                   {label}
                 </span>
               </Link>
@@ -243,7 +243,7 @@ export function InfoOverview() {
 
         {/* AUSTRALIA-WIDE COVERAGE - Filled with complete, accurate content */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -252,7 +252,7 @@ export function InfoOverview() {
           itemScope
           itemType="https://schema.org/Country"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <MapPinIcon className="size-4" />
             Australia-wide coverage
           </div>
@@ -268,7 +268,7 @@ export function InfoOverview() {
               {states.slice(0, 4).map((s) => (
                 <span
                   key={s}
-                  className="inline-flex items-center rounded-full border border-blue-200/70 bg-white/80 px-3 py-1 text-xs font-medium text-blue-950 backdrop-blur"
+                  className="inline-flex items-center rounded-full border border-brand-200/70 bg-white/80 px-3 py-1 text-xs font-medium text-brand-950 backdrop-blur"
                   itemProp="name"
                 >
                   {s}
@@ -279,7 +279,7 @@ export function InfoOverview() {
               {states.slice(4).map((s) => (
                 <span
                   key={s}
-                  className="inline-flex items-center rounded-full border border-blue-200/70 bg-white/80 px-3 py-1 text-xs font-medium text-blue-950 backdrop-blur"
+                  className="inline-flex items-center rounded-full border border-brand-200/70 bg-white/80 px-3 py-1 text-xs font-medium text-brand-950 backdrop-blur"
                   itemProp="name"
                 >
                   {s}
@@ -289,13 +289,13 @@ export function InfoOverview() {
           </div>
 
           {/* Service features - Accurate information */}
-          <div className="space-y-2.5 pt-3 border-t border-blue-200/50">
+          <div className="space-y-2.5 pt-3 border-t border-brand-200/50">
             {coverageFeatures.map(({ icon: Icon, label }) => (
               <div
                 key={label}
                 className="flex items-start gap-2.5 text-xs text-slate-600"
               >
-                <Icon className="size-3.5 text-blue-700 flex-shrink-0 mt-0.5" />
+                <Icon className="size-3.5 text-brand-700 flex-shrink-0 mt-0.5" />
                 <span>{label}</span>
               </div>
             ))}
@@ -304,7 +304,7 @@ export function InfoOverview() {
           <Button
             asChild
             size="sm"
-            className="mt-4 w-full sm:w-auto bg-blue-900 hover:bg-blue-800 text-white"
+            className="mt-4 w-full sm:w-auto btn-primary-brand"
           >
             <Link href="/book-demo">Start Audit process</Link>
           </Button>
@@ -312,13 +312,13 @@ export function InfoOverview() {
 
         {/* HOW WE MAKE IT EASIER */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <CheckCircleIcon className="size-4" />
             How we make it easier
           </div>
@@ -327,12 +327,12 @@ export function InfoOverview() {
             {outcomes.map(({ icon: Icon, stat, label }) => (
               <div
                 key={stat}
-                className="rounded-lg border border-blue-200/50 bg-white/80 p-3.5 backdrop-blur"
+                className="rounded-lg border border-brand-200/50 bg-white/80 p-3.5 backdrop-blur"
               >
                 <div className="flex items-start gap-3">
-                  <Icon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                  <Icon className="size-4 text-brand-700 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-sm font-medium text-blue-950 mb-0.5">
+                    <div className="text-sm font-medium text-brand-950 mb-0.5">
                       {stat}
                     </div>
                     <div className="text-xs text-slate-600 leading-relaxed">
@@ -354,8 +354,8 @@ export function InfoOverview() {
         transition={{ duration: 0.5, delay: 0.35 }}
         className="mb-8"
       >
-        <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-5">
+        <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-5">
             <TrophyIcon className="size-4" />
             Our Advantages
           </div>
@@ -364,14 +364,14 @@ export function InfoOverview() {
             {advantages.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="rounded-lg border border-blue-200/50 bg-white/80 p-4 backdrop-blur"
+                className="rounded-lg border border-brand-200/50 bg-white/80 p-4 backdrop-blur"
               >
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100/80 flex items-center justify-center border border-blue-200/50">
-                    <Icon className="size-5 text-blue-700" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-100/80 flex items-center justify-center border border-brand-200/50">
+                    <Icon className="size-5 text-brand-700" />
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-blue-950 mb-1">
+                    <div className="text-sm font-medium text-brand-950 mb-1">
                       {title}
                     </div>
                     <div className="text-xs text-slate-600 leading-relaxed">
@@ -389,24 +389,24 @@ export function InfoOverview() {
       <div className="grid gap-6 md:gap-8 md:grid-cols-2 mb-8">
         {/* REGULATORY REFERENCES */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <ScaleIcon className="size-4" />
             Regulatory framework
           </div>
 
           <div className="space-y-3 text-sm">
             {/* NSW Fair Trading */}
-            <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
+            <div className="p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-brand-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
-                  <strong className="text-blue-950">NSW Fair Trading:</strong>{" "}
+                  <strong className="text-brand-950">NSW Fair Trading:</strong>{" "}
                   Real estate agents must comply with Property, Stock and
                   Business Agents Act 2002 (Sections 111 & 113).
                 </div>
@@ -416,13 +416,13 @@ export function InfoOverview() {
                   href="https://www.fairtrading.nsw.gov.au/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   Official Source →
                 </a>
                 <Link
                   href="/resources/nsw-real-estate-audit-requirements"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   Our Guide →
                 </Link>
@@ -430,11 +430,11 @@ export function InfoOverview() {
             </div>
 
             {/* Consumer Affairs Victoria */}
-            <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
+            <div className="p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-brand-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
-                  <strong className="text-blue-950">
+                  <strong className="text-brand-950">
                     Consumer Affairs Victoria:
                   </strong>{" "}
                   State-based licensing and trust account compliance for real
@@ -446,13 +446,13 @@ export function InfoOverview() {
                   href="https://www.consumer.vic.gov.au/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   Official Source →
                 </a>
                 <Link
                   href="/resources/victoria-trust-account-compliance"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   Our Guide →
                 </Link>
@@ -460,11 +460,11 @@ export function InfoOverview() {
             </div>
 
             {/* Legal Services Boards */}
-            <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
+            <div className="p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-brand-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
-                  <strong className="text-blue-950">
+                  <strong className="text-brand-950">
                     Legal Services Boards:
                   </strong>{" "}
                   Solicitors must comply with Legal Profession Uniform Law
@@ -476,7 +476,7 @@ export function InfoOverview() {
                   href="https://olsc.nsw.gov.au/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   OLSC NSW →
                 </a>
@@ -484,13 +484,13 @@ export function InfoOverview() {
                   href="https://www.lsbc.vic.gov.au/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   LSBC VIC →
                 </a>
                 <Link
                   href="/resources/solicitor-trust-account-audits"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   Our Guide →
                 </Link>
@@ -498,11 +498,11 @@ export function InfoOverview() {
             </div>
 
             {/* Professional Accounting Bodies */}
-            <div className="p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
+            <div className="p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
               <div className="flex items-start gap-2.5 mb-2">
-                <CheckCircleIcon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                <CheckCircleIcon className="size-4 text-brand-700 flex-shrink-0 mt-0.5" />
                 <div className="text-slate-600 leading-relaxed">
-                  <strong className="text-blue-950">
+                  <strong className="text-brand-950">
                     Professional Accounting Bodies:
                   </strong>{" "}
                   CPA Australia and IPA require trust account audits per APS 10
@@ -512,7 +512,7 @@ export function InfoOverview() {
               <div className="flex flex-wrap gap-2 ml-6">
                 <Link
                   href="/resources/accountant-trust-account-audits"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   Our Guide →
                 </Link>
@@ -523,36 +523,36 @@ export function InfoOverview() {
 
         {/* DEADLINES */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <ClockIcon className="size-4" />
             Key compliance deadlines
           </div>
 
           <div className="space-y-3 text-sm">
             {/* Solicitors */}
-            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100/80 flex items-center justify-center border border-blue-200/50">
-                <span className="text-lg font-medium text-blue-700">31</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-100/80 flex items-center justify-center border border-brand-200/50">
+                <span className="text-lg font-medium text-brand-700">31</span>
               </div>
               <div>
                 <div className="text-slate-600 leading-relaxed mb-1.5">
-                  <strong className="text-blue-950">
+                  <strong className="text-brand-950">
                     Solicitors (NSW/VIC):
                   </strong>{" "}
-                  <span className="text-blue-700 font-medium">
+                  <span className="text-brand-700 font-medium">
                     31 May annually
                   </span>{" "}
                   under Legal Profession Uniform Law.
                 </div>
                 <Link
                   href="/resources/solicitor-audit-deadlines"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   View full requirements →
                 </Link>
@@ -560,21 +560,21 @@ export function InfoOverview() {
             </div>
 
             {/* Real Estate NSW */}
-            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100/80 flex items-center justify-center border border-blue-200/50">
-                <span className="text-lg font-medium text-blue-700">31</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-100/80 flex items-center justify-center border border-brand-200/50">
+                <span className="text-lg font-medium text-brand-700">31</span>
               </div>
               <div>
                 <div className="text-slate-600 leading-relaxed mb-1.5">
-                  <strong className="text-blue-950">Real Estate (NSW):</strong>{" "}
-                  <span className="text-blue-700 font-medium">
+                  <strong className="text-brand-950">Real Estate (NSW):</strong>{" "}
+                  <span className="text-brand-700 font-medium">
                     31 December annually
                   </span>{" "}
                   per Property, Stock and Business Agents Act 2002.
                 </div>
                 <Link
                   href="/resources/nsw-real-estate-audit-requirements"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   View full requirements →
                 </Link>
@@ -582,23 +582,23 @@ export function InfoOverview() {
             </div>
 
             {/* Real Estate Other States */}
-            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100/80 flex items-center justify-center border border-blue-200/50">
-                <span className="text-lg font-medium text-blue-700">30</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-100/80 flex items-center justify-center border border-brand-200/50">
+                <span className="text-lg font-medium text-brand-700">30</span>
               </div>
               <div>
                 <div className="text-slate-600 leading-relaxed mb-1.5">
-                  <strong className="text-blue-950">
+                  <strong className="text-brand-950">
                     Real Estate (Other States):
                   </strong>{" "}
-                  <span className="text-blue-700 font-medium">
+                  <span className="text-brand-700 font-medium">
                     30 September
                   </span>{" "}
                   or within 3 months of audit period end (state-dependent).
                 </div>
                 <Link
                   href="/pricing"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   View pricing →
                 </Link>
@@ -606,23 +606,23 @@ export function InfoOverview() {
             </div>
 
             {/* Accountants */}
-            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-blue-200/50 backdrop-blur">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100/80 flex items-center justify-center border border-blue-200/50">
-                <span className="text-lg font-medium text-blue-700">31</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-white/80 border border-brand-200/50 backdrop-blur">
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-100/80 flex items-center justify-center border border-brand-200/50">
+                <span className="text-lg font-medium text-brand-700">31</span>
               </div>
               <div>
                 <div className="text-slate-600 leading-relaxed mb-1.5">
-                  <strong className="text-blue-950">
+                  <strong className="text-brand-950">
                     Accountants (CPA/IPA):
                   </strong>{" "}
-                  <span className="text-blue-700 font-medium">
+                  <span className="text-brand-700 font-medium">
                     31 March annually
                   </span>
                   , with 90-day grace period per APS 10.
                 </div>
                 <Link
                   href="/resources/accountant-trust-account-audits"
-                  className="text-xs text-blue-700 hover:text-blue-900 underline underline-offset-2 font-medium"
+                  className="text-xs text-brand-700 hover:text-brand-900 underline underline-offset-2 font-medium"
                 >
                   View full requirements →
                 </Link>
@@ -630,7 +630,7 @@ export function InfoOverview() {
             </div>
           </div>
 
-          <div className="mt-4 text-xs text-slate-600 bg-blue-50/80 border border-blue-200/50 rounded-lg p-3 backdrop-blur">
+          <div className="mt-4 text-xs text-slate-600 bg-brand-50/80 border border-brand-200/50 rounded-lg p-3 backdrop-blur">
             <strong>Note:</strong> Deadlines vary by state and regulator. Always
             confirm your specific obligations with your regulatory authority.
           </div>
@@ -643,25 +643,25 @@ export function InfoOverview() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-blue-50/40"
+        className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-brand-50/40"
       >
         <div className="flex items-center justify-between gap-6 flex-col sm:flex-row">
           <div className="text-center sm:text-left">
-            <h3 className="text-xl sm:text-2xl font-medium text-blue-950 mb-2">
+            <h3 className="text-xl sm:text-2xl font-medium text-brand-950 mb-2">
               See if we cover your organisation
             </h3>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Fixed pricing from{" "}
-              <strong className="text-blue-950">$549 + GST</strong>. 24-hour
+              <strong className="text-brand-950">$549 + GST</strong>. 24-hour
               response from experienced trust account auditors.{" "}
-              <strong className="text-blue-950">No hidden charges</strong>.
+              <strong className="text-brand-950">No hidden charges</strong>.
             </p>
           </div>
 
           <Button
             asChild
             size="lg"
-            className="gap-2 w-full sm:w-auto bg-blue-900 hover:bg-blue-800 text-white"
+            className="btn-primary-brand gap-2 w-full sm:w-auto"
           >
             <Link
               href="/book-demo"

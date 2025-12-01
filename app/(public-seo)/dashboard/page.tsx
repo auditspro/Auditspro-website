@@ -54,7 +54,7 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100/50 flex items-center justify-center">
         <div className="text-center">
           <svg className="animate-spin h-8 w-8 text-blue-600 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -71,7 +71,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100/50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,15 +119,15 @@ export default function DashboardPage() {
                 <p className="text-gray-600 mb-4">
                   Manage your audit requests, view reports, and access our services from your personalized dashboard.
                 </p>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
                   <div className="flex">
                     <div className="flex-shrink-0">
-                      <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                      <svg className="h-5 w-5 text-brand-600" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <p className="text-sm text-blue-800">
+                      <p className="text-sm text-brand-800">
                         Your account is now active! You can now access all our audit services and track your requests.
                       </p>
                     </div>
@@ -180,9 +180,9 @@ export default function DashboardPage() {
               <div className="px-4 py-5 sm:p-6">
                 <h3 className="text-lg font-medium text-gray-900 mb-4">Quick Actions</h3>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  <button className="relative group bg-gray-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg hover:bg-gray-100 transition-colors">
+                  <button className="relative group bg-gray-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-brand-500 rounded-lg hover:bg-gray-100 transition-colors">
                     <div>
-                      <span className="rounded-lg inline-flex p-3 bg-blue-50 text-blue-700 ring-4 ring-white">
+                      <span className="rounded-lg inline-flex p-3 bg-brand-50 text-brand-700 ring-4 ring-white">
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
@@ -199,7 +199,7 @@ export default function DashboardPage() {
                     </div>
                   </button>
 
-                  <button className="relative group bg-gray-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg hover:bg-gray-100 transition-colors">
+                  <button className="relative group bg-gray-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-brand-500 rounded-lg hover:bg-gray-100 transition-colors">
                     <div>
                       <span className="rounded-lg inline-flex p-3 bg-green-50 text-green-700 ring-4 ring-white">
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -218,7 +218,7 @@ export default function DashboardPage() {
                     </div>
                   </button>
 
-                  <button className="relative group bg-gray-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg hover:bg-gray-100 transition-colors">
+                  <button className="relative group bg-gray-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-brand-500 rounded-lg hover:bg-gray-100 transition-colors">
                     <div>
                       <span className="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

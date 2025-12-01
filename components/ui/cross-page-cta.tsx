@@ -1,6 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Clock, DollarSign } from "lucide-react";
+import {
+  ArrowRightIcon as ArrowRight,
+  ClockIcon as Clock,
+  CurrencyDollarIcon as DollarSign,
+} from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import {
   Motion,
@@ -93,7 +97,7 @@ export function CrossPageCTA({ variant = "general-to-contact", className = "" }:
   const config = ctaConfigs[variant];
 
   return (
-    <section className={`py-16 bg-gradient-to-br from-blue-50 via-white to-blue-50 ${className}`}>
+    <section className={`py-16 bg-gradient-to-br from-brand-50 via-white to-brand-50 ${className}`}>
       <div className="container mx-auto px-4 sm:px-6">
         <Motion
           initial="hidden"
@@ -103,18 +107,18 @@ export function CrossPageCTA({ variant = "general-to-contact", className = "" }:
           transition={motionTransitions.smooth}
           className="mx-auto max-w-4xl text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h2 className="mb-4 text-3xl sm:text-4xl font-medium tracking-tight text-brand-950">
             {config.title}
           </h2>
-          <p className="mb-8 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mb-8 text-lg text-slate-600 max-w-2xl mx-auto">
             {config.description}
           </p>
 
           {/* Features */}
-          <div className="mb-8 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+          <div className="mb-8 flex flex-wrap justify-center gap-4 text-sm text-slate-600">
             {config.features.map((feature, index) => (
               <div key={index} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-brand-600 rounded-full"></div>
                 {feature}
               </div>
             ))}
@@ -124,8 +128,9 @@ export function CrossPageCTA({ variant = "general-to-contact", className = "" }:
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               asChild
+              variant="default"
               size="lg"
-              className="gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold"
+              className="gap-2 btn-primary-brand font-medium font-sans"
             >
               <Link href={config.primaryButton.href}>
                 <config.primaryButton.icon className="w-5 h-5" />
@@ -137,7 +142,7 @@ export function CrossPageCTA({ variant = "general-to-contact", className = "" }:
               asChild
               variant="outline"
               size="lg"
-              className="gap-2 border-gray-300 bg-white px-8 py-4 text-lg font-semibold text-gray-700 hover:bg-gray-50"
+              className="gap-2 btn-outline-brand bg-white font-medium font-sans"
             >
               <Link href={config.secondaryButton.href}>
                 {config.secondaryButton.text}

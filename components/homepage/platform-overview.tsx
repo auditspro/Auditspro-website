@@ -1,16 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
-  CheckCircle2,
-  Cloud,
-  Timer,
-  ClipboardCheck,
-  Settings,
-  Link2,
-  Database,
-  FileSpreadsheet,
-} from "lucide-react";
+  ShieldCheckIcon as ShieldCheck,
+  CheckCircleIcon as CheckCircle2,
+  CloudIcon as Cloud,
+  ClockIcon as Timer,
+  ClipboardDocumentCheckIcon as ClipboardCheck,
+  Cog6ToothIcon as Settings,
+  LinkIcon as Link2,
+  CircleStackIcon as Database,
+  DocumentChartBarIcon as FileSpreadsheet,
+} from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -72,7 +72,7 @@ export function PlatformOverview() {
   return (
     <section
       id="platform"
-      className="container relative mx-auto px-4 sm:px-6 py-12 sm:py-16 overflow-hidden border-t border-blue-200/50"
+      className="container relative mx-auto px-4 sm:px-6 py-12 sm:py-16 overflow-hidden border-t border-brand-200/50"
       aria-labelledby="platform-heading"
     >
       {/* Matching grid background */}
@@ -100,10 +100,10 @@ export function PlatformOverview() {
             Built for professional trust account audits
           </div>
           <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-            <ShieldCheck className="size-7 text-blue-700" aria-hidden="true" />
+            <ShieldCheck className="size-7 text-brand-700" aria-hidden="true" />
             <h2
               id="platform-heading"
-              className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950"
+              className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950"
             >
               Fully Online Trust Account Auditing Software
             </h2>
@@ -120,22 +120,22 @@ export function PlatformOverview() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex justify-center lg:justify-end"
+          className="flex justify-center"
         >
-          <div className="relative w-80 h-80 sm:w-96 sm:h-96">
+          <div className="relative circle-image">
             {/* Circular frame with gradient background */}
-            <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 via-blue-50 to-white border-4 border-blue-200/30 shadow-xl">
+            <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-brand-100 via-brand-50 to-white border-4 border-brand-200/30 shadow-xl">
               <Image
                 src="/images/Gemini_Generated_Image_2ev78e2ev78e2ev7.png"
                 alt="Professional audit workspace with modern technology"
                 fill
                 className="object-cover"
-                sizes="(max-width: 640px) 320px, 384px"
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
                 priority={false}
               />
             </div>
             {/* Subtle glow effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-500/10 to-transparent pointer-events-none" />
           </div>
         </motion.div>
       </div>
@@ -145,14 +145,14 @@ export function PlatformOverview() {
         {productFeatures.map(({ icon: Icon, title, desc }) => (
           <motion.div
             key={title}
-            className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+            className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-              <Icon className="size-4 text-blue-700" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+              <Icon className="size-4 text-brand-700" />
               {title}
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
@@ -162,33 +162,33 @@ export function PlatformOverview() {
 
       {/* Integrations */}
       <motion.div
-        className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40 mb-8"
+        className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40 mb-8"
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+        <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
           <Link2 className="size-4" />
           Integrations — future plans (read‑only)
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-          {integrations.map((i) => (
-            <Link
-              key={i.label}
-              href={i.href}
-              className="flex items-center gap-2.5 rounded-lg border border-blue-200/50 bg-white/80 px-3 py-2.5 text-sm backdrop-blur hover:border-blue-300 hover:bg-white transition-all duration-200"
-            >
-              <CheckCircle2 className="size-4 text-blue-700" />
-              <span className="text-blue-950">{i.label}</span>
-            </Link>
-          ))}
+        <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/80 px-4 py-2 text-sm font-medium text-brand-950 backdrop-blur supports-[backdrop-filter]:bg-white/40">
+            Coming Soon
+          </div>
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl">
+            This integrations area is under construction. For integration queries or early access requests,
+            please contact our team and we will assist you.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <Button asChild size="lg" className="btn-primary-brand">
+              <Link href="/contact" aria-label="Contact our team">Contact Us</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="btn-outline-brand">
+              <Link href="/book-demo" aria-label="Book a demo">Book Demo</Link>
+            </Button>
+          </div>
         </div>
-        <p className="mt-3 text-xs text-slate-600">
-          Imports read‑only ledger, property, and bank data to populate audit
-          workpapers — reducing manual entry while preserving professional
-          judgement.
-        </p>
       </motion.div>
 
       {/* Efficiency benefits */}
@@ -196,14 +196,14 @@ export function PlatformOverview() {
         {efficiency.map(({ icon: Icon, title, desc }) => (
           <motion.div
             key={title}
-            className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+            className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
-              <Icon className="size-4 text-blue-700" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
+              <Icon className="size-4 text-brand-700" />
               {title}
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
@@ -212,9 +212,9 @@ export function PlatformOverview() {
       </div>
 
       {/* CTA */}
-      <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40 flex items-center justify-between gap-4 flex-col sm:flex-row">
+      <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40 flex items-center justify-between gap-4 flex-col sm:flex-row">
         <div>
-          <h3 className="text-lg font-medium text-blue-950">
+          <h3 className="text-lg font-medium text-brand-950">
             Ready to streamline trust account audits?
           </h3>
           <p className="text-sm text-slate-600">
@@ -226,7 +226,7 @@ export function PlatformOverview() {
           <Button
             asChild
             size="lg"
-            className="gap-2 bg-blue-900 hover:bg-blue-800 text-white w-full sm:w-auto"
+            className="btn-primary-brand gap-2 w-full sm:w-auto"
           >
             <Link href="/book-demo" aria-label="Start your audit walkthrough">
                   Start Audit
@@ -236,7 +236,7 @@ export function PlatformOverview() {
             asChild
             variant="outline"
             size="lg"
-            className="gap-2 border-blue-200 text-blue-950 hover:bg-blue-50 w-full sm:w-auto"
+            className="btn-outline-brand gap-2 w-full sm:w-auto"
           >
             <Link href="/contact" aria-label="Join the waitlist">
               Join Waitlist
@@ -246,7 +246,7 @@ export function PlatformOverview() {
       </div>
 
       {/* Disclaimer */}
-      <p className="mt-4 text-xs text-slate-600 bg-blue-50/80 border border-blue-200/50 rounded-lg p-2.5">
+      <p className="mt-4 text-xs text-slate-600 bg-brand-50/80 border border-brand-200/50 rounded-lg p-2.5">
         Tools assist auditor efficiency and documentation; professional
         judgement and applicable regulations govern audits. Connections are
         read‑only with minimum scopes required for audit evidence. Primary data

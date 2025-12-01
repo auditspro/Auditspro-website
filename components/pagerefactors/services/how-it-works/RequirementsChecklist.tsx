@@ -2,22 +2,22 @@
 import { Motion } from "@/components/ui/motion";
 import { useState } from "react";
 import {
-  FileText,
-  CheckCircle2,
-  Download,
-  AlertCircle,
-  Folder,
-  FileSpreadsheet,
-  FileImage,
-  HardDrive,
-  Cloud,
-  Shield,
-  Clock,
-  ChevronDown,
-  ChevronUp,
-  ExternalLink,
-  Info,
-} from "lucide-react";
+  DocumentTextIcon as FileText,
+  CheckCircleIcon as CheckCircle2,
+  ArrowDownTrayIcon as Download,
+  ExclamationCircleIcon as AlertCircle,
+  FolderIcon as Folder,
+  DocumentChartBarIcon as FileSpreadsheet,
+  PhotoIcon as FileImage,
+  ServerStackIcon as HardDrive,
+  CloudIcon as Cloud,
+  ShieldCheckIcon as Shield,
+  ClockIcon as Clock,
+  ChevronDownIcon as ChevronDown,
+  ChevronUpIcon as ChevronUp,
+  ArrowTopRightOnSquareIcon as ExternalLink,
+  InformationCircleIcon as Info,
+} from "@heroicons/react/24/outline";
 
 export function RequirementsChecklist() {
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
@@ -488,9 +488,9 @@ export function RequirementsChecklist() {
                                     )}
                                   </div>
                                   {document.tip && (
-                                    <div className="flex items-start gap-2 mt-2 p-2 bg-blue-50/60 border border-blue-200/50 rounded text-sm">
-                                      <Info className="size-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                                      <span className="text-blue-700">
+                                    <div className="flex items-start gap-2 mt-2 p-2 bg-brand-50/60 border border-brand-200/50 rounded text-sm">
+                                      <Info className="size-4 text-brand-700 mt-0.5 flex-shrink-0" />
+                                      <span className="text-brand-700">
                                         {document.tip}
                                       </span>
                                     </div>
@@ -532,58 +532,14 @@ export function RequirementsChecklist() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {softwareOptions.map((software, index) => {
-                const SoftwareIcon = software.icon;
-
-                return (
-                  <div
-                    key={software.name}
-                    className="p-6 rounded-xl border border-brand-200/50 bg-white/70 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="rounded-lg bg-brand-100/60 p-2">
-                        <SoftwareIcon className="size-5 text-brand-900" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-brand-950">
-                          {software.name}
-                        </h4>
-                        <span
-                          className={`
-                          text-xs px-2 py-1 rounded-full
-                          ${
-                            software.compatibility === "Excellent"
-                              ? "bg-green-100 text-green-700"
-                              : software.compatibility === "Good"
-                              ? "bg-blue-100 text-blue-700"
-                              : "bg-amber-100 text-amber-700"
-                          }
-                        `}
-                        >
-                          {software.compatibility}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="text-sm font-medium text-brand-900 mb-2">
-                        Export Formats:
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {software.exportFormats.map((format) => (
-                          <span
-                            key={format}
-                            className="text-xs bg-brand-50 text-brand-700 px-2 py-1 rounded border border-brand-200"
-                          >
-                            {format}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="p-6 rounded-xl border border-brand-200/70 bg-white/70 text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-amber-100/60 px-3 py-1.5 text-sm font-medium text-amber-900 mb-3">
+                <AlertCircle className="size-4" />
+                Coming Soon
+              </div>
+              <p className="text-sm text-brand-700">
+                Software compatibility cards will be available soon. Please use the recommended file formats below for submissions.
+              </p>
             </div>
           </div>
         </Motion>

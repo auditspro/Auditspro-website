@@ -10,19 +10,18 @@ import {
 } from "@/components/ui/motion";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
 import {
-  Briefcase,
-  Clock,
-  Shield,
-  Award,
-  CheckCircle2,
-  FileText,
-  Users,
-  AlertTriangle,
-
-  DollarSign,
-  Building,
-  TrendingUp,
-} from "lucide-react";
+  BriefcaseIcon,
+  ClockIcon,
+  ShieldCheckIcon,
+  TrophyIcon,
+  CheckCircleIcon,
+  DocumentTextIcon,
+  UsersIcon,
+  ExclamationTriangleIcon,
+  CurrencyDollarIcon,
+  BuildingOfficeIcon,
+  ArrowTrendingUpIcon,
+} from "@heroicons/react/24/outline";
 import { RequirementsSection as BusinessBrokersRequirementsSection } from "@/components/pagerefactors/services/business-brokers/RequirementsSection";
 
 // SEO Metadata
@@ -213,12 +212,12 @@ export default function BusinessBrokersPage() {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-brand-50">
       {/* Set Breadcrumbs */}
       <SetBreadcrumbs
         items={[
           { label: "Home", href: "/" },
-          { label: "Who We Are", href: "/#overview" },
+          { label: "Services", href: "/services" },
           { label: "Business Brokers", href: "/services/business-brokers" },
         ]}
       />
@@ -247,7 +246,7 @@ export default function BusinessBrokersPage() {
           </div>
 
           <div className="container relative mx-auto px-4 sm:px-6 py-16 sm:py-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center">
               {/* Content Column */}
               <Motion
                 initial={{ opacity: 0, y: 20 }}
@@ -257,7 +256,7 @@ export default function BusinessBrokersPage() {
               >
                 {/* Service Badge */}
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
-                  <Briefcase className="size-4" />
+                  <BriefcaseIcon className="size-4" />
                   <span>Business Brokers</span>
                 </div>
 
@@ -281,13 +280,13 @@ export default function BusinessBrokersPage() {
                 <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                   <Link href="/contact">
                     <button className="inline-flex items-center gap-2 rounded-lg bg-brand-900 px-6 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-brand-800 hover:shadow-md">
-                      <CheckCircle2 className="size-5" />
+                      <CheckCircleIcon className="size-5" />
                       Start Your Audit
                     </button>
                   </Link>
                   <Link href="/how-it-works">
                     <button className="inline-flex items-center gap-2 rounded-lg border border-brand-200 bg-white px-6 py-3 text-base font-medium text-brand-950 shadow-sm transition-all hover:bg-brand-50 hover:border-brand-300">
-                      <FileText className="size-5" />
+                      <DocumentTextIcon className="size-5" />
                       How It Works
                     </button>
                   </Link>
@@ -296,15 +295,15 @@ export default function BusinessBrokersPage() {
                 {/* Trust Indicators */}
                 <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-slate-600">
                   <div className="flex items-center gap-2">
-                    <Clock className="size-4 text-brand-700" />
+                    <ClockIcon className="size-4 text-brand-700" />
                     <span>5–10 Day Turnaround</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <DollarSign className="size-4 text-brand-700" />
+                    <CurrencyDollarIcon className="size-4 text-brand-700" />
                     <span>Fixed Pricing – No Hidden Fees</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Shield className="size-4 text-brand-700" />
+                    <ShieldCheckIcon className="size-4 text-brand-700" />
                     <span>Qualified Trust Account Auditors</span>
                   </div>
                 </div>
@@ -312,11 +311,11 @@ export default function BusinessBrokersPage() {
                 {/* Additional Trust Elements */}
                 <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
                   <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
-                    <Shield className="size-4 text-brand-700" />
+                    <ShieldCheckIcon className="size-4 text-brand-700" />
                     <span>State Regulator Compliant</span>
                   </div>
                   <div className="flex items-center gap-2 bg-brand-50/80 px-3 py-2 rounded-full border border-brand-200/50">
-                    <CheckCircle2 className="size-4 text-brand-700" />
+                    <CheckCircleIcon className="size-4 text-brand-700" />
                     <span>Expert Business Broker Auditors</span>
                   </div>
                 </div>
@@ -327,23 +326,19 @@ export default function BusinessBrokersPage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative"
+                className="relative lg:justify-self-end"
               >
-                <div className="relative mx-auto max-w-lg">
-                  {/* Background blur effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-600 rounded-full blur-3xl opacity-15"></div>
-
-                  {/* Professional Business Broker Services Image - Ellipse */}
-                  <div className="relative overflow-hidden rounded-full aspect-square shadow-2xl">
+                <div className="relative mx-auto lg:ml-auto">
+                  <div className="relative circle-image">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-400 to-brand-600 blur-3xl opacity-15" />
                     <Image
                       src="/images/auditspro-services.png"
                       alt="Professional Trust Account Audit Services for Business Brokers - Regulatory Compliant - AuditsPro Australia"
-                      width={600}
-                      height={600}
+                      fill
                       className="w-full h-full object-cover"
                       priority={true}
                       quality={90}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
                     />
                   </div>
                 </div>
@@ -353,26 +348,26 @@ export default function BusinessBrokersPage() {
         </section>
 
         {/* Key Benefits Section */}
-        <section className="container relative mx-auto px-4 sm:px-6 pb-16">
+        <section className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-24 pb-16">
           <div className="grid gap-6 md:grid-cols-4">
             {[
               {
-                icon: Shield,
+                icon: ShieldCheckIcon,
                 title: "Regulatory Compliant",
                 desc: "All reports meet state regulatory requirements and industry standards",
               },
               {
-                icon: Clock,
+                icon: ClockIcon,
                 title: "Fast Delivery",
                 desc: "24-hour response time with audit completion in 5-10 business days",
               },
               {
-                icon: DollarSign,
+                icon: CurrencyDollarIcon,
                 title: "Fixed Pricing",
                 desc: "Transparent pricing from $549 + GST with no hidden costs",
               },
               {
-                icon: Award,
+                icon: TrophyIcon,
                 title: "Expert Auditors",
                 desc: "Qualified auditors specializing in business broker compliance",
               },
@@ -382,10 +377,10 @@ export default function BusinessBrokersPage() {
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                className="text-center p-6 rounded-lg bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                className="text-center p-6 rounded-lg bg-white border border-brand-200 shadow-sm hover:shadow-md transition-shadow"
               >
-                <benefit.icon className="size-8 text-blue-600 mx-auto mb-3" />
-                <h3 className="font-semibold text-blue-950 mb-2">{benefit.title}</h3>
+                <benefit.icon className="size-8 text-brand-700 mx-auto mb-3" />
+                <h3 className="font-semibold text-brand-950 mb-2">{benefit.title}</h3>
                 <p className="text-sm text-slate-600">{benefit.desc}</p>
               </Motion>
             ))}
@@ -393,7 +388,7 @@ export default function BusinessBrokersPage() {
         </section>
 
         {/* Why Business Brokers Need Audits */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-brand-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -401,7 +396,7 @@ export default function BusinessBrokersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Why Business Brokers Need Trust Account Audits
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -413,32 +408,32 @@ export default function BusinessBrokersPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {[
                 {
-                  icon: FileText,
+                  icon: DocumentTextIcon,
                   title: "Regulatory Compliance",
                   desc: "Meet state regulatory requirements for business brokers handling client funds.",
                 },
                 {
-                  icon: Shield,
+                  icon: ShieldCheckIcon,
                   title: "Client Protection",
                   desc: "Protect client funds and demonstrate proper stewardship during business transactions.",
                 },
                 {
-                  icon: TrendingUp,
+                  icon: ArrowTrendingUpIcon,
                   title: "Professional Standards",
                   desc: "Maintain professional standards and industry best practices for trust account management.",
                 },
                 {
-                  icon: Building,
+                  icon: BuildingOfficeIcon,
                   title: "Business Integrity",
                   desc: "Demonstrate business integrity and proper financial controls to clients and regulators.",
                 },
                 {
-                  icon: AlertTriangle,
+                  icon: ExclamationTriangleIcon,
                   title: "Risk Management",
                   desc: "Identify and mitigate risks associated with trust account operations.",
                 },
                 {
-                  icon: Users,
+                  icon: UsersIcon,
                   title: "Stakeholder Confidence",
                   desc: "Build confidence with clients, vendors, and regulatory bodies through independent audits.",
                 },
@@ -448,10 +443,10 @@ export default function BusinessBrokersPage() {
                   {...motionVariants.fadeInUp}
                   viewport={motionViewport}
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-slate-200"
+                  className="bg-white p-6 rounded-lg shadow-sm border border-brand-200"
                 >
-                  <item.icon className="size-8 text-blue-600 mb-4" />
-                  <h3 className="font-semibold text-blue-950 mb-2">{item.title}</h3>
+                  <item.icon className="size-8 text-brand-700 mb-4" />
+                  <h3 className="font-semibold text-brand-950 mb-2">{item.title}</h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
                 </Motion>
               ))}
@@ -468,19 +463,19 @@ export default function BusinessBrokersPage() {
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-6">
                   Business Broker Trust Account Requirements
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
                   Business brokers handling client funds during business sales, acquisitions, 
                   and transfers must comply with specific trust account requirements and maintain proper records. 
-                  Similar to <Link href="/services/real-estate-agents" className="text-blue-600 hover:text-blue-700 font-medium">real estate agents</Link> and 
-                  <Link href="/services/mortgage-brokers" className="text-blue-600 hover:text-blue-700 font-medium ml-1">mortgage brokers</Link>, 
-                  business brokers require specialized <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium ml-1">audit services</Link> to ensure regulatory compliance. 
+                  Similar to <Link href="/services/real-estate-agents" className="text-brand-600 hover:text-brand-700 font-medium">real estate agents</Link> and 
+                  <Link href="/services/mortgage-brokers" className="text-brand-600 hover:text-brand-700 font-medium ml-1">mortgage brokers</Link>, 
+                  business brokers require specialized <Link href="/services" className="text-brand-600 hover:text-brand-700 font-medium ml-1">audit services</Link> to ensure regulatory compliance. 
                   Our expert auditors also provide comprehensive audits for 
-                  <Link href="/services/conveyancers" className="text-blue-600 hover:text-blue-700 font-medium">conveyancers</Link>, 
-                  <Link href="/services/financial-planners" className="text-blue-600 hover:text-blue-700 font-medium">financial planners</Link>, and 
-                  <Link href="/services/smsf-trustees" className="text-blue-600 hover:text-blue-700 font-medium">SMSF trustees</Link> across Australia.
+                  <Link href="/services/conveyancers" className="text-brand-600 hover:text-brand-700 font-medium">conveyancers</Link>, 
+                  <Link href="/services/financial-planners" className="text-brand-600 hover:text-brand-700 font-medium">financial planners</Link>, and 
+                  <Link href="/services/smsf-trustees" className="text-brand-600 hover:text-brand-700 font-medium">SMSF trustees</Link> across Australia.
                 </p>
                 
                 <div className="space-y-4">
@@ -493,7 +488,7 @@ export default function BusinessBrokersPage() {
                     "Proper authorization for fund movements",
                   ].map((requirement, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <CheckCircle2 className="size-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircleIcon className="size-5 text-brand-700 mt-0.5 flex-shrink-0" />
                       <span className="text-slate-700">{requirement}</span>
                     </div>
                   ))}
@@ -504,9 +499,9 @@ export default function BusinessBrokersPage() {
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="p-8 rounded-lg border border-slate-200"
+                className="p-8 rounded-lg border border-brand-200"
               >
-                <h3 className="text-xl font-semibold text-blue-950 mb-4">
+                <h3 className="text-xl font-semibold text-brand-950 mb-4">
                   Key Audit Areas for Business Brokers
                 </h3>
                 <ul className="space-y-3">
@@ -521,7 +516,7 @@ export default function BusinessBrokersPage() {
                     "Regulatory compliance verification",
                   ].map((area, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <CheckCircle2 className="size-5 text-blue-600 flex-shrink-0" />
+                      <CheckCircleIcon className="size-5 text-brand-700 flex-shrink-0" />
                       <span className="text-slate-700">{area}</span>
                     </li>
                   ))}
@@ -532,7 +527,7 @@ export default function BusinessBrokersPage() {
         </section>
 
         {/* State-Specific Requirements */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-brand-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -540,7 +535,7 @@ export default function BusinessBrokersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 State-Specific Business Broker Requirements
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -617,14 +612,14 @@ export default function BusinessBrokersPage() {
                   {...motionVariants.fadeInUp}
                   viewport={motionViewport}
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-slate-200"
+                  className="bg-white p-6 rounded-lg shadow-sm border border-brand-200"
                 >
-                  <h3 className="font-semibold text-blue-950 mb-1 text-lg">{item.state}</h3>
+                  <h3 className="font-semibold text-brand-950 mb-1 text-lg">{item.state}</h3>
                   <p className="text-sm text-slate-600 mb-3">{item.authority}</p>
                   <ul className="space-y-2">
                     {item.requirements.map((req, reqIndex) => (
                       <li key={reqIndex} className="flex items-start gap-2">
-                        <CheckCircle2 className="size-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <CheckCircleIcon className="size-4 text-brand-700 mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 text-sm">{req}</span>
                       </li>
                     ))}
@@ -644,7 +639,7 @@ export default function BusinessBrokersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Our Business Broker Audit Process
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -683,10 +678,10 @@ export default function BusinessBrokersPage() {
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                  <div className="w-12 h-12 bg-brand-900 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="font-semibold text-blue-950 mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-brand-950 mb-2">{item.title}</h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
                 </Motion>
               ))}
@@ -708,7 +703,7 @@ export default function BusinessBrokersPage() {
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-6">
                   Get Your Business Broker Audit Today
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
@@ -718,13 +713,13 @@ export default function BusinessBrokersPage() {
                 
                 <div className="space-y-4">
                   {[
-                    { icon: Clock, text: "24-hour response guarantee" },
-                    { icon: Shield, text: "State compliant reports" },
-                    { icon: Award, text: "Expert business broker auditors" },
-                    { icon: DollarSign, text: "Fixed pricing from $549 + GST" },
+                    { icon: ClockIcon, text: "24-hour response guarantee" },
+                    { icon: ShieldCheckIcon, text: "State compliant reports" },
+                    { icon: TrophyIcon, text: "Expert business broker auditors" },
+                    { icon: CurrencyDollarIcon, text: "Fixed pricing from $549 + GST" },
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <item.icon className="size-5 text-blue-600" />
+                      <item.icon className="size-5 text-brand-700" />
                       <span className="text-slate-700">{item.text}</span>
                     </div>
                   ))}
@@ -743,7 +738,7 @@ export default function BusinessBrokersPage() {
         </section>
 
         {/* Related Services */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-brand-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -751,12 +746,12 @@ export default function BusinessBrokersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Professional Trust Account Audit Services
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                 We provide specialized trust account audit services for various professional industries across Australia. 
-                <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium ml-1">
+                <Link href="/services" className="text-brand-600 hover:text-brand-700 font-medium ml-1">
                   Explore all our professional audit services
                 </Link> to ensure regulatory compliance and financial integrity.
               </p>
@@ -812,14 +807,14 @@ export default function BusinessBrokersPage() {
                   {...motionVariants.fadeInUp}
                   viewport={motionViewport}
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
+                  className="bg-white p-6 rounded-lg shadow-sm border border-brand-200 hover:shadow-md transition-shadow"
                 >
-                  <h3 className="font-semibold text-blue-950 mb-2">{service.title}</h3>
+                  <h3 className="font-semibold text-brand-950 mb-2">{service.title}</h3>
                   <p className="text-slate-600 text-sm mb-4 leading-relaxed">{service.desc}</p>
                   <Link
                     href={service.link}
                     title={service.keywords}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                    className="text-brand-600 hover:text-brand-700 text-sm font-medium"
                   >
                     Learn More →
                   </Link>
@@ -835,10 +830,10 @@ export default function BusinessBrokersPage() {
               >
                 <Link 
                   href="/services"
-                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                  className="inline-flex items-center bg-brand-900 text-white px-6 py-3 rounded-lg hover:bg-brand-800 transition-colors font-medium"
                 >
                   View All Professional Audit Services
-                  <TrendingUp className="ml-2 h-5 w-5" />
+                  <ArrowTrendingUpIcon className="ml-2 h-5 w-5" />
                 </Link>
               </Motion>
             </div>

@@ -1,6 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Motion } from "@/components/ui/motion";
-import { ArrowRight, Clock, Shield, CheckCircle2, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRightIcon as ArrowRight,
+  ClockIcon as Clock,
+  ShieldCheckIcon as Shield,
+  CheckCircleIcon as CheckCircle2,
+  BoltIcon as Zap,
+} from "@heroicons/react/24/outline";
 
 export function HowItWorksHero() {
   const keyBenefits = [
@@ -19,12 +27,14 @@ export function HowItWorksHero() {
       </div>
 
       <div className="container relative mx-auto px-4 sm:px-6 py-16 sm:py-20">
-        <Motion
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto"
-        >
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content Column */}
+          <Motion
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left max-w-4xl mx-auto lg:mx-0"
+          >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 mb-6">
             <Zap className="size-4 text-brand-700" />
@@ -46,30 +56,23 @@ export function HowItWorksHero() {
             audit report, we&apos;ll walk you through every step of the process.
           </p>
 
-          {/* Key Benefits */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {/* Trust Indicators (chips) */}
+          <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-slate-600 mb-8">
             {keyBenefits.map(({ icon: Icon, text }) => (
-              <div
-                key={text}
-                className="flex flex-col items-center gap-2 p-4 rounded-lg border border-brand-200/70 bg-white/70 backdrop-blur"
-              >
-                <div className="rounded-full bg-brand-100/60 p-2">
-                  <Icon className="size-5 text-brand-900" />
-                </div>
-                <span className="text-sm font-medium text-brand-950 text-center">
-                  {text}
-                </span>
+              <div key={text} className="flex items-center gap-2">
+                <Icon className="size-4 text-brand-700" />
+                <span>{text}</span>
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <Link href="/start-audit">
-            <button className="group inline-flex items-center gap-2 rounded-lg bg-brand-900 px-8 py-4 text-base font-medium text-white shadow-sm transition-all hover:bg-brand-800 hover:shadow-md">
-              <span>Start Your Audit Now</span>
-              <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-          </Link>
+          <Button asChild size="lg" className="gap-2 btn-primary-brand">
+            <Link href="/book-demo" aria-label="Start your trust account audit">
+              Start Your Audit Now
+              <ArrowRight className="size-5" />
+            </Link>
+          </Button>
 
           {/* Trust Indicator */}
           <p className="mt-6 text-sm text-slate-600">
@@ -77,6 +80,27 @@ export function HowItWorksHero() {
             transparent pricing
           </p>
         </Motion>
+
+        {/* Image Column */}
+        <Motion
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center"
+        >
+          <div className="relative mx-auto">
+            <div className="relative circle-image border-0 shadow-none">
+              <Image
+                src="/images/about audits.png"
+                alt="How It Works – Trust Account Audit Illustration"
+                fill
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </Motion>
+        </div>
       </div>
     </section>
   );

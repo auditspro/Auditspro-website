@@ -9,19 +9,18 @@ import {
 } from "@/components/ui/motion";
 import { SetBreadcrumbs } from "@/components/ui/set-breadcrumbs";
 import {
-  TrendingUp,
-  Clock,
-  Shield,
-  Award,
-  CheckCircle2,
-  FileText,
-  Users,
-  AlertTriangle,
-
-  DollarSign,
-  Building,
-  PieChart,
-} from "lucide-react";
+  ArrowTrendingUpIcon as TrendingUp,
+  ClockIcon as Clock,
+  ShieldCheckIcon as Shield,
+  TrophyIcon as Award,
+  CheckCircleIcon as CheckCircle2,
+  DocumentTextIcon as FileText,
+  UsersIcon as Users,
+  ExclamationTriangleIcon as AlertTriangle,
+  CurrencyDollarIcon as DollarSign,
+  BuildingOfficeIcon as Building,
+  ChartPieIcon as PieChart,
+} from "@heroicons/react/24/outline";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -237,7 +236,7 @@ export default function FinancialPlannersPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative py-16 bg-gradient-to-br from-blue-50 to-white">
+        <section className="relative py-16 bg-gradient-to-br from-brand-50 to-white">
           <div className="container relative mx-auto px-4 sm:px-6">
             <div className="flex justify-center">
               {/* Content Column */}
@@ -249,26 +248,26 @@ export default function FinancialPlannersPage() {
               >
                 {/* Header with respectful icon */}
                 <div className="flex flex-col items-center">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-xs font-medium text-blue-950 mb-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-xs font-medium text-brand-950 mb-3">
                     <TrendingUp className="size-4" />
                     <span className="tracking-widest">FINANCIAL PLANNERS</span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950">
+                  <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950">
                     Trust Account Audits for Financial Planners
                   </h1>
                   <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
                     Professional trust account audits for financial planners ensuring regulatory compliance and AFSL requirements.
-                    Our comprehensive <Link href="/services" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">audit services</Link> also cover <Link href="/services/accountants" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">accountants</Link> and <Link href="/services/solicitors" className="text-blue-800 hover:text-blue-900 underline underline-offset-2">solicitors</Link>. Ensure regulatory compliance with{" "}
+                    Our comprehensive <Link href="/services" className="text-brand-700 hover:text-brand-800 underline underline-offset-2">audit services</Link> also cover <Link href="/services/accountants" className="text-brand-700 hover:text-brand-800 underline underline-offset-2">accountants</Link> and <Link href="/services/solicitors" className="text-brand-700 hover:text-brand-800 underline underline-offset-2">solicitors</Link>. Ensure regulatory compliance with{" "}
                     <Link
                       href="/contact"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                      className="text-brand-700 hover:text-brand-800 underline underline-offset-2"
                     >
                       24-hour response times
                     </Link>{" "}
                     and 5-10 day completion. Fixed pricing from $549 + GST. Learn more about{" "}
                     <Link
                       href="/how-it-works"
-                      className="text-blue-800 hover:text-blue-900 underline underline-offset-2"
+                      className="text-brand-700 hover:text-brand-800 underline underline-offset-2"
                     >
                       our audit process
                     </Link>
@@ -310,10 +309,10 @@ export default function FinancialPlannersPage() {
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                className="text-center p-6 rounded-lg bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                className="text-center p-6 rounded-lg bg-white border border-brand-200 shadow-sm hover:shadow-md transition-shadow"
               >
-                <benefit.icon className="size-8 text-blue-600 mx-auto mb-3" />
-                <h3 className="font-semibold text-blue-950 mb-2">{benefit.title}</h3>
+                <benefit.icon className="size-8 text-brand-700 mx-auto mb-3" />
+                <h3 className="font-semibold text-brand-950 mb-2">{benefit.title}</h3>
                 <p className="text-sm text-slate-600">{benefit.desc}</p>
               </Motion>
             ))}
@@ -321,7 +320,7 @@ export default function FinancialPlannersPage() {
         </section>
 
         {/* Why Financial Planners Need Audits */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-brand-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -329,7 +328,7 @@ export default function FinancialPlannersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Why Financial Planners Need Trust Account Audits
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -376,10 +375,10 @@ export default function FinancialPlannersPage() {
                   {...motionVariants.fadeInUp}
                   viewport={motionViewport}
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-slate-200"
+                  className="bg-white p-6 rounded-lg shadow-sm border border-brand-200"
                 >
-                  <item.icon className="size-8 text-blue-600 mb-4" />
-                  <h3 className="font-semibold text-blue-950 mb-2">{item.title}</h3>
+                  <item.icon className="size-8 text-brand-700 mb-4" />
+                  <h3 className="font-semibold text-brand-950 mb-2">{item.title}</h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
                 </Motion>
               ))}
@@ -396,18 +395,18 @@ export default function FinancialPlannersPage() {
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-6">
                   Regulatory and AFSL Trust Account Requirements
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
                   Financial planners must comply with regulatory requirements and AFSL requirements 
                   when handling client funds, receiving fees, or managing trust accounts. Our comprehensive 
-                  <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium"> audit services</Link> ensure 
-                  compliance across all professional sectors, including <Link href="/services/accountants" className="text-blue-600 hover:text-blue-700 font-medium">accountants</Link>, 
-                  <Link href="/services/solicitors" className="text-blue-600 hover:text-blue-700 font-medium">solicitors</Link>, 
-                  <Link href="/services/mortgage-brokers" className="text-blue-600 hover:text-blue-700 font-medium">mortgage brokers</Link>, 
-                  <Link href="/services/conveyancers" className="text-blue-600 hover:text-blue-700 font-medium">conveyancers</Link>, and 
-                  <Link href="/services/smsf-trustees" className="text-blue-600 hover:text-blue-700 font-medium">SMSF trustees</Link>.
+                  <Link href="/services" className="text-brand-700 hover:text-brand-800 font-medium"> audit services</Link> ensure 
+                  compliance across all professional sectors, including <Link href="/services/accountants" className="text-brand-700 hover:text-brand-800 font-medium">accountants</Link>, 
+                  <Link href="/services/solicitors" className="text-brand-700 hover:text-brand-800 font-medium">solicitors</Link>, 
+                  <Link href="/services/mortgage-brokers" className="text-brand-700 hover:text-brand-800 font-medium">mortgage brokers</Link>, 
+                  <Link href="/services/conveyancers" className="text-brand-700 hover:text-brand-800 font-medium">conveyancers</Link>, and 
+                  <Link href="/services/smsf-trustees" className="text-brand-700 hover:text-brand-800 font-medium">SMSF trustees</Link>.
                 </p>
                 
                 <div className="space-y-4">
@@ -421,7 +420,7 @@ export default function FinancialPlannersPage() {
                     "Record keeping and reporting requirements",
                   ].map((requirement, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <CheckCircle2 className="size-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="size-5 text-brand-700 mt-0.5 flex-shrink-0" />
                       <span className="text-slate-700">{requirement}</span>
                     </div>
                   ))}
@@ -432,9 +431,9 @@ export default function FinancialPlannersPage() {
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="p-8 rounded-lg border border-slate-200"
+                className="p-8 rounded-lg border border-brand-200"
               >
-                <h3 className="text-xl font-semibold text-blue-950 mb-4">
+                <h3 className="text-xl font-semibold text-brand-950 mb-4">
                   Key Audit Areas for Financial Planners
                 </h3>
                 <ul className="space-y-3">
@@ -450,7 +449,7 @@ export default function FinancialPlannersPage() {
                     "Client agreement compliance",
                   ].map((area, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <CheckCircle2 className="size-4 text-blue-600 flex-shrink-0" />
+                      <CheckCircle2 className="size-4 text-brand-700 flex-shrink-0" />
                       <span className="text-slate-700">{area}</span>
                     </li>
                   ))}
@@ -461,7 +460,7 @@ export default function FinancialPlannersPage() {
         </section>
 
         {/* AFSL License Types */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-brand-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -469,7 +468,7 @@ export default function FinancialPlannersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 AFSL License Types and Trust Account Requirements
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -519,14 +518,14 @@ export default function FinancialPlannersPage() {
                   {...motionVariants.fadeInUp}
                   viewport={motionViewport}
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-slate-200"
+                  className="bg-white p-6 rounded-lg shadow-sm border border-brand-200"
                 >
-                  <h3 className="font-semibold text-blue-950 mb-1 text-lg">{item.license}</h3>
+                  <h3 className="font-semibold text-brand-950 mb-1 text-lg">{item.license}</h3>
                   <p className="text-sm text-slate-600 mb-3">{item.type}</p>
                   <ul className="space-y-2">
                     {item.requirements.map((req, reqIndex) => (
                       <li key={reqIndex} className="flex items-start gap-2">
-                        <CheckCircle2 className="size-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="size-4 text-brand-700 mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 text-sm">{req}</span>
                       </li>
                     ))}
@@ -546,7 +545,7 @@ export default function FinancialPlannersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Our Financial Planner Audit Process
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -585,10 +584,10 @@ export default function FinancialPlannersPage() {
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                  <div className="w-12 h-12 bg-brand-900 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="font-semibold text-blue-950 mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-brand-950 mb-2">{item.title}</h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
                 </Motion>
               ))}
@@ -597,7 +596,7 @@ export default function FinancialPlannersPage() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-brand-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -605,7 +604,7 @@ export default function FinancialPlannersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Transparent Financial Planner Audit Pricing
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -619,13 +618,13 @@ export default function FinancialPlannersPage() {
                 {...motionVariants.fadeInUp}
                 viewport={motionViewport}
                 transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-                className="bg-white p-8 rounded-lg shadow-lg border border-slate-200"
+                className="bg-white p-8 rounded-lg shadow-lg border border-brand-200"
               >
                 <div className="text-center">
-                  <h3 className="text-xl font-semibold text-blue-950 mb-2">
+                  <h3 className="text-xl font-semibold text-brand-950 mb-2">
                     Trust Account Audit
                   </h3>
-                  <div className="text-3xl font-bold text-blue-600 mb-4">
+                  <div className="text-3xl font-bold text-brand-700 mb-4">
                     $549 <span className="text-lg font-normal text-slate-600">+ GST</span>
                   </div>
                   <ul className="text-left space-y-2 mb-6">
@@ -640,14 +639,14 @@ export default function FinancialPlannersPage() {
                       "Recommendations for improvement",
                     ].map((feature, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <CheckCircle2 className="size-4 text-blue-600" />
+                        <CheckCircle2 className="size-4 text-brand-700" />
                         <span className="text-sm text-slate-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/book-demo"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md btn-primary-brand"
                   >
                     Start Audit
                   </Link>
@@ -666,7 +665,7 @@ export default function FinancialPlannersPage() {
                 viewport={motionViewport}
                 transition={motionTransitions.smooth}
               >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-6">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-6">
                   Get Your Financial Planner Audit Today
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
@@ -682,7 +681,7 @@ export default function FinancialPlannersPage() {
                     { icon: DollarSign, text: "Fixed pricing from $549 + GST" },
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <item.icon className="size-5 text-blue-600" />
+                      <item.icon className="size-5 text-brand-700" />
                       <span className="text-slate-700">{item.text}</span>
                     </div>
                   ))}
@@ -701,7 +700,7 @@ export default function FinancialPlannersPage() {
         </section>
 
         {/* Related Services */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-brand-50">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -709,12 +708,12 @@ export default function FinancialPlannersPage() {
               transition={motionTransitions.smooth}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-blue-950 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
                 Professional Trust Account Audit Services
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 We provide specialized trust account audits for various professionals across Australia. 
-                Explore our comprehensive <Link href="/services" className="text-blue-600 hover:text-blue-700 font-medium">audit services</Link> for different industries.
+                Explore our comprehensive <Link href="/services" className="text-brand-700 hover:text-brand-800 font-medium">audit services</Link> for different industries.
               </p>
             </Motion>
 
@@ -768,13 +767,13 @@ export default function FinancialPlannersPage() {
                   {...motionVariants.fadeInUp}
                   viewport={motionViewport}
                   transition={{ ...motionTransitions.smooth, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
+                  className="bg-white p-6 rounded-lg shadow-sm border border-brand-200 hover:shadow-md transition-shadow"
                 >
-                  <h3 className="font-semibold text-blue-950 mb-2">{service.title}</h3>
+                  <h3 className="font-semibold text-brand-950 mb-2">{service.title}</h3>
                   <p className="text-slate-600 text-sm mb-4">{service.desc}</p>
                   <Link
                     href={service.link}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                    className="text-brand-700 hover:text-brand-800 text-sm font-medium"
                     title={service.keywords}
                   >
                     Learn More →
@@ -791,7 +790,7 @@ export default function FinancialPlannersPage() {
             >
               <Link
                 href="/services"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center px-6 py-3 font-medium rounded-lg btn-primary-brand"
               >
                 View All Professional Audit Services
               </Link>

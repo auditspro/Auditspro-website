@@ -60,7 +60,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="container relative mx-auto px-4 sm:px-6 py-12 sm:py-16 overflow-hidden border-t border-blue-200/50"
+      className="container relative mx-auto px-4 sm:px-6 py-12 sm:py-16 overflow-hidden border-t border-brand-200/50"
       aria-labelledby="faq-heading"
     >
       <motion.div
@@ -74,10 +74,10 @@ export function FAQ() {
           Frequently Asked Questions
         </div>
         <div className="flex items-center justify-center gap-3 mb-3">
-          <QuestionMarkCircleIcon className="size-7 text-blue-700" aria-hidden="true" />
+          <QuestionMarkCircleIcon className="size-7 text-brand-700" aria-hidden="true" />
           <h2
             id="faq-heading"
-            className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950"
+            className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950"
           >
             Answers for trust account audits
           </h2>
@@ -96,20 +96,20 @@ export function FAQ() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="flex justify-center mb-12"
       >
-        <div className="relative w-72 h-72 sm:w-80 sm:h-80">
+        <div className="relative circle-image">
           {/* Circular frame with gradient background */}
-          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 via-blue-50 to-white border-4 border-blue-200/30 shadow-xl">
+          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-brand-100 via-brand-50 to-white border-4 border-brand-200/30 shadow-xl">
             <Image
               src="/images/Gemini_Generated_Image_dvmvrzdvmvrzdvmv.png"
               alt="Professional consultation scene with business advisor and client"
               fill
               className="object-cover"
-              sizes="(max-width: 640px) 288px, 320px"
+              sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
               priority={false}
             />
           </div>
           {/* Subtle glow effect */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-600/10 to-transparent pointer-events-none" />
         </div>
       </motion.div>
 
@@ -117,13 +117,13 @@ export function FAQ() {
         {faqs.map(({ q, a }) => (
           <motion.div
             key={q}
-            className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+            className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-900 text-white px-3 py-1.5 text-sm font-medium mb-4">
               <CheckCircleIcon className="size-4" />
               {q}
             </div>
@@ -132,9 +132,9 @@ export function FAQ() {
         ))}
       </div>
 
-      <div className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40 mt-8 flex items-center justify-between gap-4 flex-col sm:flex-row">
+      <div className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40 mt-8 flex items-center justify-between gap-4 flex-col sm:flex-row">
         <div>
-          <h3 className="text-lg font-medium text-blue-950">
+          <h3 className="text-lg font-medium text-brand-950">
             Still have questions?
           </h3>
           <p className="text-sm text-slate-600">
@@ -144,21 +144,21 @@ export function FAQ() {
         <div className="flex gap-2 w-full sm:w-auto">
           <Link
             href="/trust-account-audit-checklist"
-            className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
+            className="text-sm text-brand-800 hover:text-brand-900 underline underline-offset-2 inline-flex items-center gap-1"
           >
             <CheckCircleIcon className="w-4 h-4" />
             View Checklist
           </Link>
           <Link
             href="/how-it-works"
-            className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
+            className="text-sm text-brand-800 hover:text-brand-900 underline underline-offset-2 inline-flex items-center gap-1"
           >
             <QuestionMarkCircleIcon className="w-4 h-4" />
             How it works
           </Link>
           <Link
             href="/book-demo"
-            className="text-sm text-blue-800 hover:text-blue-900 underline underline-offset-2 inline-flex items-center gap-1"
+            className="text-sm text-brand-800 hover:text-brand-900 underline underline-offset-2 inline-flex items-center gap-1"
           >
             <ClockIcon className="w-4 h-4" />
             Start Audit

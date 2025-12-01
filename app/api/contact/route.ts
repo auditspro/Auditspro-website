@@ -39,15 +39,33 @@ export async function POST(request: NextRequest) {
         }
         
         // Prepare submission data
+        const rawMessage = String(message).trim();
+        const preferredDate = body.preferredDate ? String(body.preferredDate).trim() : undefined;
+        const preferredTime = body.preferredTime ? String(body.preferredTime).trim() : undefined;
+        const auditType = body.auditType ? String(body.auditType).trim() : undefined;
+        const practiceType = body.practiceType ? String(body.practiceType).trim() : undefined;
+        const trustAccounts = body.trustAccounts ? String(body.trustAccounts).trim() : undefined;
+
+        // Append any extra fields to the saved message so nothing is lost
+        const extras: string[] = [];
+        if (practiceType) extras.push(`Practice Type: ${practiceType}`);
+        if (trustAccounts) extras.push(`Trust Accounts: ${trustAccounts}`);
+        if (preferredDate) extras.push(`Preferred Date: ${preferredDate}`);
+        if (preferredTime) extras.push(`Preferred Time: ${preferredTime}`);
+        if (auditType) extras.push(`Audit Type: ${auditType}`);
+        const combinedMessage = extras.length > 0
+          ? `${rawMessage}\n\n--- Additional Details ---\n${extras.join('\n')}`
+          : rawMessage;
+
         const submissionData: ContactSubmissionData = {
             name: String(name).trim(),
             email: String(email).trim().toLowerCase(),
             phone: body.phone ? String(body.phone).trim() : undefined,
             company: body.company ? String(body.company).trim() : undefined,
-            message: String(message).trim(),
-            preferredDate: body.preferredDate ? String(body.preferredDate).trim() : undefined,
-            preferredTime: body.preferredTime ? String(body.preferredTime).trim() : undefined,
-            auditType: body.auditType ? String(body.auditType).trim() : undefined,
+            message: combinedMessage,
+            preferredDate,
+            preferredTime,
+            auditType,
             submittedAt: new Date().toISOString()
         };
         

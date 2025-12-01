@@ -1,18 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
-  BadgeCheck,
-  Lock,
-  Award,
-  CheckCircle2,
-  BarChart3,
-  FileCheck,
-  Clock,
-  Shield,
-  Globe,
-  // ClipboardList,
-} from "lucide-react";
+  ShieldCheckIcon as ShieldCheck,
+  CheckBadgeIcon as BadgeCheck,
+  LockClosedIcon as Lock,
+  TrophyIcon as Award,
+  CheckCircleIcon as CheckCircle2,
+  ChartBarSquareIcon as BarChart3,
+  DocumentCheckIcon as FileCheck,
+  ClockIcon as Clock,
+  ShieldCheckIcon as Shield,
+  GlobeAltIcon as Globe,
+} from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -95,7 +94,7 @@ export function TrustProof() {
       {/* Divider */}
       <div className="container relative mx-auto px-4 sm:px-6 pb-10">
         <div
-          className="h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent"
+          className="h-px w-full bg-gradient-to-r from-transparent via-brand-200 to-transparent"
           aria-hidden="true"
         />
       </div>
@@ -109,10 +108,10 @@ export function TrustProof() {
         className="text-center mb-10"
       >
         <div className="flex items-center justify-center gap-3 mb-3">
-          <ShieldCheck className="size-7 text-blue-700" aria-hidden="true" />
+          <ShieldCheck className="size-7 text-brand-700" aria-hidden="true" />
           <h2
             id="proof-heading"
-            className="text-3xl sm:text-4xl font-medium tracking-tight text-blue-950"
+            className="text-3xl sm:text-4xl font-medium tracking-tight text-brand-950"
           >
             Professional Qualifications & Trust
           </h2>
@@ -131,20 +130,20 @@ export function TrustProof() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="flex justify-center mb-12"
       >
-        <div className="relative w-72 h-72 sm:w-80 sm:h-80">
+        <div className="relative circle-image">
           {/* Circular frame with gradient background */}
-          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 via-blue-50 to-white border-4 border-blue-200/30 shadow-xl">
+          <div className="absolute inset-0 rounded-full overflow-hidden bg-gradient-to-br from-brand-100 via-brand-50 to-white border-4 border-brand-200/30 shadow-xl">
             <Image
               src="/images/Gemini_Generated_Image_bnt220bnt220bnt2.png"
               alt="Secure digital environment showcasing cybersecurity and compliance"
               fill
               className="object-cover"
-              sizes="(max-width: 640px) 288px, 320px"
+              sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 448px"
               priority={false}
             />
           </div>
           {/* Subtle glow effect */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-500/10 to-transparent pointer-events-none" />
         </div>
       </motion.div>
 
@@ -152,13 +151,13 @@ export function TrustProof() {
       <div className="grid gap-6 md:gap-8 lg:grid-cols-3 mb-8">
         {/* Credentials & Memberships */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <Award className="size-4" />
             Credentials & memberships
           </div>
@@ -167,18 +166,18 @@ export function TrustProof() {
             {credentials.map(({ icon: Icon, label }) => (
               <div
                 key={label}
-                className="flex items-center gap-2.5 rounded-lg border border-blue-200/50 bg-white/80 px-3 py-2.5 text-sm backdrop-blur"
+                className="flex items-center gap-2.5 rounded-lg border border-brand-200/50 bg-white/80 px-3 py-2.5 text-sm backdrop-blur"
               >
                 <Icon
-                  className="size-4 text-blue-700 flex-shrink-0"
+                  className="size-4 text-brand-700 flex-shrink-0"
                   aria-hidden="true"
                 />
-                <span className="text-blue-950">{label}</span>
+                <span className="text-brand-950">{label}</span>
               </div>
             ))}
           </div>
 
-          <p className="mt-4 text-xs text-slate-600 bg-blue-50/80 border border-blue-200/50 rounded-lg p-2.5">
+          <p className="mt-4 text-xs text-slate-600 bg-brand-50/80 border border-brand-200/50 rounded-lg p-2.5">
             <strong>Note:</strong> We may reference professional frameworks for
             alignment; no regulator endorsements implied. Formal security
             certifications, if obtained, will be explicitly stated. Primary data
@@ -189,13 +188,13 @@ export function TrustProof() {
 
         {/* Trust Signals */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-100/60 px-3 py-1.5 text-sm font-medium text-blue-950 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <ShieldCheck className="size-4" />
             Why choose us
           </div>
@@ -204,12 +203,12 @@ export function TrustProof() {
             {trustSignals.map(({ icon: Icon, title, note }) => (
               <div
                 key={title}
-                className="rounded-lg border border-blue-200/50 bg-white/80 p-3.5 backdrop-blur"
+                className="rounded-lg border border-brand-200/50 bg-white/80 p-3.5 backdrop-blur"
               >
                 <div className="flex items-start gap-3">
-                  <Icon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                  <Icon className="size-4 text-brand-700 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-sm font-medium text-blue-950 mb-0.5">
+                    <div className="text-sm font-medium text-brand-950 mb-0.5">
                       {title}
                     </div>
                     <div className="text-xs text-slate-600 leading-relaxed">
@@ -224,13 +223,13 @@ export function TrustProof() {
 
         {/* Process Highlights */}
         <motion.div
-          className="rounded-xl border border-blue-200/70 bg-blue-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-blue-50/40"
+          className="rounded-xl border border-brand-200/70 bg-brand-50/60 backdrop-blur p-6 supports-[backdrop-filter]:bg-brand-50/40"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/70 px-3 py-1.5 text-sm font-medium mb-4" style={{ backgroundColor: '#1d4ed8', color: 'white' }}>
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-4">
             <CheckCircle2 className="size-4" />
             What to expect
           </div>
@@ -239,12 +238,12 @@ export function TrustProof() {
             {processHighlights.map(({ icon: Icon, stat, note }) => (
               <div
                 key={stat}
-                className="rounded-lg border border-blue-200/50 bg-white/80 p-3.5 backdrop-blur"
+                className="rounded-lg border border-brand-200/50 bg-white/80 p-3.5 backdrop-blur"
               >
                 <div className="flex items-start gap-3">
-                  <Icon className="size-4 text-blue-700 flex-shrink-0 mt-0.5" />
+                  <Icon className="size-4 text-brand-700 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-sm font-medium text-blue-950 mb-0.5">
+                    <div className="text-sm font-medium text-brand-950 mb-0.5">
                       {stat}
                     </div>
                     <div className="text-xs text-slate-600 leading-relaxed">
@@ -260,7 +259,7 @@ export function TrustProof() {
             <Button
               asChild
               size="lg"
-              className="gap-2 w-full bg-blue-900 hover:bg-blue-800 text-white"
+              className="btn-primary-brand gap-2 w-full"
             >
               <Link href="/book-demo" aria-label="Start your audit">
                 Start Audit
@@ -270,7 +269,7 @@ export function TrustProof() {
               asChild
               variant="outline"
               size="lg"
-              className="gap-2 w-full border-blue-200 text-blue-950 hover:bg-blue-50"
+              className="btn-outline-brand gap-2 w-full"
             >
               <Link href="/pricing" aria-label="View pricing">
                 View Pricing

@@ -37,7 +37,7 @@ export function RequirementsSection() {
         "Independent audit report and findings",
       ],
       delay: 0.1,
-      color: "from-blue-500/10 to-blue-600/5",
+      color: "from-brand-700/10 to-brand-700/5",
     },
     {
       state: "Victoria (VIC)",
@@ -189,7 +189,7 @@ export function RequirementsSection() {
   ];
 
   return (
-    <section className="container relative mx-auto px-4 sm:px-6 pb-16">
+    <section className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div className="rounded-2xl border border-brand-200/70 bg-gradient-to-br from-brand-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-brand-50/40">
         <Motion
           initial={{ opacity: 0, y: 20 }}
@@ -198,13 +198,13 @@ export function RequirementsSection() {
           className="text-center mb-12"
         >
           <div className="mb-6 flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
+            <div className="trust-badge">
               <Squares2X2Icon className="size-4" />
               <span>State Requirements</span>
             </div>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold leading-tight text-brand-950 mb-4">
             Business Broker Audit Requirements by State
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto mb-4">
@@ -218,7 +218,7 @@ export function RequirementsSection() {
         </Motion>
 
         {/* State Requirements Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
           {stateRequirements.map((requirement) => (
             <Motion
               key={requirement.state}
@@ -290,12 +290,12 @@ export function RequirementsSection() {
 
                   {/* Key Requirements - Expandable */}
                   <details className="group mt-4">
-                    <summary className="flex items-center justify-between cursor-pointer list-none p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <summary className="flex items-center justify-between cursor-pointer list-none p-4 rounded-lg bg-brand-50/60 hover:bg-brand-100/60 border border-brand-200/50 transition-colors">
                       <div className="flex items-center gap-3">
-                        <CheckBadgeIcon className="h-5 w-5 text-blue-600" />
-                        <span className="font-medium text-gray-900">Key Requirements ({requirement.keyRequirements.length})</span>
+                        <CheckBadgeIcon className="h-5 w-5 text-brand-700" />
+                        <span className="font-medium text-brand-950">Key Requirements ({requirement.keyRequirements.length})</span>
                       </div>
-                      <div className="text-gray-400 group-open:rotate-180 transition-transform">
+                      <div className="text-slate-400 group-open:rotate-180 transition-transform">
                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
@@ -303,9 +303,9 @@ export function RequirementsSection() {
                     </summary>
                     <div className="mt-3 space-y-2">
                       {requirement.keyRequirements.map((req: string, idx: number) => (
-                        <div key={idx} className="flex items-start gap-3 p-3 bg-white rounded border border-gray-100">
-                          <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                          <span className="text-gray-700 text-sm">{req}</span>
+                        <div key={idx} className="flex items-start gap-3 p-3 bg-white rounded border border-brand-200/50">
+                          <div className="flex-shrink-0 w-2 h-2 bg-brand-700 rounded-full mt-2"></div>
+                          <span className="text-slate-700 text-sm">{req}</span>
                         </div>
                       ))}
                     </div>
