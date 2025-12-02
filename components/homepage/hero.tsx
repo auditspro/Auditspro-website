@@ -127,7 +127,8 @@ export function Hero({
               aria-hidden="true"
             />
             <span className="leading-tight">
-              Registered Auditors • Fixed Price $549 + GST • 24h Response
+              <span className="block sm:inline">Registered Auditors • Fixed Price $549 + GST</span>
+              <span className="block sm:inline">• 24h Response</span>
             </span>
           </motion.div>
 
