@@ -302,7 +302,7 @@ export default function TASConveyancersPage() {
       <HeroSection state="TAS" stateName="Tasmania" />
       <FeaturesSection />
       <RequirementsSection state="TAS" stateName="Tasmania" />
-      <PricingSection state="TAS" stateName="Tasmania" />
+      <PricingSection state="TAS" />
       <ProcessSection />
       <FAQSection />
       <ContactSection />

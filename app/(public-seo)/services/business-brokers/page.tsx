@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ContactForm } from "@/components/ui/contact-form";
 import {
   Motion,
   motionVariants,
@@ -21,6 +20,8 @@ import {
   CurrencyDollarIcon,
   BuildingOfficeIcon,
   ArrowTrendingUpIcon,
+  CalendarDaysIcon,
+  PhoneIcon,
 } from "@heroicons/react/24/outline";
 import { RequirementsSection as BusinessBrokersRequirementsSection } from "@/components/pagerefactors/services/business-brokers/RequirementsSection";
 
@@ -388,7 +389,7 @@ export default function BusinessBrokersPage() {
         </section>
 
         {/* Why Business Brokers Need Audits */}
-        <section className="py-16 bg-brand-50">
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6">
             <Motion
               {...motionVariants.fadeInUp}
@@ -694,48 +695,7 @@ export default function BusinessBrokersPage() {
         {/* State Requirements Section */}
         <BusinessBrokersRequirementsSection />
 
-        {/* Contact Form Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <Motion
-                {...motionVariants.fadeInUp}
-                viewport={motionViewport}
-                transition={motionTransitions.smooth}
-              >
-                <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-6">
-                  Get Your Business Broker Audit Today
-                </h2>
-                <p className="text-lg text-slate-600 mb-6">
-                  Ready to ensure your trust account compliance? 
-                  Contact our expert auditors for a professional audit tailored to your business brokerage needs.
-                </p>
-                
-                <div className="space-y-4">
-                  {[
-                    { icon: ClockIcon, text: "24-hour response guarantee" },
-                    { icon: ShieldCheckIcon, text: "State compliant reports" },
-                    { icon: TrophyIcon, text: "Expert business broker auditors" },
-                    { icon: CurrencyDollarIcon, text: "Fixed pricing from $549 + GST" },
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <item.icon className="size-5 text-brand-700" />
-                      <span className="text-slate-700">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </Motion>
-
-              <Motion
-                {...motionVariants.fadeInUp}
-                viewport={motionViewport}
-                transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-              >
-                <ContactForm />
-              </Motion>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Related Services */}
         <section className="py-16 bg-brand-50">
@@ -837,6 +797,41 @@ export default function BusinessBrokersPage() {
                 </Link>
               </Motion>
             </div>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="container mx-auto px-4 sm:px-6">
+            <Motion
+              {...motionVariants.fadeInUp}
+              viewport={motionViewport}
+              transition={motionTransitions.smooth}
+              className="text-center"
+            >
+              <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-200/50 rounded-2xl p-8 shadow-lg">
+                <h3 className="text-xl font-semibold mb-2 text-brand-950">
+                  Ready to Ensure Regulatory Compliance?
+                </h3>
+                <p className="text-slate-600 mb-6 max-w-md mx-auto">
+                  Don&apos;t risk regulatory action. Our business broker audit experts are standing by 
+                  to help you maintain regulatory compliance with professional audit services.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contact">
+                    <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-900 text-white px-6 py-3 font-medium hover:bg-brand-800 shadow-md hover:shadow-lg transition-all">
+                      <CalendarDaysIcon className="size-5" />
+                      Start Business Broker Audit
+                    </button>
+                  </Link>
+                  <Link href="tel:1300283487">
+                    <button className="inline-flex items-center justify-center gap-2 rounded-lg border border-brand-300 bg-white text-brand-900 px-6 py-3 font-medium hover:bg-brand-50 hover:border-brand-400 transition-all">
+                      <PhoneIcon className="size-5" />
+                      Call 1300 AUDITS
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </Motion>
           </div>
         </section>
 
