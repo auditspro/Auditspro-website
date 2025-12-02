@@ -302,7 +302,7 @@ export default function SAConveyancersPage() {
       <HeroSection state="SA" stateName="South Australia" />
       <FeaturesSection />
       <RequirementsSection state="SA" stateName="South Australia" />
-      <PricingSection state="SA" stateName="South Australia" />
+      <PricingSection state="SA" />
       <ProcessSection />
       <FAQSection />
       <ContactSection />

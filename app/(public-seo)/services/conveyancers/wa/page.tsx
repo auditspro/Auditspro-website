@@ -302,7 +302,7 @@ export default function WAConveyancersPage() {
       <HeroSection state="WA" stateName="Western Australia" />
       <FeaturesSection />
       <RequirementsSection state="WA" stateName="Western Australia" />
-      <PricingSection state="WA" stateName="Western Australia" />
+      <PricingSection state="WA" />
       <ProcessSection />
       <FAQSection />
       <ContactSection />

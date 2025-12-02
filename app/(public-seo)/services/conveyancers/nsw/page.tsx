@@ -302,7 +302,7 @@ export default function NSWConveyancersPage() {
       <HeroSection state="NSW" stateName="New South Wales" />
       <FeaturesSection />
       <RequirementsSection state="NSW" stateName="New South Wales" />
-      <PricingSection state="NSW" stateName="New South Wales" />
+      <PricingSection state="NSW" />
       <ProcessSection />
       <FAQSection />
       <ContactSection />

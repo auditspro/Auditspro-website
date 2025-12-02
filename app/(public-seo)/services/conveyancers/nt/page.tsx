@@ -302,7 +302,7 @@ export default function NTConveyancersPage() {
       <HeroSection state="NT" stateName="Northern Territory" />
       <FeaturesSection />
       <RequirementsSection state="NT" stateName="Northern Territory" />
-      <PricingSection state="NT" stateName="Northern Territory" />
+      <PricingSection state="NT" />
       <ProcessSection />
       <FAQSection />
       <ContactSection />

@@ -302,7 +302,7 @@ export default function VICConveyancersPage() {
       <HeroSection state="VIC" stateName="Victoria" />
       <FeaturesSection />
       <RequirementsSection state="VIC" stateName="Victoria" />
-      <PricingSection state="VIC" stateName="Victoria" />
+      <PricingSection state="VIC" />
       <ProcessSection />
       <FAQSection />
       <ContactSection />
