@@ -52,7 +52,7 @@ export default function UnsubscribePage() {
       </section>
 
       <main className="container mx-auto px-4 sm:px-6 py-12">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start max-w-5xl mx-auto">
+        <div className="grid gap-10 lg:gap-14 lg:grid-cols-[1.25fr_1fr] items-start">
           {/* Left Column: Content */}
           <Motion
             {...motionVariants.fadeInUp}
@@ -95,31 +95,110 @@ export default function UnsubscribePage() {
                 ))}
               </ul>
             </div>
+
+            <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
+              <h3 className="text-sm font-medium text-brand-950 mb-2">What happens next?</h3>
+              <ol className="list-decimal pl-5 space-y-2 text-sm text-slate-600">
+                <li>Your email is removed from our marketing list immediately.</li>
+                <li>You may still receive essential transactional emails related to your account.</li>
+                <li>You can resubscribe anytime from the <Link href="/subscribe" className="underline text-brand-800 hover:text-brand-900">Subscribe page</Link>.</li>
+              </ol>
+            </div>
+
+            <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
+              <h3 className="text-sm font-medium text-brand-950 mb-2">Need other changes?</h3>
+              <p className="text-sm text-slate-600">
+                If you want to update your email or manage other preferences, please reach out via the <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">contact page</Link>. We’ll be happy to help.
+              </p>
+            </div>
+
           </Motion>
 
-          {/* Right Column: Form */}
+          {/* Right Column: Form + Explainer stacked */}
+          <div className="lg:col-start-2 space-y-6">
+            <Motion
+              {...motionVariants.fadeInUp}
+              transition={{ ...motionTransitions.smooth, delay: 0.2 }}
+              className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-white/70 shadow-sm"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-6">
+                <XCircleIcon className="size-4" />
+                <span>Unsubscribe with your email</span>
+              </div>
+              
+              <UnsubscribeForm />
+              
+              <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
+                <p className="text-xs text-center text-slate-500">
+                  Did you arrive here by mistake? <Link href="/subscribe" className="underline hover:text-brand-800">Re-subscribe anytime</Link>.
+                </p>
+                <p className="text-xs text-center text-slate-500">
+                  For help managing your preferences, please <Link href="/contact" className="underline hover:text-brand-800">contact support</Link>.
+                </p>
+              </div>
+            </Motion>
+            <Motion
+              {...motionVariants.fadeInUp}
+              transition={{ ...motionTransitions.smooth, delay: 0.25 }}
+              className="rounded-xl border border-brand-200/60 bg-white/70 p-4"
+            >
+              <div className="space-y-4">
+                <p className="text-slate-600 leading-relaxed">
+                  We aim to keep your inbox clear and your preferences respected. Unsubscribing removes you from marketing communications immediately. This won’t affect essential transactional emails we may need to send to operate your account—such as password resets, audit delivery notices, or security alerts.
+                </p>
+                <p className="text-slate-600 leading-relaxed">
+                  If you change your mind later, you can re‑subscribe in seconds. We keep subscription content relevant to trust account compliance, audit preparation, and practical product improvements—delivered at a sensible cadence and written in plain English.
+                </p>
+                <p className="text-slate-600 leading-relaxed">
+                  Need tailored assistance or have a specific preference request? Get in touch via our <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">contact page</Link> and we’ll help configure the right communication settings for you.
+                </p>
+              </div>
+            </Motion>
+          </div>
+        </div>
+        <section className="mt-12">
           <Motion
             {...motionVariants.fadeInUp}
-            transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-            className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-white/70 shadow-sm"
+            transition={{ ...motionTransitions.smooth, delay: 0.1 }}
+            className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-white/70"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-6">
-              <XCircleIcon className="size-4" />
-              <span>Unsubscribe with your email</span>
-            </div>
-            
-            <UnsubscribeForm />
-            
-            <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
-              <p className="text-xs text-center text-slate-500">
-                Did you arrive here by mistake? <Link href="/subscribe" className="underline hover:text-brand-800">Re-subscribe anytime</Link>.
-              </p>
-              <p className="text-xs text-center text-slate-500">
-                For help managing your preferences, please <Link href="/contact" className="underline hover:text-brand-800">contact support</Link>.
-              </p>
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
+              <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
+                <h3 className="text-sm font-medium text-brand-950 mb-2">What changes when you unsubscribe</h3>
+                <ul className="space-y-2 text-sm text-slate-600 list-disc pl-5">
+                  <li>No marketing newsletters</li>
+                  <li>No compliance alerts</li>
+                  <li>No product announcements</li>
+                </ul>
+                <p className="text-sm text-slate-600 mt-3">
+                  You will stop receiving marketing communications. Essential service emails may still be sent to operate your account and deliver audits.
+                </p>
+              </div>
+              <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
+                <h3 className="text-sm font-medium text-brand-950 mb-2">When emails may still be sent</h3>
+                <ul className="space-y-2 text-sm text-slate-600 list-disc pl-5">
+                  <li>Password resets and security notices</li>
+                  <li>Audit delivery and receipts</li>
+                  <li>Critical account notifications</li>
+                </ul>
+                <p className="text-sm text-slate-600 mt-3">
+                  These messages are service‑critical and do not include marketing content. They ensure secure access and delivery of your audit documents.
+                </p>
+              </div>
+              <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
+                <h3 className="text-sm font-medium text-brand-950 mb-2">Your privacy and control</h3>
+                <ul className="space-y-2 text-sm text-slate-600 list-disc pl-5">
+                  <li>Australian data location</li>
+                  <li>Encryption and least‑privilege access</li>
+                  <li>Manage preferences anytime</li>
+                </ul>
+                <p className="text-sm text-slate-600 mt-3">
+                  We minimise collection and protect data in transit. Manage preferences or re‑subscribe anytime under our <Link href="/privacy-policy" className="underline text-brand-800 hover:text-brand-900">Privacy Policy</Link> and <Link href="/email-policy" className="underline text-brand-800 hover:text-brand-900">Email Policy</Link>.
+                </p>
+              </div>
             </div>
           </Motion>
-        </div>
+        </section>
       </main>
     </div>
   );
