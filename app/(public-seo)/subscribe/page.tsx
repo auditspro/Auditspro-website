@@ -52,17 +52,66 @@ export default function SubscribePage() {
       </section>
 
       <main className="container mx-auto px-4 sm:px-6 py-12">
-        <Motion
-          {...motionVariants.fadeInUp}
-          transition={motionTransitions.smooth}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
-            <CheckCircleIcon className="size-4" />
-            <span>Subscribe with your email</span>
-          </div>
-          <SubscribeForm />
-        </Motion>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start max-w-5xl mx-auto">
+          {/* Left Column: Content */}
+          <Motion
+            {...motionVariants.fadeInUp}
+            transition={motionTransitions.smooth}
+            className="space-y-8"
+          >
+            <div>
+              <h2 className="text-2xl font-semibold text-brand-950 mb-4">
+                Why join our newsletter?
+              </h2>
+              <p className="text-slate-600 leading-relaxed">
+                Stay ahead of the curve with expert insights designed for Australian real estate agents, conveyancers, and accountants. We respect your inbox and only send content that adds value.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              {[
+                {
+                  title: "Regulatory Compliance Updates",
+                  description: "Never miss a critical change in trust account audit regulations or legislative requirements."
+                },
+                {
+                  title: "Audit Preparation Tips",
+                  description: "Practical advice to help you prepare for your annual audit and avoid common compliance pitfalls."
+                },
+                {
+                  title: "Product Announcements",
+                  description: "Be the first to know about new AuditsPro features designed to simplify your workflow."
+                }
+              ].map((item, index) => (
+                <div key={index} className="flex gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <CheckCircleIcon className="size-6 text-brand-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-brand-950">{item.title}</h3>
+                    <p className="text-sm text-slate-600 mt-1">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Motion>
+
+          {/* Right Column: Form */}
+          <Motion
+            {...motionVariants.fadeInUp}
+            transition={{ ...motionTransitions.smooth, delay: 0.2 }}
+            className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-white/70 shadow-sm"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-6">
+              <EnvelopeOpenIcon className="size-4" />
+              <span>Subscribe with your email</span>
+            </div>
+            <SubscribeForm />
+            <p className="mt-6 text-xs text-center text-slate-500">
+              By subscribing, you agree to our <Link href="/privacy-policy" className="underline hover:text-brand-800">Privacy Policy</Link> and <Link href="/email-policy" className="underline hover:text-brand-800">Email Policy</Link>.
+            </p>
+          </Motion>
+        </div>
       </main>
     </div>
   );

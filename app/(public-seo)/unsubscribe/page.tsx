@@ -45,36 +45,81 @@ export default function UnsubscribePage() {
               Unsubscribe
             </h1>
             <p className="mt-3 text-base sm:text-lg text-slate-600">
-              You can unsubscribe from any email using the link included in that
-              email. Your status will be updated and you will no longer receive
-              those categories of emails.
+              Manage your email preferences here. We respect your inbox and make it easy to unsubscribe from marketing communications at any time.
             </p>
           </Motion>
         </div>
       </section>
 
       <main className="container mx-auto px-4 sm:px-6 py-12">
-        <Motion
-          {...motionVariants.fadeInUp}
-          transition={motionTransitions.smooth}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
-            <XCircleIcon className="size-4" />
-            <span>Unsubscribe with your email</span>
-          </div>
-          <UnsubscribeForm />
-          <p className="text-sm text-foreground mt-4">
-            For help managing your preferences, please contact us via{" "}
-            <Link
-              href="/contact"
-              className="underline text-brand-800 hover:text-brand-900"
-            >
-              our contact page
-            </Link>
-            .
-          </p>
-        </Motion>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start max-w-5xl mx-auto">
+          {/* Left Column: Content */}
+          <Motion
+            {...motionVariants.fadeInUp}
+            transition={motionTransitions.smooth}
+            className="space-y-8"
+          >
+            <div>
+              <h2 className="text-2xl font-semibold text-brand-950 mb-4">
+                We're sorry to see you go
+              </h2>
+              <p className="text-slate-600 leading-relaxed">
+                We understand that inboxes can get overwhelmed. If you decide to unsubscribe, you will be removed from our marketing and newsletter lists immediately.
+              </p>
+            </div>
+
+            <div className="rounded-xl bg-amber-50 border border-amber-200/60 p-5">
+              <h3 className="font-medium text-amber-900 flex items-center gap-2 mb-2">
+                <EnvelopeOpenIcon className="size-4" />
+                Important Note
+              </h3>
+              <p className="text-sm text-amber-800/80 leading-relaxed">
+                Even if you unsubscribe from marketing emails, you will <strong>still receive essential transactional emails</strong> related to your account, such as audit reports, password resets, and service notifications. These are required for us to provide our services to you.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm font-medium text-slate-900 mb-3">
+                By unsubscribing, you will stop receiving:
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Regulatory compliance alerts and legislative updates",
+                  "Trust account audit preparation guides and checklists",
+                  "New feature announcements and platform improvements"
+                ].map((item, index) => (
+                  <li key={index} className="flex gap-3 text-slate-600 text-sm">
+                    <XCircleIcon className="size-5 text-slate-400 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Motion>
+
+          {/* Right Column: Form */}
+          <Motion
+            {...motionVariants.fadeInUp}
+            transition={{ ...motionTransitions.smooth, delay: 0.2 }}
+            className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-white/70 shadow-sm"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-6">
+              <XCircleIcon className="size-4" />
+              <span>Unsubscribe with your email</span>
+            </div>
+            
+            <UnsubscribeForm />
+            
+            <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
+              <p className="text-xs text-center text-slate-500">
+                Did you arrive here by mistake? <Link href="/subscribe" className="underline hover:text-brand-800">Re-subscribe anytime</Link>.
+              </p>
+              <p className="text-xs text-center text-slate-500">
+                For help managing your preferences, please <Link href="/contact" className="underline hover:text-brand-800">contact support</Link>.
+              </p>
+            </div>
+          </Motion>
+        </div>
       </main>
     </div>
   );
