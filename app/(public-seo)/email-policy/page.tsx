@@ -71,9 +71,9 @@ export default function EmailPolicyPage() {
             <span>Types of emails</span>
           </div>
           <ul className="list-disc pl-6 text-foreground">
-            <li className="mb-2">Transactional: account verification, notifications, and service updates.</li>
-            <li className="mb-2">Support: responses to enquiries and follow‑ups requested by you.</li>
-            <li className="mb-2">Marketing: newsletter and product updates only if you subscribe.</li>
+            <li className="mb-2">Transactional: <Link href="/login" className="underline text-brand-800 hover:text-brand-900">account</Link> verification, notifications, and service updates.</li>
+            <li className="mb-2">Support: responses to <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">enquiries</Link> and follow‑ups requested by you.</li>
+            <li className="mb-2">Marketing: newsletter and product updates only if you <Link href="/subscribe" className="underline text-brand-800 hover:text-brand-900">subscribe</Link>.</li>
           </ul>
         </Motion>
 
@@ -106,7 +106,7 @@ export default function EmailPolicyPage() {
             <span>Frequency</span>
           </div>
           <p className="text-foreground">
-            We aim to keep marketing emails minimal and relevant. Typical frequency is monthly or less. Transactional and support emails are sent as needed to operate the service and respond to your requests.
+            We aim to keep marketing emails minimal and relevant. Typical frequency is monthly or less. Transactional and <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">support</Link> emails are sent as needed to operate the service and respond to your requests.
           </p>
         </Motion>
 
@@ -124,7 +124,7 @@ export default function EmailPolicyPage() {
             You can stop marketing emails at any time using the link in each email or by visiting the <Link href="/unsubscribe" className="underline text-brand-800 hover:text-brand-900">unsubscribe</Link> page.
           </p>
           <p className="text-foreground">
-            Transactional and support emails may continue where necessary to operate your account and provide requested services.
+            Transactional and support emails may continue where necessary to operate your <Link href="/login" className="underline text-brand-800 hover:text-brand-900">account</Link> and provide requested services.
           </p>
         </Motion>
 
@@ -142,7 +142,7 @@ export default function EmailPolicyPage() {
             We may update this Email Policy from time to time. When we do, we will change the “last updated” date above.
           </p>
           <p className="text-foreground">
-            Questions about email preferences can be sent to info@auditspro.com.au.
+            Questions about email preferences can be sent to us via our <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">contact page</Link>.
           </p>
         </Motion>
       </main>

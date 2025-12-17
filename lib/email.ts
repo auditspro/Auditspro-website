@@ -319,3 +319,283 @@ export const sendAutoReplyEmail = async (data: ContactFormData): Promise<boolean
     return false;
   }
 };
+
+// Email template for subscription notifications
+const createSubscriptionEmailTemplate = (email: string) => {
+  return {
+    subject: `New Newsletter Subscription: ${email}`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>New Newsletter Subscription</title>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+            .content { background-color: #ffffff; padding: 20px; border: 1px solid #e9ecef; border-radius: 8px; }
+            .field { margin-bottom: 15px; }
+            .label { font-weight: bold; color: #495057; }
+            .value { margin-top: 5px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; }
+            .footer { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 8px; font-size: 12px; color: #6c757d; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h2>🔔 New Newsletter Subscription</h2>
+              <p>You have received a new newsletter subscription.</p>
+            </div>
+            
+            <div class="content">
+              <div class="field">
+                <div class="label">📧 Email:</div>
+                <div class="value">${email}</div>
+              </div>
+              
+              <div class="field">
+                <div class="label">🕒 Subscribed At:</div>
+                <div class="value">${new Date().toLocaleString()}</div>
+              </div>
+            </div>
+            
+            <div class="footer">
+              <p>This email was automatically generated from your AuditsAU website.</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `,
+    text: `
+New Newsletter Subscription
+
+Email: ${email}
+Subscribed At: ${new Date().toLocaleString()}
+    `.trim(),
+  };
+};
+
+// Send subscription notification email
+export const sendSubscriptionNotification = async (email: string): Promise<boolean> => {
+  try {
+    if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
+      console.log('Email configuration not complete, skipping subscription notification');
+      return false;
+    }
+
+    const transporter = createTransporter();
+    const emailTemplate = createSubscriptionEmailTemplate(email);
+
+    const mailOptions = {
+      from: `"AuditsAU Subscriptions" <${process.env.EMAIL_FROM}>`,
+      to: process.env.EMAIL_TO,
+      subject: emailTemplate.subject,
+      text: emailTemplate.text,
+      html: emailTemplate.html,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Subscription notification email sent:', info.messageId);
+    return true;
+  } catch (error) {
+    console.error('Error sending subscription notification email:', error);
+    return false;
+  }
+};
+
+// Send subscription confirmation email to the subscriber
+export const sendSubscriptionConfirmation = async (email: string): Promise<boolean> => {
+  try {
+    if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.log('Email configuration not complete, skipping subscription confirmation');
+      return false;
+    }
+
+    const transporter = createTransporter();
+
+    const confirmationTemplate = {
+      subject: 'Welcome to AuditsAU Newsletter! 🎉',
+      html: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Welcome to AuditsAU Newsletter</title>
+            <style>
+              body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f8f9fa; }
+              .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+              .header { background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 30px 20px; border-radius: 12px 12px 0 0; text-align: center; }
+              .logo { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+              .content { background-color: #ffffff; padding: 30px; border-radius: 0 0 12px 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+              .welcome-section { background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center; }
+              .footer { margin-top: 20px; padding: 20px; background-color: #f8f9fa; border-radius: 8px; font-size: 14px; color: #6c757d; text-align: center; }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <div class="header">
+                <div class="logo">🔍 AuditsAU</div>
+                <h2>You're Subscribed! 🎉</h2>
+              </div>
+              
+              <div class="content">
+                <div class="welcome-section">
+                  <h3>Thank You for Subscribing</h3>
+                  <p>You have successfully joined our newsletter list.</p>
+                </div>
+                
+                <p>Hi there,</p>
+                
+                <p>Thank you for subscribing to the AuditsAU newsletter. We're excited to keep you updated with the latest news, audit insights, and regulatory updates.</p>
+                
+                <p>You can expect to receive updates about:</p>
+                <ul>
+                  <li>Trust account audit requirements</li>
+                  <li>Compliance deadlines and changes</li>
+                  <li>Tips for maintaining audit-ready records</li>
+                  <li>Company news and service updates</li>
+                </ul>
+                
+                <p>If you have any questions in the meantime, feel free to reply to this email.</p>
+                
+                <p>Best regards,<br>
+                <strong>The AuditsAU Team</strong></p>
+              </div>
+              
+              <div class="footer">
+                <p><strong>📧 This is an automated message</strong></p>
+                <p>🌐 Visit us: <a href="https://auditsau.com" style="color: #007bff;">auditsau.com</a></p>
+                <p><small>© 2024 AuditsAU. All rights reserved.</small></p>
+                <p><small>Want to unsubscribe? <a href="https://auditsau.com/unsubscribe" style="color: #6c757d;">Unsubscribe here</a></small></p>
+              </div>
+            </div>
+          </body>
+        </html>
+      `,
+      text: `
+        Welcome to AuditsAU Newsletter! 🎉
+        
+        Hi there,
+
+        Thank you for subscribing to the AuditsAU newsletter. We're excited to keep you updated with the latest news, audit insights, and regulatory updates.
+
+        You can expect to receive updates about:
+        - Trust account audit requirements
+        - Compliance deadlines and changes
+        - Tips for maintaining audit-ready records
+        - Company news and service updates
+
+        If you have any questions in the meantime, feel free to reply to this email.
+
+        Best regards,
+        The AuditsAU Team
+
+        ---
+        🌐 Visit us: https://auditsau.com
+        Want to unsubscribe? Visit https://auditsau.com/unsubscribe
+        © 2024 AuditsAU. All rights reserved.
+      `.trim(),
+    };
+
+    const mailOptions = {
+      from: `"AuditsAU" <${process.env.EMAIL_FROM}>`,
+      to: email,
+      subject: confirmationTemplate.subject,
+      text: confirmationTemplate.text,
+      html: confirmationTemplate.html,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Subscription confirmation email sent to:', email);
+    return true;
+  } catch (error) {
+    console.error('Error sending subscription confirmation email:', error);
+    return false;
+  }
+};
+
+// Email template for unsubscribe notifications
+const createUnsubscribeEmailTemplate = (email: string) => {
+  return {
+    subject: `Newsletter Unsubscribe: ${email}`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Newsletter Unsubscribe</title>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+            .content { background-color: #ffffff; padding: 20px; border: 1px solid #e9ecef; border-radius: 8px; }
+            .field { margin-bottom: 15px; }
+            .label { font-weight: bold; color: #495057; }
+            .value { margin-top: 5px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; }
+            .footer { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 8px; font-size: 12px; color: #6c757d; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h2>🔕 Newsletter Unsubscribe</h2>
+              <p>A user has unsubscribed from the newsletter.</p>
+            </div>
+            
+            <div class="content">
+              <div class="field">
+                <div class="label">📧 Email:</div>
+                <div class="value">${email}</div>
+              </div>
+              
+              <div class="field">
+                <div class="label">🕒 Unsubscribed At:</div>
+                <div class="value">${new Date().toLocaleString()}</div>
+              </div>
+            </div>
+            
+            <div class="footer">
+              <p>This email was automatically generated from your AuditsAU website.</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `,
+    text: `
+Newsletter Unsubscribe
+
+Email: ${email}
+Unsubscribed At: ${new Date().toLocaleString()}
+    `.trim(),
+  };
+};
+
+// Send unsubscribe notification email
+export const sendUnsubscribeNotification = async (email: string): Promise<boolean> => {
+  try {
+    if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
+      console.log('Email configuration not complete, skipping unsubscribe notification');
+      return false;
+    }
+
+    const transporter = createTransporter();
+    const emailTemplate = createUnsubscribeEmailTemplate(email);
+
+    const mailOptions = {
+      from: `"AuditsAU Subscriptions" <${process.env.EMAIL_FROM}>`,
+      to: process.env.EMAIL_TO,
+      subject: emailTemplate.subject,
+      text: emailTemplate.text,
+      html: emailTemplate.html,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Unsubscribe notification email sent:', info.messageId);
+    return true;
+  } catch (error) {
+    console.error('Error sending unsubscribe notification email:', error);
+    return false;
+  }
+};
+

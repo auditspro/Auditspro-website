@@ -13,7 +13,7 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-black/5 bg-white/80 backdrop-blur-xl">
       <div className="container mx-auto px-6 py-12">
         {/* Main Footer Content */}
-        <div className="grid gap-8 lg:grid-cols-4 md:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-5 md:grid-cols-2">
           {/* Company Info Section */}
           <div className="lg:col-span-1">
             <AuditsProLogo size="sm" />

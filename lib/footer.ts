@@ -15,6 +15,7 @@ import {
   ArrowTrendingUpIcon,
   LockClosedIcon,
   DocumentIcon,
+  BellIcon,
 } from "@heroicons/react/24/outline";
 
 export interface FooterLink {
@@ -46,6 +47,13 @@ export const legalLinks: FooterLink[] = [
     icon: DocumentIcon,
     description: "Terms and conditions of service",
     aria: "View our terms of service",
+  },
+  {
+    href: "/subscribe",
+    label: "Subscribe",
+    icon: BellIcon,
+    description: "Subscribe to our newsletter",
+    aria: "Subscribe to newsletter",
   },
 ];
 

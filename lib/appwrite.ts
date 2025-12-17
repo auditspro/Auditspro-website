@@ -1,4 +1,4 @@
-import { Client, Databases, ID } from 'node-appwrite';
+import { Client, Databases, ID, Query } from 'node-appwrite';
 import { Client as ClientWeb, Account as AccountWeb, ID as IDWeb } from 'appwrite';
 
 // Initialize Appwrite client for server-side operations
@@ -119,6 +119,67 @@ export async function getContactSubmissions() {
     return response;
   } catch (error) {
     console.error('Error fetching contact submissions:', error);
+    throw error;
+  }
+}
+
+// Function to create a newsletter subscription in Appwrite
+export async function createSubscription(email: string) {
+  if (!databases) {
+    throw new Error('Database client not initialized');
+  }
+  
+  try {
+    const response = await databases.createDocument(
+      DATABASE_ID,
+      TABLE_ID,
+      ID.unique(),
+      {
+        name: 'Newsletter Subscriber',
+        email: email,
+        phone: '',
+        company: '',
+        message: 'Newsletter Subscription',
+        submittedAt: new Date().toISOString(),
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error('Error creating subscription:', error);
+    throw error;
+  }
+}
+
+// Function to delete newsletter subscription in Appwrite
+export async function deleteSubscription(email: string) {
+  if (!databases) {
+    throw new Error('Database client not initialized');
+  }
+  
+  try {
+    // Find documents with the matching email
+    const response = await databases.listDocuments(
+      DATABASE_ID,
+      TABLE_ID,
+      [Query.equal('email', email)]
+    );
+    
+    if (response.documents.length === 0) {
+      return false; // No subscription found
+    }
+    
+    const db = databases; // Capture for closure
+    
+    // Delete all matching documents
+    const deletePromises = response.documents.map(doc => 
+      db.deleteDocument(DATABASE_ID, TABLE_ID, doc.$id)
+    );
+    
+    await Promise.all(deletePromises);
+    
+    return true;
+  } catch (error) {
+    console.error('Error deleting subscription:', error);
     throw error;
   }
 }
