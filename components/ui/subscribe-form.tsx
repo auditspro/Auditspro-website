@@ -10,8 +10,10 @@ export function SubscribeForm() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("I pressed Subscribe. Email is:", email);
     setStatus("loading");
     setMessage("");
+    console.log("Now I will call /api/subscribe");
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
