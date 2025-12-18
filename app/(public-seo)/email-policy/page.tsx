@@ -54,7 +54,7 @@ export default function EmailPolicyPage() {
             <p className="mt-3 text-base sm:text-lg text-slate-600">
               What we send, when we send it, and how to manage your choices.
             </p>
-            <div className="mt-4 text-xs text-slate-500">Last updated: 2 December 2025</div>
+            <div className="mt-4 text-xs text-slate-500">Last updated: 18 December 2025</div>
           </Motion>
         </div>
       </section>
@@ -70,10 +70,16 @@ export default function EmailPolicyPage() {
             <ShieldCheckIcon className="size-4" />
             <span>Types of emails</span>
           </div>
-          <ul className="list-disc pl-6 text-foreground">
-            <li className="mb-2">Transactional: <Link href="/login" className="underline text-brand-800 hover:text-brand-900">account</Link> verification, notifications, and service updates.</li>
-            <li className="mb-2">Support: responses to <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">enquiries</Link> and follow‑ups requested by you.</li>
-            <li className="mb-2">Marketing: newsletter and product updates only if you <Link href="/subscribe" className="underline text-brand-800 hover:text-brand-900">subscribe</Link>.</li>
+          <ul className="list-disc pl-6 text-foreground space-y-2">
+            <li>
+              <strong>Transactional:</strong> Essential messages such as <Link href="/login" className="underline text-brand-800 hover:text-brand-900">account</Link> verification, password resets, audit delivery notices, and security alerts. These are required to provide our services.
+            </li>
+            <li>
+              <strong>Support:</strong> Direct responses to your <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">enquiries</Link> and follow‑ups on specific audit matters you have raised with us.
+            </li>
+            <li>
+              <strong>Marketing & Updates:</strong> Only if you <Link href="/subscribe" className="underline text-brand-800 hover:text-brand-900">subscribe</Link>, we send regulatory compliance alerts, trust account audit preparation tips, and product announcements.
+            </li>
           </ul>
         </Motion>
 
@@ -106,7 +112,7 @@ export default function EmailPolicyPage() {
             <span>Frequency</span>
           </div>
           <p className="text-foreground">
-            We aim to keep marketing emails minimal and relevant. Typical frequency is monthly or less. Transactional and <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">support</Link> emails are sent as needed to operate the service and respond to your requests.
+            We respect your time and inbox. Our marketing emails are sent at a sensible cadence—typically monthly or when a significant regulatory update occurs. We prioritize quality and relevance over frequency.
           </p>
         </Motion>
 
@@ -121,10 +127,10 @@ export default function EmailPolicyPage() {
             <span>Unsubscribe</span>
           </div>
           <p className="text-foreground mb-3">
-            You can stop marketing emails at any time using the link in each email or by visiting the <Link href="/unsubscribe" className="underline text-brand-800 hover:text-brand-900">unsubscribe</Link> page.
+            You can unsubscribe from marketing communications at any time by clicking the "unsubscribe" link at the bottom of our emails or by visiting our <Link href="/unsubscribe" className="underline text-brand-800 hover:text-brand-900">unsubscribe page</Link>. Your request will be processed immediately.
           </p>
           <p className="text-foreground">
-            Transactional and support emails may continue where necessary to operate your <Link href="/login" className="underline text-brand-800 hover:text-brand-900">account</Link> and provide requested services.
+            Please note that you cannot unsubscribe from transactional emails (such as audit reports, receipts, and security notices) as these are necessary for the operation of your account and delivery of our services.
           </p>
         </Motion>
 
