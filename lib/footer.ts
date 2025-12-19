@@ -49,6 +49,13 @@ export const legalLinks: FooterLink[] = [
     aria: "View our terms of service",
   },
   {
+    href: "/email-policy",
+    label: "Email Policy",
+    icon: EnvelopeIcon,
+    description: "Our email policy",
+    aria: "View our email policy",
+  },
+  {
     href: "/subscribe",
     label: "Subscribe",
     icon: BellIcon,
