@@ -193,8 +193,8 @@ const serviceJsonLd = {
     description:
       "Professional NSW real estate trust account audit starting from $549 + GST, compliant with Fair Trading requirements",
     availability: "https://schema.org/InStock",
-    validFrom: "2024-01-01",
-    priceValidUntil: "2024-12-31",
+    validFrom: "2025-01-01",
+    priceValidUntil: "2025-12-31",
     seller: {
       "@id": "https://auditspro.com.au/#organization",
     },

@@ -60,6 +60,7 @@ export function RequirementsSection({ state, stateName }: RequirementsSectionPro
         "LIC solely authorizes trust withdrawals; cannot delegate",
         "Trust account must have NSW UID (OneGov registration)",
         "Trust account held at an approved NSW ADI",
+        "Trust account name must include 'Trust Account' and licensee/corporation prefix",
         "Compliance with Property and Stock Agents Act 2002 (NSW)",
         "Report lodged with NSW Fair Trading",
       ],

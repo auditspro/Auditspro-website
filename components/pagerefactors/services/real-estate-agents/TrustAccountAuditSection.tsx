@@ -58,7 +58,6 @@ const stateAuditData = {
     ],
     noTrustMoney: "Licensees no longer need to lodge a statutory declaration with NSW Fair Trading if they have not held any trust money during the audit period. This must be indicated on the licence renewal form.",
     additionalInfo: [
-      "All previously approved alternate audit periods are now rescinded",
       "Audits must be submitted within 3 months after the end of the audit period",
       "Online submission through Fair Trading portal is mandatory",
       "Professional Accounting Body is defined under the Australian Securities and Investments Commission Act 2001",
