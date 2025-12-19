@@ -197,7 +197,7 @@ export default function SubscribePage() {
             <Motion
               {...motionVariants.fadeInUp}
               transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-              className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-white/70 shadow-sm w-full"
+              className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 sm:p-8 supports-[backdrop-filter]:bg-white/70 shadow-sm w-full flex flex-col items-center"
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-6">
                 <EnvelopeOpenIcon className="size-4" />

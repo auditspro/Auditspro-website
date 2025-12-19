@@ -97,7 +97,7 @@ export function SubscribeForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 max-w-md">
+    <form onSubmit={onSubmit} className="space-y-4 max-w-md w-full">
       {status === "success" && (
         <div className="flex items-start gap-2 rounded-lg border border-green-200 bg-green-50 px-3 py-2">
           <CheckCircleIcon className="size-5 text-green-600" />
