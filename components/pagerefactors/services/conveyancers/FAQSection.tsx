@@ -51,7 +51,7 @@ const conveyancerFAQs: FAQ[] = [
   {
     id: "auditor-qualifications",
     question: "Who can conduct conveyancer trust account audits?",
-    answer: "Only CPA qualified auditors with experience in conveyancing trust account audits can conduct these reports. The auditor must be independent from your conveyancing practice and hold appropriate professional qualifications.",
+    answer: "Qualified auditors (such as CPA, CA ANZ, or IPA members) with experience in conveyancing trust account audits can conduct these reports. The auditor must be independent from your conveyancing practice and hold appropriate professional qualifications.",
     category: "compliance"
   },
   {

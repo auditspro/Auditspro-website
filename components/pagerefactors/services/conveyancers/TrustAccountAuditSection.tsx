@@ -45,7 +45,7 @@ const stateAuditData = {
       "Members of CPA Australia (with Public Practice Certificate)",
       "Members of CA ANZ (with Certificate of Public Practice)",
       "Members of IPA (with Professional Practice Certificate)",
-      "Qualified under Section 75 of the Conveyancers Licensing Act 2003",
+      "Qualified under Section 79 of the Conveyancers Licensing Act 2003",
     ],
     consequences: [
       "Licensees could be disqualified from holding a licence",
