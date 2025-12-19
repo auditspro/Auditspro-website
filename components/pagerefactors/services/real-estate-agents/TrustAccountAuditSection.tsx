@@ -62,12 +62,15 @@ const stateAuditData = {
       "Audits must be submitted within 3 months after the end of the audit period",
       "Online submission through Fair Trading portal is mandatory",
       "Professional Accounting Body is defined under the Australian Securities and Investments Commission Act 2001",
+      "Each NSW trust account must have a UID registered via NSW OneGov",
+      "Trust account must be held at an approved NSW ADI",
+      "Only the Licensee in Charge (LIC) may authorize trust withdrawals",
     ],
     links: [
       {
-        title: "NSW Fair Trading - Trust Account Audits",
-        url: "https://www.fairtrading.nsw.gov.au/",
-        description: "Official NSW Fair Trading information on trust account audit requirements",
+        title: "NSW Fair Trading – Trust Accounts & Audit Requirements",
+        url: "https://www.nsw.gov.au/housing-and-construction/property-professionals/supervising-an-agency/real-estate-trust-accounts-and-audit-requirements",
+        description: "Official NSW guidance on real estate trust accounts and audit obligations",
       },
       {
         title: "Auditor's Report Online Portal",

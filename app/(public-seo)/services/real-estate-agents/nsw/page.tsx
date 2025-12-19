@@ -109,7 +109,7 @@ const nswStateData: StateBusinessData = {
   serviceType: "Real Estate Agents",
   regulatoryBody: "NSW Fair Trading",
   complianceAct: "Property, Stock and Business Agents Act 2002",
-  dueDate: "31 March annually",
+  dueDate: "30 September annually",
   majorCities: ["Sydney", "Newcastle", "Wollongong", "Central Coast", "Albury"]
 };
 
