@@ -5,8 +5,15 @@ import {
   motionTransitions,
 } from "@/components/ui/motion";
 import Link from "next/link";
-import { EnvelopeOpenIcon, CheckCircleIcon, ShieldCheckIcon, ClockIcon, UserGroupIcon } from "@heroicons/react/24/outline";
+import {
+  EnvelopeOpenIcon,
+  CheckCircleIcon,
+  ShieldCheckIcon,
+  ClockIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
 import { SubscribeForm } from "@/components/ui/subscribe-form";
+import Script from "next/script";
 
 export const metadata = {
   title: "Subscribe | AuditsPro",
@@ -18,6 +25,13 @@ export const metadata = {
 export default function SubscribePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40">
+      {/* Cloudflare Turnstile script */}
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+      />
+
       <SetBreadcrumbs
         items={[
           { label: "Home", href: "/" },
@@ -45,7 +59,15 @@ export default function SubscribePage() {
               Subscribe
             </h1>
             <p className="mt-3 text-base sm:text-lg text-slate-600">
-              Subscribe to receive service updates and notifications. Already subscribed? You can <Link href="/unsubscribe" className="underline text-brand-800 hover:text-brand-900">unsubscribe</Link> at any time.
+              Subscribe to receive service updates and notifications. Already
+              subscribed? You can{" "}
+              <Link
+                href="/unsubscribe"
+                className="underline text-brand-800 hover:text-brand-900"
+              >
+                unsubscribe
+              </Link>{" "}
+              at any time.
             </p>
           </Motion>
         </div>
@@ -64,7 +86,9 @@ export default function SubscribePage() {
                 Why join our newsletter?
               </h2>
               <p className="text-slate-600 leading-relaxed">
-                Stay ahead of the curve with expert insights designed for Australian real estate agents, conveyancers, and accountants. We respect your inbox and only send content that adds value.
+                Stay ahead of the curve with expert insights designed for
+                Australian real estate agents, conveyancers, and accountants. We
+                respect your inbox and only send content that adds value.
               </p>
             </div>
 
@@ -72,24 +96,31 @@ export default function SubscribePage() {
               {[
                 {
                   title: "Regulatory Compliance Updates",
-                  description: "Never miss a critical change in trust account audit regulations or legislative requirements."
+                  description:
+                    "Never miss a critical change in trust account audit regulations or legislative requirements.",
                 },
                 {
                   title: "Audit Preparation Tips",
-                  description: "Practical advice to help you prepare for your annual audit and avoid common compliance pitfalls."
+                  description:
+                    "Practical advice to help you prepare for your annual audit and avoid common compliance pitfalls.",
                 },
                 {
                   title: "Product Announcements",
-                  description: "Be the first to know about new AuditsPro features designed to simplify your workflow."
-                }
+                  description:
+                    "Be the first to know about new AuditsPro features designed to simplify your workflow.",
+                },
               ].map((item, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="flex-shrink-0 mt-1">
                     <CheckCircleIcon className="size-6 text-brand-600" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-brand-950">{item.title}</h3>
-                    <p className="text-sm text-slate-600 mt-1">{item.description}</p>
+                    <h3 className="font-medium text-brand-950">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 mt-1">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -99,19 +130,39 @@ export default function SubscribePage() {
               <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <ClockIcon className="size-5 text-brand-700" />
-                  <h3 className="text-sm font-medium text-brand-950">Frequency & Respect</h3>
+                  <h3 className="text-sm font-medium text-brand-950">
+                    Frequency & Respect
+                  </h3>
                 </div>
                 <p className="text-sm text-slate-600">
-                  We send relevant updates at a sensible cadence. Typical frequency is monthly or less, and you can unsubscribe with one click anytime.
+                  We send relevant updates at a sensible cadence. Typical
+                  frequency is monthly or less, and you can unsubscribe with one
+                  click anytime.
                 </p>
               </div>
               <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <ShieldCheckIcon className="size-5 text-brand-700" />
-                  <h3 className="text-sm font-medium text-brand-950">Privacy & Security</h3>
+                  <h3 className="text-sm font-medium text-brand-950">
+                    Privacy & Security
+                  </h3>
                 </div>
                 <p className="text-sm text-slate-600">
-                  Your email is handled in line with our <Link href="/privacy-policy" className="underline text-brand-800 hover:text-brand-900">Privacy Policy</Link> and <Link href="/email-policy" className="underline text-brand-800 hover:text-brand-900">Email Policy</Link>.
+                  Your email is handled in line with our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className="underline text-brand-800 hover:text-brand-900"
+                  >
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/email-policy"
+                    className="underline text-brand-800 hover:text-brand-900"
+                  >
+                    Email Policy
+                  </Link>
+                  .
                 </p>
               </div>
             </div>
@@ -119,7 +170,9 @@ export default function SubscribePage() {
             <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
               <div className="flex items-center gap-2 mb-2">
                 <UserGroupIcon className="size-5 text-brand-700" />
-                <h3 className="text-sm font-medium text-brand-950">Who finds this useful?</h3>
+                <h3 className="text-sm font-medium text-brand-950">
+                  Who finds this useful?
+                </h3>
               </div>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li>Real estate agents managing trust accounts</li>
@@ -127,11 +180,16 @@ export default function SubscribePage() {
                 <li>Accountants advising on compliance best practices</li>
               </ul>
               <p className="mt-3 text-sm text-slate-600">
-                Need help choosing? Contact our team via the <Link href="/contact" className="underline text-brand-800 hover:text-brand-900">contact page</Link>.
+                Need help choosing? Contact our team via the{" "}
+                <Link
+                  href="/contact"
+                  className="underline text-brand-800 hover:text-brand-900"
+                >
+                  contact page
+                </Link>
+                .
               </p>
             </div>
-
-            
           </Motion>
 
           {/* Right Column: Form + Explainer stacked */}
@@ -147,7 +205,21 @@ export default function SubscribePage() {
               </div>
               <SubscribeForm />
               <p className="mt-6 text-xs text-center text-slate-500">
-                By subscribing, you agree to our <Link href="/privacy-policy" className="underline hover:text-brand-800">Privacy Policy</Link> and <Link href="/email-policy" className="underline hover:text-brand-800">Email Policy</Link>.
+                By subscribing, you agree to our{" "}
+                <Link
+                  href="/privacy-policy"
+                  className="underline hover:text-brand-800"
+                >
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/email-policy"
+                  className="underline hover:text-brand-800"
+                >
+                  Email Policy
+                </Link>
+                .
               </p>
             </Motion>
             <Motion
@@ -157,13 +229,38 @@ export default function SubscribePage() {
             >
               <div className="space-y-4">
                 <p className="text-slate-600 leading-relaxed">
-                  Our updates are curated by qualified auditors and compliance specialists who work daily with trust accounts across Australia. Each email focuses on practical, actionable guidance—whether it’s a change in state regulations, a reminder for key audit milestones, or checklists to streamline your preparation.
+                  Our updates are curated by qualified auditors and compliance
+                  specialists who work daily with trust accounts across
+                  Australia. Each email focuses on practical, actionable
+                  guidance—whether it’s a change in state regulations, a
+                  reminder for key audit milestones, or checklists to streamline
+                  your preparation.
                 </p>
                 <p className="text-slate-600 leading-relaxed">
-                  Subscribing helps you stay confident and prepared. You can expect plain‑English explanations, links to official resources, and real‑world examples relevant to professionals like you. We’ll only send a message when it meaningfully improves your compliance or workflow.
+                  Subscribing helps you stay confident and prepared. You can
+                  expect plain‑English explanations, links to official
+                  resources, and real‑world examples relevant to professionals
+                  like you. We’ll only send a message when it meaningfully
+                  improves your compliance or workflow.
                 </p>
                 <p className="text-slate-600 leading-relaxed">
-                  You remain in control. Adjust your preferences or unsubscribe at any time, and we’ll continue to safeguard your information under our <Link href="/privacy-policy" className="underline text-brand-800 hover:text-brand-900">Privacy Policy</Link> and <Link href="/email-policy" className="underline text-brand-800 hover:text-brand-900">Email Policy</Link>.
+                  You remain in control. Adjust your preferences or unsubscribe
+                  at any time, and we’ll continue to safeguard your information
+                  under our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className="underline text-brand-800 hover:text-brand-900"
+                  >
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/email-policy"
+                    className="underline text-brand-800 hover:text-brand-900"
+                  >
+                    Email Policy
+                  </Link>
+                  .
                 </p>
               </div>
             </Motion>
@@ -177,36 +274,48 @@ export default function SubscribePage() {
           >
             <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
               <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
-                <h3 className="text-sm font-medium text-brand-950 mb-2">What you’ll receive</h3>
+                <h3 className="text-sm font-medium text-brand-950 mb-2">
+                  What you’ll receive
+                </h3>
                 <ul className="space-y-2 text-sm text-slate-600 list-disc pl-5">
                   <li>Compliance alerts written in plain English</li>
                   <li>Audit preparation tips and checklists</li>
                   <li>Product updates relevant to workflows</li>
                 </ul>
                 <p className="text-sm text-slate-600 mt-3">
-                  Clear, relevant updates for trust account compliance with concise guidance and reminders to keep you audit‑ready without inbox clutter.
+                  Clear, relevant updates for trust account compliance with
+                  concise guidance and reminders to keep you audit‑ready without
+                  inbox clutter.
                 </p>
               </div>
               <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
-                <h3 className="text-sm font-medium text-brand-950 mb-2">Who we email</h3>
+                <h3 className="text-sm font-medium text-brand-950 mb-2">
+                  Who we email
+                </h3>
                 <ul className="space-y-2 text-sm text-slate-600 list-disc pl-5">
                   <li>Real estate trust account teams</li>
                   <li>Conveyancers and solicitors</li>
                   <li>Accountants supporting audits</li>
                 </ul>
                 <p className="text-sm text-slate-600 mt-3">
-                  Professionals managing trust accounts who need timely regulatory updates and practical actions tailored to their role and state.
+                  Professionals managing trust accounts who need timely
+                  regulatory updates and practical actions tailored to their
+                  role and state.
                 </p>
               </div>
               <div className="rounded-xl border border-brand-200/60 bg-white/70 p-4">
-                <h3 className="text-sm font-medium text-brand-950 mb-2">How we protect your data</h3>
+                <h3 className="text-sm font-medium text-brand-950 mb-2">
+                  How we protect your data
+                </h3>
                 <ul className="space-y-2 text-sm text-slate-600 list-disc pl-5">
                   <li>Australian data location</li>
                   <li>Encryption and access controls</li>
                   <li>Unsubscribe anytime</li>
                 </ul>
                 <p className="text-sm text-slate-600 mt-3">
-                  We minimise collection, encrypt data in transit, and apply least‑privilege access. You control preferences under our privacy and email policies.
+                  We minimise collection, encrypt data in transit, and apply
+                  least‑privilege access. You control preferences under our
+                  privacy and email policies.
                 </p>
               </div>
             </div>

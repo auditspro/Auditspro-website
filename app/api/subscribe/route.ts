@@ -8,8 +8,8 @@ import {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { email } = body;
+    // 1. Read body with email + Turnstile token
+    const { email, turnstileToken } = await request.json();
 
     if (!email) {
       return NextResponse.json(
@@ -18,6 +18,35 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { error: "Turnstile token missing" },
+        { status: 400 }
+      );
+    }
+
+    // 2. Verify Turnstile with Cloudflare
+    const verifyRes = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${encodeURIComponent(
+          process.env.TURNSTILE_SECRET_KEY!
+        )}&response=${encodeURIComponent(turnstileToken)}`,
+      }
+    );
+
+    const verifyData = await verifyRes.json();
+
+    if (!verifyData.success) {
+      return NextResponse.json(
+        { error: "Turnstile failed" },
+        { status: 400 }
+      );
+    }
+
+    // 3. Email validation (same as before)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -114,6 +143,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// Handle unsupported methods
 export async function GET() {
   return NextResponse.json(
     { error: "Method not allowed" },
