@@ -11,7 +11,12 @@ import {
   ScaleIcon,
 } from "@heroicons/react/24/outline";
 
-export function RequirementsSection() {
+interface RequirementsSectionProps {
+  state?: string;
+  stateName?: string;
+}
+
+export function RequirementsSection({ state, stateName }: RequirementsSectionProps) {
   const stateRequirements = [
     {
       state: "New South Wales (NSW)",
@@ -141,6 +146,10 @@ export function RequirementsSection() {
     },
   ];
 
+  const filteredRequirements = state
+    ? stateRequirements.filter((req) => req.abbreviation === state || req.state.includes(state))
+    : stateRequirements;
+
   return (
     <section className="container relative mx-auto px-4 sm:px-6 pb-16">
       <div className="rounded-2xl border border-brand-200/70 bg-gradient-to-br from-brand-50/60 to-white/60 backdrop-blur p-8 supports-[backdrop-filter]:bg-brand-50/40">
@@ -151,11 +160,11 @@ export function RequirementsSection() {
           className="text-center mb-12"
         >
           <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-brand-950 mb-4">
-            Solicitor Trust Account Audit Requirements by State
+            {stateName ? `${stateName} Solicitor Audit Requirements` : "Solicitor Trust Account Audit Requirements by State"}
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto mb-4">
             Comprehensive state-specific compliance requirements, deadlines, and
-            regulations for licensed solicitors across Australia
+            regulations for licensed solicitors {stateName ? `in ${stateName}` : "across Australia"}
           </p>
           {/* Price Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-900">
@@ -165,8 +174,8 @@ export function RequirementsSection() {
         </Motion>
 
         {/* Main States Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          {stateRequirements.map((requirement) => (
+        <div className={`grid grid-cols-1 ${state ? 'max-w-3xl mx-auto' : 'lg:grid-cols-2'} gap-6 mb-6`}>
+          {filteredRequirements.map((requirement) => (
             <Motion
               key={requirement.state}
               initial={{ opacity: 0, y: 20 }}

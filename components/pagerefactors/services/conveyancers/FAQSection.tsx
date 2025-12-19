@@ -21,7 +21,7 @@ const conveyancerFAQs: FAQ[] = [
   {
     id: "audit-frequency",
     question: "How often do conveyancers need trust account audits?",
-    answer: "Conveyancers must have their trust accounts audited annually by an approved auditor. The audit period typically runs from 1 July to 30 June, with reports due by 31 August in most Australian states. Each state authority has specific deadlines and requirements.",
+    answer: "Conveyancers must have their trust accounts audited annually. The audit period typically runs from 1 July to 30 June, with reports due between 31 August and 31 October depending on your state's specific legislation.",
     category: "general"
   },
   {
@@ -124,13 +124,56 @@ const categories = [
   { id: "costs", label: "Costs", count: conveyancerFAQs.filter(faq => faq.category === "costs").length },
 ];
 
-export function FAQSection() {
+interface FAQSectionProps {
+  state?: string;
+}
+
+export function FAQSection({ state }: FAQSectionProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
 
+  // Filter or modify FAQs based on state
+  const getStateSpecificFAQs = () => {
+    let faqs = [...conveyancerFAQs];
+
+    if (state === "NSW") {
+      faqs = faqs.map(faq => {
+        if (faq.id === "audit-frequency") {
+          return {
+            ...faq,
+            answer: "NSW conveyancers must have their trust accounts audited annually. The audit period runs from 1 July to 30 June, and the audit report must be lodged with NSW Fair Trading by 30 September. Nil returns are also required if no trust money was held."
+          };
+        }
+        if (faq.id === "auditor-qualifications") {
+          return {
+            ...faq,
+            answer: "For NSW conveyancers, the audit must be conducted by a qualified auditor who is a registered company auditor (under the Corporations Act 2001) or a person qualified under Section 79 of the Conveyancers Licensing Act 2003."
+          };
+        }
+        if (faq.id === "audit-submission") {
+          return {
+            ...faq,
+            answer: "In NSW, audit reports must be lodged online via the NSW Fair Trading Auditor's Report Online portal. We handle the preparation and can assist with the online lodgement process."
+          };
+        }
+        if (faq.id === "state-authority-compliance") {
+          return {
+            ...faq,
+            answer: "Yes, our audits are fully compliant with NSW Fair Trading requirements and the Conveyancers Licensing Act 2003 (Part 5, Division 2)."
+          };
+        }
+        return faq;
+      });
+    }
+    
+    return faqs;
+  };
+
+  const currentFAQs = getStateSpecificFAQs();
+
   const filteredFAQs = activeCategory === "all" 
-    ? conveyancerFAQs 
-    : conveyancerFAQs.filter(faq => faq.category === activeCategory);
+    ? currentFAQs 
+    : currentFAQs.filter(faq => faq.category === activeCategory);
 
   const toggleFAQ = (id: string) => {
     setOpenFAQ(openFAQ === id ? null : id);
