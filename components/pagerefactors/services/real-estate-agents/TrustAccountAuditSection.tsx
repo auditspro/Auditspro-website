@@ -175,18 +175,18 @@ export function TrustAccountAuditSection({ state }: TrustAccountAuditSectionProp
           viewport={{ once: true }}
           className="mb-8"
         >
-          <div className="w-fit mx-auto flex flex-wrap items-center gap-2 px-2 py-2 rounded-xl border border-slate-200/70 bg-white/70 supports-[backdrop-filter]:bg-white/40 backdrop-blur">
+          <div className="w-fit max-w-full mx-auto flex flex-wrap justify-center items-center gap-2 px-2 py-2 rounded-xl border border-slate-200/70 bg-white/70 supports-[backdrop-filter]:bg-white/40 backdrop-blur">
             {tabs.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => setActiveTab(id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap flex-1 sm:flex-none ${
                   activeTab === id
                     ? "bg-white text-brand-950 shadow-sm ring-1 ring-brand-200/60"
                     : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
                 }`}
               >
-                <Icon className="size-4" />
+                <Icon className="size-4 shrink-0" />
                 {label}
               </button>
             ))}
