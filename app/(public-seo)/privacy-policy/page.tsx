@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={motionTransitions.smooth}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <BuildingOfficeIcon className="size-4" />
@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.05 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <IdentificationIcon className="size-4" />
@@ -145,7 +145,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.1 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <ChartBarSquareIcon className="size-4" />
@@ -170,7 +170,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.15 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <CircleStackIcon className="size-4" />
@@ -196,7 +196,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.2 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <ScaleIcon className="size-4" />
@@ -225,7 +225,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.25 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <ArrowPathIcon className="size-4" />
@@ -251,7 +251,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.3 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <GlobeAltIcon className="size-4" />
@@ -277,7 +277,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.35 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <ArchiveBoxIcon className="size-4" />
@@ -301,7 +301,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.4 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <CheckCircleIcon className="size-4" />
@@ -332,7 +332,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.45 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <ShieldCheckIcon className="size-4" />
@@ -356,7 +356,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.5 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <EyeSlashIcon className="size-4" />
@@ -380,7 +380,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.55 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <UserGroupIcon className="size-4" />
@@ -404,7 +404,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.6 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 mb-6 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <PencilSquareIcon className="size-4" />
@@ -427,7 +427,7 @@ export default function PrivacyPolicyPage() {
           {...motionVariants.fadeInUp}
           viewport={motionViewport}
           transition={{ ...motionTransitions.smooth, delay: 0.65 }}
-          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70"
+          className="rounded-2xl border border-brand-200/70 bg-white/70 backdrop-blur p-6 supports-[backdrop-filter]:bg-white/70 flex flex-col items-center text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-100/60 px-3 py-1.5 text-sm font-medium text-brand-950 mb-3">
             <EnvelopeIcon className="size-4" />
