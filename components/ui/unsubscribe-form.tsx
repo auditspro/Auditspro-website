@@ -35,7 +35,7 @@ export function UnsubscribeForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 max-w-md">
+    <form onSubmit={onSubmit} className="space-y-4 max-w-md w-full">
       {status === "success" && (
         <div className="flex items-start gap-2 rounded-lg border border-green-200 bg-green-50 px-3 py-2">
           <CheckCircleIcon className="size-5 text-green-600" />
@@ -80,12 +80,12 @@ export function UnsubscribeForm() {
           This only affects marketing emails. Transactional emails may still be sent.
         </p>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-4">
         <Button
           type="submit"
           disabled={status === "loading"}
           size="lg"
-          className="btn-primary-brand px-10 w-full sm:w-auto"
+          className="btn-primary-brand w-full"
         >
           {status === "loading" ? (
             <>
