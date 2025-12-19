@@ -139,14 +139,14 @@ export function SubscribeForm() {
       </div>
 
       {/* 3. Place where Turnstile box appears */}
-      <div id="turnstile-container" className="mt-2" />
+      <div id="turnstile-container" className="mt-4 flex justify-center" />
 
-      <div className="flex justify-center">
+      <div className="mt-4">
         <Button
           type="submit"
           disabled={status === "loading" || !turnstileReady}
           size="lg"
-          className="btn-primary-brand px-8 w-full sm:w-auto"
+          className="btn-primary-brand w-full"
         >
           {status === "loading" ? (
             <>
