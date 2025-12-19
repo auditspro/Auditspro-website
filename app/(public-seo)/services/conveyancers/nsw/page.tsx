@@ -8,6 +8,7 @@ import {
   PricingSection,
   FAQSection,
   ContactSection,
+  TrustAccountAuditSection,
 } from "@/components/pagerefactors/services/conveyancers";
 
 // Enhanced SEO Metadata for NSW Conveyancer Trust Account Audits
@@ -300,6 +301,7 @@ export default function NSWConveyancersPage() {
 
       {/* Page Sections */}
       <HeroSection state="NSW" stateName="New South Wales" />
+      <TrustAccountAuditSection state="NSW" />
       <FeaturesSection />
       <RequirementsSection state="NSW" stateName="New South Wales" />
       <PricingSection state="NSW" />

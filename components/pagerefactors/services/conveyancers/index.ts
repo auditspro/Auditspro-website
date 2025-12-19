@@ -6,3 +6,4 @@ export { ProcessSection } from "./ProcessSection";
 export { PricingSection } from "./PricingSection";
 export { FAQSection } from "./FAQSection";
 export { ContactSection } from "./ContactSection";
+export { TrustAccountAuditSection } from "./TrustAccountAuditSection";
