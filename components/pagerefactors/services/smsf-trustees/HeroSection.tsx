@@ -5,7 +5,13 @@ import Link from "next/link";
 import { Motion } from "@/components/ui/motion";
 import { BanknotesIcon, CheckCircleIcon, BookOpenIcon, ClockIcon, CurrencyDollarIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  state?: string;
+  stateName?: string;
+}
+
+export function HeroSection({ state, stateName }: HeroSectionProps) {
+  const isStateSpecific = state && stateName;
   return (
     <section className="relative overflow-hidden border-b border-brand-200/70 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40 mt-8">
       {/* Background Pattern */}
@@ -26,18 +32,18 @@ export function HeroSection() {
             {/* Service Badge */}
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
               <BanknotesIcon className="size-4" />
-              <span>SMSF Trustees</span>
+              <span>SMSF Trustees{isStateSpecific ? ` in ${state}` : ""}</span>
             </div>
 
             <h1 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-950">
-              Professional SMSF Audit Services for Trustees
+              Professional SMSF Audit Services for {isStateSpecific ? `${stateName} Trustees` : "Trustees"}
             </h1>
 
             <p className="mb-8 text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              ATO compliant SMSF audits for self-managed super fund trustees. Our comprehensive {""}
-              <Link href="/services" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">professional audit services</Link> include specialized SMSF audits alongside {""}
-              <Link href="/services/accountants" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">accounting</Link> and {""}
-              <Link href="/services/financial-planners" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">financial planning</Link> audits. Independent auditors with {""}
+              ATO compliant SMSF audits for {isStateSpecific ? stateName : "self-managed super fund"} trustees. Our comprehensive{" "}
+              <Link href="/services" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">professional audit services</Link> include specialized SMSF audits alongside{" "}
+              <Link href="/services/accountants" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">accounting</Link> and{" "}
+              <Link href="/services/financial-planners" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">financial planning</Link> audits. Independent auditors with{" "}
               <Link href="/contact" className="text-brand-600 hover:text-brand-700 underline underline-offset-2">24-hour response times</Link> and 5-10 day completion.
             </p>
 

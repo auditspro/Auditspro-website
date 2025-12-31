@@ -12,7 +12,14 @@ import {
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  state?: string;
+  stateName?: string;
+}
+
+export function HeroSection({ state, stateName }: HeroSectionProps) {
+  const isStateSpecific = state && stateName;
+
   return (
     <section className="relative overflow-hidden border-b border-brand-200/70 bg-gradient-to-br from-brand-50/60 via-white to-brand-50/40 mt-8">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -30,15 +37,15 @@ export function HeroSection() {
           >
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
               <HomeIcon className="size-4" />
-              <span>Mortgage Brokers</span>
+              <span>Mortgage Brokers{isStateSpecific ? ` in ${state}` : ""}</span>
             </div>
 
             <h1 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-950">
-              Trust Account Audits for <span className="bg-gradient-to-r from-brand-700 to-brand-900 bg-clip-text text-transparent">Mortgage Brokers</span>
+              Trust Account Audits for <span className="bg-gradient-to-r from-brand-700 to-brand-900 bg-clip-text text-transparent">{isStateSpecific ? `${stateName} Mortgage Brokers` : "Mortgage Brokers"}</span>
             </h1>
 
             <p className="mb-8 text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Regulatory compliant trust account audits for mortgage brokers. Fast turnaround, fixed pricing, and clear reports that satisfy lender and NCCP expectations.
+              Regulatory compliant trust account audits for {isStateSpecific ? stateName : "mortgage"} brokers. Fast turnaround, fixed pricing, and clear reports that satisfy lender and NCCP expectations.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">

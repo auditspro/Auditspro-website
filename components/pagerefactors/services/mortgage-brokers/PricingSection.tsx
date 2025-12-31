@@ -23,9 +23,17 @@ const states = [
 const basePriceCents = 54900; // $549 + GST per trust account
 const formatPrice = (cents: number) => `$${(cents / 100).toFixed(0)}`;
 
-export function PricingSection() {
-  const [selectedState, setSelectedState] = useState<string>("NSW");
+interface PricingSectionProps {
+  state?: string;
+  stateName?: string;
+}
+
+export function PricingSection({ state, stateName }: PricingSectionProps) {
+  const [selectedState, setSelectedState] = useState<string>(state || "NSW");
   const selectedStateObj = useMemo(() => states.find(s => s.code === selectedState)!, [selectedState]);
+
+  // If state is provided prop, we might want to disable selection or just default to it.
+  // For consistency with other pages, let's keep it selectable but default to the prop.
 
   return (
     <section className="container relative mx-auto px-4 sm:px-6 pb-16">
@@ -40,7 +48,7 @@ export function PricingSection() {
           <div className="mb-6 flex justify-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
               <Squares2X2Icon className="size-4" />
-              <span>Audit Pricing</span>
+              <span>Audit Pricing{state ? ` in ${state}` : ""}</span>
             </div>
           </div>
 
@@ -48,7 +56,7 @@ export function PricingSection() {
             Transparent Mortgage Broker Audit Pricing
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto mb-4">
-            State-based pricing aligned with our Real Estate layout. Select your state to see pricing per trust account.
+            State-based pricing aligned with our Real Estate layout. {state ? `Viewing pricing for ${stateName}.` : "Select your state to see pricing per trust account."}
           </p>
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-900">
             <CheckBadgeIcon className="size-4" />

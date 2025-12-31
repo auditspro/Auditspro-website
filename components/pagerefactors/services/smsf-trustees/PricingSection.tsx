@@ -42,8 +42,13 @@ const getSmsfPrice = (state: string): number => {
 
 const formatPrice = (price: number) => `$${(price / 100).toFixed(0)}`;
 
-export function PricingSection() {
-  const [selectedState, setSelectedState] = useState<string>("NSW");
+interface PricingSectionProps {
+  state?: string;
+  stateName?: string;
+}
+
+export function PricingSection({ state, stateName }: PricingSectionProps) {
+  const [selectedState, setSelectedState] = useState<string>(state || "NSW");
   const currentPrice = getSmsfPrice(selectedState);
 
   return (
@@ -61,7 +66,7 @@ export function PricingSection() {
           <div className="mb-6 flex justify-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 backdrop-blur px-4 py-2 text-sm font-medium text-brand-950 supports-[backdrop-filter]:bg-white/40">
               <StarIcon className="size-4 fill-brand-700 text-brand-700" />
-              <span>Fixed Transparent Pricing</span>
+              <span>Fixed Transparent Pricing{state ? ` in ${state}` : ""}</span>
             </div>
           </div>
 
@@ -70,7 +75,7 @@ export function PricingSection() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-            Professional SMSF audits with transparent, fixed pricing. Select your state to see your exact cost.
+            Professional SMSF audits with transparent, fixed pricing. {stateName ? `Viewing pricing for ${stateName}.` : "Select your state to see your exact cost."}
           </p>
 
           <div className="max-w-4xl mx-auto">

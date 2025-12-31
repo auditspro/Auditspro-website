@@ -106,13 +106,49 @@ const categories = [
   { id: "costs", label: "Costs", count: realEstateFAQs.filter(faq => faq.category === "costs").length },
 ];
 
-export function FAQSection() {
+interface FAQSectionProps {
+  state?: string;
+}
+
+export function FAQSection({ state }: FAQSectionProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
 
+  const getStateSpecificFAQs = () => {
+    let faqs = [...realEstateFAQs];
+
+    if (state === "NSW") {
+      faqs = faqs.map(faq => {
+        if (faq.id === "audit-frequency") {
+          return {
+            ...faq,
+            answer: "NSW real estate agents must have their trust accounts audited annually. The audit period runs from 1 July to 30 June, and the audit report must be lodged with NSW Fair Trading by 30 September."
+          };
+        }
+        if (faq.id === "state-differences") {
+             return {
+                ...faq,
+                question: "How do I submit my NSW audit report?",
+                answer: "In NSW, audit reports must be submitted online via the NSW Fair Trading Auditor's Report Online portal. The auditor is responsible for lodging the report directly with Fair Trading."
+             };
+        }
+        if (faq.id === "audit-cost") {
+            return {
+                ...faq,
+                answer: "Trust account audits cost $549 + GST per trust account in NSW. If you have multiple trust accounts, each account is charged $549 + GST. For example, 3 trust accounts would cost 3 × $549 + GST = $1,647 + GST total."
+            };
+        }
+        return faq;
+      });
+    }
+    
+    return faqs;
+  };
+
+  const currentFAQs = getStateSpecificFAQs();
   const filteredFAQs = activeCategory === "all" 
-    ? realEstateFAQs 
-    : realEstateFAQs.filter(faq => faq.category === activeCategory);
+    ? currentFAQs 
+    : currentFAQs.filter(faq => faq.category === activeCategory);
 
   const toggleFAQ = (id: string) => {
     setOpenFAQ(openFAQ === id ? null : id);
